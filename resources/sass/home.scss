@@ -1,0 +1,35 @@
+.intro {
+    background: url('/images/backgrounds/intro.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+
+.intro-cover {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    h1 {
+        font-size: $title-font-size;
+        color: $title-font-color;
+    }
+
+
+    .reservation-form {
+        margin: 10px 20px;
+        width: 40%;
+    }
+
+}
+
+.full-width {
+    width: 100%;
+}
