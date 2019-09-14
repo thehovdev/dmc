@@ -10,17 +10,26 @@ class CreateUsersTable extends Migration
      * Run the migrations.
      *
      * @return void
+     * 
+     * if yout database changes from PostgreSQL to MySQL
+     * change all integer() with foreignKey to unsignedInteger()
      */
+    
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('role_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+        });
+        
+        Schema::table('users', function($table) {
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 

@@ -2,6 +2,7 @@
 
 @section('content')
   
+
 <div class="intro">
     <div class="intro-cover" id="root">
     </div>

@@ -58595,11 +58595,14 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "intro-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem Ipsum is simply dummy text."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/login",
+        className: "btn btn-outline-light btn-sm btn-login"
+      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem Ipsum is simply dummy text."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return openForm();
         },
-        className: "btn btn-lg btn-primary"
+        className: "btn btn-lg btn-light"
       }, "Reserve"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: showForm()
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_steps_reserve_ReserveForm__WEBPACK_IMPORTED_MODULE_5__["default"], {

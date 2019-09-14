@@ -14,7 +14,7 @@ class CreateHotelStarsTable extends Migration
     public function up()
     {
         Schema::create('hotel_stars', function (Blueprint $table) {
-            $table->incremenets('id');
+            $table->increments('id');
             $table->string('name');
         });
     }

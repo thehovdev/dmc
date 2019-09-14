@@ -10,7 +10,11 @@ class CreateReservesTable extends Migration
      * Run the migrations.
      *
      * @return void
+     * 
+     * if yout database changes from PostgreSQL to MySQL
+     * change all integer() with foreignKey to unsignedInteger()
      */
+    
     public function up()
     {
         Schema::create('reserves', function (Blueprint $table) {

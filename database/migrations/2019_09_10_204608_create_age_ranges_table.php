@@ -14,7 +14,7 @@ class CreateAgeRangesTable extends Migration
     public function up()
     {
         Schema::create('age_ranges', function (Blueprint $table) {
-            $table->incremenets('id');
+            $table->increments('id');
             $table->string('name');
         });
     }

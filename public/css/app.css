@@ -10669,6 +10669,12 @@ a.text-dark:focus {
   color: white;
 }
 
+.intro-content .btn-login {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
 .intro-content .reservation-form {
   margin: 10px 20px;
   width: 40%;

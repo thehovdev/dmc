@@ -14,7 +14,7 @@ class CreateGroupTypesTable extends Migration
     public function up()
     {
         Schema::create('group_types', function (Blueprint $table) {
-            $table->incremenets('id');
+            $table->increments('id');
             $table->string('name');
         });
     }
