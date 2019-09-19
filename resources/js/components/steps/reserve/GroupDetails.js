@@ -11,7 +11,7 @@ class GroupDetails extends Component {
         const groupTypes = this.props.step.groupTypes;
         const nationality = this.props.step.nationality;
         const ageRange = this.props.step.ageRange;
-        const hotelStars = this.props.step.hotelStars;
+        const countries = this.props.step.countries;
 
         const optionsList = (items) => {
             return items.map((item, index) =>
@@ -28,26 +28,22 @@ class GroupDetails extends Component {
                             { optionsList(groupTypes) }
                         </select>
                     </div>
-
+                    <div className="form-group">
+                        <label htmlFor="country_id">Choose trip country</label>
+                        <select className="form-control" id="country_id">
+                            { optionsList(countries) }
+                        </select>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="nationality_id">Nationality</label>
                         <select className="form-control" id="nationality_id">
                             { optionsList(nationality) }
                         </select>
                     </div>
-
-
                     <div className="form-group">
                         <label htmlFor="age_range_id">Age range</label>
                         <select className="form-control" id="age_range_id">
                             { optionsList(ageRange) }
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="hotel_star_id">Hotel category</label>
-                        <select className="form-control" id="hotel_star_id">
-                            { optionsList(hotelStars) }
                         </select>
                     </div>
                 </div>

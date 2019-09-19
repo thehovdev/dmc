@@ -19,7 +19,11 @@ class GroupTypesTableSeeder extends Seeder
             ['name' => "Conference"],
             ['name' => "Meeting"],
             ['name' => "CityWide Event"],
-            ['name' => "Event"]
+            ['name' => "Event"],
+            ['name' => "Corporate"],
+            ['name' => "Government"],
+            ['name' => "Leisure"],
+            ['name' => "Family"]
         ]);
     }
 }

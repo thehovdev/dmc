@@ -1,0 +1,32 @@
+.steps-form {
+    .tab-content {
+        background: #eaeaea;
+        min-height: 400px;
+        padding: 5px 15px;
+    }
+
+    .nav-item {
+        width: (100% / 4);
+        border-radius: 0;
+        // padding: 0 5px;
+    }
+
+    .nav-steps .nav-link.active, 
+    .nav-steps .show > .nav-link {
+        background-color: #38c172 !important;
+    }
+
+
+    .btnStepAction {
+        border-radius: 0;
+        width: (100% / 2);
+        // &:last-child() {
+        //     margin-left: 5px;
+        // }
+    }
+
+    .nav-link {
+        background: white;
+        border-radius: 0;
+    }
+}

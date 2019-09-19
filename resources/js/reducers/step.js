@@ -11,6 +11,13 @@ let initialState = {
         { id: 4, value: 'Meeting' },
         { id: 5, value: 'CityWide Event' },
         { id: 6, value: 'Event' },
+        { id: 7, value: 'Corporate' },
+        { id: 8, value: 'Government' },
+        { id: 9, value: 'Leisure' },
+        { id: 10, value: 'Family' },
+    ],
+    countries : [
+        { id: 1, value: 'Azerbaijan' },
     ],
     nationality : [
         { id: 1, value: 'All nations' },

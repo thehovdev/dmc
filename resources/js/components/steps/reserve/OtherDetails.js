@@ -6,15 +6,49 @@ class OtherDetails extends Component {
         super(props);
     }
 
+    changeHotel() {
+        alert('hotel changed');
+    }
+
     render() {
         const cuisineTypes = this.props.step.cuisineTypes;
+        const hotelStars = this.props.step.hotelStars;
+
         const optionsList = (items) => {
             return items.map((item, index) =>
                 <option key={ index } value={ item.id }>{ item.value }</option>
             );
         }
 
+        const changeHotel = () => {
+            console.log('hotel changed');
+        }
+
+
+
         return <div id="other-details">
+                    <div className="form-group">
+                        <label htmlFor="need_visa">Do you need visa</label>
+                        <select className="form-control" id="need_visa">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="need_hotel">Do you need hotel</label>
+                        <select onChange={(event) => changeHotel(event)} className="form-control" id="need_hotel">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+
+                    {/* <div className="form-group">
+                        <label htmlFor="hotel_star_id">Hotel category</label>
+                        <select className="form-control" id="hotel_star_id">
+                            { optionsList(hotelStars) }
+                        </select>
+                    </div> */}
+
                     <div className="form-group">
                         <label htmlFor="cuisine_id">Preferred cuisine</label>
                         <select className="form-control" id="cuisine_id">

@@ -2,7 +2,8 @@
     background: url('/images/backgrounds/intro.jpg') no-repeat;
     background-position: center;
     background-size: cover;
-    height: 700px;
+    min-height: 1000px;
+    height: 100vh;
 }
 
 .intro-cover {
@@ -13,7 +14,6 @@
 .intro-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100%;
 
@@ -28,8 +28,17 @@
         right: 10px;
     }
 
+    .startItems {
+        padding: 0 15px;
+        position: absolute;
+        top: 40%;
+    }
+
     .reservation-form {
-        margin: 10px 20px;
+        h3 {
+            color: white;
+        }
+        margin: 20px;
         width: 40%;
     }
 

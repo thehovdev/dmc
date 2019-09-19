@@ -17,12 +17,19 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case 'OPEN_FORM':
 
-            let status = state.form.show
-            if(status == false) status = true; else status = false
+            // let status = state.form.show
+            // if(status == false) status = true; else status = false
 
             return update(state, { 
                 form : {
-                    show: {$set: status},
+                    show: {$set: true},
+                }
+            });
+        case 'CLOSE_FORM':
+
+            return update(state, { 
+                form : {
+                    show: {$set: false},
                 }
             });
 

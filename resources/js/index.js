@@ -12,20 +12,18 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import allReducers from './reducers';
 import {combineReducers} from 'redux';
+import createRoutes from "./routes/router";
 
-import router from "./routes/router";
-
+const router = createRoutes()
 const history = createBrowserHistory();
 const store = createStore(allReducers);
 store.subscribe(() => console.log(store.getState()))
 
-// console.log(router);
+console.log(router);
 
 ReactDOM.render(
     <Provider store={ store }>
-        <Router history={ history }>
-            { router }
-        </Router>
+        {router}
     </Provider>, 
-    document.getElementById(router.props.id)
+    document.getElementById('root')
 )

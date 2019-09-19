@@ -14,29 +14,25 @@ class Home extends Component {
     }
 
     render() {
-
         const openForm = (index) => {
-
-            let opened = $("#reserve-form").attr('data-opened');
-            if(opened == 0) {
-                $("#reserve-form").attr('data-opened', 1);
-                $("#reserve-form").steps({
-                    headerTag: "h3",
-                    bodyTag: "section",
-                    transitionEffect: "slideLeft",
-                    autoFocus: true,
-                    onFinished: function (event, currentIndex) {
-                        sendForm(); // вызываем react метод (const sendForm) для отправки формы
-                    },
-                });
-            }
-
             return this.props.homeAction.openForm(index);
+        }
+
+        const closeForm = (index) => {
+            return this.props.homeAction.closeForm(index);
         }
 
         const sendForm = () => {
 
             return this.props.homeAction.sendForm();
+        }
+
+        const showItems = () => {
+            if(this.props.home.form.show == true) {
+                return "startItems d-none";
+            } else {
+                return "startItems";
+            }
         }
 
         const showForm = () => {
@@ -48,14 +44,24 @@ class Home extends Component {
             }
         }
 
+        const changeHotel = () => {
+            console.log('hotel changed');
+        }
+
         return (
+
             <div className="intro-content">
                 <a href="/login" className="btn btn-outline-light btn-sm btn-login">Login</a>
-
-                <h1>Lorem Ipsum is simply dummy text.</h1>
-                <button onClick={() => openForm()} className="btn btn-lg btn-light">Reserve</button>
+                <div className={showItems()} id="startItems">
+                    <h1>Lorem Ipsum is simply dummy text.</h1>
+                    <button onClick={() => openForm()} className="btn btn-lg btn-light d-block m-auto">Reserve</button>
+                </div>
                 <div className={showForm()}>
-                    <ReserveForm step={this.props.step} />
+                    <ReserveForm 
+                        home={this.props.home} 
+                        step={this.props.step} 
+                        closeForm={closeForm}
+                        />
                 </div>
             </div>
         );

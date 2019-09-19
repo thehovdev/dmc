@@ -73,6 +73,7 @@
 
 .wizard > .steps .number
 {
+    opacity: 0;
     // font-size: 1.429em;
 }
 
@@ -147,7 +148,7 @@
     background: #eee;
     display: block;
     margin: 0.5em;
-    height: 350px;
+    height: 400px;
     overflow: hidden;
     position: relative;
     width: auto;

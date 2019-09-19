@@ -12,10 +12,22 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
+
+Route::view('/test', 'test');
+
+
+Route::view('/', 'index');
+
+Route::namespace('Api')->group(function () {
+    Route::get('/reserve/store', 'ReserveController@store');
 });
 
-Route::get('/reserve/store', 'ReserveController@store');
+Route::namespace('Cabinet')->group(function () {
+    Route::prefix('cabinet')->group(function () {
+        Route::get('/', 'HomeController@index')->name('cabinet.index');
+        Route::get('/company', 'CompanyController@index')->name('cabinet.company');
+        Route::get('/company/create', 'CompanyController@create')->name('cabinet.company.create');
+        Route::any('/company/store', 'CompanyController@store')->name('cabinet.company.store');
+    });
+});
 
-Route::get('/home', 'HomeController@index')->name('home');

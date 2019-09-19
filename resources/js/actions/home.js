@@ -5,6 +5,13 @@ export const openForm = () => {
     }
 }
 
+export const closeForm = () => {
+    return {
+      type: 'CLOSE_FORM',
+      payload: 'user closed reserve form'
+    }
+}
+
 export const sendForm = () => {
     return {
       type: 'SEND_FORM',
