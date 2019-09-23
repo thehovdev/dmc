@@ -10691,7 +10691,7 @@ a:focus {
 
 .intro-content .reservation-form {
   margin: 20px;
-  width: 40%;
+  width: 50%;
 }
 
 .intro-content .reservation-form h3 {
@@ -10703,13 +10703,13 @@ a:focus {
 }
 
 .steps-form .tab-content {
-  background: #eaeaea;
+  background: rgba(255, 255, 255, 0.8);
   min-height: 400px;
-  padding: 5px 15px;
+  padding: 15px 105px;
 }
 
 .steps-form .nav-item {
-  width: 25%;
+  width: 20%;
   border-radius: 0;
 }
 
@@ -10726,6 +10726,68 @@ a:focus {
 .steps-form .nav-link {
   background: white;
   border-radius: 0;
+}
+
+.steps-form .noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+   supported by Chrome and Opera */
+}
+
+.steps-form .styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.steps-form .styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.steps-form .styled-checkbox + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  background: white;
+}
+
+.steps-form .styled-checkbox:checked + label:before {
+  background: #38c172;
+}
+
+.steps-form .styled-checkbox:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.steps-form .styled-checkbox:disabled + label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+.steps-form .styled-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  transform: rotate(45deg);
 }
 
 /* ---------------------------------------------------

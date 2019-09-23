@@ -21,7 +21,9 @@ class GroupDetails extends Component {
 
 
         
-        return <div id="group-details">
+        return (
+            <div className="tab-pane fade" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+                <div id="group-details">
                     <div className="form-group">
                         <label htmlFor="group_type_id">Group type</label>
                         <select className="form-control" id="group_type_id">
@@ -47,6 +49,8 @@ class GroupDetails extends Component {
                         </select>
                     </div>
                 </div>
+            </div>
+        );
     }
 }
 

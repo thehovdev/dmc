@@ -76199,6 +76199,60 @@ var sendForm = function sendForm() {
 
 /***/ }),
 
+/***/ "./resources/js/actions/step.js":
+/*!**************************************!*\
+  !*** ./resources/js/actions/step.js ***!
+  \**************************************/
+/*! exports provided: selectHotel, selectCuisine, selectTransportService, selectTourLeader, selectExcursionOptions, selectMeetingFacilities */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectHotel", function() { return selectHotel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCuisine", function() { return selectCuisine; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTransportService", function() { return selectTransportService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTourLeader", function() { return selectTourLeader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectExcursionOptions", function() { return selectExcursionOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectMeetingFacilities", function() { return selectMeetingFacilities; });
+var selectHotel = function selectHotel() {
+  return {
+    type: 'SELECT_HOTEL',
+    payload: 'user selected hotel input'
+  };
+};
+var selectCuisine = function selectCuisine() {
+  return {
+    type: 'SELECT_CUISINE',
+    payload: 'user selected cuisine input'
+  };
+};
+var selectTransportService = function selectTransportService() {
+  return {
+    type: 'SELECT_TRANSPORT_SERVICE',
+    payload: 'user selected transport service input'
+  };
+};
+var selectTourLeader = function selectTourLeader() {
+  return {
+    type: 'SELECT_TOUR_LEADER',
+    payload: 'user selected tour leader service'
+  };
+};
+var selectExcursionOptions = function selectExcursionOptions() {
+  return {
+    type: 'SELECT_EXCURSION_OPTIONS',
+    payload: 'user selected excursion options'
+  };
+};
+var selectMeetingFacilities = function selectMeetingFacilities() {
+  return {
+    type: 'SELECT_MEETING_FACILITIES',
+    payload: 'user selected meeting facilities'
+  };
+};
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -76613,6 +76667,11 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-pane fade show active",
+        id: "pills-home",
+        role: "tabpanel",
+        "aria-labelledby": "pills-home-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "arrival-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group my-2"
@@ -76659,7 +76718,7 @@ function (_Component) {
         className: "form-control",
         id: "number_of_people",
         placeholder: "Enter number of people"
-      })));
+      }))));
     }
   }]);
 
@@ -76716,6 +76775,11 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-pane fade",
+        id: "pills-final",
+        role: "tabpanel",
+        "aria-labelledby": "pills-final-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "final-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -76725,21 +76789,10 @@ function (_Component) {
         className: "form-control",
         id: "need_tour_options"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "false"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_meeting_facilities"
-      }, "Do you need meeting facilities for the group"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "need_meeting_facilities"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "false"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
@@ -76750,12 +76803,54 @@ function (_Component) {
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "single_min_price"
+      }, "Single room budget per person")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        id: "single_min_price",
+        className: "form-control",
+        placeholder: "budget (min):"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        id: "single_max_price",
+        className: "form-control",
+        placeholder: "budget (max):"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "double_min_price"
+      }, "Double room budget per person")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        id: "double_min_price",
+        className: "form-control",
+        placeholder: "budget (min):"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        id: "double_max_price",
+        className: "form-control",
+        placeholder: "budget (max):"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "additional_request"
       }, "Additional Request : description for missed part."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "full-width",
         id: "additional_request"
-      })));
+      }))));
     }
   }]);
 
@@ -76826,6 +76921,11 @@ function (_Component) {
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-pane fade",
+        id: "pills-groups",
+        role: "tabpanel",
+        "aria-labelledby": "pills-groups-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "group-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -76855,7 +76955,7 @@ function (_Component) {
       }, "Age range"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control",
         id: "age_range_id"
-      }, optionsList(ageRange))));
+      }, optionsList(ageRange)))));
     }
   }]);
 
@@ -76877,6 +76977,9 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_step_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/step.js */ "./resources/js/actions/step.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76897,6 +77000,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
 var OtherDetails =
 /*#__PURE__*/
 function (_Component) {
@@ -76909,15 +77015,16 @@ function (_Component) {
   }
 
   _createClass(OtherDetails, [{
-    key: "changeHotel",
-    value: function changeHotel() {
-      alert('hotel changed');
-    }
-  }, {
     key: "render",
     value: function render() {
-      var cuisineTypes = this.props.step.cuisineTypes;
+      var _this = this;
+
+      var needHotel = this.props.step.inputActions.needHotel;
       var hotelStars = this.props.step.hotelStars;
+      var needTransportService = this.props.step.inputActions.needTransportService;
+      var transportServices = this.props.step.transportServices;
+      var needCuisine = this.props.step.inputActions.needCuisine;
+      var cuisineTypes = this.props.step.cuisineTypes;
 
       var optionsList = function optionsList(items) {
         return items.map(function (item, index) {
@@ -76928,11 +77035,62 @@ function (_Component) {
         });
       };
 
-      var changeHotel = function changeHotel() {
-        console.log('hotel changed');
+      var checkList = function checkList(items) {
+        return items.map(function (item, index) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-check-inline",
+            key: index
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            className: "styled-checkbox",
+            id: item.prefix,
+            type: "checkbox",
+            value: item.id
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: item.prefix,
+            className: "noselect"
+          }, item.value));
+        });
+      };
+
+      var selectHotel = function selectHotel() {
+        return _this.props.stepAction.selectHotel();
+      };
+
+      var selectTransportService = function selectTransportService() {
+        return _this.props.stepAction.selectTransportService();
+      };
+
+      var selectCuisine = function selectCuisine() {
+        return _this.props.stepAction.selectCuisine();
+      };
+
+      var hotelStarsBlock = function hotelStarsBlock() {
+        if (needHotel) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+            className: "form-control full-width",
+            placeholder: "You description for hotel"
+          })));
+        }
+      };
+
+      var transportServiceBlock = function transportServiceBlock() {
+        if (needTransportService) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices));
+        }
+      };
+
+      var cuisineBlock = function cuisineBlock() {
+        if (needCuisine) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(cuisineTypes));
+        }
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-pane fade",
+        id: "pills-others",
+        role: "tabpanel",
+        "aria-labelledby": "pills-others-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "other-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -76942,16 +77100,16 @@ function (_Component) {
         className: "form-control",
         id: "need_visa"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "false"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "need_hotel"
       }, "Do you need hotel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onChange: function onChange(event) {
-          return changeHotel(event);
+        onChange: function onChange() {
+          return selectHotel();
         },
         className: "form-control",
         id: "need_hotel"
@@ -76961,52 +77119,57 @@ function (_Component) {
         value: "true"
       }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "cuisine_id"
-      }, "Preferred cuisine"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "cuisine_id"
-      }, optionsList(cuisineTypes))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_transfer"
-      }, "Do you need Transfer from/to Hotel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "need_transfer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "false"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, hotelStarsBlock()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "need_transport"
       }, "Do you need Transportation service during the stay"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectTransportService();
+        },
         className: "form-control",
         id: "need_transport"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "false"
-      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, transportServiceBlock()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_guide"
-      }, "Do you need guide service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        htmlFor: "need_transfer"
+      }, "Do you need Meals ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectCuisine();
+        },
         className: "form-control",
-        id: "need_guide"
+        id: "need_cuisine"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "false"
-      }, "No"))));
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, cuisineBlock())));
     }
   }]);
 
   return OtherDetails;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // const mapStateToProps = function(state){
+//     return {
+//       step: state.step
+//     }
+// }
 
-/* harmony default export */ __webpack_exports__["default"] = (OtherDetails);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    stepAction: Object(redux__WEBPACK_IMPORTED_MODULE_1__["bindActionCreators"])(_actions_step_js__WEBPACK_IMPORTED_MODULE_3__, dispatch)
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(OtherDetails)); // export default OtherDetails;
 
 /***/ }),
 
@@ -77024,7 +77187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ArrivalDetails__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArrivalDetails */ "./resources/js/components/steps/reserve/ArrivalDetails.js");
 /* harmony import */ var _GroupDetails__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GroupDetails */ "./resources/js/components/steps/reserve/GroupDetails.js");
 /* harmony import */ var _OtherDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OtherDetails */ "./resources/js/components/steps/reserve/OtherDetails.js");
-/* harmony import */ var _FinalDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FinalDetails */ "./resources/js/components/steps/reserve/FinalDetails.js");
+/* harmony import */ var _TransportDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TransportDetails */ "./resources/js/components/steps/reserve/TransportDetails.js");
+/* harmony import */ var _FinalDetails__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FinalDetails */ "./resources/js/components/steps/reserve/FinalDetails.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77042,6 +77206,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -77076,9 +77241,7 @@ function (_Component) {
         if (elem.previousElementSibling != null) {
           elem.previousElementSibling.querySelector('a').click();
         } else {
-          _this.props.closeForm(); // document.getElementById('startItems').style.display = 'block';
-          // document.getElementById('reserve-form').style.display = 'none';
-
+          _this.props.closeForm();
         }
       };
 
@@ -77126,6 +77289,16 @@ function (_Component) {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
+        id: "pills-transport-tab",
+        "data-toggle": "pill",
+        href: "#pills-transport",
+        role: "tab",
+        "aria-controls": "pills-transport",
+        "aria-selected": "false"
+      }, "Transfer Details")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "nav-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "nav-link",
         id: "pills-final-tab",
         "data-toggle": "pill",
         href: "#pills-final",
@@ -77135,33 +77308,17 @@ function (_Component) {
       }, "Final Details"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tab-content",
         id: "pills-tabContent"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab-pane fade show active",
-        id: "pills-home",
-        role: "tabpanel",
-        "aria-labelledby": "pills-home-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArrivalDetails__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab-pane fade",
-        id: "pills-groups",
-        role: "tabpanel",
-        "aria-labelledby": "pills-groups-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GroupDetails__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArrivalDetails__WEBPACK_IMPORTED_MODULE_1__["default"], {
         step: this.props.step
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab-pane fade",
-        id: "pills-others",
-        role: "tabpanel",
-        "aria-labelledby": "pills-others-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OtherDetails__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GroupDetails__WEBPACK_IMPORTED_MODULE_2__["default"], {
         step: this.props.step
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab-pane fade",
-        id: "pills-final",
-        role: "tabpanel",
-        "aria-labelledby": "pills-final-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FinalDetails__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OtherDetails__WEBPACK_IMPORTED_MODULE_3__["default"], {
         step: this.props.step
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TransportDetails__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        step: this.props.step
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FinalDetails__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        step: this.props.step
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return prevButton();
         },
@@ -77171,23 +77328,7 @@ function (_Component) {
           return nextButton();
         },
         className: "btn btn-success btnStepAction"
-      }, "Next"))) // <h3>Arrival Details</h3>
-      // <section id="arrivad-details-section">
-      //     <ArrivalDetails/>
-      // </section>
-      // <h3>Group details</h3>
-      // <section id="group-details-section">
-      //     <GroupDetails step={this.props.step} />
-      // </section>
-      // <h3>Other details</h3>
-      // <section id="other-details-section">
-      //     <OtherDetails step={this.props.step}/>
-      // </section>
-      // <h3>Final Details</h3>
-      // <section>
-      //     <FinalDetails/>
-      // </section>
-      ;
+      }, "Next")));
     }
   }]);
 
@@ -77195,6 +77336,219 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (ReserveForm);
+
+/***/ }),
+
+/***/ "./resources/js/components/steps/reserve/TransportDetails.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/steps/reserve/TransportDetails.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_step_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/step.js */ "./resources/js/actions/step.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var TransportDetails =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(TransportDetails, _Component);
+
+  function TransportDetails() {
+    _classCallCheck(this, TransportDetails);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TransportDetails).apply(this, arguments));
+  }
+
+  _createClass(TransportDetails, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var needTourLeader = this.props.step.inputActions.needTourLeader;
+      var needExcursionOptions = this.props.step.inputActions.needExcursionOptions;
+      var needMeetingFacilities = this.props.step.inputActions.needMeetingFacilities;
+
+      var selectTourLeader = function selectTourLeader() {
+        return _this.props.stepAction.selectTourLeader();
+      };
+
+      var selectExcursionOptions = function selectExcursionOptions() {
+        return _this.props.stepAction.selectExcursionOptions();
+      };
+
+      var selectMeetingFacilities = function selectMeetingFacilities() {
+        return _this.props.stepAction.selectMeetingFacilities();
+      };
+
+      var tourLeaderBlock = function tourLeaderBlock() {
+        if (needTourLeader) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group-parent"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "tour_leaders_number"
+          }, "Number of tour leaders"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "number",
+            id: "tour_leaders_number",
+            className: "form-control",
+            defaultValue: "1"
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "tour_leaders_language"
+          }, "Preferred language"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "text",
+            id: "tour_leaders_language",
+            className: "form-control",
+            defaultValue: "English"
+          })));
+        }
+      };
+
+      var excursionOptionsBlock = function excursionOptionsBlock() {
+        if (needExcursionOptions) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "excursion_options_request"
+          }, "Describe you request"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "text",
+            id: "excursion_options_request",
+            className: "form-control",
+            defaultValue: "Some description"
+          }));
+        }
+      };
+
+      var meetingFacilitiesBlock = function meetingFacilitiesBlock() {
+        if (needMeetingFacilities) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+            htmlFor: "meeting_facilities_request"
+          }, "Describe you request"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "text",
+            id: "meeting_facilities_request",
+            className: "form-control",
+            defaultValue: "Some description"
+          }));
+        }
+      };
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-pane fade",
+        id: "pills-transport",
+        role: "tabpanel",
+        "aria-labelledby": "pills-transport-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "final-details"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "need_tour_leader"
+      }, "Do you need tour leader service ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectTourLeader();
+        },
+        className: "form-control",
+        id: "need_tour_leader"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), tourLeaderBlock(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "need_excursion_options"
+      }, "Do you need excursion options for the group"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectExcursionOptions();
+        },
+        className: "form-control",
+        id: "need_excursion_options"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), excursionOptionsBlock(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "need_meeting_facilities"
+      }, "Do you need meeting facilities for the group"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectMeetingFacilities();
+        },
+        className: "form-control",
+        id: "need_meeting_facilities"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), meetingFacilitiesBlock(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "need_transfer"
+      }, "Do you need Transfer from/to Hotel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        id: "need_transfer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "need_guide"
+      }, "Do you need guide service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        id: "need_guide"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes")))));
+    }
+  }]);
+
+  return TransportDetails;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    stepAction: Object(redux__WEBPACK_IMPORTED_MODULE_1__["bindActionCreators"])(_actions_step_js__WEBPACK_IMPORTED_MODULE_3__, dispatch)
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(TransportDetails));
 
 /***/ }),
 
@@ -78074,10 +78428,6 @@ var initialState = {
     id: 10,
     value: 'Family'
   }],
-  countries: [{
-    id: 1,
-    value: 'Azerbaijan'
-  }],
   nationality: [{
     id: 1,
     value: 'All nations'
@@ -78100,33 +78450,63 @@ var initialState = {
   }],
   hotelStars: [{
     id: 1,
+    prefix: 'hotel_star_3',
     value: '3 star'
   }, {
     id: 2,
+    prefix: 'hotel_star_4',
     value: '4 star'
   }, {
     id: 3,
+    prefix: 'hotel_star_5',
     value: '5 star'
   }],
   cuisineTypes: [{
     id: 1,
+    prefix: 'cuisine_mix',
     value: 'Mix(local and others)'
   }, {
     id: 2,
+    prefix: 'cuisine_local',
     value: 'Local'
   }, {
     id: 3,
+    prefix: 'cuisine_indian',
     value: 'Indian'
   }, {
     id: 4,
-    value: 'Italian'
-  }, {
-    id: 5,
+    prefix: 'cuisine_arabic',
     value: 'Arabic'
   }, {
+    id: 5,
+    prefix: 'cuisine_italian',
+    value: 'Italian'
+  }, {
     id: 6,
+    prefix: 'cuisine_international',
     value: 'International'
-  }]
+  }],
+  countries: [{
+    id: 1,
+    value: 'Azerbaijan'
+  }],
+  transportServices: [{
+    id: 1,
+    prefix: 'transfer_airport',
+    value: 'Airport transfer'
+  }, {
+    id: 2,
+    prefix: 'transfer_during_stay',
+    value: 'Transfer during the stay'
+  }],
+  inputActions: {
+    needHotel: false,
+    needTransportService: false,
+    needCuisine: false,
+    needTourLeader: false,
+    needExcursionOptions: false,
+    needMeetingFacilities: false
+  }
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -78135,6 +78515,79 @@ var initialState = {
   switch (action.type) {
     case 'CHANGE_STEP':
       return state;
+
+    case 'SELECT_HOTEL':
+      console.log('select hotel dispatched');
+      var needHotel = state.inputActions.needHotel;
+      if (needHotel == false) needHotel = true;else needHotel = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needHotel: {
+            $set: needHotel
+          }
+        }
+      });
+
+    case 'SELECT_CUISINE':
+      console.log('select cuisine dispatched');
+      var needCuisine = state.inputActions.needCuisine;
+      if (needCuisine == false) needCuisine = true;else needCuisine = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needCuisine: {
+            $set: needCuisine
+          }
+        }
+      });
+
+    case 'SELECT_TRANSPORT_SERVICE':
+      console.log('select transport service dispatched');
+      var needTransportService = state.inputActions.needTransportService;
+      if (needTransportService == false) needTransportService = true;else needTransportService = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needTransportService: {
+            $set: needTransportService
+          }
+        }
+      });
+
+    case 'SELECT_TOUR_LEADER':
+      console.log('select tour leader dispatched');
+      var needTourLeader = state.inputActions.needTourLeader;
+      if (needTourLeader == false) needTourLeader = true;else needTourLeader = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needTourLeader: {
+            $set: needTourLeader
+          }
+        }
+      });
+
+    case 'SELECT_EXCURSION_OPTIONS':
+      console.log('select excursion options dispatched');
+      var needExcursionOptions = state.inputActions.needExcursionOptions;
+      if (needExcursionOptions == false) needExcursionOptions = true;else needExcursionOptions = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needExcursionOptions: {
+            $set: needExcursionOptions
+          }
+        }
+      });
+
+    case 'SELECT_MEETING_FACILITIES':
+      console.log('select meeting facilities dispatched');
+      var needMeetingFacilities = state.inputActions.needMeetingFacilities;
+      if (needMeetingFacilities == false) needMeetingFacilities = true;else needMeetingFacilities = false;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: {
+          needMeetingFacilities: {
+            $set: needMeetingFacilities
+          }
+        }
+      });
+    // return state
 
     default:
       return state;

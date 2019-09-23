@@ -13,7 +13,8 @@
 Auth::routes();
 
 
-Route::view('/test', 'test');
+// Route::view('/test', 'test');
+Route::get('/test', 'TestController@test');
 
 
 Route::view('/', 'index');

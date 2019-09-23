@@ -7,7 +7,7 @@ let initialState = {
     form : {
         id : 0,
         name : 'form show status',
-        show : false,
+        show: false
     }, 
 }
 
