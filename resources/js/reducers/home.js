@@ -39,11 +39,9 @@ export default function (state = initialState, action) {
 
             sendReserve(formData);
 
-            if(status == false) status = true; else status = false
-
             return update(state, { 
                 form : {
-                    show: {$set: status},
+                    show: {$set: false},
                 }
             });
 

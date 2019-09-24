@@ -31,16 +31,34 @@ class CreateReservesTable extends Migration
             $table->integer('group_type_id');
             $table->integer('nationality_id');
             $table->integer('age_range_id');
-            $table->integer('hotel_star_id');
-            $table->integer('cuisine_id');
+            $table->integer('country_id');
+            // $table->integer('hotel_star_id');
+            // $table->integer('cuisine_id');
+            // $table->integer('transfer_id');
+
+            $table->integer('number_of_people');
+            $table->integer('number_of_tourleaders');
+            
+            $table->float('single_min_price');
+            $table->float('single_max_price');
+            $table->float('double_min_price');
+            $table->float('double_max_price');
 
             $table->boolean('need_transfer');
             $table->boolean('need_transport');
             $table->boolean('need_guide');
-            $table->boolean('need_tour_options');
+            $table->boolean('need_visa');
+            $table->boolean('need_cuisine');
             $table->boolean('need_meeting_facilities');
+            $table->boolean('need_excursion_options');
+            $table->boolean('need_tour_leader');
 
-            $table->string('email');
+            $table->string('email')->nullable();
+            
+            $table->string('meeting_facilities_description')->nullable();
+            $table->string('excursion_options_description')->nullable();
+            $table->string('language_of_tourleaders')->nullable();
+            $table->string('hotel_description')->nullable();
             $table->string('additional_request')->nullable();
             $table->timestamps();
         });
@@ -51,6 +69,9 @@ class CreateReservesTable extends Migration
             $table->foreign('age_range_id')->references('id')->on('age_ranges');
             $table->foreign('hotel_star_id')->references('id')->on('hotel_stars');
             $table->foreign('cuisine_id')->references('id')->on('cuisine_types');
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('transfer_id')->references('id')->on('transfers');
+
         });
 
     }

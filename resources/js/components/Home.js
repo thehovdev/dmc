@@ -60,6 +60,7 @@ class Home extends Component {
                     <ReserveForm 
                         home={this.props.home} 
                         step={this.props.step} 
+                        sendForm={sendForm}
                         closeForm={closeForm} />
                 </div>
             </div>

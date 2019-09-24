@@ -13,11 +13,11 @@ class CuisineTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('cuisine_types')->insert([
-            ['name' => "Mix(local and others)"],
+            ['name' => "Mix"],
             ['name' => "Local"],
             ['name' => "Indian"],
-            ['name' => "Italian"],
             ['name' => "Arabic"],
+            ['name' => "Italian"],
             ['name' => "International"]
         ]);
     }

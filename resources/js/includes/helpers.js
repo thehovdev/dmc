@@ -4,6 +4,16 @@ export function getFormData(form) {
 
     for( var i = 0; i < elements.length; ++i ) {
         var element = elements[i];
+
+
+        if(element.hasAttribute("type") 
+            && element.getAttribute("type") == 'checkbox' 
+            && element.checked == false
+        ) {
+            continue;
+        }
+        
+
         var id = element.id;
         var value = element.value;
 

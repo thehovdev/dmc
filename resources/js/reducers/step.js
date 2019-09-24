@@ -49,7 +49,7 @@ let initialState = {
 
     inputActions : {
         needHotel : false,
-        needTransportService : false,
+        needTransport : false,
         needCuisine: false,
         needTourLeader: false,
         needExcursionOptions: false,

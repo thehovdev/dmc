@@ -17,6 +17,9 @@ class ReserveController extends Controller
         // get validated data from ReservePostReq
         $formData = (object)$request->formData;
 
+
+        dd($formData);
+
         // create and save user reservation to database
         $result = $reserve->createReserve($formData);
 

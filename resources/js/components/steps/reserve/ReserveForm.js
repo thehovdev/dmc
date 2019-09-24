@@ -18,7 +18,13 @@ class ReserveForm extends Component {
         
         const nextButton = () => {
             let elem = document.querySelector('.nav-link.active').closest('li');
-            elem.nextElementSibling.querySelector('a').click();
+
+            if(elem.nextElementSibling != null) {
+                elem.nextElementSibling.querySelector('a').click();
+            } else {
+                this.props.sendForm();
+            }
+
         }
         const prevButton = () => {
             let elem = document.querySelector('.nav-link.active').closest('li');

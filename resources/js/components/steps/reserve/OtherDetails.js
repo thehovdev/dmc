@@ -11,7 +11,7 @@ class OtherDetails extends Component {
 
     render() {
         const needHotel = this.props.step.inputActions.needHotel;
-        const needTransportService = this.props.step.inputActions.needTransportService;
+        const needTransport = this.props.step.inputActions.needTransport;
         const needCuisine = this.props.step.inputActions.needCuisine;
         
         const hotelStars = this.props.step.hotelStars;
@@ -22,8 +22,8 @@ class OtherDetails extends Component {
         const selectHotel = () => {
             return this.props.stepAction.selectToggle('needHotel');
         }
-        const selectTransportService = () => {
-            return this.props.stepAction.selectToggle('needTransportService');
+        const selectTransport = () => {
+            return this.props.stepAction.selectToggle('needTransport');
         }
         const selectCuisine = () => {
             return this.props.stepAction.selectToggle('needCuisine');
@@ -57,7 +57,7 @@ class OtherDetails extends Component {
             }
         }
         const transportServiceBlock = () => {
-            if(needTransportService) {
+            if(needTransport) {
                 return (
                     <div>
                         { checkList(transportServices) }
@@ -101,7 +101,7 @@ class OtherDetails extends Component {
 
                     <div className="form-group">
                         <label htmlFor="need_transport">Do you need Transportation service during the stay</label>
-                        <select onChange={() => selectTransportService()} className="form-control" id="need_transport">
+                        <select onChange={() => selectTransport()} className="form-control" id="need_transport">
                             <option value="false">No</option>
                             <option value="true">Yes</option>
                         </select>

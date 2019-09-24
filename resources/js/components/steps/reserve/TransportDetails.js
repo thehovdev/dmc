@@ -30,13 +30,13 @@ class TransportDetails extends Component {
                 return (
                     <div className="form-group-parent">
                         <div className="form-group">
-                            <label htmlFor="tour_leaders_number">Number of tour leaders</label>
-                            <input type="number" id="tour_leaders_number" className="form-control" defaultValue="1"></input>
+                            <label htmlFor="number_of_tourleaders">Number of tour leaders</label>
+                            <input type="number" id="number_of_tourleaders" className="form-control" defaultValue="1"></input>
                         </div>    
 
                         <div className="form-group">
-                            <label htmlFor="tour_leaders_language">Preferred language</label>
-                            <input type="text" id="tour_leaders_language" className="form-control" defaultValue="English"></input>
+                            <label htmlFor="language_of_tourleaders">Preferred language</label>
+                            <input type="text" id="language_of_tourleaders" className="form-control" defaultValue="English"></input>
                         </div>    
                     </div>
                 );
@@ -48,8 +48,8 @@ class TransportDetails extends Component {
             if(needExcursionOptions) {
                 return (
                     <div className="form-group">
-                        <label htmlFor="excursion_options_request">Describe you request</label>
-                        <input type="text" id="excursion_options_request" className="form-control" defaultValue="Some description"></input>
+                        <label htmlFor="excursion_options_description">Describe you request</label>
+                        <input type="text" id="excursion_options_description" className="form-control" defaultValue="Some description"></input>
                     </div>    
                 );
             }
@@ -59,8 +59,8 @@ class TransportDetails extends Component {
             if(needMeetingFacilities) {
                 return (
                     <div className="form-group">
-                        <label htmlFor="meeting_facilities_request">Describe you request</label>
-                        <input type="text" id="meeting_facilities_request" className="form-control" defaultValue="Some description"></input>
+                        <label htmlFor="meeting_facilities_description">Describe you request</label>
+                        <input type="text" id="meeting_facilities_description" className="form-control" defaultValue="Some description"></input>
                     </div>    
                 );
             }

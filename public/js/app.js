@@ -76434,6 +76434,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_steps_reserve_ReserveForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
         home: this.props.home,
         step: this.props.step,
+        sendForm: sendForm,
         closeForm: closeForm
       })));
     }
@@ -77009,7 +77010,7 @@ function (_Component) {
       var _this = this;
 
       var needHotel = this.props.step.inputActions.needHotel;
-      var needTransportService = this.props.step.inputActions.needTransportService;
+      var needTransport = this.props.step.inputActions.needTransport;
       var needCuisine = this.props.step.inputActions.needCuisine;
       var hotelStars = this.props.step.hotelStars;
       var transportServices = this.props.step.transportServices;
@@ -77019,8 +77020,8 @@ function (_Component) {
         return _this.props.stepAction.selectToggle('needHotel');
       };
 
-      var selectTransportService = function selectTransportService() {
-        return _this.props.stepAction.selectToggle('needTransportService');
+      var selectTransport = function selectTransport() {
+        return _this.props.stepAction.selectToggle('needTransport');
       };
 
       var selectCuisine = function selectCuisine() {
@@ -77064,7 +77065,7 @@ function (_Component) {
       };
 
       var transportServiceBlock = function transportServiceBlock() {
-        if (needTransportService) {
+        if (needTransport) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices));
         }
       };
@@ -77115,7 +77116,7 @@ function (_Component) {
         htmlFor: "need_transport"
       }, "Do you need Transportation service during the stay"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: function onChange() {
-          return selectTransportService();
+          return selectTransport();
         },
         className: "form-control",
         id: "need_transport"
@@ -77217,7 +77218,12 @@ function (_Component) {
 
       var nextButton = function nextButton() {
         var elem = document.querySelector('.nav-link.active').closest('li');
-        elem.nextElementSibling.querySelector('a').click();
+
+        if (elem.nextElementSibling != null) {
+          elem.nextElementSibling.querySelector('a').click();
+        } else {
+          _this.props.sendForm();
+        }
       };
 
       var prevButton = function prevButton() {
@@ -77400,19 +77406,19 @@ function (_Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-group"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "tour_leaders_number"
+            htmlFor: "number_of_tourleaders"
           }, "Number of tour leaders"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "number",
-            id: "tour_leaders_number",
+            id: "number_of_tourleaders",
             className: "form-control",
             defaultValue: "1"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-group"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "tour_leaders_language"
+            htmlFor: "language_of_tourleaders"
           }, "Preferred language"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "text",
-            id: "tour_leaders_language",
+            id: "language_of_tourleaders",
             className: "form-control",
             defaultValue: "English"
           })));
@@ -77424,10 +77430,10 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-group"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "excursion_options_request"
+            htmlFor: "excursion_options_description"
           }, "Describe you request"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "text",
-            id: "excursion_options_request",
+            id: "excursion_options_description",
             className: "form-control",
             defaultValue: "Some description"
           }));
@@ -77439,10 +77445,10 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-group"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "meeting_facilities_request"
+            htmlFor: "meeting_facilities_description"
           }, "Describe you request"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "text",
-            id: "meeting_facilities_request",
+            id: "meeting_facilities_description",
             className: "form-control",
             defaultValue: "Some description"
           }));
@@ -77542,6 +77548,11 @@ function getFormData(form) {
 
   for (var i = 0; i < elements.length; ++i) {
     var element = elements[i];
+
+    if (element.hasAttribute("type") && element.getAttribute("type") == 'checkbox' && element.checked == false) {
+      continue;
+    }
+
     var id = element.id;
     var value = element.value;
 
@@ -78309,11 +78320,10 @@ var initialState = {
       var form = document.getElementById('reserve-form');
       var formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form);
       Object(_requests_reserve__WEBPACK_IMPORTED_MODULE_2__["sendReserve"])(formData);
-      if (status == false) status = true;else status = false;
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
         form: {
           show: {
-            $set: status
+            $set: false
           }
         }
       });
@@ -78477,7 +78487,7 @@ var initialState = {
   }],
   inputActions: {
     needHotel: false,
-    needTransportService: false,
+    needTransport: false,
     needCuisine: false,
     needTourLeader: false,
     needExcursionOptions: false,
