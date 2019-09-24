@@ -65,75 +65,75 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case 'CHANGE_STEP':
             return state
-        case 'SELECT_HOTEL':
-            console.log('select hotel dispatched');
+        case 'SELECT_TOGGLE':
+            console.log('select toggle dispatched');
 
-            let needHotel = state.inputActions.needHotel
-            if(needHotel == false) needHotel = true; else needHotel = false
+            // get payload from action
+            let payload = action.payload
+
+            // toggle true/false status
+            let status = !state.inputActions[payload]
 
             return update(state, { 
-                inputActions : {
-                    needHotel: {$set: needHotel},
+                inputActions: {
+                    [payload]: {$set: status},
                 }
             });
-        case 'SELECT_CUISINE':
-            console.log('select cuisine dispatched');
 
-            let needCuisine = state.inputActions.needCuisine
-            if(needCuisine == false) needCuisine = true; else needCuisine = false
-
-            return update(state, { 
-                inputActions : {
-                    needCuisine: {$set: needCuisine},
-                }
-            });
-        case 'SELECT_TRANSPORT_SERVICE':
-            console.log('select transport service dispatched');
-
-            let needTransportService = state.inputActions.needTransportService
-            if(needTransportService == false) needTransportService = true; else needTransportService = false
-
-            return update(state, { 
-                inputActions : {
-                    needTransportService: {$set: needTransportService},
-                }
-            });
-        case 'SELECT_TOUR_LEADER':
-            console.log('select tour leader dispatched');
-
-            let needTourLeader = state.inputActions.needTourLeader
-            if(needTourLeader == false) needTourLeader = true; else needTourLeader = false
-
-            return update(state, { 
-                inputActions : {
-                    needTourLeader: {$set: needTourLeader},
-                }
-            });                
-            
-        case 'SELECT_EXCURSION_OPTIONS':
-            console.log('select excursion options dispatched');
-
-            let needExcursionOptions = state.inputActions.needExcursionOptions
-            if(needExcursionOptions == false) needExcursionOptions = true; else needExcursionOptions = false
-
-            return update(state, { 
-                inputActions : {
-                    needExcursionOptions: {$set: needExcursionOptions},
-                }
-            });    
-        case 'SELECT_MEETING_FACILITIES':
-            console.log('select meeting facilities dispatched');
-
-            let needMeetingFacilities = state.inputActions.needMeetingFacilities
-            if(needMeetingFacilities == false) needMeetingFacilities = true; else needMeetingFacilities = false
-
-            return update(state, { 
-                inputActions : {
-                    needMeetingFacilities: {$set: needMeetingFacilities},
-                }
-            });    
-
-            // return state
+        // case 'SELECT_HOTEL':
+        //     console.log('select hotel dispatched');
+        //     let needHotel = state.inputActions.needHotel
+        //     if(needHotel == false) needHotel = true; else needHotel = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needHotel: {$set: needHotel},
+        //         }
+        //     });
+        // case 'SELECT_CUISINE':
+        //     console.log('select cuisine dispatched');
+        //     let needCuisine = state.inputActions.needCuisine
+        //     if(needCuisine == false) needCuisine = true; else needCuisine = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needCuisine: {$set: needCuisine},
+        //         }
+        //     });
+        // case 'SELECT_TRANSPORT_SERVICE':
+        //     console.log('select transport service dispatched');
+        //     let needTransportService = state.inputActions.needTransportService
+        //     if(needTransportService == false) needTransportService = true; else needTransportService = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needTransportService: {$set: needTransportService},
+        //         }
+        //     });
+        // case 'SELECT_TOUR_LEADER':
+        //     console.log('select tour leader dispatched');
+        //     let needTourLeader = state.inputActions.needTourLeader
+        //     if(needTourLeader == false) needTourLeader = true; else needTourLeader = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needTourLeader: {$set: needTourLeader},
+        //         }
+        //     });                
+        // case 'SELECT_EXCURSION_OPTIONS':
+        //     console.log('select excursion options dispatched');
+        //     let needExcursionOptions = state.inputActions.needExcursionOptions
+        //     if(needExcursionOptions == false) needExcursionOptions = true; else needExcursionOptions = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needExcursionOptions: {$set: needExcursionOptions},
+        //         }
+        //     });    
+        // case 'SELECT_MEETING_FACILITIES':
+        //     console.log('select meeting facilities dispatched');
+        //     let needMeetingFacilities = state.inputActions.needMeetingFacilities
+        //     if(needMeetingFacilities == false) needMeetingFacilities = true; else needMeetingFacilities = false
+        //     return update(state, { 
+        //         inputActions : {
+        //             needMeetingFacilities: {$set: needMeetingFacilities},
+        //         }
+        //     });    
         default :
             return state
     }    

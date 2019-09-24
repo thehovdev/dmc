@@ -11,15 +11,15 @@ class TransportDetails extends Component {
         const needMeetingFacilities = this.props.step.inputActions.needMeetingFacilities;
 
         const selectTourLeader = () => {
-            return this.props.stepAction.selectTourLeader();
+            return this.props.stepAction.selectToggle('needTourLeader');
         }
 
         const selectExcursionOptions = () => {
-            return this.props.stepAction.selectExcursionOptions();
+            return this.props.stepAction.selectToggle('needExcursionOptions');
         }
 
         const selectMeetingFacilities = () => {
-            return this.props.stepAction.selectMeetingFacilities();
+            return this.props.stepAction.selectToggle('needMeetingFacilities');
         }
 
 
@@ -103,14 +103,6 @@ class TransportDetails extends Component {
                     </div>
 
                     { meetingFacilitiesBlock() }
-
-                    <div className="form-group">
-                        <label htmlFor="need_transfer">Do you need Transfer from/to Hotel</label>
-                        <select className="form-control" id="need_transfer">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
-                        </select>
-                    </div>
 
                     <div className="form-group">
                         <label htmlFor="need_guide">Do you need guide service</label>

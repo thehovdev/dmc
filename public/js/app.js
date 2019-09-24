@@ -76203,53 +76203,53 @@ var sendForm = function sendForm() {
 /*!**************************************!*\
   !*** ./resources/js/actions/step.js ***!
   \**************************************/
-/*! exports provided: selectHotel, selectCuisine, selectTransportService, selectTourLeader, selectExcursionOptions, selectMeetingFacilities */
+/*! exports provided: selectToggle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectHotel", function() { return selectHotel; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCuisine", function() { return selectCuisine; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTransportService", function() { return selectTransportService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTourLeader", function() { return selectTourLeader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectExcursionOptions", function() { return selectExcursionOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectMeetingFacilities", function() { return selectMeetingFacilities; });
-var selectHotel = function selectHotel() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectToggle", function() { return selectToggle; });
+var selectToggle = function selectToggle(payload) {
   return {
-    type: 'SELECT_HOTEL',
-    payload: 'user selected hotel input'
+    type: 'SELECT_TOGGLE',
+    payload: payload
   };
-};
-var selectCuisine = function selectCuisine() {
-  return {
-    type: 'SELECT_CUISINE',
-    payload: 'user selected cuisine input'
-  };
-};
-var selectTransportService = function selectTransportService() {
-  return {
-    type: 'SELECT_TRANSPORT_SERVICE',
-    payload: 'user selected transport service input'
-  };
-};
-var selectTourLeader = function selectTourLeader() {
-  return {
-    type: 'SELECT_TOUR_LEADER',
-    payload: 'user selected tour leader service'
-  };
-};
-var selectExcursionOptions = function selectExcursionOptions() {
-  return {
-    type: 'SELECT_EXCURSION_OPTIONS',
-    payload: 'user selected excursion options'
-  };
-};
-var selectMeetingFacilities = function selectMeetingFacilities() {
-  return {
-    type: 'SELECT_MEETING_FACILITIES',
-    payload: 'user selected meeting facilities'
-  };
-};
+}; // export const selectHotel = () => {
+//     return {
+//       type: 'SELECT_HOTEL',
+//       payload: 'user selected hotel input'
+//     }
+// }
+// export const selectCuisine = () => {
+//     return {
+//       type: 'SELECT_CUISINE',
+//       payload: 'user selected cuisine input'
+//     }
+// }
+// export const selectTransportService = () => {
+//     return {
+//       type: 'SELECT_TRANSPORT_SERVICE',
+//       payload: 'user selected transport service input'
+//     }
+// }
+// export const selectTourLeader = () => {
+//     return {
+//       type: 'SELECT_TOUR_LEADER',
+//       payload: 'user selected tour leader service'
+//     }
+// }
+// export const selectExcursionOptions = () => {
+//     return {
+//       type: 'SELECT_EXCURSION_OPTIONS',
+//       payload: 'user selected excursion options'
+//     }
+// }
+// export const selectMeetingFacilities = () => {
+//     return {
+//       type: 'SELECT_MEETING_FACILITIES',
+//       payload: 'user selected meeting facilities'
+//     }
+// }
 
 /***/ }),
 
@@ -76784,17 +76784,6 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_tour_options"
-      }, "Do you need tour options for the group"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "need_tour_options"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "false"
-      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
       }, "Please provide you email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "email",
@@ -77020,11 +77009,23 @@ function (_Component) {
       var _this = this;
 
       var needHotel = this.props.step.inputActions.needHotel;
-      var hotelStars = this.props.step.hotelStars;
       var needTransportService = this.props.step.inputActions.needTransportService;
-      var transportServices = this.props.step.transportServices;
       var needCuisine = this.props.step.inputActions.needCuisine;
+      var hotelStars = this.props.step.hotelStars;
+      var transportServices = this.props.step.transportServices;
       var cuisineTypes = this.props.step.cuisineTypes;
+
+      var selectHotel = function selectHotel() {
+        return _this.props.stepAction.selectToggle('needHotel');
+      };
+
+      var selectTransportService = function selectTransportService() {
+        return _this.props.stepAction.selectToggle('needTransportService');
+      };
+
+      var selectCuisine = function selectCuisine() {
+        return _this.props.stepAction.selectToggle('needCuisine');
+      };
 
       var optionsList = function optionsList(items) {
         return items.map(function (item, index) {
@@ -77052,22 +77053,11 @@ function (_Component) {
         });
       };
 
-      var selectHotel = function selectHotel() {
-        return _this.props.stepAction.selectHotel();
-      };
-
-      var selectTransportService = function selectTransportService() {
-        return _this.props.stepAction.selectTransportService();
-      };
-
-      var selectCuisine = function selectCuisine() {
-        return _this.props.stepAction.selectCuisine();
-      };
-
       var hotelStarsBlock = function hotelStarsBlock() {
         if (needHotel) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
             className: "form-control full-width",
+            id: "hotel_description",
             placeholder: "You description for hotel"
           })));
         }
@@ -77138,7 +77128,7 @@ function (_Component) {
       }, transportServiceBlock()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_transfer"
+        htmlFor: "need_cuisine"
       }, "Do you need Meals ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: function onChange() {
           return selectCuisine();
@@ -77156,12 +77146,7 @@ function (_Component) {
   }]);
 
   return OtherDetails;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // const mapStateToProps = function(state){
-//     return {
-//       step: state.step
-//     }
-// }
-
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -77169,7 +77154,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(OtherDetails)); // export default OtherDetails;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(OtherDetails));
 
 /***/ }),
 
@@ -77397,15 +77382,15 @@ function (_Component) {
       var needMeetingFacilities = this.props.step.inputActions.needMeetingFacilities;
 
       var selectTourLeader = function selectTourLeader() {
-        return _this.props.stepAction.selectTourLeader();
+        return _this.props.stepAction.selectToggle('needTourLeader');
       };
 
       var selectExcursionOptions = function selectExcursionOptions() {
-        return _this.props.stepAction.selectExcursionOptions();
+        return _this.props.stepAction.selectToggle('needExcursionOptions');
       };
 
       var selectMeetingFacilities = function selectMeetingFacilities() {
-        return _this.props.stepAction.selectMeetingFacilities();
+        return _this.props.stepAction.selectToggle('needMeetingFacilities');
       };
 
       var tourLeaderBlock = function tourLeaderBlock() {
@@ -77514,17 +77499,6 @@ function (_Component) {
       }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "true"
       }, "Yes"))), meetingFacilitiesBlock(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "need_transfer"
-      }, "Do you need Transfer from/to Hotel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "need_transfer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "false"
-      }, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "true"
-      }, "Yes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "need_guide"
@@ -78392,6 +78366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _requests_reserve__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../requests/reserve */ "./resources/js/requests/reserve.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -78516,78 +78492,71 @@ var initialState = {
     case 'CHANGE_STEP':
       return state;
 
-    case 'SELECT_HOTEL':
-      console.log('select hotel dispatched');
-      var needHotel = state.inputActions.needHotel;
-      if (needHotel == false) needHotel = true;else needHotel = false;
-      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needHotel: {
-            $set: needHotel
-          }
-        }
-      });
+    case 'SELECT_TOGGLE':
+      console.log('select toggle dispatched'); // get payload from action
 
-    case 'SELECT_CUISINE':
-      console.log('select cuisine dispatched');
-      var needCuisine = state.inputActions.needCuisine;
-      if (needCuisine == false) needCuisine = true;else needCuisine = false;
-      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needCuisine: {
-            $set: needCuisine
-          }
-        }
-      });
+      var payload = action.payload; // toggle true/false status
 
-    case 'SELECT_TRANSPORT_SERVICE':
-      console.log('select transport service dispatched');
-      var needTransportService = state.inputActions.needTransportService;
-      if (needTransportService == false) needTransportService = true;else needTransportService = false;
+      var status = !state.inputActions[payload];
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needTransportService: {
-            $set: needTransportService
-          }
-        }
+        inputActions: _defineProperty({}, payload, {
+          $set: status
+        })
       });
-
-    case 'SELECT_TOUR_LEADER':
-      console.log('select tour leader dispatched');
-      var needTourLeader = state.inputActions.needTourLeader;
-      if (needTourLeader == false) needTourLeader = true;else needTourLeader = false;
-      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needTourLeader: {
-            $set: needTourLeader
-          }
-        }
-      });
-
-    case 'SELECT_EXCURSION_OPTIONS':
-      console.log('select excursion options dispatched');
-      var needExcursionOptions = state.inputActions.needExcursionOptions;
-      if (needExcursionOptions == false) needExcursionOptions = true;else needExcursionOptions = false;
-      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needExcursionOptions: {
-            $set: needExcursionOptions
-          }
-        }
-      });
-
-    case 'SELECT_MEETING_FACILITIES':
-      console.log('select meeting facilities dispatched');
-      var needMeetingFacilities = state.inputActions.needMeetingFacilities;
-      if (needMeetingFacilities == false) needMeetingFacilities = true;else needMeetingFacilities = false;
-      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        inputActions: {
-          needMeetingFacilities: {
-            $set: needMeetingFacilities
-          }
-        }
-      });
-    // return state
+    // case 'SELECT_HOTEL':
+    //     console.log('select hotel dispatched');
+    //     let needHotel = state.inputActions.needHotel
+    //     if(needHotel == false) needHotel = true; else needHotel = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needHotel: {$set: needHotel},
+    //         }
+    //     });
+    // case 'SELECT_CUISINE':
+    //     console.log('select cuisine dispatched');
+    //     let needCuisine = state.inputActions.needCuisine
+    //     if(needCuisine == false) needCuisine = true; else needCuisine = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needCuisine: {$set: needCuisine},
+    //         }
+    //     });
+    // case 'SELECT_TRANSPORT_SERVICE':
+    //     console.log('select transport service dispatched');
+    //     let needTransportService = state.inputActions.needTransportService
+    //     if(needTransportService == false) needTransportService = true; else needTransportService = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needTransportService: {$set: needTransportService},
+    //         }
+    //     });
+    // case 'SELECT_TOUR_LEADER':
+    //     console.log('select tour leader dispatched');
+    //     let needTourLeader = state.inputActions.needTourLeader
+    //     if(needTourLeader == false) needTourLeader = true; else needTourLeader = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needTourLeader: {$set: needTourLeader},
+    //         }
+    //     });                
+    // case 'SELECT_EXCURSION_OPTIONS':
+    //     console.log('select excursion options dispatched');
+    //     let needExcursionOptions = state.inputActions.needExcursionOptions
+    //     if(needExcursionOptions == false) needExcursionOptions = true; else needExcursionOptions = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needExcursionOptions: {$set: needExcursionOptions},
+    //         }
+    //     });    
+    // case 'SELECT_MEETING_FACILITIES':
+    //     console.log('select meeting facilities dispatched');
+    //     let needMeetingFacilities = state.inputActions.needMeetingFacilities
+    //     if(needMeetingFacilities == false) needMeetingFacilities = true; else needMeetingFacilities = false
+    //     return update(state, { 
+    //         inputActions : {
+    //             needMeetingFacilities: {$set: needMeetingFacilities},
+    //         }
+    //     });    
 
     default:
       return state;

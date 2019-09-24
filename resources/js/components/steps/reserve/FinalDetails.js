@@ -7,13 +7,6 @@ class FinalDetails extends Component {
                  <div id="final-details">
 
                     <div className="form-group">
-                        <label htmlFor="need_tour_options">Do you need tour options for the group</label>
-                        <select className="form-control" id="need_tour_options">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
                         <label htmlFor="email">Please provide you email address</label>
                         <input type="email" id="email" className="form-control" required></input>
                     </div>    

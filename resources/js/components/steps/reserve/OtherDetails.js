@@ -11,13 +11,24 @@ class OtherDetails extends Component {
 
     render() {
         const needHotel = this.props.step.inputActions.needHotel;
-        const hotelStars = this.props.step.hotelStars;
-
         const needTransportService = this.props.step.inputActions.needTransportService;
-        const transportServices = this.props.step.transportServices;
-
         const needCuisine = this.props.step.inputActions.needCuisine;
+        
+        const hotelStars = this.props.step.hotelStars;
+        const transportServices = this.props.step.transportServices;
         const cuisineTypes = this.props.step.cuisineTypes;
+
+
+        const selectHotel = () => {
+            return this.props.stepAction.selectToggle('needHotel');
+        }
+        const selectTransportService = () => {
+            return this.props.stepAction.selectToggle('needTransportService');
+        }
+        const selectCuisine = () => {
+            return this.props.stepAction.selectToggle('needCuisine');
+        }
+
 
         const optionsList = (items) => {
             return items.map((item, index) =>
@@ -33,24 +44,13 @@ class OtherDetails extends Component {
                 </div>
             );
         }
-
-        const selectHotel = () => {
-            return this.props.stepAction.selectHotel();
-        }
-        const selectTransportService = () => {
-            return this.props.stepAction.selectTransportService();
-        }
-        const selectCuisine = () => {
-            return this.props.stepAction.selectCuisine();
-        }
-
         const hotelStarsBlock = () => {
             if(needHotel) {
                 return (
                     <div>
                         { checkList(hotelStars) }
                         <div>
-                            <textarea className="form-control full-width" placeholder="You description for hotel"></textarea>
+                            <textarea className="form-control full-width" id="hotel_description" placeholder="You description for hotel"></textarea>
                         </div>
                     </div>
                 );
@@ -113,7 +113,7 @@ class OtherDetails extends Component {
 
 
                     <div className="form-group">
-                        <label htmlFor="need_transfer">Do you need Meals ?</label>
+                        <label htmlFor="need_cuisine">Do you need Meals ?</label>
                         <select onChange={() => selectCuisine()} className="form-control" id="need_cuisine">
                             <option value="false">No</option>
                             <option value="true">Yes</option>
