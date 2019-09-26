@@ -36,7 +36,7 @@ class OtherDetails extends Component {
             );
         }
 
-        const checkList = (items) => {
+        const checkList = (items, prefix = null) => {
             return items.map((item, index) =>
                 <div className="form-check-inline" key={ index }>
                     <input className="styled-checkbox" id={ item.prefix } type="checkbox" value={ item.id }></input>
@@ -48,7 +48,7 @@ class OtherDetails extends Component {
             if(needHotel) {
                 return (
                     <div>
-                        { checkList(hotelStars) }
+                        { checkList(hotelStars, 'hotel') }
                         <div>
                             <textarea className="form-control full-width" id="hotel_description" placeholder="You description for hotel"></textarea>
                         </div>
@@ -60,7 +60,7 @@ class OtherDetails extends Component {
             if(needTransport) {
                 return (
                     <div>
-                        { checkList(transportServices) }
+                        { checkList(transportServices, 'transport') }
                     </div>
                 );
             }
@@ -69,7 +69,7 @@ class OtherDetails extends Component {
             if(needCuisine) {
                 return (
                     <div>
-                        { checkList(cuisineTypes) }
+                        { checkList(cuisineTypes, 'cuisine') }
                     </div>
                 );
             }

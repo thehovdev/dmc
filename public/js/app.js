@@ -77038,6 +77038,7 @@ function (_Component) {
       };
 
       var checkList = function checkList(items) {
+        var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         return items.map(function (item, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-check-inline",
@@ -77056,7 +77057,7 @@ function (_Component) {
 
       var hotelStarsBlock = function hotelStarsBlock() {
         if (needHotel) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars, 'hotel'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
             className: "form-control full-width",
             id: "hotel_description",
             placeholder: "You description for hotel"
@@ -77066,13 +77067,13 @@ function (_Component) {
 
       var transportServiceBlock = function transportServiceBlock() {
         if (needTransport) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices));
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices, 'transport'));
         }
       };
 
       var cuisineBlock = function cuisineBlock() {
         if (needCuisine) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(cuisineTypes));
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(cuisineTypes, 'cuisine'));
         }
       };
 

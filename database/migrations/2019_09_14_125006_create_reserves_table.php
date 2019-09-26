@@ -32,9 +32,9 @@ class CreateReservesTable extends Migration
             $table->integer('nationality_id');
             $table->integer('age_range_id');
             $table->integer('country_id');
-            // $table->integer('hotel_star_id');
-            // $table->integer('cuisine_id');
-            // $table->integer('transfer_id');
+            $table->integer('hotel_star_id_list');
+            $table->integer('cuisine_id_list');
+            $table->integer('transfer_id_list');
 
             $table->integer('number_of_people');
             $table->integer('number_of_tourleaders');
@@ -67,11 +67,7 @@ class CreateReservesTable extends Migration
             $table->foreign('group_type_id')->references('id')->on('group_types');
             $table->foreign('nationality_id')->references('id')->on('nationalities');
             $table->foreign('age_range_id')->references('id')->on('age_ranges');
-            $table->foreign('hotel_star_id')->references('id')->on('hotel_stars');
-            $table->foreign('cuisine_id')->references('id')->on('cuisine_types');
             $table->foreign('country_id')->references('id')->on('countries');
-            $table->foreign('transfer_id')->references('id')->on('transfers');
-
         });
 
     }

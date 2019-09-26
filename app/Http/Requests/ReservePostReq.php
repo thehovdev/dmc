@@ -26,6 +26,32 @@ class ReservePostReq extends FormRequest
     public function rules(Rule $rule)
     {
         $formData = json_decode($this->get('formData'), true);
+        $formData['hotel_stars_list'] = [];
+        $formData['transport_list'] = [];
+
+        $hotel_checkbox = [
+            'hotel_star_3',
+            'hotel_star_4',
+            'hotel_star_5'
+        ];
+
+        $transport_checkbox = [
+            'transfer_airport',
+            'transfer_during_stay',
+        ];
+
+        // default stars list
+        foreach($hotel_checkbox as $item) {
+            if(isset($formData[$item])) array_push($formData['hotel_stars_list'], (int)$formData[$item]);        
+        }
+        foreach($transport_checkbox as $item) {
+            if(isset($formData[$item])) array_push($formData['transport_list'], (int)$formData[$item]);        
+        }
+
+
+        dd($formData);
+
+        
 
         $this->merge(['formData' => $formData]);
 
