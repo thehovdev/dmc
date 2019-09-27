@@ -12,8 +12,15 @@ class ReserveService
 
         // $hotel_star_id_list = $this->getHotelStarsList($formData);
 
-        dd($formData);
+
        
+        $hotel_stars = json_encode($formData->hotel_stars);
+        $tranports = json_encode($formData->tranports);
+        $cuisines = json_encode($formData->cuisiness);
+
+
+        dd($cuisines);
+
         // dd($hotel_star_id_list);
 
 

@@ -77037,8 +77037,7 @@ function (_Component) {
         });
       };
 
-      var checkList = function checkList(items) {
-        var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var checkList = function checkList(items, prefix) {
         return items.map(function (item, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-check-inline",
@@ -77047,7 +77046,8 @@ function (_Component) {
             className: "styled-checkbox",
             id: item.prefix,
             type: "checkbox",
-            value: item.id
+            value: item.id,
+            prefix: prefix
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
             htmlFor: item.prefix,
             className: "noselect"
@@ -77057,7 +77057,7 @@ function (_Component) {
 
       var hotelStarsBlock = function hotelStarsBlock() {
         if (needHotel) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars, 'hotel'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(hotelStars, 'hotel_stars')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
             className: "form-control full-width",
             id: "hotel_description",
             placeholder: "You description for hotel"
@@ -77067,13 +77067,13 @@ function (_Component) {
 
       var transportServiceBlock = function transportServiceBlock() {
         if (needTransport) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices, 'transport'));
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(transportServices, 'transports'));
         }
       };
 
       var cuisineBlock = function cuisineBlock() {
         if (needCuisine) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(cuisineTypes, 'cuisine'));
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, checkList(cuisineTypes, 'cuisines'));
         }
       };
 
@@ -77544,21 +77544,44 @@ function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFormData", function() { return getFormData; });
 function getFormData(form) {
-  var obj = {};
+  var obj = {
+    hotel_stars: null,
+    transports: [],
+    cuisines: []
+  };
   var elements = form.querySelectorAll("input, select, textarea");
 
   for (var i = 0; i < elements.length; ++i) {
     var element = elements[i];
+    var prefix = false; // if(element.hasAttribute("type") 
+    //     && element.getAttribute("type") == 'checkbox' 
+    //     && element.checked == false
+    // ) {
+    //     var prefix = element.getAttribute('prefix');
+    //     // continue
+    // } 
 
-    if (element.hasAttribute("type") && element.getAttribute("type") == 'checkbox' && element.checked == false) {
-      continue;
+    if (element.hasAttribute("type") && element.getAttribute("type") == 'checkbox') {
+      var prefix = element.getAttribute('prefix');
     }
 
+    console.log(prefix);
     var id = element.id;
-    var value = element.value;
+    var value = element.value.trim();
 
     if (id) {
-      obj[id] = value;
+      if (typeof prefix !== "undefined" && prefix != false) {
+        if (element.checked == true) {
+          if (obj[prefix] == null) obj[prefix] = [];
+          obj[prefix].push(value);
+        }
+      } else {
+        if (value.length == 0) {
+          obj[id] = null;
+        } else {
+          obj[id] = value;
+        }
+      }
     }
   }
 
