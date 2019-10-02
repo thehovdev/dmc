@@ -32,9 +32,9 @@ class CreateReservesTable extends Migration
             $table->integer('nationality_id');
             $table->integer('age_range_id');
             $table->integer('country_id');
-            $table->integer('hotel_star_id_list');
-            $table->integer('cuisine_id_list');
-            $table->integer('transfer_id_list');
+            $table->string('hotel_star_id_list');
+            $table->string('cuisine_id_list');
+            $table->string('transport_id_list');
 
             $table->integer('number_of_people');
             $table->integer('number_of_tourleaders');
@@ -44,10 +44,10 @@ class CreateReservesTable extends Migration
             $table->float('double_min_price');
             $table->float('double_max_price');
 
-            $table->boolean('need_transfer');
             $table->boolean('need_transport');
             $table->boolean('need_guide');
             $table->boolean('need_visa');
+            $table->boolean('need_hotel');
             $table->boolean('need_cuisine');
             $table->boolean('need_meeting_facilities');
             $table->boolean('need_excursion_options');

@@ -2,8 +2,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 export function sendReserve(formData) {
+    let request_url = '/reserve/store';
 
-    axios.get('/reserve/store', {
+    axios.get(request_url, {
         params: {
             formData : formData
         }
@@ -16,23 +17,26 @@ export function sendReserve(formData) {
                 'success'
             )
 
-            return 'success';
+            return true;
             
         } else {
             Swal.fire(
-                'Good job!',
-                'You clicked the button!',
+                'Error!',
+                'Please fill required fields',
                 'error'
             )
+
+            return false;
         }
 
     }).catch(function (error) {
         console.log(error);
         Swal.fire(
-            'Good job!',
-            'You clicked the button!',
+            'Error!',
+            'Internal Server Error!',
             'error'
         )
+        return false;
     })
 
 }

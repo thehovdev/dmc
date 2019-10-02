@@ -1,8 +1,8 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-export function sendCreateCompany(formData) {
-    let request_url = '/cabinet/company'; // post 
+export function sendEditCompany(formData, id) {
+    let request_url = '/cabinet/company/' + id; // post 
     let redirect_url = '/cabinet/company'; // get
     let headers = { 
         headers: { 
@@ -14,7 +14,7 @@ export function sendCreateCompany(formData) {
     let params = new FormData();
     params.append('formData', JSON.stringify(formData));
     params.append('logo', document.getElementById('logo').files[0]);
-    // params.append('_method', 'put'); // for laravel resource controller, define method put
+    params.append('_method', 'put'); // for laravel resource controller, define method put
 
     
     axios

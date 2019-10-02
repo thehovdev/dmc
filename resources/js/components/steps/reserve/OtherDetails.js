@@ -49,7 +49,7 @@ class OtherDetails extends Component {
                 return (
                     <div>
                         <div>
-                            { checkList(hotelStars, 'hotel_stars') }
+                            { checkList(hotelStars, 'hotel_star_id_list') }
                         </div>
                         <div>
                             <textarea className="form-control full-width" id="hotel_description" placeholder="You description for hotel"></textarea>
@@ -62,7 +62,7 @@ class OtherDetails extends Component {
             if(needTransport) {
                 return (
                     <div>
-                        { checkList(transportServices, 'transports') }
+                        { checkList(transportServices, 'transport_id_list') }
                     </div>
                 );
             }
@@ -71,7 +71,7 @@ class OtherDetails extends Component {
             if(needCuisine) {
                 return (
                     <div> 
-                        { checkList(cuisineTypes, 'cuisines') }
+                        { checkList(cuisineTypes, 'cuisine_id_list') }
                     </div>
                 );
             }

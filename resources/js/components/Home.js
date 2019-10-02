@@ -51,7 +51,7 @@ class Home extends Component {
         return (
 
             <div className="intro-content">
-                <a href="/login" className="btn btn-outline-light btn-sm btn-login">Login</a>
+                {/* <a href="/login" className="btn btn-outline-light btn-sm btn-login">Login</a> */}
                 <div className={showItems()} id="startItems">
                     <h1>Lorem Ipsum is simply dummy text.</h1>
                     <button onClick={() => openForm()} className="btn btn-lg btn-light d-block m-auto">Reserve</button>

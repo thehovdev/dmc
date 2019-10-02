@@ -10665,6 +10665,12 @@ a:focus {
   height: 100%;
 }
 
+.btn-login {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
 .intro-content {
   display: flex;
   flex-direction: column;
@@ -10675,12 +10681,6 @@ a:focus {
 .intro-content h1 {
   font-size: 2rem;
   color: white;
-}
-
-.intro-content .btn-login {
-  position: fixed;
-  top: 10px;
-  right: 10px;
 }
 
 .intro-content .startItems {

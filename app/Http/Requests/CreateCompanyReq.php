@@ -28,27 +28,19 @@ class CreateCompanyReq extends FormRequest
      */
     public function rules()
     {
-        // $formData = json_decode($this->get('formData'), true);
+        $formData = json_decode($this->get('formData'), true);
 
-        // $this->merge(['formData' => $formData]);
+        $this->merge(['formData' => $formData]);
 
         $this->validate([
-            'param1' => 'required|string',
-            'param2' => 'required|string'
-            // 'formData.name' => 'required|string',
-            // 'formData.email' => 'required|string',
-            // 'formData.address' => 'required|string',
-            // 'formData.logo' => 'required|string',
+            'formData.name' => 'required|string',
+            'formData.email' => 'required|string',
+            'formData.address' => 'required|string',
+            'formData.logo' => 'required',
 
-            // 'formData.personName' => 'required|string',
-            // 'formData.personPhone' => 'required|string',
-            // 'formData.personEmail' => 'required|string',
-
-            // 'formData.need_transfer' => ['required', $rule->in(['true', 'false'])],
-            // 'formData.need_transport' => ['required', $rule->in(['true', 'false'])],
-            // 'formData.need_guide' => ['required', $rule->in(['true', 'false'])],
-            // 'formData.need_tour_options' => ['required', $rule->in(['true', 'false'])],
-            // 'formData.need_meeting_facilities' => ['required', $rule->in(['true', 'false'])],
+            'formData.personName' => 'required|string',
+            'formData.personPhone' => 'required|string',
+            'formData.personEmail' => 'required|string',
         ]);
 
         return array();

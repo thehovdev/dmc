@@ -11,6 +11,13 @@
     height: 100%;
 }
 
+.btn-login {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+
 .intro-content {
     display: flex;
     flex-direction: column;
@@ -20,12 +27,6 @@
     h1 {
         font-size: $title-font-size;
         color: $title-font-color;
-    }
-
-    .btn-login {
-        position: fixed;
-        top: 10px;
-        right: 10px;
     }
 
     .startItems {

@@ -5,6 +5,7 @@ import GroupDetails from './GroupDetails';
 import OtherDetails from './OtherDetails';
 import TransportDetails from './TransportDetails';
 import FinalDetails from './FinalDetails';
+import Swal from 'sweetalert2';
 
 
 class ReserveForm extends Component {
@@ -22,7 +23,20 @@ class ReserveForm extends Component {
             if(elem.nextElementSibling != null) {
                 elem.nextElementSibling.querySelector('a').click();
             } else {
-                this.props.sendForm();
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Please check all fields",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#38c172',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirm Reserve'
+                }).then((result) => {
+                    if (result.value) {
+                        this.props.sendForm();
+                    } 
+                })
+
             }
 
         }

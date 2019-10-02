@@ -18,33 +18,26 @@ class CreateCompany extends Component {
 
         const createCompany = () => {
             return this.props.companyAction.createCompany();
-
-            Swal.fire(
-                'Success !',
-                'We receive you information',
-                'success'
-            )
         }
 
         return (
             <div className="form-content" id="create-company-content">
-                
                 <div className="company-info">
                     <h3>Company information</h3>
 
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" className="form-control" id="name" placeholder="Enter company name"></input>
+                        <input defaultValue="Profam" type="text" className="form-control" id="name" placeholder="Enter company name"></input>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="text" className="form-control" id="email" placeholder="Enter company email"></input>
+                        <input defaultValue="support@profam.az" type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="address">Address</label>
-                        <input type="text" className="form-control" id="address" placeholder="Enter company address"></input>
+                        <input defaultValue="Baku, Azerbaijan" type="text" className="form-control" id="address" placeholder="Enter company address"></input>
                     </div>
 
                     <div className="form-group">
@@ -60,22 +53,21 @@ class CreateCompany extends Component {
 
                     <div className="form-group">
                         <label htmlFor="personName">Name</label>
-                        <input type="text" className="form-control" id="personName" placeholder="Enter person name"></input>
+                        <input defaultValue="Afgan" type="text" className="form-control" id="personName" placeholder="Enter person name"></input>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="personPhone">Phone</label>
-                        <input type="text" className="form-control" id="personPhone" placeholder="Enter person phone"></input>
+                        <input defaultValue="Khalilov" type="text" className="form-control" id="personPhone" placeholder="Enter person phone"></input>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="personEmail">Email</label>
-                        <input type="text" className="form-control" id="personEmail" placeholder="Enter person email"></input>
+                        <input defaultValue="hov-dev@protonmail.ch" type="text" className="form-control" id="personEmail" placeholder="Enter person email"></input>
                     </div>
                 </div>
 
                 <button className="btn btn-primary" onClick={createCompany}>Create company</button>
-
             </div>
         );
     }

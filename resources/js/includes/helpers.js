@@ -1,10 +1,21 @@
 export function getFormData(form) {
-    var obj = {
-        hotel_stars : null,
-        transports : [],
-        cuisines : [],
-    };
+    var formId = form.id;
     var elements = form.querySelectorAll( "input, select, textarea" );
+
+    switch (formId) {
+        case 'reserve-form':
+            var obj = {
+                hotel_stars : null,
+                transports : null,
+                cuisines : null,
+            };
+            break;
+    
+        default:
+            var obj = {};
+    }
+
+
 
     for( var i = 0; i < elements.length; ++i ) {
         var element = elements[i];
@@ -48,6 +59,4 @@ export function getFormData(form) {
     }
 
     return obj;
-    // return JSON.stringify( obj );
 }
-

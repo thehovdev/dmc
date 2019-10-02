@@ -1,6 +1,6 @@
 @include('layouts/header')
 
-@if(!Auth::check() && Request::is('/')) 
+@if(!Auth::check() || Request::is('/')) 
     <div>
         @yield('content')
     </div>
@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2 px-0">
-                @include('includes/sidebar')
+                @include('includes.sidebar')
             </div>
 
             <div class="col-sm-10 py-2">

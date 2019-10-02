@@ -17,7 +17,7 @@
         <li>
             <a href="#companiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Companies</a>
             <ul class="collapse list-unstyled" id="companiesSubmenu">
-                <li><a href="{{ route('cabinet.company') }}">Companies List</a></li>
+                <li><a href="{{ route('cabinet.company.index') }}">Companies List</a></li>
                 <li><a href="{{ route('cabinet.company.create') }}">Create new company</a></li>
             </ul>
         </li>
@@ -25,6 +25,9 @@
 
         <li>
             <a href="#">Contacts</a>
+        </li>
+        <li>
+            <a href="{{ route('index') }}">Create reserve</a>
         </li>
     </ul>
 </nav>
