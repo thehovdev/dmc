@@ -5,10 +5,11 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { create } from 'domain';
 
+import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
 
 
-class CreateCompany extends Component {
+class CompanyCreate extends Component {
 
     constructor(props) {
         super(props);
@@ -58,7 +59,7 @@ class CreateCompany extends Component {
 
                     <div className="form-group">
                         <label htmlFor="personPhone">Phone</label>
-                        <input defaultValue="Khalilov" type="text" className="form-control" id="personPhone" placeholder="Enter person phone"></input>
+                        <input defaultValue="994513739930" type="text" className="form-control" id="personPhone" placeholder="Enter person phone"></input>
                     </div>
 
                     <div className="form-group">
@@ -85,4 +86,4 @@ const mapStateToProps = function(state){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateCompany);
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyCreate);

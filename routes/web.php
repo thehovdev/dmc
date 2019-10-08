@@ -12,28 +12,20 @@
 */
 Auth::routes();
 
-
 Route::view('/', 'index')->name('index');
 Route::view('/test', 'test');
 
-
-Route::namespace('Api')->group(function () {
-    Route::get('/reserve/store', 'ReserveController@store');
-});
-
 Route::namespace('Cabinet')->group(function () {
     Route::prefix('cabinet')->group(function () {
+        // cabinet home page
         Route::get('/', 'HomeController@index')->name('cabinet.index');
 
-        Route::get('/companies/get', 'CompanyController@getCompanies')->name('cabinet.companies.get');
-        Route::resource('/company', 'CompanyController', [
-            'as' => 'cabinet'
-        ]);
-        // Route::get('/company', 'CompanyController@index')->name('cabinet.company');
-        // Route::get('/company/create', 'CompanyController@create')->name('cabinet.company.create');
-        // Route::get('/company/edit', 'CompanyController@create')->name('cabinet.company.create');
-        // Route::get('/company/delete', 'CompanyController@create')->name('cabinet.company.create');
-        // Route::any('/company/store', 'CompanyController@store')->name('cabinet.company.store');
+        // company actions
+        Route::get('/company', 'CompanyController@index')->name('cabinet.company.index');
+        Route::get('/company/create', 'CompanyController@create')->name('cabinet.company.create');
+
+        Route::get('/contactperson', 'ContactPersonController@index')->name('cabinet.person.index');
+        Route::get('/contactperson/create', 'ContactPersonController@create')->name('cabinet.person.create');
     });
 });
 

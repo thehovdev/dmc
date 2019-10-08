@@ -2,7 +2,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 export function sendReserve(formData) {
-    let request_url = '/reserve/store';
+    let request_url = '/api/reserve/store';
 
     axios.get(request_url, {
         params: {

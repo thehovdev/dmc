@@ -5,7 +5,9 @@ namespace App\Services;
 use stdClass;
 use App\Company;
 use App\ContactPerson;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyReq;
+use App\Http\Requests\UpdateCompanyReq;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyService
@@ -61,6 +63,28 @@ class CompanyService
         return $this->result;
     }
 
+    public function update(Company $company, UpdateCompanyReq $request) {
+        $formData = (object) $request->formData;
+
+        // get updated company fields
+        $this->company = $company;
+        $this->company->name = $formData->name;
+        $this->company->email = $formData->email;
+        $this->company->address = $formData->address;
+        // update logo if exists in request
+        if(!is_null($request->file('logo'))) 
+            $this->company->logo = $this->updateLogo($request, $company);
+
+        // update company fields in database
+        $this->company->save();
+
+        // return result
+        $this->result->status = 1;
+        $this->result->message = 'success';
+
+        return $this->result;
+    }
+
     public function destroy(Company $company) {
         $company->delete();
 
@@ -69,7 +93,6 @@ class CompanyService
 
         return $this->result;
     }
-
 
     public function companyExists(CreateCompanyReq $request) {
         // get validated data from request parameter as object
@@ -86,9 +109,34 @@ class CompanyService
         return true;
     }
 
-    public function getCompanies() {
-        return $this->company->orderByDesc('id')->get();
+    public function getCompanies(Request $request) {
+
+        if(!isset($request->page)) {
+            return $this->company->orderByDesc('id')->get();
+        }
+
+        return $this->company->orderByDesc('id')->paginate(2);
     }
 
+    public function updateLogo($request, $company) {
+
+        // upload new logo if exists
+        if(!is_null($request->file('logo'))) {
+            // delete old logo if exists
+            if(!is_null($company->logo)) {
+                Storage::delete("public/company/logo/" . $company->logo); 
+            }
+
+            // upload and save new logo
+            $logoData = $request->file('logo');
+            $logoPath = Storage::putFile('public/company/logo', $logoData);
+            $logoName = basename($logoPath);
+
+            // save logo name to database
+            return $logoName;
+        }
+
+
+    }
  
 }

@@ -23,7 +23,7 @@ class CreateContactPersonTable extends Migration
         });
 
         Schema::table('contact_persons', function($table) {
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');;
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

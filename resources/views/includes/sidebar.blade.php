@@ -22,6 +22,14 @@
             </ul>
         </li>
 
+        <li>
+            <a href="#contactPersonsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact Person</a>
+            <ul class="collapse list-unstyled" id="contactPersonsSubmenu">
+                <li><a href="{{ route('cabinet.person.index') }}">Persons List</a></li>
+                <li><a href="{{ route('cabinet.person.create') }}">Create new person</a></li>
+            </ul>
+        </li>
+
 
         <li>
             <a href="#">Contacts</a>
