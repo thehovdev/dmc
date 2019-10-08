@@ -76214,6 +76214,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectTourLeader", function() { return selectTourLeader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectExcursionOptions", function() { return selectExcursionOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectMeetingFacilities", function() { return selectMeetingFacilities; });
+// export const selectToggle = (payload) => {
+//     return {
+//       type: 'SELECT_TOGGLE',
+//       payload: 'user selected hotel input'
+//     }
+// }
 var selectHotel = function selectHotel() {
   return {
     type: 'SELECT_HOTEL',
@@ -77156,12 +77162,7 @@ function (_Component) {
   }]);
 
   return OtherDetails;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // const mapStateToProps = function(state){
-//     return {
-//       step: state.step
-//     }
-// }
-
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -77169,7 +77170,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(OtherDetails)); // export default OtherDetails;
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchToProps)(OtherDetails));
 
 /***/ }),
 
