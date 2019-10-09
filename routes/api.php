@@ -17,7 +17,13 @@ Route::namespace('Api')->group(function () {
     Route::get('/reserve/store', 'ReserveController@store');
 
     Route::namespace('Admin')->group(function () {
-        Route::apiResource('company', 'CompanyController');
-        Route::apiResource('contactPerson', 'ContactPersonController');
+
+        Route::middleware(['auth'])->group(function () {
+            // Route::post('/company/operator/', 'CompanyController@storeOperator');
+
+            Route::apiResource('company', 'CompanyController');
+            Route::apiResource('operator', 'OperatorController');
+            Route::apiResource('contactPerson', 'ContactPersonController');
+        });
     });
 });

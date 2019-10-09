@@ -19,4 +19,5 @@ class CompanyController extends Controller
         return view('admin.company.create');
     }
 
+
 }

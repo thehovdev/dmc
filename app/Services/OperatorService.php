@@ -4,38 +4,40 @@ namespace App\Services;
 
 use stdClass;
 use App\Company;
-use App\ContactPerson;
+use App\Operator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\CreateContactPersonReq;
+use App\Http\Requests\CreateOperatorReq;
 
-class ContactPersonService
+class OperatorService
 {
     protected $company;
-    protected $contactPerson;
+    protected $operator;
     protected $result;
 
     // type hint dependency injection
     public function __construct(
         Company $company, 
-        ContactPerson $contactPerson
+        Operator $operator
     ) {
         $this->company = $company;
-        $this->contactPerson = $contactPerson;
+        $this->operator = $operator;
         $this->result = new stdClass;
     }
 
-    public function store(CreateContactPersonReq $request) {
+    public function store(CreateOperatorReq $request) {
         // get validated data from request parameter as object
         $formData = (object) $request->formData;
 
-        if ($this->personExists($request) == false) {
+        if ($this->operatorExists($request) == false) {
 
-            $this->contactPerson->name = $formData->name;
-            $this->contactPerson->phone = $formData->phone;
-            $this->contactPerson->email = $formData->email;
-            $this->contactPerson->company_id = $formData->company_id;
-            $this->contactPerson->save();
+            $this->operator->name = $formData->name;
+            $this->operator->phone = $formData->phone;
+            $this->operator->email = $formData->email;
+            $this->operator->company_id = $formData->company_id;
+            $this->operator->password = Hash::make('password');
+            $this->operator->save();
 
             // return success response
             $this->result->status = 1;
@@ -49,17 +51,17 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function update(CreateContactPersonReq $request, ContactPerson $contactPerson) {
+    public function update(CreateOperatorReq $request, Operator $operator) {
         $formData = (object) $request->formData;
 
-        if (!is_null($contactPerson)) {
+        if (!is_null($operator)) {
 
-            $this->contactPerson = $contactPerson;
-            $this->contactPerson->name = $formData->name;
-            $this->contactPerson->phone = $formData->phone;
-            $this->contactPerson->email = $formData->email;
-            $this->contactPerson->company_id = $formData->company_id;
-            $this->contactPerson->save();
+            $this->operator = $operator;
+            $this->operator->name = $formData->name;
+            $this->operator->phone = $formData->phone;
+            $this->operator->email = $formData->email;
+            $this->operator->company_id = $formData->company_id;
+            $this->operator->save();
 
             // return success response
             $this->result->status = 1;
@@ -73,8 +75,8 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function destroy(ContactPerson $contactPerson) {
-        $contactPerson->delete();
+    public function destroy(Operator $operator) {
+        $operator->delete();
 
         $this->result->status = 1;
         $this->result->message = 'success';
@@ -82,12 +84,12 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function getContactPersons(Request $request) {
+    public function getOperators(Request $request) {
 
         if(!isset($request->page)) {
-            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->get();
+            $this->result->operators = $this->operator->with('company')->orderByDesc('id')->get();
         } else {
-            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->paginate(10);
+            $this->result->operators = $this->operator->with('company')->orderByDesc('id')->paginate(10);
         }
 
         $this->result->status = 1;
@@ -96,25 +98,25 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function getContactPerson(ContactPerson $contactPerson) {
+    public function getOperator(Operator $operator) {
         $this->result->status = 1;
         $this->result->message = 'success';
-        $this->result->contactPerson = $contactPerson;
-        $this->result->company = $contactPerson->company;
+        $this->result->operator = $operator;
+        $this->result->company = $operator->company;
 
         return $this->result;
     }
 
 
-    public function personExists(CreateContactPersonReq $request) {
+    public function operatorExists(CreateOperatorReq $request) {
         // get validated data from request parameter as object
         $formData = (object) $request->formData;
 
         // find company by name
-        $contactPerson = $this->contactPerson->where('name', $formData->name)->first();
+        $operator = $this->operator->where('name', $formData->name)->first();
 
         //return result
-        if(is_null($contactPerson)) {
+        if(is_null($operator)) {
             return false;
         }
 

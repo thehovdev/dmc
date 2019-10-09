@@ -21,13 +21,17 @@ Route::namespace('Admin')->group(function () {
         // admin home page
         Route::get('/', 'HomeController@index')->name('admin.index');
 
-        // admin companies
-        Route::get('/company', 'CompanyController@index')->name('admin.company.index');
-        Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
+        Route::middleware(['auth'])->group(function () {
+            // admin companies
+            Route::get('/company', 'CompanyController@index')->name('admin.company.index');
+            Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
 
-        // admin contact persons
-        Route::get('/contactperson', 'ContactPersonController@index')->name('admin.person.index');
-        Route::get('/contactperson/create', 'ContactPersonController@create')->name('admin.person.create');
+            Route::get('/operator', 'OperatorController@index')->name('admin.operator.index');
+            Route::get('/operator/create', 'OperatorController@create')->name('admin.operator.create');
+            // admin contact persons
+            Route::get('/contactperson', 'ContactPersonController@index')->name('admin.person.index');
+            Route::get('/contactperson/create', 'ContactPersonController@create')->name('admin.person.create');
+        });
     });
 });
 

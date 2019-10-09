@@ -1,11 +1,15 @@
 import update from 'react-addons-update';
 import {getFormData} from '../includes/helpers';
 import * as companyApi from '../requests/company';
+import * as api from '../requests/api';
+
 
 let form;
 let formData;
 let company;
 let companies;
+let request;
+let redirect;
 let initialState = {
     edit: false,
     companyData: null,
@@ -24,7 +28,7 @@ export default function (state = initialState, action) {
             console.log('CREATE_COMPANY dispatched');
             companyApi.createCompany(formData)
 
-            return state
+            return state       
         case 'UPDATE_COMPANY':
             // get company id from action
             company = action.payload;

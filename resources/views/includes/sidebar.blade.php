@@ -20,8 +20,10 @@
             <ul class="collapse list-unstyled" id="companiesSubmenu">
                 <li><a href="{{ route('admin.company.index') }}">Companies List</a></li>
                 <li><a href="{{ route('admin.company.create') }}">Create new company</a></li>
+                <li><a href="{{ route('admin.operator.create') }}">Create new operator</a></li>
             </ul>
         </li>
+        
 
         <li class="@if(Request::is('admin/contactperson*')) {{ 'active' }} @endif">
             <a href="#contactPersonsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

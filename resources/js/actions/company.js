@@ -5,6 +5,13 @@ export const createCompany = () => {
     }
 }
 
+export const createOperator = () => {
+    return {
+      type: 'CREATE_OPERATOR',
+      payload: 'admin create new operator'
+    }
+}
+
 export const updateCompany = (company) => {
     return {
       type: 'UPDATE_COMPANY',
