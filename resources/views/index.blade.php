@@ -7,7 +7,7 @@
         @if(!Auth::user())
             Login
         @else
-            Cabinet
+            admin
         @endif
     </a>
 

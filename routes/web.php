@@ -15,17 +15,26 @@ Auth::routes();
 Route::view('/', 'index')->name('index');
 Route::view('/test', 'test');
 
-Route::namespace('Cabinet')->group(function () {
-    Route::prefix('cabinet')->group(function () {
-        // cabinet home page
-        Route::get('/', 'HomeController@index')->name('cabinet.index');
+// admin panel
+Route::namespace('Admin')->group(function () {
+    Route::prefix('admin')->group(function () {
+        // admin home page
+        Route::get('/', 'HomeController@index')->name('admin.index');
 
-        // company actions
-        Route::get('/company', 'CompanyController@index')->name('cabinet.company.index');
-        Route::get('/company/create', 'CompanyController@create')->name('cabinet.company.create');
+        // admin companies
+        Route::get('/company', 'CompanyController@index')->name('admin.company.index');
+        Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
 
-        Route::get('/contactperson', 'ContactPersonController@index')->name('cabinet.person.index');
-        Route::get('/contactperson/create', 'ContactPersonController@create')->name('cabinet.person.create');
+        // admin contact persons
+        Route::get('/contactperson', 'ContactPersonController@index')->name('admin.person.index');
+        Route::get('/contactperson/create', 'ContactPersonController@create')->name('admin.person.create');
     });
 });
+
+// cabinet
+// Route::namespace('Cabinet')->group(function () {
+//     Route::prefix('cabinet')->group(function () {
+
+//     });
+// });
 

@@ -67,7 +67,9 @@ class ContactPersonCreate extends Component {
                     </div>
                 </div>
 
-                <button className="btn btn-primary" onClick={() => createContactPerson()}>Create contact person</button>
+                <button className="btn btn-primary" onClick={() => createContactPerson()}>
+                    <i class="fas fa-save"></i> Create contact person
+                </button>
             </div>
         );
     }

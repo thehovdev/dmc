@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use Illuminate\Http\Request;
 
@@ -19,10 +19,7 @@ class ContactPersonController extends Controller
      */
     public function index(Request $request, ContactPersonService $contactPersonService)
     {
-        $result = new stdClass;
-        $result->status = 1;
-        $result->message = 'success';
-        $result->contactPersons = $contactPersonService->getContactPersons($request);
+        $result = $contactPersonService->getContactPersons($request);
 
         return response()->json($result);
     }
@@ -49,8 +46,10 @@ class ContactPersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ContactPerson $contactPerson)
+    public function show(ContactPerson $contactPerson, ContactPersonService $contactPersonService)
     {
+        $result = $contactPersonService->getContactPerson($contactPerson);
+
         return response()->json($contactPerson);
     }
 
@@ -61,9 +60,12 @@ class ContactPersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateContactPersonReq $request, ContactPerson $contactPerson)
-    {
-        $result = $contactPersonService->update($contactPerson);
+    public function update(
+        ContactPersonService $contactPersonService,
+        CreateContactPersonReq $request,
+        ContactPerson $contactPerson
+    ) {
+        $result = $contactPersonService->update($request, $contactPerson);
 
         return response()->json($result);
     }

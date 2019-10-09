@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use stdClass;
 use App\Company;
+use App\ContactPerson;
 use Illuminate\Http\Request;
 use App\Services\CompanyService;
 use App\Http\Controllers\Controller;
@@ -72,9 +73,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company, CompanyService $companyService)
+    public function destroy(Company $company, ContactPerson $contactPerson, CompanyService $companyService)
     {
-        $result = $companyService->destroy($company);
+        $result = $companyService->destroy($company, $contactPerson);
 
         return response()->json($result);
     }

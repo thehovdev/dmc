@@ -85,7 +85,8 @@ class CompanyService
         return $this->result;
     }
 
-    public function destroy(Company $company) {
+    public function destroy(Company $company, ContactPerson $contactPerson) {
+        $company->contactPersons()->delete();
         $company->delete();
 
         $this->result->status = 1;
@@ -115,7 +116,7 @@ class CompanyService
             return $this->company->orderByDesc('id')->get();
         }
 
-        return $this->company->orderByDesc('id')->paginate(2);
+        return $this->company->orderByDesc('id')->paginate(10);
     }
 
     public function updateLogo($request, $company) {

@@ -15,10 +15,9 @@ use Illuminate\Http\Request;
 
 Route::namespace('Api')->group(function () {
     Route::get('/reserve/store', 'ReserveController@store');
-    // Route::get('company/update/{company}', 'CompanyController@update');
-    Route::apiResource('company', 'CompanyController');
-    Route::apiResource('contactPerson', 'ContactPersonController');
 
-    // Route::get('/company/get/{company}', 'CompanyController@getCompany')->name('api.company.get');
-    // Route::get('/company/get', 'CompanyController@getCompanies')->name('api.companies.get');
+    Route::namespace('Admin')->group(function () {
+        Route::apiResource('company', 'CompanyController');
+        Route::apiResource('contactPerson', 'ContactPersonController');
+    });
 });

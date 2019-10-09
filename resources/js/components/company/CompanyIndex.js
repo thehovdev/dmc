@@ -94,7 +94,9 @@ class CompanyIndex extends Component {
                     <button className="btn btn-primary mx-1" onClick={() => editCompany(false)}>
                         <i className="fas fa-arrow-left"></i> Back
                     </button>
-                    <button className="btn btn-primary mx-1" onClick={() => updateCompany(company.id)}>Update</button>
+                    <button className="btn btn-primary mx-1" onClick={() => updateCompany(company.id)}>
+                        <i className="fas fa-save"></i> Update
+                    </button>
                 </div>
             );
         }
@@ -110,9 +112,13 @@ class CompanyIndex extends Component {
                     <td>{item.address}</td>
                     <td>{item.email}</td>
                     <td>
-                        {/* <a href={'/cabinet/company/' + item.id + '/edit'} className="btn btn-primary mx-1">Edit</a> */}
-                        <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">Edit</button>
-                        <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">Delete</button>
+                        {/* <a href={'/admin/company/' + item.id + '/edit'} className="btn btn-primary mx-1">Edit</a> */}
+                        <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">
+                            <i class="fas fa-times-circle"></i> Delete
+                        </button>
                     </td>
                 </tr>
             );

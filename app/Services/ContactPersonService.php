@@ -49,11 +49,12 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function update(CreateContactPersonReq $request) {
+    public function update(CreateContactPersonReq $request, ContactPerson $contactPerson) {
         $formData = (object) $request->formData;
 
-        if ($this->personExists($request)) {
+        if (!is_null($contactPerson)) {
 
+            $this->contactPerson = $contactPerson;
             $this->contactPerson->name = $formData->name;
             $this->contactPerson->phone = $formData->phone;
             $this->contactPerson->email = $formData->email;
@@ -85,12 +86,26 @@ class ContactPersonService
     public function getContactPersons(Request $request) {
 
         if(!isset($request->page)) {
-            return $this->contactPerson->orderByDesc('id')->get();
+            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->get();
+        } else {
+            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->paginate(10);
         }
 
-        return $this->contactPerson->orderByDesc('id')->paginate(2);
+        $this->result->status = 1;
+        $this->result->message = 'success';
 
+        return $this->result;
     }
+
+    public function getContactPerson(ContactPerson $contactPerson) {
+        $this->result->status = 1;
+        $this->result->message = 'success';
+        $this->result->contactPerson = $contactPerson;
+        $this->result->company = $contactPerson->company;
+
+        return $this->result;
+    }
+
 
     public function personExists(CreateContactPersonReq $request) {
         // get validated data from request parameter as object

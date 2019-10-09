@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 export function createContactPerson(formData) {
     let request_url = '/api/contactPerson'; // post 
-    let redirect_url = '/cabinet/contactperson'; // get
+    let redirect_url = '/admin/contactperson'; // get
 
     let headers = { 
         headers: { 
@@ -53,7 +53,7 @@ export function createContactPerson(formData) {
 
 export function updateContactPerson(formData, company) {
     let request_url = '/api/contactPerson/' + company; // post 
-    let redirect_url = '/cabinet/contactperson'; // get
+    let redirect_url = '/admin/contactperson'; // get
 
     let headers = { 
         headers: { 

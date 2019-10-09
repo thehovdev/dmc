@@ -16,11 +16,11 @@ const history = createBrowserHistory();
 const createRouters = () => (
     <Router history={history}>
         <Route exact path="/" component={Home} />
-        <Route exact path="/cabinet/company/create" component={CompanyCreate} />
-        <Route exact path="/cabinet/company" component={CompanyIndex} />
+        <Route exact path="/admin/company/create" component={CompanyCreate} />
+        <Route exact path="/admin/company" component={CompanyIndex} />
 
-        <Route exact path="/cabinet/contactperson" component={ContactPersonIndex} />
-        <Route exact path="/cabinet/contactperson/create" component={ContactPersonCreate} />
+        <Route exact path="/admin/contactperson" component={ContactPersonIndex} />
+        <Route exact path="/admin/contactperson/create" component={ContactPersonCreate} />
 
     </Router>
 );

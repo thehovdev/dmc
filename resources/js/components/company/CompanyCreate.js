@@ -68,7 +68,9 @@ class CompanyCreate extends Component {
                     </div>
                 </div>
 
-                <button className="btn btn-primary" onClick={createCompany}>Create company</button>
+                <button className="btn btn-primary" onClick={createCompany}>
+                    <i className="fas fa-save"></i> Create Company
+                </button>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cabinet;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 class ContactPersonController extends Controller
 {
     public function index() {
-        return view('cabinet.contactperson.index');
+        return view('admin.contactperson.index');
     }
 
     public function create() {
-        return view('cabinet.contactperson.create');
+        return view('admin.contactperson.create');
     }
 }

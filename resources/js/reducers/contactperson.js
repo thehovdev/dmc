@@ -24,16 +24,16 @@ export default function (state = initialState, action) {
             contactPersonApi.createContactPerson(formData)
 
             return state
-        case 'UPDATE_COMPANY':
+        case 'UPDATE_CONTACT_PERSON':
             // get company id from action
             contactPerson = action.payload;
 
             // get form data
-            form = document.getElementById('create-contact-person-content');
+            form = document.getElementById('edit-contact-person-content');
             formData = getFormData( form );
 
             // call api update method
-            console.log('UPDATE_COMPANY dispatched');
+            console.log('UPDATE_CONTACT_PERSON dispatched');
             contactPersonApi.updateContactPerson(formData, contactPerson)
 
             return state

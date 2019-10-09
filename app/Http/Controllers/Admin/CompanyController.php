@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cabinet;
+namespace App\Http\Controllers\Admin;
 
 use stdClass;
 use App\Company;
@@ -12,11 +12,11 @@ use App\Http\Requests\CreateCompanyReq;
 class CompanyController extends Controller
 {
     public function index() {
-        return view('cabinet.company.index');
+        return view('admin.company.index');
     }
  
     public function create() {
-        return view('cabinet.company.create');
+        return view('admin.company.create');
     }
 
 }

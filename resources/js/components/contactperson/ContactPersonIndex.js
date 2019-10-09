@@ -41,7 +41,7 @@ class ContactPersonIndex extends Component {
 
             return companies.map((company, index) => {
                 if(company.id == contactPerson.company_id) {
-                    return <option key={ index } value={ company.id } selected>
+                    return <option key={ index } value={ company.id }>
                                 { company.name }
                             </option>
                 } else {
@@ -85,13 +85,13 @@ class ContactPersonIndex extends Component {
         const contactPersonEditBlock = () => {
 
             return (
-                <div className="form-content" id="edit-company-content">
-                    <div className="company-info">
+                <div className="form-content" id="edit-contact-person-content">
+                    <div className="contact-person-info">
                         <h3>Contact Person information</h3>
     
                         <div className="form-group">
                             <label htmlFor="company_id">Choose company</label>
-                            <select className="form-control" id="company_id">
+                            <select className="form-control" id="company_id" defaultValue={contactPerson.company_id}>
                                 { companiesList() }
                             </select>
                         </div>
@@ -116,7 +116,9 @@ class ContactPersonIndex extends Component {
                     <button className="btn btn-primary mx-1" onClick={() => editContactPerson(false)}>
                         <i className="fas fa-arrow-left"></i> Back
                     </button>
-                    <button className="btn btn-primary mx-1" onClick={() => updateContactPerson(contactPerson.id)}>Update</button>
+                    <button className="btn btn-primary mx-1" onClick={() => updateContactPerson(contactPerson.id)}>
+                        <i class="fas fa-save"></i> Update
+                    </button>
                 </div>
             );
         }
@@ -126,14 +128,24 @@ class ContactPersonIndex extends Component {
             // console.log(companies);
             if(contactPersons == null) return null;
 
+            console.log(contactPersons);
+
+
             return contactPersons.data.map((item, index) =>
-                <tr id={'company-' + item.id} key={index}>
+
+
+                <tr id={'contact-person-' + item.id} key={index}>
                     <td>{item.name}</td>
                     <td>{item.phone}</td>
                     <td>{item.email}</td>
+                    <td>{item.company.name}</td>
                     <td>
-                        <button onClick={() => editContactPerson(item.id)} type="button" className="btn btn-primary mx-1">Edit</button>
-                        <button onClick={() => deleteContactPerson(item.id)} type="button" className="btn btn-danger mx-1">Delete</button>
+                        <button onClick={() => editContactPerson(item.id)} type="button" className="btn btn-primary mx-1">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button onClick={() => deleteContactPerson(item.id)} type="button" className="btn btn-danger mx-1">
+                            <i class="fas fa-times-circle"></i> Delete
+                        </button>
                     </td>
                 </tr>
             );
@@ -171,6 +183,7 @@ class ContactPersonIndex extends Component {
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th>Company</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

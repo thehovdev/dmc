@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 export function createCompany(formData) {
     let request_url = '/api/company'; // post 
-    let redirect_url = '/cabinet/company'; // get
+    let redirect_url = '/admin/company'; // get
 
     let headers = { 
         headers: { 
@@ -55,7 +55,7 @@ export function createCompany(formData) {
 
 export function updateCompany(formData, company) {
     let request_url = '/api/company/' + company; // post 
-    let redirect_url = '/cabinet/company'; // get
+    let redirect_url = '/admin/company'; // get
 
     let headers = { 
         headers: { 

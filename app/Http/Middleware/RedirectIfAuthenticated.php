@@ -18,9 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect()->route('cabinet.index');
+            if (Auth::user()->role->name == 'admin')
+                return redirect()->route('admin.index');
+            else 
+                return redirect()->route('cabinet.index');
         }
-
         return $next($request);
     }
 }
