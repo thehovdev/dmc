@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-export function createContactPerson(formData) {
+export function create(formData) {
     let request_url = '/api/contactPerson'; // post 
     let redirect_url = '/admin/contactperson'; // get
 
@@ -51,7 +51,7 @@ export function createContactPerson(formData) {
         });
 }
 
-export function updateContactPerson(formData, company) {
+export function update(formData, company) {
     let request_url = '/api/contactPerson/' + company; // post 
     let redirect_url = '/admin/contactperson'; // get
 
@@ -105,18 +105,18 @@ export function updateContactPerson(formData, company) {
 
 }
 
-export function getContactPersons(action, page = 1) {
+export function get(action, page = 1) {
     let request_url = '/api/contactPerson?page=' + page;
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
             console.log(response.data);
-            action.getContactPersons(response.data.contactPersons);
+            action.get(response.data.contactPersons);
         }
     });
 }
 
-export function getContactPerson(action, id) {
+export function find(action, id) {
     let request_url = '/api/contactPerson/' + id;
 
     axios.get(request_url, {
@@ -126,12 +126,12 @@ export function getContactPerson(action, id) {
     }).then(function (response) {
 
         if(response.data.id) {
-            action.editContactPerson(response.data);
+            action.edit(response.data);
         } 
     });
 }
 
-export function deleteContactPerson(action, id) {
+export function remove(action, id) {
     let request_url = '/api/contactPerson/' + id;
 
     axios.post(request_url, {
@@ -149,7 +149,7 @@ export function deleteContactPerson(action, id) {
                 timer: 1500
             })
 
-            getContactPersons(action)
+            get(action)
             
         } else {
             Swal.fire(

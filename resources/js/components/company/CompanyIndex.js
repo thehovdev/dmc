@@ -19,7 +19,7 @@ class CompanyIndex extends Component {
 
         let action = this.props.companyAction;
 
-        return companyApi.getCompanies(action, page);
+        return companyApi.get(action, page);
     }
 
     // do function after component ends render
@@ -29,25 +29,25 @@ class CompanyIndex extends Component {
 
     render() {
         const edit = this.props.company.edit;
-        const company = this.props.company.companyData;
-        const companies = this.props.company.companiesData;
+        const company = this.props.company.item;
+        const companies = this.props.company.items;
         const companyAction = this.props.companyAction;
 
         // button actions 
         const updateCompany = (id) => {
-            return companyAction.updateCompany(id);
+            return companyAction.update(id);
         }
 
         const editCompany = (id) => {
             if(id == false) {
-                return companyAction.editCompany(false);
+                return companyAction.edit(false);
             } else {
-                return companyApi.getCompany(companyAction, id);
+                return companyApi.find(companyAction, id);
             }
         }
 
         const deleteCompany = (id) => {
-            return companyApi.deleteCompany(companyAction, id);
+            return companyApi.remove(companyAction, id);
         }
 
         // main actions 
@@ -114,10 +114,10 @@ class CompanyIndex extends Component {
                     <td>
                         {/* <a href={'/admin/company/' + item.id + '/edit'} className="btn btn-primary mx-1">Edit</a> */}
                         <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">
-                            <i class="fas fa-edit"></i> Edit
+                            <i className="fas fa-edit"></i> Edit
                         </button>
                         <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">
-                            <i class="fas fa-times-circle"></i> Delete
+                            <i className="fas fa-times-circle"></i> Delete
                         </button>
                     </td>
                 </tr>

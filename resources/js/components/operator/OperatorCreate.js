@@ -7,31 +7,29 @@ import { create } from 'domain';
 
 import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
-
-import * as api from '../../requests/api';
 import * as operatorAction from '../../actions/operator';
 
-class CompanyOperatorCreate extends Component {
+class OperatorCreate extends Component {
 
     constructor(props) {
         super(props);
     }
-
     getCompanies () {
         let action = this.props.companyAction;
-        return companyApi.getCompaniesAll(action);
+        return companyApi.getAll(action);
     }
 
     componentDidMount() {
         return this.getCompanies();
     }
 
-
     render() {
-        const companies = this.props.company.companiesData;
+        const companies = this.props.company.items;
 
         const companiesList = () => {
             if(companies == null) return null;
+
+            console.log(companies);
 
             return companies.map((company, index) =>
                 <option key={ index } value={ company.id }>{ company.name }</option>
@@ -39,7 +37,7 @@ class CompanyOperatorCreate extends Component {
         }
 
         const createOperator = () => {
-            return this.props.operatorAction.createOperator();
+            return this.props.operatorAction.create();
         }
 
         return (
@@ -90,4 +88,4 @@ const mapStateToProps = function(state){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyOperatorCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(OperatorCreate);

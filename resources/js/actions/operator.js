@@ -1,35 +1,35 @@
-export const createOperator = () => {
+export const create = () => {
     return {
       type: 'CREATE_OPERATOR',
       payload: 'admin create new operator'
     }
 }
 
-export const updateOperator = (operator) => {
+export const update = (item) => {
     return {
       type: 'UPDATE_OPERATOR',
-      payload: operator
+      payload: item
     }
 }
 
-export const getOperators = (operators) => {
+export const get = (items) => {
     return {
-      type: 'GET_COMPANIES',
-      payload: companies
+      type: 'GET_OPERATORS',
+      payload: items
     }
 }
 
 
-export const getOperatorsAll = (operators) => {
+export const getAll = (items) => {
     return {
-      type: 'GET_COMPANIES',
-      payload: companies
+      type: 'GET_OPERATORS_ALL',
+      payload: items
     }
 }
 
-export const editOperator = (operator) => {
+export const edit = (item) => {
     return {
       type: 'EDIT_OPERATOR',
-      payload: operator
+      payload: item
     }
 }

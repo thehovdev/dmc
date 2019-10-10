@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4 class="py-2">Create company operator</h4>
+    <h4 class="py-2">Create new operator</h4>
 
     <section class="admin-content">
         <div class="row justify-content-center">

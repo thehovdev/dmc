@@ -18,7 +18,7 @@ class CompanyCreate extends Component {
     render() {
 
         const createCompany = () => {
-            return this.props.companyAction.createCompany();
+            return this.props.companyAction.create();
         }
 
         return (

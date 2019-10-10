@@ -8,8 +8,8 @@ let contactPerson;
 let contactPersons;
 let initialState = {
     edit: false,
-    contactPersonData: null,
-    contactPersonsData: null,
+    item: null,
+    items: null,
     contactPersonsPageCount: null,
 }
 
@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
             formData = getFormData( form );
 
             console.log('CREATE_CONTACT_PERSON dispatched');
-            contactPersonApi.createContactPerson(formData)
+            contactPersonApi.create(formData)
 
             return state
         case 'UPDATE_CONTACT_PERSON':
@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
 
             // call api update method
             console.log('UPDATE_CONTACT_PERSON dispatched');
-            contactPersonApi.updateContactPerson(formData, contactPerson)
+            contactPersonApi.update(formData, contactPerson)
 
             return state
 
@@ -44,20 +44,20 @@ export default function (state = initialState, action) {
             if(contactPerson == false) {
                 return update(state, { 
                     edit: {$set: false},
-                    contactPersonData: {$set: null}
+                    item: {$set: null}
                 });
             }
 
             return update(state, { 
                 edit: {$set: true},
-                contactPersonData: {$set: contactPerson}
+                item: {$set: contactPerson}
             });
 
         case 'GET_CONTACT_PERSONS':
             contactPersons = action.payload;
 
             return update(state, { 
-                contactPersonsData: {$set: contactPersons},
+                items: {$set: contactPersons},
                 contactPersonsPageCount: {$set: contactPersons.last_page},
                 contactPersonsPerPage: {$set: contactPersons.per_page}
             });

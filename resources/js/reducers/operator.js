@@ -1,19 +1,22 @@
 import update from 'react-addons-update';
 import {getFormData} from '../includes/helpers';
-import * as api from '../requests/api';
+import * as operatorApi from '../requests/operator';
 
 let form;
 let formData;
-let item;
-let items;
+let payload;
+let operator;
+let operators;
 let request;
 let redirect;
 let initialState = {
     edit: false,
-    data: null,
-    datas: null,
-    pagecount: null,
+    item: null,
+    items: null,
+    pageCount: null,
+    perPage: null,
 }
+
 
 export default function (state = initialState, action) {
     console.log(action.type);
@@ -23,13 +26,21 @@ export default function (state = initialState, action) {
             form = document.getElementById('create-company-operator-content');
             formData = getFormData( form );
 
-            redirect = '/admin/operator';
-            request = '/api/operator';
-
             console.log('CREATE_OPERATOR dispatched');
-            api.create(formData, request, redirect)
+            operatorApi.create(formData)
 
             return state       
+        case 'GET_OPERATORS':
+            operators = action.payload;
+
+            return update(state, { 
+                items: {$set: operators},
+                pageCount: {$set: operators.last_page},
+                perPage: {$set: operators.per_page}
+            });
+
+
+
         // case 'UPDATE_COMPANY':
         //     // get company id from action
         //     company = action.payload;
@@ -44,31 +55,20 @@ export default function (state = initialState, action) {
 
         //     return state
 
-        // case 'EDIT_COMPANY':
-        //     company = action.payload;
+        case 'EDIT_OPERATOR':
+            operator = action.payload;
         
-        //     if(company == false) {
-        //         return update(state, { 
-        //             edit: {$set: false},
-        //             companyData: {$set: null}
-        //         });
-        //     }
+            if(operator == false) {
+                return update(state, { 
+                    edit: {$set: false},
+                    item: {$set: null}
+                });
+            }
 
-        //     return update(state, { 
-        //         edit: {$set: true},
-        //         companyData: {$set: company}
-        //     });
-
-        // case 'GET_COMPANIES':
-        //     companies = action.payload;
-
-        //     return update(state, { 
-        //         companiesData: {$set: companies},
-        //         companiesPageCount: {$set: companies.last_page},
-        //         companiesPerPage: {$set: companies.per_page}
-        //     });
-
-
+            return update(state, { 
+                edit: {$set: true},
+                item: {$set: operator}
+            });
         // case 'GET_COMPANIES_ALL':
         //     companies = action.payload;
 

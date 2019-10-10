@@ -14,7 +14,7 @@ class ContactPersonCreate extends Component {
 
     getCompanies () {
         let action = this.props.companyAction;
-        return companyApi.getCompaniesAll(action);
+        return companyApi.getAll(action);
     }
 
     componentDidMount() {
@@ -23,18 +23,18 @@ class ContactPersonCreate extends Component {
 
 
     render() {
-        const companies = this.props.company.companiesData;
+        const companies = this.props.company.items;
 
         const companiesList = () => {
             if(companies == null) return null;
 
             return companies.map((company, index) =>
-                <option key={ index } defaultValue={ company.id }>{ company.name }</option>
+                <option key={ index } value={ company.id }>{ company.name }</option>
             );
         }
 
         const createContactPerson = () => {
-            return this.props.contactPersonAction.createContactPerson();
+            return this.props.contactPersonAction.create();
         }
 
 
@@ -68,7 +68,7 @@ class ContactPersonCreate extends Component {
                 </div>
 
                 <button className="btn btn-primary" onClick={() => createContactPerson()}>
-                    <i class="fas fa-save"></i> Create contact person
+                    <i className="fas fa-save"></i> Create contact person
                 </button>
             </div>
         );

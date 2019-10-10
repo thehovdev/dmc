@@ -5,42 +5,39 @@ import {connect} from 'react-redux';
 import * as companyAction from '../../actions/company';
 import * as companyApi from '../../requests/company';
 
-import * as contactPersonApi from '../../requests/contactperson';
-import * as contactPersonAction from '../../actions/contactperson';
+import * as operatorApi from '../../requests/operator';
+import * as operatorAction from '../../actions/operator';
 
-class ContactPersonIndex extends Component {
+class OperatorIndex extends Component {
 
     constructor(props) {
         super(props);
     }
 
-
-    getContactPersons (page = 1) {
-        let action = this.props.contactPersonAction;
-
-        return contactPersonApi.get(action, page);
+    getOperators (page = 1) {
+        let action = this.props.operatorAction;
+        return operatorApi.get(action, page);
     }
 
     // do function after component ends render
     componentDidMount(){
-        this.getContactPersons();
+        this.getOperators();
     }
 
     render() {
-        const edit = this.props.contactPerson.edit;
-        const contactPerson = this.props.contactPerson.item;
-        const contactPersons = this.props.contactPerson.items;
-        const contactPersonAction = this.props.contactPersonAction;
+        const edit = this.props.operator.edit;
+        const operator = this.props.operator.item;
+        const operators = this.props.operator.items;
+        const operatorAction = this.props.operatorAction;
 
         const companies = this.props.company.items;
         const companyAction = this.props.companyAction;
-
 
         const companiesList = () => {
             if(companies == null) return null;
 
             return companies.map((company, index) => {
-                if(company.id == contactPerson.company_id) {
+                if(company.id == operator.company_id) {
                     return <option key={ index } value={ company.id }>
                                 { company.name }
                             </option>
@@ -52,98 +49,96 @@ class ContactPersonIndex extends Component {
             });
         }
 
+
         // button actions 
-        const updateContactPerson = (id) => {
-            return contactPersonAction.update(id);
+        const updateOperator = (id) => {
+            return operatorAction.update(id);
         }
 
-        const editContactPerson = (id) => {
+        const editOperator = (id) => {
             if(id == false) {
-                return contactPersonAction.edit(false);
+                return operatorAction.edit(false);
             } else {
 
                 companyApi.getAll(companyAction)
 
-                contactPersonApi.find(contactPersonAction, id);
+                operatorApi.find(operatorAction, id);
             }
         }
 
-        const deleteContactPerson  = (id) => {
-            return contactPersonApi.remove(contactPersonAction, id);
+        const deleteOperator = (id) => {
+            return operatorApi.remove(operatorAction, id);
         }
 
-        const contactPersonBlock = () => {
+        const operatorBlock = () => {
             console.log(edit);
 
             if(edit == false) {
-                return contactPersonIndexBlock();
+                return operatorIndexBlock();
             } else {
-                return contactPersonEditBlock();
+                return operatorEditBlock();
             }
         }
 
-        const contactPersonEditBlock = () => {
+        const operatorEditBlock = () => {
 
             return (
-                <div className="form-content" id="edit-contact-person-content">
-                    <div className="contact-person-info">
-                        <h3>Contact Person information</h3>
+                <div className="form-content" id="edit-operator-content">
+                    <div className="opertor-info">
+                        <h3>Operator information</h3>
     
                         <div className="form-group">
                             <label htmlFor="company_id">Choose company</label>
-                            <select className="form-control" id="company_id" defaultValue={contactPerson.company_id}>
+                            <select className="form-control" id="company_id" defaultValue={operator.company_id}>
                                 { companiesList() }
                             </select>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input defaultValue={contactPerson.name} type="text" className="form-control" id="name" placeholder="Enter name"></input>
+                            <input defaultValue={operator.name} type="text" className="form-control" id="name" placeholder="Enter name"></input>
                         </div>
     
                         <div className="form-group">
                             <label htmlFor="phone">Phone</label>
-                            <input defaultValue={contactPerson.phone} type="text" className="form-control" id="phone" placeholder="Enter company address"></input>
+                            <input defaultValue={operator.phone} type="text" className="form-control" id="phone" placeholder="Enter company address"></input>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
-                            <input defaultValue={contactPerson.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
+                            <input defaultValue={operator.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
 
                     </div>
     
-                    <button className="btn btn-primary mx-1" onClick={() => editContactPerson(false)}>
+                    <button className="btn btn-primary mx-1" onClick={() => editOperator(false)}>
                         <i className="fas fa-arrow-left"></i> Back
                     </button>
-                    <button className="btn btn-primary mx-1" onClick={() => updateContactPerson(contactPerson.id)}>
+                    <button className="btn btn-primary mx-1" onClick={() => updateOperator(operator.id)}>
                         <i className="fas fa-save"></i> Update
                     </button>
                 </div>
             );
         }
 
-        const contactPersonListBlock = () => {
-
-            // console.log(companies);
-            if(contactPersons == null) return null;
-
-            console.log(contactPersons);
+        const operatorListBlock = () => {
 
 
-            return contactPersons.data.map((item, index) =>
+            if(operators == null) return null;
 
+            // console.log(operators.data.operators);
 
-                <tr id={'contact-person-' + item.id} key={index}>
+            return operators.data.map((item, index) =>
+                <tr id={'operator-' + item.id} key={index}>
                     <td>{item.name}</td>
                     <td>{item.phone}</td>
                     <td>{item.email}</td>
                     <td>{item.company.name}</td>
                     <td>
-                        <button onClick={() => editContactPerson(item.id)} type="button" className="btn btn-primary mx-1">
+                        <button onClick={() => editOperator(item.id)} type="button" className="btn btn-primary mx-1">
                             <i className="fas fa-edit"></i> Edit
                         </button>
-                        <button onClick={() => deleteContactPerson(item.id)} type="button" className="btn btn-danger mx-1">
+                        <button onClick={() => deleteOperator(item.id)} type="button" className="btn btn-danger mx-1">
                             <i className="fas fa-times-circle"></i> Delete
                         </button>
                     </td>
@@ -151,11 +146,11 @@ class ContactPersonIndex extends Component {
             );
         }
 
-        const contactPersonsPagination = () => {
+        const operatorsPagination = () => {
 
-            if(contactPersons != null) {
-                let pageCount = contactPersons.last_page;
-                let currentPage = contactPersons.current_page;
+            if(operators != null) {
+                let pageCount = operators.last_page;
+                let currentPage = operators.current_page;
 
                 var rows = [];
                 for (var i = 1; i <= pageCount; i++) {
@@ -164,7 +159,7 @@ class ContactPersonIndex extends Component {
 
                 return rows.map((page, index) =>
                     <li key={index} className={ page == currentPage ? 'page-item active' : 'page-item' }>
-                        <a className="page-link" href="#" onClick={ () => {this.getContactPersons(page)} }>{page}</a>
+                        <a className="page-link" href="#" onClick={ () => {this.getOperators(page)} }>{page}</a>
                     </li>
                 );
 
@@ -173,8 +168,7 @@ class ContactPersonIndex extends Component {
             }
         }
 
-
-        const contactPersonIndexBlock = () => {
+        const operatorIndexBlock = () => {
             return (
                 <div>
                     <table className="table table-bordered">
@@ -188,33 +182,33 @@ class ContactPersonIndex extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {contactPersonListBlock()}
+                            {operatorListBlock()}
                         </tbody>
                     </table>
 
                     <ul className="pagination">
-                        {contactPersonsPagination()}
+                        {operatorsPagination()}
                     </ul>
                 </div>
             );
         }
 
-        return contactPersonBlock();
+        return operatorBlock();
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         companyAction: bindActionCreators(companyAction, dispatch),
-        contactPersonAction: bindActionCreators(contactPersonAction, dispatch)
+        operatorAction: bindActionCreators(operatorAction, dispatch)
     }
 }
 
 const mapStateToProps = function(state){
     return {
       company: state.company,
-      contactPerson: state.contactPerson
+      operator: state.operator
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactPersonIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(OperatorIndex);

@@ -6,9 +6,10 @@ import { createBrowserHistory } from 'history'
 import Home from '../components/Home';
 import CompanyCreate from '../components/company/CompanyCreate';
 import CompanyIndex from '../components/company/CompanyIndex';
-import CompanyOperatorCreate from '../components/company/CompanyOperatorCreate';
 import ContactPersonIndex from '../components/contactperson/ContactPersonIndex';
 import ContactPersonCreate from '../components/contactperson/ContactPersonCreate';
+import OperatorIndex from '../components/operator/OperatorIndex';
+import OperatorCreate from '../components/operator/OperatorCreate';
 
 const history = createBrowserHistory();
 
@@ -19,12 +20,10 @@ const createRouters = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/admin/company/create" component={CompanyCreate} />
         <Route exact path="/admin/company" component={CompanyIndex} />
-
-        <Route exact path="/admin/operator/create" component={CompanyOperatorCreate} />
-
         <Route exact path="/admin/contactperson" component={ContactPersonIndex} />
         <Route exact path="/admin/contactperson/create" component={ContactPersonCreate} />
-
+        <Route exact path="/admin/operator" component={OperatorIndex} />
+        <Route exact path="/admin/operator/create" component={OperatorCreate} />
     </Router>
 );
 

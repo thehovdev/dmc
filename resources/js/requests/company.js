@@ -2,7 +2,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 
-export function createCompany(formData) {
+export function create(formData) {
     let request_url = '/api/company'; // post 
     let redirect_url = '/admin/company'; // get
 
@@ -53,7 +53,7 @@ export function createCompany(formData) {
         });
 }
 
-export function updateCompany(formData, company) {
+export function update(formData, company) {
     let request_url = '/api/company/' + company; // post 
     let redirect_url = '/admin/company'; // get
 
@@ -107,7 +107,7 @@ export function updateCompany(formData, company) {
         });
 }
 
-export function deleteCompany(action, id) {
+export function remove(action, id) {
     let request_url = '/api/company/' + id;
 
     const elem = document.getElementById('company-' + id);
@@ -127,7 +127,7 @@ export function deleteCompany(action, id) {
                 timer: 1500
             })
 
-            getCompanies(action)
+            get(action)
             
         } else {
             Swal.fire(
@@ -142,30 +142,30 @@ export function deleteCompany(action, id) {
 
 }
 
-export function getCompanies(action, page = 1) {
+export function get(action, page = 1) {
     let request_url = '/api/company?page=' + page;
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
             console.log(response.data);
-            action.getCompanies(response.data.companies);
+            action.get(response.data.companies);
         }
     });
 }
 
-export function getCompaniesAll(action) {
+export function getAll(action) {
     let request_url = '/api/company';
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
             console.log(response.data);
-            action.getCompaniesAll(response.data.companies);
+            action.getAll(response.data.companies);
         }
     });
 }
 
 
-export function getCompany(action, id) {
+export function find(action, id) {
     let request_url = '/api/company/' + id;
 
     axios.get(request_url, {
@@ -174,7 +174,7 @@ export function getCompany(action, id) {
         }
     }).then(function (response) {
         if(response.data.id) {
-            action.editCompany(response.data);
+            action.edit(response.data);
         } 
     });
 }

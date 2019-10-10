@@ -76151,48 +76151,41 @@ module.exports = function(module) {
 /*!*****************************************!*\
   !*** ./resources/js/actions/company.js ***!
   \*****************************************/
-/*! exports provided: createCompany, createOperator, updateCompany, getCompanies, getCompaniesAll, editCompany */
+/*! exports provided: create, update, get, getAll, edit */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCompany", function() { return createCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createOperator", function() { return createOperator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCompany", function() { return updateCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompanies", function() { return getCompanies; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompaniesAll", function() { return getCompaniesAll; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editCompany", function() { return editCompany; });
-var createCompany = function createCompany() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAll", function() { return getAll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "edit", function() { return edit; });
+var create = function create() {
   return {
     type: 'CREATE_COMPANY',
     payload: 'admin create new company'
   };
 };
-var createOperator = function createOperator() {
-  return {
-    type: 'CREATE_OPERATOR',
-    payload: 'admin create new operator'
-  };
-};
-var updateCompany = function updateCompany(company) {
+var update = function update(company) {
   return {
     type: 'UPDATE_COMPANY',
     payload: company
   };
 };
-var getCompanies = function getCompanies(companies) {
+var get = function get(companies) {
   return {
     type: 'GET_COMPANIES',
     payload: companies
   };
 };
-var getCompaniesAll = function getCompaniesAll(companies) {
+var getAll = function getAll(companies) {
   return {
     type: 'GET_COMPANIES',
     payload: companies
   };
 };
-var editCompany = function editCompany(company) {
+var edit = function edit(company) {
   return {
     type: 'EDIT_COMPANY',
     payload: company
@@ -76205,34 +76198,34 @@ var editCompany = function editCompany(company) {
 /*!***********************************************!*\
   !*** ./resources/js/actions/contactperson.js ***!
   \***********************************************/
-/*! exports provided: createContactPerson, updateContactPerson, getContactPersons, editContactPerson */
+/*! exports provided: create, update, get, edit */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createContactPerson", function() { return createContactPerson; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateContactPerson", function() { return updateContactPerson; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getContactPersons", function() { return getContactPersons; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editContactPerson", function() { return editContactPerson; });
-var createContactPerson = function createContactPerson() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "edit", function() { return edit; });
+var create = function create() {
   return {
     type: 'CREATE_CONTACT_PERSON',
     payload: 'admin create new company'
   };
 };
-var updateContactPerson = function updateContactPerson(contactPerson) {
+var update = function update(contactPerson) {
   return {
     type: 'UPDATE_CONTACT_PERSON',
     payload: contactPerson
   };
 };
-var getContactPersons = function getContactPersons(contactPersons) {
+var get = function get(contactPersons) {
   return {
     type: 'GET_CONTACT_PERSONS',
     payload: contactPersons
   };
 };
-var editContactPerson = function editContactPerson(contactPerson) {
+var edit = function edit(contactPerson) {
   return {
     type: 'EDIT_CONTACT_PERSON',
     payload: contactPerson
@@ -76278,44 +76271,44 @@ var sendForm = function sendForm() {
 /*!******************************************!*\
   !*** ./resources/js/actions/operator.js ***!
   \******************************************/
-/*! exports provided: createOperator, updateOperator, getOperators, getOperatorsAll, editOperator */
+/*! exports provided: create, update, get, getAll, edit */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createOperator", function() { return createOperator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOperator", function() { return updateOperator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOperators", function() { return getOperators; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOperatorsAll", function() { return getOperatorsAll; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editOperator", function() { return editOperator; });
-var createOperator = function createOperator() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAll", function() { return getAll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "edit", function() { return edit; });
+var create = function create() {
   return {
     type: 'CREATE_OPERATOR',
     payload: 'admin create new operator'
   };
 };
-var updateOperator = function updateOperator(operator) {
+var update = function update(item) {
   return {
     type: 'UPDATE_OPERATOR',
-    payload: operator
+    payload: item
   };
 };
-var getOperators = function getOperators(operators) {
+var get = function get(items) {
   return {
-    type: 'GET_COMPANIES',
-    payload: companies
+    type: 'GET_OPERATORS',
+    payload: items
   };
 };
-var getOperatorsAll = function getOperatorsAll(operators) {
+var getAll = function getAll(items) {
   return {
-    type: 'GET_COMPANIES',
-    payload: companies
+    type: 'GET_OPERATORS_ALL',
+    payload: items
   };
 };
-var editOperator = function editOperator(operator) {
+var edit = function edit(item) {
   return {
     type: 'EDIT_OPERATOR',
-    payload: operator
+    payload: item
   };
 };
 
@@ -76644,7 +76637,7 @@ function (_Component) {
       var _this = this;
 
       var createCompany = function createCompany() {
-        return _this.props.companyAction.createCompany();
+        return _this.props.companyAction.create();
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -76809,7 +76802,7 @@ function (_Component) {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       console.log(page);
       var action = this.props.companyAction;
-      return _requests_company__WEBPACK_IMPORTED_MODULE_3__["getCompanies"](action, page);
+      return _requests_company__WEBPACK_IMPORTED_MODULE_3__["get"](action, page);
     } // do function after component ends render
 
   }, {
@@ -76823,24 +76816,24 @@ function (_Component) {
       var _this = this;
 
       var edit = this.props.company.edit;
-      var company = this.props.company.companyData;
-      var companies = this.props.company.companiesData;
+      var company = this.props.company.item;
+      var companies = this.props.company.items;
       var companyAction = this.props.companyAction; // button actions 
 
       var updateCompany = function updateCompany(id) {
-        return companyAction.updateCompany(id);
+        return companyAction.update(id);
       };
 
       var editCompany = function editCompany(id) {
         if (id == false) {
-          return companyAction.editCompany(false);
+          return companyAction.edit(false);
         } else {
-          return _requests_company__WEBPACK_IMPORTED_MODULE_3__["getCompany"](companyAction, id);
+          return _requests_company__WEBPACK_IMPORTED_MODULE_3__["find"](companyAction, id);
         }
       };
 
       var deleteCompany = function deleteCompany(id) {
-        return _requests_company__WEBPACK_IMPORTED_MODULE_3__["deleteCompany"](companyAction, id);
+        return _requests_company__WEBPACK_IMPORTED_MODULE_3__["remove"](companyAction, id);
       }; // main actions 
 
 
@@ -76932,7 +76925,7 @@ function (_Component) {
             type: "button",
             className: "btn btn-primary mx-1"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            "class": "fas fa-edit"
+            className: "fas fa-edit"
           }), " Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             onClick: function onClick() {
               return deleteCompany(item.id);
@@ -76940,7 +76933,7 @@ function (_Component) {
             type: "button",
             className: "btn btn-danger mx-1"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            "class": "fas fa-times-circle"
+            className: "fas fa-times-circle"
           }), " Delete")));
         });
       };
@@ -77003,175 +76996,6 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
-/***/ "./resources/js/components/company/CompanyOperatorCreate.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/components/company/CompanyOperatorCreate.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! domain */ "./node_modules/domain-browser/source/index.js");
-/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(domain__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _requests_company__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../requests/company */ "./resources/js/requests/company.js");
-/* harmony import */ var _actions_company__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/company */ "./resources/js/actions/company.js");
-/* harmony import */ var _requests_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../requests/api */ "./resources/js/requests/api.js");
-/* harmony import */ var _actions_operator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../actions/operator */ "./resources/js/actions/operator.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-
-
-
-
-
-
-
-var CompanyOperatorCreate =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CompanyOperatorCreate, _Component);
-
-  function CompanyOperatorCreate(props) {
-    _classCallCheck(this, CompanyOperatorCreate);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CompanyOperatorCreate).call(this, props));
-  }
-
-  _createClass(CompanyOperatorCreate, [{
-    key: "getCompanies",
-    value: function getCompanies() {
-      var action = this.props.companyAction;
-      return _requests_company__WEBPACK_IMPORTED_MODULE_6__["getCompaniesAll"](action);
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      return this.getCompanies();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this = this;
-
-      var companies = this.props.company.companiesData;
-
-      var companiesList = function companiesList() {
-        if (companies == null) return null;
-        return companies.map(function (company, index) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-            key: index,
-            value: company.id
-          }, company.name);
-        });
-      };
-
-      var createOperator = function createOperator() {
-        return _this.props.operatorAction.createOperator();
-      };
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-content",
-        id: "create-company-operator-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "company-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "company_id"
-      }, "Choose company"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control",
-        id: "company_id"
-      }, companiesList())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "name"
-      }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        defaultValue: "Afgan",
-        type: "text",
-        className: "form-control",
-        id: "name",
-        placeholder: "Enter operator name"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "email"
-      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        defaultValue: "halilov.lib@gmail.com",
-        type: "text",
-        className: "form-control",
-        id: "email",
-        placeholder: "Enter operator email"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "phone"
-      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        defaultValue: "Baku, Azerbaijan",
-        type: "text",
-        className: "form-control",
-        id: "phone",
-        placeholder: "Enter operator phone"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-primary",
-        onClick: function onClick() {
-          return createOperator();
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-save"
-      }), " Create operator"));
-    }
-  }]);
-
-  return CompanyOperatorCreate;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-function mapDispatchToProps(dispatch) {
-  return {
-    companyAction: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_actions_company__WEBPACK_IMPORTED_MODULE_7__, dispatch),
-    operatorAction: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_actions_operator__WEBPACK_IMPORTED_MODULE_9__, dispatch)
-  };
-}
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    company: state.company,
-    operator: state.operator
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(CompanyOperatorCreate));
-
-/***/ }),
-
 /***/ "./resources/js/components/contactperson/ContactPersonCreate.js":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/contactperson/ContactPersonCreate.js ***!
@@ -77228,7 +77052,7 @@ function (_Component) {
     key: "getCompanies",
     value: function getCompanies() {
       var action = this.props.companyAction;
-      return _requests_company__WEBPACK_IMPORTED_MODULE_3__["getCompaniesAll"](action);
+      return _requests_company__WEBPACK_IMPORTED_MODULE_3__["getAll"](action);
     }
   }, {
     key: "componentDidMount",
@@ -77240,20 +77064,20 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
-      var companies = this.props.company.companiesData;
+      var companies = this.props.company.items;
 
       var companiesList = function companiesList() {
         if (companies == null) return null;
         return companies.map(function (company, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             key: index,
-            defaultValue: company.id
+            value: company.id
           }, company.name);
         });
       };
 
       var createContactPerson = function createContactPerson() {
-        return _this.props.contactPersonAction.createContactPerson();
+        return _this.props.contactPersonAction.create();
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77304,7 +77128,7 @@ function (_Component) {
           return createContactPerson();
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-save"
+        className: "fas fa-save"
       }), " Create contact person"));
     }
   }]);
@@ -77389,7 +77213,7 @@ function (_Component) {
     value: function getContactPersons() {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       var action = this.props.contactPersonAction;
-      return _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["getContactPersons"](action, page);
+      return _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["get"](action, page);
     } // do function after component ends render
 
   }, {
@@ -77403,10 +77227,10 @@ function (_Component) {
       var _this = this;
 
       var edit = this.props.contactPerson.edit;
-      var contactPerson = this.props.contactPerson.contactPersonData;
-      var contactPersons = this.props.contactPerson.contactPersonsData;
+      var contactPerson = this.props.contactPerson.item;
+      var contactPersons = this.props.contactPerson.items;
       var contactPersonAction = this.props.contactPersonAction;
-      var companies = this.props.company.companiesData;
+      var companies = this.props.company.items;
       var companyAction = this.props.companyAction;
 
       var companiesList = function companiesList() {
@@ -77428,20 +77252,20 @@ function (_Component) {
 
 
       var updateContactPerson = function updateContactPerson(id) {
-        return contactPersonAction.updateContactPerson(id);
+        return contactPersonAction.update(id);
       };
 
       var editContactPerson = function editContactPerson(id) {
         if (id == false) {
-          return contactPersonAction.editContactPerson(false);
+          return contactPersonAction.edit(false);
         } else {
-          _requests_company__WEBPACK_IMPORTED_MODULE_4__["getCompaniesAll"](companyAction);
-          _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["getContactPerson"](contactPersonAction, id);
+          _requests_company__WEBPACK_IMPORTED_MODULE_4__["getAll"](companyAction);
+          _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["find"](contactPersonAction, id);
         }
       };
 
       var deleteContactPerson = function deleteContactPerson(id) {
-        return _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["deleteContactPerson"](contactPersonAction, id);
+        return _requests_contactperson__WEBPACK_IMPORTED_MODULE_5__["remove"](contactPersonAction, id);
       };
 
       var contactPersonBlock = function contactPersonBlock() {
@@ -77511,7 +77335,7 @@ function (_Component) {
             return updateContactPerson(contactPerson.id);
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-save"
+          className: "fas fa-save"
         }), " Update"));
       };
 
@@ -77530,7 +77354,7 @@ function (_Component) {
             type: "button",
             className: "btn btn-primary mx-1"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            "class": "fas fa-edit"
+            className: "fas fa-edit"
           }), " Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             onClick: function onClick() {
               return deleteContactPerson(item.id);
@@ -77538,7 +77362,7 @@ function (_Component) {
             type: "button",
             className: "btn btn-danger mx-1"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            "class": "fas fa-times-circle"
+            className: "fas fa-times-circle"
           }), " Delete")));
         });
       };
@@ -77600,6 +77424,446 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(ContactPersonIndex));
+
+/***/ }),
+
+/***/ "./resources/js/components/operator/OperatorCreate.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/operator/OperatorCreate.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! domain */ "./node_modules/domain-browser/source/index.js");
+/* harmony import */ var domain__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(domain__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _requests_company__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../requests/company */ "./resources/js/requests/company.js");
+/* harmony import */ var _actions_company__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/company */ "./resources/js/actions/company.js");
+/* harmony import */ var _actions_operator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../actions/operator */ "./resources/js/actions/operator.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+
+
+var OperatorCreate =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(OperatorCreate, _Component);
+
+  function OperatorCreate(props) {
+    _classCallCheck(this, OperatorCreate);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OperatorCreate).call(this, props));
+  }
+
+  _createClass(OperatorCreate, [{
+    key: "getCompanies",
+    value: function getCompanies() {
+      var action = this.props.companyAction;
+      return _requests_company__WEBPACK_IMPORTED_MODULE_6__["getAll"](action);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      return this.getCompanies();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var companies = this.props.company.items;
+
+      var companiesList = function companiesList() {
+        if (companies == null) return null;
+        console.log(companies);
+        return companies.map(function (company, index) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            key: index,
+            value: company.id
+          }, company.name);
+        });
+      };
+
+      var createOperator = function createOperator() {
+        return _this.props.operatorAction.create();
+      };
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-content",
+        id: "create-company-operator-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "company-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "company_id"
+      }, "Choose company"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        id: "company_id"
+      }, companiesList())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "name"
+      }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        defaultValue: "Afgan",
+        type: "text",
+        className: "form-control",
+        id: "name",
+        placeholder: "Enter operator name"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "email"
+      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        defaultValue: "halilov.lib@gmail.com",
+        type: "text",
+        className: "form-control",
+        id: "email",
+        placeholder: "Enter operator email"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "phone"
+      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        defaultValue: "Baku, Azerbaijan",
+        type: "text",
+        className: "form-control",
+        id: "phone",
+        placeholder: "Enter operator phone"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return createOperator();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-save"
+      }), " Create operator"));
+    }
+  }]);
+
+  return OperatorCreate;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    companyAction: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_actions_company__WEBPACK_IMPORTED_MODULE_7__, dispatch),
+    operatorAction: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_actions_operator__WEBPACK_IMPORTED_MODULE_8__, dispatch)
+  };
+}
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    company: state.company,
+    operator: state.operator
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(OperatorCreate));
+
+/***/ }),
+
+/***/ "./resources/js/components/operator/OperatorIndex.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/operator/OperatorIndex.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_company__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/company */ "./resources/js/actions/company.js");
+/* harmony import */ var _requests_company__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../requests/company */ "./resources/js/requests/company.js");
+/* harmony import */ var _requests_operator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../requests/operator */ "./resources/js/requests/operator.js");
+/* harmony import */ var _actions_operator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/operator */ "./resources/js/actions/operator.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var OperatorIndex =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(OperatorIndex, _Component);
+
+  function OperatorIndex(props) {
+    _classCallCheck(this, OperatorIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OperatorIndex).call(this, props));
+  }
+
+  _createClass(OperatorIndex, [{
+    key: "getOperators",
+    value: function getOperators() {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      var action = this.props.operatorAction;
+      return _requests_operator__WEBPACK_IMPORTED_MODULE_5__["get"](action, page);
+    } // do function after component ends render
+
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getOperators();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var edit = this.props.operator.edit;
+      var operator = this.props.operator.item;
+      var operators = this.props.operator.items;
+      var operatorAction = this.props.operatorAction;
+      var companies = this.props.company.items;
+      var companyAction = this.props.companyAction;
+
+      var companiesList = function companiesList() {
+        if (companies == null) return null;
+        return companies.map(function (company, index) {
+          if (company.id == operator.company_id) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              key: index,
+              value: company.id
+            }, company.name);
+          } else {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              key: index,
+              value: company.id
+            }, company.name);
+          }
+        });
+      }; // button actions 
+
+
+      var updateOperator = function updateOperator(id) {
+        return operatorAction.update(id);
+      };
+
+      var editOperator = function editOperator(id) {
+        if (id == false) {
+          return operatorAction.edit(false);
+        } else {
+          _requests_company__WEBPACK_IMPORTED_MODULE_4__["getAll"](companyAction);
+          _requests_operator__WEBPACK_IMPORTED_MODULE_5__["find"](operatorAction, id);
+        }
+      };
+
+      var deleteOperator = function deleteOperator(id) {
+        return _requests_operator__WEBPACK_IMPORTED_MODULE_5__["remove"](operatorAction, id);
+      };
+
+      var operatorBlock = function operatorBlock() {
+        console.log(edit);
+
+        if (edit == false) {
+          return operatorIndexBlock();
+        } else {
+          return operatorEditBlock();
+        }
+      };
+
+      var operatorEditBlock = function operatorEditBlock() {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-content",
+          id: "edit-operator-content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "opertor-info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Operator information"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "company_id"
+        }, "Choose company"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          className: "form-control",
+          id: "company_id",
+          defaultValue: operator.company_id
+        }, companiesList())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "name"
+        }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          defaultValue: operator.name,
+          type: "text",
+          className: "form-control",
+          id: "name",
+          placeholder: "Enter name"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "phone"
+        }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          defaultValue: operator.phone,
+          type: "text",
+          className: "form-control",
+          id: "phone",
+          placeholder: "Enter company address"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "email"
+        }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          defaultValue: operator.email,
+          type: "text",
+          className: "form-control",
+          id: "email",
+          placeholder: "Enter company email"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-primary mx-1",
+          onClick: function onClick() {
+            return editOperator(false);
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-arrow-left"
+        }), " Back"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-primary mx-1",
+          onClick: function onClick() {
+            return updateOperator(operator.id);
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-save"
+        }), " Update"));
+      };
+
+      var operatorListBlock = function operatorListBlock() {
+        if (operators == null) return null; // console.log(operators.data.operators);
+
+        return operators.data.map(function (item, index) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+            id: 'operator-' + item.id,
+            key: index
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.company.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              return editOperator(item.id);
+            },
+            type: "button",
+            className: "btn btn-primary mx-1"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-edit"
+          }), " Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              return deleteOperator(item.id);
+            },
+            type: "button",
+            className: "btn btn-danger mx-1"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-times-circle"
+          }), " Delete")));
+        });
+      };
+
+      var operatorsPagination = function operatorsPagination() {
+        if (operators != null) {
+          var pageCount = operators.last_page;
+          var currentPage = operators.current_page;
+          var rows = [];
+
+          for (var i = 1; i <= pageCount; i++) {
+            rows.push(i);
+          }
+
+          return rows.map(function (page, index) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+              key: index,
+              className: page == currentPage ? 'page-item active' : 'page-item'
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+              className: "page-link",
+              href: "#",
+              onClick: function onClick() {
+                _this.getOperators(page);
+              }
+            }, page));
+          });
+        } else {
+          return null;
+        }
+      };
+
+      var operatorIndexBlock = function operatorIndexBlock() {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+          className: "table table-bordered"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Company"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Actions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, operatorListBlock())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "pagination"
+        }, operatorsPagination()));
+      };
+
+      return operatorBlock();
+    }
+  }]);
+
+  return OperatorIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    companyAction: Object(redux__WEBPACK_IMPORTED_MODULE_1__["bindActionCreators"])(_actions_company__WEBPACK_IMPORTED_MODULE_3__, dispatch),
+    operatorAction: Object(redux__WEBPACK_IMPORTED_MODULE_1__["bindActionCreators"])(_actions_operator__WEBPACK_IMPORTED_MODULE_6__, dispatch)
+  };
+}
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    company: state.company,
+    operator: state.operator
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(OperatorIndex));
 
 /***/ }),
 
@@ -79240,8 +79504,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_addons_update__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_addons_update__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _includes_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../includes/helpers */ "./resources/js/includes/helpers.js");
 /* harmony import */ var _requests_company__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../requests/company */ "./resources/js/requests/company.js");
-/* harmony import */ var _requests_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../requests/api */ "./resources/js/requests/api.js");
-
 
 
 
@@ -79253,9 +79515,10 @@ var request;
 var redirect;
 var initialState = {
   edit: false,
-  companyData: null,
-  companiesData: null,
-  companiesPageCount: null
+  item: null,
+  items: null,
+  pageCount: null,
+  perPage: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -79267,7 +79530,7 @@ var initialState = {
       form = document.getElementById('create-company-content');
       formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form);
       console.log('CREATE_COMPANY dispatched');
-      _requests_company__WEBPACK_IMPORTED_MODULE_2__["createCompany"](formData);
+      _requests_company__WEBPACK_IMPORTED_MODULE_2__["create"](formData);
       return state;
 
     case 'UPDATE_COMPANY':
@@ -79278,7 +79541,7 @@ var initialState = {
       formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form); // call api update method
 
       console.log('UPDATE_COMPANY dispatched');
-      _requests_company__WEBPACK_IMPORTED_MODULE_2__["updateCompany"](formData, company);
+      _requests_company__WEBPACK_IMPORTED_MODULE_2__["update"](formData, company);
       return state;
 
     case 'EDIT_COMPANY':
@@ -79289,7 +79552,7 @@ var initialState = {
           edit: {
             $set: false
           },
-          companyData: {
+          item: {
             $set: null
           }
         });
@@ -79299,7 +79562,7 @@ var initialState = {
         edit: {
           $set: true
         },
-        companyData: {
+        item: {
           $set: company
         }
       });
@@ -79307,13 +79570,13 @@ var initialState = {
     case 'GET_COMPANIES':
       companies = action.payload;
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        companiesData: {
+        items: {
           $set: companies
         },
-        companiesPageCount: {
+        pageCount: {
           $set: companies.last_page
         },
-        companiesPerPage: {
+        perPage: {
           $set: companies.per_page
         }
       });
@@ -79321,7 +79584,7 @@ var initialState = {
     case 'GET_COMPANIES_ALL':
       companies = action.payload;
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        companiesData: {
+        items: {
           $set: companies
         }
       });
@@ -79355,8 +79618,8 @@ var contactPerson;
 var contactPersons;
 var initialState = {
   edit: false,
-  contactPersonData: null,
-  contactPersonsData: null,
+  item: null,
+  items: null,
   contactPersonsPageCount: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -79368,7 +79631,7 @@ var initialState = {
       form = document.getElementById('create-contact-person-content');
       formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form);
       console.log('CREATE_CONTACT_PERSON dispatched');
-      _requests_contactperson__WEBPACK_IMPORTED_MODULE_2__["createContactPerson"](formData);
+      _requests_contactperson__WEBPACK_IMPORTED_MODULE_2__["create"](formData);
       return state;
 
     case 'UPDATE_CONTACT_PERSON':
@@ -79379,7 +79642,7 @@ var initialState = {
       formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form); // call api update method
 
       console.log('UPDATE_CONTACT_PERSON dispatched');
-      _requests_contactperson__WEBPACK_IMPORTED_MODULE_2__["updateContactPerson"](formData, contactPerson);
+      _requests_contactperson__WEBPACK_IMPORTED_MODULE_2__["update"](formData, contactPerson);
       return state;
 
     case 'EDIT_CONTACT_PERSON':
@@ -79390,7 +79653,7 @@ var initialState = {
           edit: {
             $set: false
           },
-          contactPersonData: {
+          item: {
             $set: null
           }
         });
@@ -79400,7 +79663,7 @@ var initialState = {
         edit: {
           $set: true
         },
-        contactPersonData: {
+        item: {
           $set: contactPerson
         }
       });
@@ -79408,7 +79671,7 @@ var initialState = {
     case 'GET_CONTACT_PERSONS':
       contactPersons = action.payload;
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
-        contactPersonsData: {
+        items: {
           $set: contactPersons
         },
         contactPersonsPageCount: {
@@ -79535,21 +79798,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_addons_update__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-addons-update */ "./node_modules/react-addons-update/index.js");
 /* harmony import */ var react_addons_update__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_addons_update__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _includes_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../includes/helpers */ "./resources/js/includes/helpers.js");
-/* harmony import */ var _requests_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../requests/api */ "./resources/js/requests/api.js");
+/* harmony import */ var _requests_operator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../requests/operator */ "./resources/js/requests/operator.js");
 
 
 
 var form;
 var formData;
-var item;
-var items;
+var payload;
+var operator;
+var operators;
 var request;
 var redirect;
 var initialState = {
   edit: false,
-  data: null,
-  datas: null,
-  pagecount: null
+  item: null,
+  items: null,
+  pageCount: null,
+  perPage: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -79560,11 +79825,23 @@ var initialState = {
     case 'CREATE_OPERATOR':
       form = document.getElementById('create-company-operator-content');
       formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form);
-      redirect = '/admin/operator';
-      request = '/api/operator';
       console.log('CREATE_OPERATOR dispatched');
-      _requests_api__WEBPACK_IMPORTED_MODULE_2__["create"](formData, request, redirect);
+      _requests_operator__WEBPACK_IMPORTED_MODULE_2__["create"](formData);
       return state;
+
+    case 'GET_OPERATORS':
+      operators = action.payload;
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        items: {
+          $set: operators
+        },
+        pageCount: {
+          $set: operators.last_page
+        },
+        perPage: {
+          $set: operators.per_page
+        }
+      });
     // case 'UPDATE_COMPANY':
     //     // get company id from action
     //     company = action.payload;
@@ -79575,25 +79852,29 @@ var initialState = {
     //     console.log('UPDATE_COMPANY dispatched');
     //     companyApi.updateCompany(formData, company)
     //     return state
-    // case 'EDIT_COMPANY':
-    //     company = action.payload;
-    //     if(company == false) {
-    //         return update(state, { 
-    //             edit: {$set: false},
-    //             companyData: {$set: null}
-    //         });
-    //     }
-    //     return update(state, { 
-    //         edit: {$set: true},
-    //         companyData: {$set: company}
-    //     });
-    // case 'GET_COMPANIES':
-    //     companies = action.payload;
-    //     return update(state, { 
-    //         companiesData: {$set: companies},
-    //         companiesPageCount: {$set: companies.last_page},
-    //         companiesPerPage: {$set: companies.per_page}
-    //     });
+
+    case 'EDIT_OPERATOR':
+      operator = action.payload;
+
+      if (operator == false) {
+        return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+          edit: {
+            $set: false
+          },
+          item: {
+            $set: null
+          }
+        });
+      }
+
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        edit: {
+          $set: true
+        },
+        item: {
+          $set: operator
+        }
+      });
     // case 'GET_COMPANIES_ALL':
     //     companies = action.payload;
     //     return update(state, { 
@@ -79821,87 +80102,28 @@ var initialState = {
 
 /***/ }),
 
-/***/ "./resources/js/requests/api.js":
-/*!**************************************!*\
-  !*** ./resources/js/requests/api.js ***!
-  \**************************************/
-/*! exports provided: create */
+/***/ "./resources/js/requests/company.js":
+/*!******************************************!*\
+  !*** ./resources/js/requests/company.js ***!
+  \******************************************/
+/*! exports provided: create, update, remove, get, getAll, find */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-
-function create(formData, request, redirect) {
-  var logo = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  // let request_url = '/api/company'; // post 
-  // let redirect_url = '/admin/company'; // get
-  var headers = {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'Token',
-      'Access-Control-Allow-Origin': '*'
-    }
-  };
-  var params = new FormData();
-  params.append('formData', JSON.stringify(formData));
-  if (logo) params.append('logo', document.getElementById('logo').files[0]); // params.append('_method', 'put'); // for laravel resource controller, define method put
-
-  axios.post(request, params, headers).then(function (response) {
-    console.log(response);
-
-    if (response.data.status == 1) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
-        title: 'Success !',
-        text: 'We receive you information',
-        type: 'success'
-      }).then(function () {
-        window.location = redirect;
-      });
-    } else {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
-        title: 'Error get information!',
-        text: 'Internal Server Error / ' + response.data.message,
-        type: 'error'
-      });
-      return false;
-    }
-  })["catch"](function (err) {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
-      title: 'Error get information!',
-      text: 'Internal Server Error',
-      type: 'error'
-    });
-    return false;
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/requests/company.js":
-/*!******************************************!*\
-  !*** ./resources/js/requests/company.js ***!
-  \******************************************/
-/*! exports provided: createCompany, updateCompany, deleteCompany, getCompanies, getCompaniesAll, getCompany */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCompany", function() { return createCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCompany", function() { return updateCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCompany", function() { return deleteCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompanies", function() { return getCompanies; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompaniesAll", function() { return getCompaniesAll; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCompany", function() { return getCompany; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "remove", function() { return remove; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAll", function() { return getAll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "find", function() { return find; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function createCompany(formData) {
+function create(formData) {
   var request_url = '/api/company'; // post 
 
   var redirect_url = '/admin/company'; // get
@@ -79945,7 +80167,7 @@ function createCompany(formData) {
     return false;
   });
 }
-function updateCompany(formData, company) {
+function update(formData, company) {
   var request_url = '/api/company/' + company; // post 
 
   var redirect_url = '/admin/company'; // get
@@ -79990,7 +80212,7 @@ function updateCompany(formData, company) {
     return false;
   });
 }
-function deleteCompany(action, id) {
+function remove(action, id) {
   var request_url = '/api/company/' + id;
   var elem = document.getElementById('company-' + id);
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(request_url, {
@@ -80005,33 +80227,33 @@ function deleteCompany(action, id) {
         showConfirmButton: false,
         timer: 1500
       });
-      getCompanies(action);
+      get(action);
     } else {
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error!', 'Please fill required fields', 'error');
       return false;
     }
   });
 }
-function getCompanies(action) {
+function get(action) {
   var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   var request_url = '/api/company?page=' + page;
   return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(request_url).then(function (response) {
     if (response.data.status == 1) {
       console.log(response.data);
-      action.getCompanies(response.data.companies);
+      action.get(response.data.companies);
     }
   });
 }
-function getCompaniesAll(action) {
+function getAll(action) {
   var request_url = '/api/company';
   return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(request_url).then(function (response) {
     if (response.data.status == 1) {
       console.log(response.data);
-      action.getCompaniesAll(response.data.companies);
+      action.getAll(response.data.companies);
     }
   });
 }
-function getCompany(action, id) {
+function find(action, id) {
   var request_url = '/api/company/' + id;
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(request_url, {
     params: {
@@ -80039,7 +80261,7 @@ function getCompany(action, id) {
     }
   }).then(function (response) {
     if (response.data.id) {
-      action.editCompany(response.data);
+      action.edit(response.data);
     }
   });
 }
@@ -80050,23 +80272,23 @@ function getCompany(action, id) {
 /*!************************************************!*\
   !*** ./resources/js/requests/contactperson.js ***!
   \************************************************/
-/*! exports provided: createContactPerson, updateContactPerson, getContactPersons, getContactPerson, deleteContactPerson */
+/*! exports provided: create, update, get, find, remove */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createContactPerson", function() { return createContactPerson; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateContactPerson", function() { return updateContactPerson; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getContactPersons", function() { return getContactPersons; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getContactPerson", function() { return getContactPerson; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteContactPerson", function() { return deleteContactPerson; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "find", function() { return find; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "remove", function() { return remove; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function createContactPerson(formData) {
+function create(formData) {
   var request_url = '/api/contactPerson'; // post 
 
   var redirect_url = '/admin/contactperson'; // get
@@ -80110,7 +80332,7 @@ function createContactPerson(formData) {
     return false;
   });
 }
-function updateContactPerson(formData, company) {
+function update(formData, company) {
   var request_url = '/api/contactPerson/' + company; // post 
 
   var redirect_url = '/admin/contactperson'; // get
@@ -80155,17 +80377,17 @@ function updateContactPerson(formData, company) {
     return false;
   });
 }
-function getContactPersons(action) {
+function get(action) {
   var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   var request_url = '/api/contactPerson?page=' + page;
   return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(request_url).then(function (response) {
     if (response.data.status == 1) {
       console.log(response.data);
-      action.getContactPersons(response.data.contactPersons);
+      action.get(response.data.contactPersons);
     }
   });
 }
-function getContactPerson(action, id) {
+function find(action, id) {
   var request_url = '/api/contactPerson/' + id;
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(request_url, {
     params: {
@@ -80173,11 +80395,11 @@ function getContactPerson(action, id) {
     }
   }).then(function (response) {
     if (response.data.id) {
-      action.editContactPerson(response.data);
+      action.edit(response.data);
     }
   });
 }
-function deleteContactPerson(action, id) {
+function remove(action, id) {
   var request_url = '/api/contactPerson/' + id;
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(request_url, {
     id: id,
@@ -80191,12 +80413,164 @@ function deleteContactPerson(action, id) {
         showConfirmButton: false,
         timer: 1500
       });
-      getContactPersons(action);
+      get(action);
     } else {
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error!', 'Please fill required fields', 'error');
       return false;
     }
   });
+}
+
+/***/ }),
+
+/***/ "./resources/js/requests/operator.js":
+/*!*******************************************!*\
+  !*** ./resources/js/requests/operator.js ***!
+  \*******************************************/
+/*! exports provided: create, update, get, find, remove */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "find", function() { return find; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "remove", function() { return remove; });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+function create(formData) {
+  var redirect = '/admin/operator';
+  var request = '/api/operator';
+  var headers = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Accept': 'Token',
+      'Access-Control-Allow-Origin': '*'
+    }
+  };
+  var params = new FormData();
+  params.append('formData', JSON.stringify(formData)); // params.append('logo', document.getElementById('logo').files[0]);
+  // params.append('_method', 'put'); // for laravel resource controller, define method put
+
+  axios.post(request, params, headers).then(function (response) {
+    console.log(response);
+
+    if (response.data.status == 1) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: 'Success !',
+        text: 'We receive you information',
+        type: 'success'
+      }).then(function () {
+        window.location = redirect;
+      });
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: 'Error get information!',
+        text: 'Internal Server Error / ' + response.data.message,
+        type: 'error'
+      });
+      return false;
+    }
+  })["catch"](function (err) {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+      title: 'Error get information!',
+      text: 'Internal Server Error',
+      type: 'error'
+    });
+    return false;
+  });
+}
+function update(formData, company) {// let request_url = '/api/contactPerson/' + company; // post 
+  // let redirect_url = '/admin/contactperson'; // get
+  // let headers = { 
+  //     headers: { 
+  //         'Content-Type': 'multipart/form-data',
+  //         'Accept': 'Token',
+  //         'Access-Control-Allow-Origin': '*',
+  //     } 
+  // }
+  // let params = new FormData();
+  // params.append('formData', JSON.stringify(formData));
+  // // params.append('logo', document.getElementById('logo').files[0]);
+  // params.append('_method', 'put');
+  // axios
+  //     .post(request_url, params, headers)
+  //     .then(function (response) {
+  //         console.log(response);
+  //         if(response.data.status == 1) {
+  //             Swal.fire({
+  //                 title: 'Success !',
+  //                 text: 'We receive you information',
+  //                 type: 'success',
+  //             })
+  //             .then(function() {
+  //                 window.location = redirect_url;
+  //             });
+  //             return true;
+  //         } else {
+  //             Swal.fire({
+  //                 title: 'Error get information!',
+  //                 text: 'Internal Server Error / ' + response.data.message,
+  //                 type: 'error',
+  //             })
+  //             return false;
+  //         }
+  //     })
+  //     .catch(function (err) {
+  //         Swal.fire({
+  //             title: 'Error get information!',
+  //             text: 'Internal Server Error',
+  //             type: 'error',
+  //         })
+  //         return false;
+  //     });
+}
+function get(action) {
+  var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var request_url = '/api/operator?page=' + page;
+  return axios.get(request_url).then(function (response) {
+    if (response.data.status == 1) {
+      action.get(response.data.operators);
+    }
+  });
+}
+function find(action, id) {
+  var request_url = '/api/operator/' + id;
+  axios.get(request_url, {
+    params: {
+      id: id
+    }
+  }).then(function (response) {
+    if (response.data.id) {
+      action.edit(response.data);
+    }
+  });
+}
+function remove(action, id) {// let request_url = '/api/contactPerson/' + id;
+  // axios.post(request_url, {
+  //     id : id,
+  //     _method: 'DELETE'
+  // }).then(function (response) {
+  //     if(response.data.status == 1) {
+  //         Swal.fire({
+  //             position: 'top-end',
+  //             type: 'success',
+  //             title: 'Company successfully deleted',
+  //             showConfirmButton: false,
+  //             timer: 1500
+  //         })
+  //         get(action)
+  //     } else {
+  //         Swal.fire(
+  //             'Error!',
+  //             'Please fill required fields',
+  //             'error'
+  //         )
+  //         return false;
+  //     }
+  // });
 }
 
 /***/ }),
@@ -80256,12 +80630,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Home */ "./resources/js/components/Home.js");
 /* harmony import */ var _components_company_CompanyCreate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/company/CompanyCreate */ "./resources/js/components/company/CompanyCreate.js");
 /* harmony import */ var _components_company_CompanyIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/company/CompanyIndex */ "./resources/js/components/company/CompanyIndex.js");
-/* harmony import */ var _components_company_CompanyOperatorCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/company/CompanyOperatorCreate */ "./resources/js/components/company/CompanyOperatorCreate.js");
-/* harmony import */ var _components_contactperson_ContactPersonIndex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/contactperson/ContactPersonIndex */ "./resources/js/components/contactperson/ContactPersonIndex.js");
-/* harmony import */ var _components_contactperson_ContactPersonCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/contactperson/ContactPersonCreate */ "./resources/js/components/contactperson/ContactPersonCreate.js");
+/* harmony import */ var _components_contactperson_ContactPersonIndex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/contactperson/ContactPersonIndex */ "./resources/js/components/contactperson/ContactPersonIndex.js");
+/* harmony import */ var _components_contactperson_ContactPersonCreate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/contactperson/ContactPersonCreate */ "./resources/js/components/contactperson/ContactPersonCreate.js");
+/* harmony import */ var _components_operator_OperatorIndex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/operator/OperatorIndex */ "./resources/js/components/operator/OperatorIndex.js");
+/* harmony import */ var _components_operator_OperatorCreate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/operator/OperatorCreate */ "./resources/js/components/operator/OperatorCreate.js");
 
 
  // import there all you application components
+
 
 
 
@@ -80288,16 +80664,20 @@ var createRouters = function createRouters() {
     component: _components_company_CompanyIndex__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/admin/operator/create",
-    component: _components_company_CompanyOperatorCreate__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
     path: "/admin/contactperson",
-    component: _components_contactperson_ContactPersonIndex__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _components_contactperson_ContactPersonIndex__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/admin/contactperson/create",
-    component: _components_contactperson_ContactPersonCreate__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _components_contactperson_ContactPersonCreate__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/admin/operator",
+    component: _components_operator_OperatorIndex__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/admin/operator/create",
+    component: _components_operator_OperatorCreate__WEBPACK_IMPORTED_MODULE_9__["default"]
   }));
 };
 
