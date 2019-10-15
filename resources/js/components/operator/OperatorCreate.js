@@ -56,14 +56,21 @@ class OperatorCreate extends Component {
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="phone">Phone</label>
+                        <input defaultValue="+994513739930" type="text" className="form-control" id="phone" placeholder="Enter operator phone"></input>
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input defaultValue="halilov.lib@gmail.com" type="text" className="form-control" id="email" placeholder="Enter operator email"></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
-                        <input defaultValue="Baku, Azerbaijan" type="text" className="form-control" id="phone" placeholder="Enter operator phone"></input>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" className="form-control" id="password" placeholder="Enter operator password"></input>
                     </div>
+
+
                 </div>
 
                 <button className="btn btn-primary" onClick={() => createOperator()}>

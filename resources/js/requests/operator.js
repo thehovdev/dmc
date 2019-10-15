@@ -50,57 +50,57 @@ export function create(formData) {
         });
 }
 
-export function update(formData, company) {
-    // let request_url = '/api/contactPerson/' + company; // post 
-    // let redirect_url = '/admin/contactperson'; // get
+export function update(formData, operator) {
+    let request_url = '/api/operator/' + operator; // post 
+    let redirect_url = '/admin/operator'; // get
 
-    // let headers = { 
-    //     headers: { 
-    //         'Content-Type': 'multipart/form-data',
-    //         'Accept': 'Token',
-    //         'Access-Control-Allow-Origin': '*',
-    //     } 
-    // }
-    // let params = new FormData();
-    // params.append('formData', JSON.stringify(formData));
-    // // params.append('logo', document.getElementById('logo').files[0]);
-    // params.append('_method', 'put');
+    let headers = { 
+        headers: { 
+            'Content-Type': 'multipart/form-data',
+            'Accept': 'Token',
+            'Access-Control-Allow-Origin': '*',
+        } 
+    }
+    let params = new FormData();
+    params.append('formData', JSON.stringify(formData));
+    // params.append('logo', document.getElementById('logo').files[0]);
+    params.append('_method', 'put');
     
-    // axios
-    //     .post(request_url, params, headers)
-    //     .then(function (response) {
-    //         console.log(response);
-    //         if(response.data.status == 1) {
-    //             Swal.fire({
-    //                 title: 'Success !',
-    //                 text: 'We receive you information',
-    //                 type: 'success',
-    //             })
-    //             .then(function() {
-    //                 window.location = redirect_url;
-    //             });
+    axios
+        .post(request_url, params, headers)
+        .then(function (response) {
+            console.log(response);
+            if(response.data.status == 1) {
+                Swal.fire({
+                    title: 'Success !',
+                    text: 'We receive you information',
+                    type: 'success',
+                })
+                .then(function() {
+                    window.location = redirect_url;
+                });
 
-    //             return true;
+                return true;
 
-    //         } else {
-    //             Swal.fire({
-    //                 title: 'Error get information!',
-    //                 text: 'Internal Server Error / ' + response.data.message,
-    //                 type: 'error',
-    //             })
+            } else {
+                Swal.fire({
+                    title: 'Error get information!',
+                    text: 'Internal Server Error / ' + response.data.message,
+                    type: 'error',
+                })
 
-    //             return false;
-    //         }
-    //     })
-    //     .catch(function (err) {
-    //         Swal.fire({
-    //             title: 'Error get information!',
-    //             text: 'Internal Server Error',
-    //             type: 'error',
-    //         })
+                return false;
+            }
+        })
+        .catch(function (err) {
+            Swal.fire({
+                title: 'Error get information!',
+                text: 'Internal Server Error',
+                type: 'error',
+            })
 
-    //         return false;
-    //     });
+            return false;
+        });
 
 }
 
@@ -130,35 +130,36 @@ export function find(action, id) {
 }
 
 export function remove(action, id) {
-    // let request_url = '/api/contactPerson/' + id;
+    let request_url = '/api/operator/' + id;
 
-    // axios.post(request_url, {
-    //     id : id,
-    //     _method: 'DELETE'
-    // }).then(function (response) {
+    axios.post(request_url, {
+        id : id,
+        _method: 'DELETE'
+    }).then(function (response) {
 
-    //     if(response.data.status == 1) {
+        if(response.data.status == 1) {
 
-    //         Swal.fire({
-    //             position: 'top-end',
-    //             type: 'success',
-    //             title: 'Company successfully deleted',
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //         })
+            Swal.fire({
+                position: 'top-end',
+                type: 'success',
+                title: 'Operator successfully deleted',
+                showConfirmButton: false,
+                timer: 1500
+            })
 
-    //         get(action)
+            // get updated operators list
+            get(action)
             
-    //     } else {
-    //         Swal.fire(
-    //             'Error!',
-    //             'Please fill required fields',
-    //             'error'
-    //         )
-    //         return false;
-    //     }
+        } else {
+            Swal.fire(
+                'Error!',
+                'Please fill required fields',
+                'error'
+            )
+            return false;
+        }
 
-    // });
+    });
 
 }
 

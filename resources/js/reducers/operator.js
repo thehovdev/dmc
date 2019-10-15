@@ -41,19 +41,20 @@ export default function (state = initialState, action) {
 
 
 
-        // case 'UPDATE_COMPANY':
-        //     // get company id from action
-        //     company = action.payload;
+        case 'UPDATE_OPERATOR':
+            // get company id from action
+            operator = action.payload;
 
-        //     // get form data
-        //     form = document.getElementById('edit-company-content');
-        //     formData = getFormData( form );
+            // get form data
+            form = document.getElementById('edit-operator-content');
+            formData = getFormData( form );
 
-        //     // call api update method
-        //     console.log('UPDATE_COMPANY dispatched');
-        //     companyApi.updateCompany(formData, company)
+            // call api update method
+            console.log('UPDATE_OPERATOR dispatched');
 
-        //     return state
+            operatorApi.update(formData, operator)
+
+            return state
 
         case 'EDIT_OPERATOR':
             operator = action.payload;

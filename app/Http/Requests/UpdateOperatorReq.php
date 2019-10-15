@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateOperatorReq extends FormRequest
+class UpdateOperatorReq extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -36,7 +36,6 @@ class CreateOperatorReq extends FormRequest
             'formData.name' => 'required|string',
             'formData.phone' => 'required|string',
             'formData.email' => 'required|string',
-            'formData.password' => 'required|string',
             'formData.company_id' => 'required|integer',
         ]);
 

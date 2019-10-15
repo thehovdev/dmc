@@ -11,6 +11,9 @@
 |
 */
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
+
+
 
 Route::view('/', 'index')->name('index');
 Route::view('/test', 'test');
@@ -18,10 +21,10 @@ Route::view('/test', 'test');
 // admin panel
 Route::namespace('Admin')->group(function () {
     Route::prefix('admin')->group(function () {
-        // admin home page
-        Route::get('/', 'HomeController@index')->name('admin.index');
+        Route::middleware(['auth.admin'])->group(function () {
+            // admin home page
+            Route::get('/', 'HomeController@index')->name('admin.index');
 
-        Route::middleware(['auth'])->group(function () {
             // admin companies
             Route::get('/company', 'CompanyController@index')->name('admin.company.index');
             Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
@@ -35,10 +38,17 @@ Route::namespace('Admin')->group(function () {
     });
 });
 
-// cabinet
-// Route::namespace('Cabinet')->group(function () {
-//     Route::prefix('cabinet')->group(function () {
 
-//     });
-// });
+// cabinet
+Route::namespace('Cabinet')->group(function () {
+    Route::prefix('cabinet')->group(function () {
+        // specify multi auth middleware, web = users table, operator = operators table
+        Route::middleware(['auth:web,operator'])->group(function () {
+            // cabinet home page
+            Route::get('/', 'HomeController@index')->name('cabinet.index');
+
+        });
+        
+    });
+});
 

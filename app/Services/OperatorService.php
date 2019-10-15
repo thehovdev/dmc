@@ -3,12 +3,14 @@
 namespace App\Services;
 
 use stdClass;
+use App\Role;
 use App\Company;
 use App\Operator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CreateOperatorReq;
+use App\Http\Requests\UpdateOperatorReq;
 
 class OperatorService
 {
@@ -31,12 +33,12 @@ class OperatorService
         $formData = (object) $request->formData;
 
         if ($this->operatorExists($request) == false) {
-
             $this->operator->name = $formData->name;
             $this->operator->phone = $formData->phone;
             $this->operator->email = $formData->email;
             $this->operator->company_id = $formData->company_id;
-            $this->operator->password = Hash::make('password');
+            $this->operator->role_id = Role::whereName('operator')->first()->id;
+            $this->operator->password = Hash::make($formData->password);
             $this->operator->save();
 
             // return success response
@@ -45,18 +47,22 @@ class OperatorService
         } else {
             // return error responce
             $this->result->status = 0;
-            $this->result->message = 'error insert company, company exists';
+            $this->result->message = 'error insert operator, operator exists';
         }
 
         return $this->result;
     }
 
-    public function update(CreateOperatorReq $request, Operator $operator) {
+    public function update(UpdateOperatorReq $request, Operator $operator) {
         $formData = (object) $request->formData;
 
         if (!is_null($operator)) {
 
             $this->operator = $operator;
+
+            if($formData->password != 'null') 
+                $this->operator->password = Hash::make($formData->password);
+
             $this->operator->name = $formData->name;
             $this->operator->phone = $formData->phone;
             $this->operator->email = $formData->email;

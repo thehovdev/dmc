@@ -10,6 +10,8 @@ use App\Services\CompanyService;
 use App\Services\OperatorService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOperatorReq;
+use App\Http\Requests\UpdateOperatorReq;
+
 
 class OperatorController extends Controller
 {
@@ -63,7 +65,7 @@ class OperatorController extends Controller
      */
     public function update(
         OperatorService $operatorService,
-        CreateOperatorReq $request,
+        UpdateOperatorReq $request,
         Operator $operator
     ) {
         $result = $operatorService->update($request, $operator);

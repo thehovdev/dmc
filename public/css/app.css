@@ -16689,10 +16689,6 @@ a:focus {
   height: 100%;
 }
 
-#sidebar.active {
-  margin-left: -250px;
-}
-
 #sidebar .sidebar-header {
   padding: 20px;
   background: #2f608e;
@@ -16714,16 +16710,16 @@ a:focus {
 }
 
 #sidebar ul li.active > a,
-a[aria-expanded=true] {
+#sidebar a[aria-expanded=true] {
   color: #fff;
   background: #3e72a3;
 }
 
-a[data-toggle=collapse] {
+#sidebar a[data-toggle=collapse] {
   position: relative;
 }
 
-.dropdown-toggle::after {
+#sidebar .dropdown-toggle::after {
   display: block;
   position: absolute;
   top: 50%;
@@ -16731,17 +16727,17 @@ a[data-toggle=collapse] {
   transform: translateY(-50%);
 }
 
-ul ul a {
+#sidebar ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
   background: #3e72a3;
 }
 
-ul.CTAs {
+#sidebar ul.CTAs {
   padding: 20px;
 }
 
-ul.CTAs a {
+#sidebar ul.CTAs a {
   text-align: center;
   font-size: 0.9em !important;
   display: block;

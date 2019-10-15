@@ -43,7 +43,7 @@ class ContactPersonService
         } else {
             // return error responce
             $this->result->status = 0;
-            $this->result->message = 'error insert company, company exists';
+            $this->result->message = 'error insert person, person exists';
         }
 
         return $this->result;

@@ -12,6 +12,8 @@
             </div>
 
             <div class="col-sm-10 py-2">
+                @include('includes.navbar')
+
                 @yield('content')
             </div>
         </div>

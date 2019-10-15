@@ -66994,7 +66994,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77546,6 +77546,16 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "phone"
+      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        defaultValue: "+994513739930",
+        type: "text",
+        className: "form-control",
+        id: "phone",
+        placeholder: "Enter operator phone"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
       }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "halilov.lib@gmail.com",
@@ -77556,13 +77566,12 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "phone"
-      }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        defaultValue: "Baku, Azerbaijan",
-        type: "text",
+        htmlFor: "password"
+      }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
         className: "form-control",
-        id: "phone",
-        placeholder: "Enter operator phone"
+        id: "password",
+        placeholder: "Enter operator password"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary",
         onClick: function onClick() {
@@ -77689,6 +77698,19 @@ function (_Component) {
             }, company.name);
           }
         });
+      };
+
+      var activatePassword = function activatePassword() {
+        var elem = document.getElementById('password');
+        var button = document.getElementById('updatePwd');
+
+        if (elem.disabled == true) {
+          elem.disabled = false;
+        } else {
+          elem.disabled = true;
+        }
+
+        button.classList.toggle("btn-success");
       }; // button actions 
 
 
@@ -77763,7 +77785,34 @@ function (_Component) {
           className: "form-control",
           id: "email",
           placeholder: "Enter company email"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "btn-toolbar mb-3",
+          role: "toolbar",
+          "aria-label": "Toolbar with button groups"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group w-100"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-prepend"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-text py-0",
+          id: "btnGroupAddon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-primary btn-sm",
+          id: "updatePwd",
+          onClick: function onClick() {
+            return activatePassword();
+          }
+        }, "update password"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          disabled: true,
+          type: "password",
+          id: "password",
+          className: "form-control",
+          placeholder: "enter password",
+          "aria-label": "enter password",
+          "aria-describedby": "btnGroupAddon"
+        }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-primary mx-1",
           onClick: function onClick() {
             return editOperator(false);
@@ -79842,16 +79891,17 @@ var initialState = {
           $set: operators.per_page
         }
       });
-    // case 'UPDATE_COMPANY':
-    //     // get company id from action
-    //     company = action.payload;
-    //     // get form data
-    //     form = document.getElementById('edit-company-content');
-    //     formData = getFormData( form );
-    //     // call api update method
-    //     console.log('UPDATE_COMPANY dispatched');
-    //     companyApi.updateCompany(formData, company)
-    //     return state
+
+    case 'UPDATE_OPERATOR':
+      // get company id from action
+      operator = action.payload; // get form data
+
+      form = document.getElementById('edit-operator-content');
+      formData = Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["getFormData"])(form); // call api update method
+
+      console.log('UPDATE_OPERATOR dispatched');
+      _requests_operator__WEBPACK_IMPORTED_MODULE_2__["update"](formData, operator);
+      return state;
 
     case 'EDIT_OPERATOR':
       operator = action.payload;
@@ -80482,50 +80532,50 @@ function create(formData) {
     return false;
   });
 }
-function update(formData, company) {// let request_url = '/api/contactPerson/' + company; // post 
-  // let redirect_url = '/admin/contactperson'; // get
-  // let headers = { 
-  //     headers: { 
-  //         'Content-Type': 'multipart/form-data',
-  //         'Accept': 'Token',
-  //         'Access-Control-Allow-Origin': '*',
-  //     } 
-  // }
-  // let params = new FormData();
-  // params.append('formData', JSON.stringify(formData));
-  // // params.append('logo', document.getElementById('logo').files[0]);
-  // params.append('_method', 'put');
-  // axios
-  //     .post(request_url, params, headers)
-  //     .then(function (response) {
-  //         console.log(response);
-  //         if(response.data.status == 1) {
-  //             Swal.fire({
-  //                 title: 'Success !',
-  //                 text: 'We receive you information',
-  //                 type: 'success',
-  //             })
-  //             .then(function() {
-  //                 window.location = redirect_url;
-  //             });
-  //             return true;
-  //         } else {
-  //             Swal.fire({
-  //                 title: 'Error get information!',
-  //                 text: 'Internal Server Error / ' + response.data.message,
-  //                 type: 'error',
-  //             })
-  //             return false;
-  //         }
-  //     })
-  //     .catch(function (err) {
-  //         Swal.fire({
-  //             title: 'Error get information!',
-  //             text: 'Internal Server Error',
-  //             type: 'error',
-  //         })
-  //         return false;
-  //     });
+function update(formData, operator) {
+  var request_url = '/api/operator/' + operator; // post 
+
+  var redirect_url = '/admin/operator'; // get
+
+  var headers = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Accept': 'Token',
+      'Access-Control-Allow-Origin': '*'
+    }
+  };
+  var params = new FormData();
+  params.append('formData', JSON.stringify(formData)); // params.append('logo', document.getElementById('logo').files[0]);
+
+  params.append('_method', 'put');
+  axios.post(request_url, params, headers).then(function (response) {
+    console.log(response);
+
+    if (response.data.status == 1) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: 'Success !',
+        text: 'We receive you information',
+        type: 'success'
+      }).then(function () {
+        window.location = redirect_url;
+      });
+      return true;
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: 'Error get information!',
+        text: 'Internal Server Error / ' + response.data.message,
+        type: 'error'
+      });
+      return false;
+    }
+  })["catch"](function (err) {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+      title: 'Error get information!',
+      text: 'Internal Server Error',
+      type: 'error'
+    });
+    return false;
+  });
 }
 function get(action) {
   var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
@@ -80548,29 +80598,27 @@ function find(action, id) {
     }
   });
 }
-function remove(action, id) {// let request_url = '/api/contactPerson/' + id;
-  // axios.post(request_url, {
-  //     id : id,
-  //     _method: 'DELETE'
-  // }).then(function (response) {
-  //     if(response.data.status == 1) {
-  //         Swal.fire({
-  //             position: 'top-end',
-  //             type: 'success',
-  //             title: 'Company successfully deleted',
-  //             showConfirmButton: false,
-  //             timer: 1500
-  //         })
-  //         get(action)
-  //     } else {
-  //         Swal.fire(
-  //             'Error!',
-  //             'Please fill required fields',
-  //             'error'
-  //         )
-  //         return false;
-  //     }
-  // });
+function remove(action, id) {
+  var request_url = '/api/operator/' + id;
+  axios.post(request_url, {
+    id: id,
+    _method: 'DELETE'
+  }).then(function (response) {
+    if (response.data.status == 1) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Operator successfully deleted',
+        showConfirmButton: false,
+        timer: 1500
+      }); // get updated operators list
+
+      get(action);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Error!', 'Please fill required fields', 'error');
+      return false;
+    }
+  });
 }
 
 /***/ }),

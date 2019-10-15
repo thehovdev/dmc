@@ -50,6 +50,19 @@ class OperatorIndex extends Component {
         }
 
 
+        const activatePassword = () => {
+            let elem = document.getElementById('password');
+            let button = document.getElementById('updatePwd');
+
+            if(elem.disabled == true) {
+                elem.disabled = false
+            } else {
+                elem.disabled = true
+            }
+
+            button.classList.toggle("btn-success");
+        }
+
         // button actions 
         const updateOperator = (id) => {
             return operatorAction.update(id);
@@ -108,6 +121,23 @@ class OperatorIndex extends Component {
                             <label htmlFor="email">Email</label>
                             <input defaultValue={operator.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
+
+                        <div className="form-group">
+                            <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                <div className="input-group w-100">
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text py-0" id="btnGroupAddon">
+                                        <button className="btn btn-primary btn-sm" id="updatePwd" onClick={() => activatePassword()}>
+                                            update password
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <input disabled type="password" id="password" className="form-control" placeholder="enter password" aria-label="enter password" aria-describedby="btnGroupAddon"></input>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                     </div>
     
