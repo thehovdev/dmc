@@ -2,43 +2,49 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 export function sendReserve(formData) {
-    let request_url = '/api/reserve/store';
+    let request_url = '/api/reserve'; // post 
+    let headers = { 
+        headers: { 
+            'Content-Type': 'multipart/form-data',
+            'Accept': 'Token',
+            'Access-Control-Allow-Origin': '*',
+        } 
+    }
+    let params = new FormData();
+    params.append('formData', JSON.stringify(formData));
+    
+    axios
+        .post(request_url, params, headers)
+        .then(function (response) {
+            console.log(response);
+            if(response.data.status == 1) {
+                Swal.fire({
+                    title: 'Success !',
+                    text: 'We receive you information',
+                    type: 'success',
+                })
 
-    axios.get(request_url, {
-        params: {
-            formData : formData
-        }
-    }).then(function (response) {
+                return true;
 
-        if(response.data.status == 1) {
-            Swal.fire(
-                'Success !',
-                'We receive you information',
-                'success'
-            )
+            } else {
+                Swal.fire(
+                    'Error!',
+                    'Please fill required fields',
+                    'error'
+                )
 
-            return true;
-            
-        } else {
-            Swal.fire(
-                'Error!',
-                'Please fill required fields',
-                'error'
-            )
+                return false;
+            }
+        })
+        .catch(function (err) {
+            Swal.fire({
+                title: 'Error get information!',
+                text: 'Internal Server Error',
+                type: 'error',
+            })
 
             return false;
-        }
-
-    }).catch(function (error) {
-        console.log(error);
-        Swal.fire(
-            'Error!',
-            'Internal Server Error!',
-            'error'
-        )
-        return false;
-    })
-
+        });
 }
 
 

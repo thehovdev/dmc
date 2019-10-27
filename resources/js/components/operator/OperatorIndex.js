@@ -160,6 +160,7 @@ class OperatorIndex extends Component {
 
             return operators.data.map((item, index) =>
                 <tr id={'operator-' + item.id} key={index}>
+                    <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.phone}</td>
                     <td>{item.email}</td>
@@ -204,6 +205,7 @@ class OperatorIndex extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
+                                <th>id</th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>

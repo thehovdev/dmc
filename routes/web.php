@@ -13,8 +13,6 @@
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
-
-
 Route::view('/', 'index')->name('index');
 Route::view('/test', 'test');
 
@@ -38,7 +36,6 @@ Route::namespace('Admin')->group(function () {
     });
 });
 
-
 // cabinet
 Route::namespace('Cabinet')->group(function () {
     Route::prefix('cabinet')->group(function () {
@@ -47,6 +44,9 @@ Route::namespace('Cabinet')->group(function () {
             // cabinet home page
             Route::get('/', 'HomeController@index')->name('cabinet.index');
 
+            // client requests
+            Route::get('/reserve', 'ReserveController@index')->name('cabinet.reserve.index');
+            Route::get('/reserve/create', 'ReserveController@index')->name('cabinet.reserve.create');
         });
         
     });

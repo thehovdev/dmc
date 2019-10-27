@@ -1,19 +1,23 @@
+import React, { Component } from 'react'
+
 export function getFormData(form) {
     var formId = form.id;
     var elements = form.querySelectorAll( "input, select, textarea" );
 
-    switch (formId) {
-        case 'reserve-form':
-            var obj = {
-                hotel_stars : null,
-                transports : null,
-                cuisines : null,
-            };
-            break;
+    var obj = {};
+
+    // switch (formId) {
+    //     case 'reserve-form':
+    //         var obj = {
+    //             hotel_stars : null,
+    //             transports : null,
+    //             cuisines : null,
+    //         };
+    //         break;
     
-        default:
-            var obj = {};
-    }
+    //     default:
+    //         var obj = {};
+    // }
 
 
 
@@ -59,4 +63,47 @@ export function getFormData(form) {
     }
 
     return obj;
+}
+
+export function showCheckedIcon(status = 'true') {
+    if(status) {
+        return <i className="fa-custom far fa-check-circle"></i>;
+    } 
+    return <i className="fa-custom fas fa-times-circle"></i>;
+}
+
+export function getMultipleFields(request, prop) {
+
+    if(prop in request) {
+
+        let requestList = request[prop];
+        let itemsList = '';
+
+        requestList.map((item, index) => {
+            if(requestList.length != index + 1 && requestList.length != 1) {
+                itemsList = itemsList + item.name + ' / ';
+            } else {
+                itemsList = itemsList + item.name;
+            }
+        });
+
+        return itemsList;
+    } else {
+        return null;
+    }
+
+
+    // if('hotel_stars' in request) {
+    //     let hotel_stars = request.hotel_stars;
+    //     hotel_stars_list = '';
+
+    //     hotel_stars.map((item, index) => {
+    //         if(hotel_stars.length != item.id && hotel_stars.length != 1) {
+    //             hotel_stars_list = hotel_stars_list + item.name + ' / ';
+    //         } else {
+    //             hotel_stars_list = hotel_stars_list + item.name;
+    //         }
+    //     });
+    // }
+
 }

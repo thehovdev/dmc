@@ -108,6 +108,7 @@ class CompanyIndex extends Component {
 
             return companies.data.map((item, index) =>
                 <tr id={'company-' + item.id} key={index}>
+                    <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.address}</td>
                     <td>{item.email}</td>
@@ -154,6 +155,7 @@ class CompanyIndex extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
+                                <th>id</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Address</th>

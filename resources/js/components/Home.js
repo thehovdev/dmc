@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 
 import * as homeAction from '../actions/home';
 
+
+
 import ReserveForm from './steps/reserve/ReserveForm';
 
 class Home extends Component {

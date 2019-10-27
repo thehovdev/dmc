@@ -45,7 +45,7 @@
   
         <li>
             <a href="{{ route('index') }}">
-                <i class="fas fa-folder-plus"></i> Create reserve
+                <i class="fas fa-folder-plus"></i> Create request
             </a>
         </li>
     </ul>

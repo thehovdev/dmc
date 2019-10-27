@@ -70,7 +70,7 @@ class TransportDetails extends Component {
 
 
         return (
-            <div className="tab-pane fade" id="pills-transport" role="tabpanel" aria-labelledby="pills-transport-tab">
+            <div className="tab-pane fade" id="pills-transfer" role="tabpanel" aria-labelledby="pills-transfer-tab">
                  <div id="final-details">
 
 

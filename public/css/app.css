@@ -16555,6 +16555,12 @@ a:focus {
   right: 10px;
 }
 
+.btn-register {
+  position: fixed;
+  top: 10px;
+  right: 80px;
+}
+
 .intro-content {
   display: flex;
   flex-direction: column;
@@ -16584,6 +16590,12 @@ a:focus {
 
 .full-width {
   width: 100%;
+}
+
+.registration-window {
+  padding: 15px 0;
+  margin: 45px 0;
+  border: 1px solid #eaeaea;
 }
 
 .steps-form .tab-content {
@@ -16753,5 +16765,59 @@ a:focus {
   padding: 15px;
   border: 2px solid #ededed;
   border-radius: 5px;
+}
+
+.cabinet-info .detail-data {
+  border: 1px solid #efefef;
+}
+
+.cabinet-info .detail-data .main-title {
+  font-size: 18px;
+  padding: 5px 0;
+  margin: 0;
+  background: #2f608e;
+  color: white;
+}
+
+.cabinet-info ul.detail-data-list {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  padding: 15px;
+  height: auto;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.cabinet-info ul.detail-data-list li {
+  border: 1px solid #efefef;
+  border-collapse: collapse;
+  list-style: none;
+  float: left;
+  width: 50%;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+.cabinet-info ul.detail-data-list li .fa-custom {
+  font-size: 20px;
+  float: left;
+}
+
+.cabinet-info ul.detail-data-list li .fa-custom.fa-check-circle {
+  color: #38c172;
+}
+
+.cabinet-info ul.detail-data-list li .fa-custom.fa-times-circle {
+  color: #e3342f;
+}
+
+.cabinet-info ul.detail-data-list li .title {
+  font-weight: bold;
+  margin: 2px;
+}
+
+.cabinet-info ul.detail-data-list li .content {
+  font-weight: normal;
+  margin: 2px;
 }
 

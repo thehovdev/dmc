@@ -6,8 +6,6 @@ let form;
 let formData;
 let company;
 let companies;
-let request;
-let redirect;
 let initialState = {
     edit: false,
     item: null,

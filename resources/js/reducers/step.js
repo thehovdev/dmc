@@ -42,14 +42,14 @@ let initialState = {
     countries : [
         { id: 1, value: 'Azerbaijan' },
     ],
-    transportServices : [
+    transferServices : [
         { id: 1, prefix: 'transfer_airport', value: 'Airport transfer' },
         { id: 2, prefix: 'transfer_during_stay', value: 'Transfer during the stay' },
     ],
 
     inputActions : {
         needHotel : false,
-        needTransport : false,
+        needTransfer : false,
         needCuisine: false,
         needTourLeader: false,
         needExcursionOptions: false,

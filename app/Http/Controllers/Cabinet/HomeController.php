@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index() {
-        dd(Auth::user());
+        // dd(Auth::user());
         // dd(Auth::guard('operator')->user());
-        dd('cabinet index');
+        // dd('cabinet index');
+
+        return view('cabinet.index');
     }
 
 }

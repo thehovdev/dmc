@@ -65,7 +65,7 @@ class ReserveForm extends Component {
                             <a className="nav-link" id="pills-others-tab" data-toggle="pill" href="#pills-others" role="tab" aria-controls="pills-others" aria-selected="false">Other Details</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="pills-transport-tab" data-toggle="pill" href="#pills-transport" role="tab" aria-controls="pills-transport" aria-selected="false">Transfer Details</a>
+                            <a className="nav-link" id="pills-transfer-tab" data-toggle="pill" href="#pills-transfer" role="tab" aria-controls="pills-transfer" aria-selected="false">Transfer Details</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" id="pills-final-tab" data-toggle="pill" href="#pills-final" role="tab" aria-controls="pills-final" aria-selected="false">Final Details</a>

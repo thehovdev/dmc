@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,7 +17,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'role_id' => 1,
+                'role_id' => Role::whereName('admin')->first()->id,
                 'name' => 'Admin', 
                 'email' => 'halilov.lib@gmail.com',
                 'email_verified_at' => date('Y-m-d h:i:s'),

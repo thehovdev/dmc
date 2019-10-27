@@ -11,19 +11,19 @@ class OtherDetails extends Component {
 
     render() {
         const needHotel = this.props.step.inputActions.needHotel;
-        const needTransport = this.props.step.inputActions.needTransport;
+        const needTransfer = this.props.step.inputActions.needTransfer;
         const needCuisine = this.props.step.inputActions.needCuisine;
         
         const hotelStars = this.props.step.hotelStars;
-        const transportServices = this.props.step.transportServices;
+        const transferServices = this.props.step.transferServices;
         const cuisineTypes = this.props.step.cuisineTypes;
 
 
         const selectHotel = () => {
             return this.props.stepAction.selectToggle('needHotel');
         }
-        const selectTransport = () => {
-            return this.props.stepAction.selectToggle('needTransport');
+        const selectTransfer = () => {
+            return this.props.stepAction.selectToggle('needTransfer');
         }
         const selectCuisine = () => {
             return this.props.stepAction.selectToggle('needCuisine');
@@ -59,10 +59,10 @@ class OtherDetails extends Component {
             }
         }
         const transportServiceBlock = () => {
-            if(needTransport) {
+            if(needTransfer) {
                 return (
                     <div>
-                        { checkList(transportServices, 'transport_id_list') }
+                        { checkList(transferServices, 'transfer_id_list') }
                     </div>
                 );
             }
@@ -103,7 +103,7 @@ class OtherDetails extends Component {
 
                     <div className="form-group">
                         <label htmlFor="need_transport">Do you need Transportation service during the stay</label>
-                        <select onChange={() => selectTransport()} className="form-control" id="need_transport">
+                        <select onChange={() => selectTransfer()} className="form-control" id="need_transfer">
                             <option value="false">No</option>
                             <option value="true">Yes</option>
                         </select>

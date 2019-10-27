@@ -10,6 +10,8 @@ import ContactPersonIndex from '../components/contactperson/ContactPersonIndex';
 import ContactPersonCreate from '../components/contactperson/ContactPersonCreate';
 import OperatorIndex from '../components/operator/OperatorIndex';
 import OperatorCreate from '../components/operator/OperatorCreate';
+import RequestIndex from '../components/request/RequestIndex';
+
 
 const history = createBrowserHistory();
 
@@ -24,6 +26,8 @@ const createRouters = () => (
         <Route exact path="/admin/contactperson/create" component={ContactPersonCreate} />
         <Route exact path="/admin/operator" component={OperatorIndex} />
         <Route exact path="/admin/operator/create" component={OperatorCreate} />
+
+        <Route exact path="/cabinet/reserve" component={RequestIndex} />
     </Router>
 );
 
