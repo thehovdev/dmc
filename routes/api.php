@@ -19,9 +19,19 @@ Route::namespace('Api')->group(function () {
 
     // web is users, operator is operators, grant access all of him by his role
     Route::middleware(['auth:web,operator'])->group(function () {
+
+        Route::get('/user', 'UserController@index');
+        Route::get('/user/restore/{user}', 'UserController@restore');
+        Route::delete('/user/{user}', 'UserController@destroy');
+
         Route::apiResource('company', 'CompanyController');
-        Route::apiResource('operator', 'OperatorController');
+        Route::get('/company/restore/{id}', 'CompanyController@restore');
+
         Route::apiResource('contactPerson', 'ContactPersonController');
+        Route::get('/contactPerson/restore/{id}', 'ContactPersonController@restore');
+
+        Route::apiResource('operator', 'OperatorController');
+        Route::get('/operator/restore/{id}', 'OperatorController@restore');
     });
 
     // for operators, users, admin

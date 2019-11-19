@@ -16,10 +16,16 @@ class CreateContactPersonTable extends Migration
         Schema::create('contact_persons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('company_id');
+            $table->integer('status');
             $table->string('name');
+            $table->string('surname');
             $table->string('phone');
             $table->string('email');
+            $table->string('suffix');
+            $table->string('position');
+            $table->string('office_phone');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('contact_persons', function($table) {

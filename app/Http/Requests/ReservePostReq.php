@@ -47,7 +47,6 @@ class ReservePostReq extends FormRequest
             'formData.need_tour_leader' => ['required', $rule->in(['true', 'false'])],
             'formData.need_excursion_options' => ['required', $rule->in(['true', 'false'])],
             'formData.need_meeting_facilities' => ['required', $rule->in(['true', 'false'])],
-            'formData.need_guide' => ['required', $rule->in(['true', 'false'])],
         ]);
 
         return array();

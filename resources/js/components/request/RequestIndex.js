@@ -52,12 +52,11 @@ class RequestIndex extends Component {
             let infoArr = [
                 { title : 'Identification Number:', content : request.id },
                 { title : 'Country:', content : request.country.name },
-                { title : 'Requested hotel', content : helper.showCheckedIcon(request.need_hotel) } ,
+                { title : 'Requested accommodation', content : helper.showCheckedIcon(request.need_hotel) } ,
                 { title : 'Requested visa', content : helper.showCheckedIcon(request.need_visa) } ,
-                { title : 'Requested transfer', content : helper.showCheckedIcon(request.need_transfer) } ,
-                { title : 'Requested guide', content : helper.showCheckedIcon(request.need_guide) } ,
-                { title : 'Requested cuisine', content : helper.showCheckedIcon(request.need_cuisine) } ,
-                { title : 'Requested meeting', content : helper.showCheckedIcon(request.need_meeting_facilities) } ,
+                { title : 'Requested transfer services', content : helper.showCheckedIcon(request.need_transfer) } ,
+                { title : 'Requested meals', content : helper.showCheckedIcon(request.need_cuisine) } ,
+                { title : 'Requested meeting facilities', content : helper.showCheckedIcon(request.need_meeting_facilities) } ,
                 { title : 'Requested excursion', content : helper.showCheckedIcon(request.need_excursion_options) } ,
                 { title : 'Requested tourleader', content : helper.showCheckedIcon(request.need_tourleader) } ,
             ];
@@ -86,7 +85,7 @@ class RequestIndex extends Component {
             if(request == null) return null;
             let infoArr = [
                 { title : 'Group Type:', content : request.group_type.name },
-                { title : 'Nationality:', content : request.nationality.name },
+                { title : 'Country of origin:', content : request.nationality.name },
                 { title : 'Age range:', content : request.age_range.name },
                 { title : 'Number of people:', content : request.number_of_people },
             ];

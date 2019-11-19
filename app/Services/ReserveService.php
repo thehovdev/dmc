@@ -77,7 +77,6 @@ class ReserveService
         $this->reserve->need_tour_leader = (boolean)$formData->need_tour_leader;
         $this->reserve->need_excursion_options = (boolean)$formData->need_excursion_options;
         $this->reserve->need_meeting_facilities = (boolean)$formData->need_meeting_facilities;
-        $this->reserve->need_guide = (boolean)$formData->need_guide;
 
         // string data
         $this->reserve->email = $formData->email;

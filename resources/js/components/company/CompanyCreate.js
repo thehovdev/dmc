@@ -37,6 +37,11 @@ class CompanyCreate extends Component {
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="phone">Phone</label>
+                        <input defaultValue="994513739930" type="text" className="form-control" id="phone" placeholder="Enter company phone"></input>
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="address">Address</label>
                         <input defaultValue="Baku, Azerbaijan" type="text" className="form-control" id="address" placeholder="Enter company address"></input>
                     </div>
@@ -58,8 +63,28 @@ class CompanyCreate extends Component {
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="personSurname">Surname</label>
+                        <input defaultValue="Khalilov" type="text" className="form-control" id="personSurname" placeholder="Enter person surname"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="personSuffix">Suffix</label>
+                        <input defaultValue="Mr" type="text" className="form-control" id="personSuffix" placeholder="Enter person suffix"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="personPosition">Position</label>
+                        <input defaultValue="Director" type="text" className="form-control" id="personPosition" placeholder="Enter person position"></input>
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="personPhone">Phone</label>
                         <input defaultValue="994513739930" type="text" className="form-control" id="personPhone" placeholder="Enter person phone"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="personOfficePhone">Office phone</label>
+                        <input defaultValue="0125970046" type="text" className="form-control" id="personOfficePhone" placeholder="Enter person office phone"></input>
                     </div>
 
                     <div className="form-group">

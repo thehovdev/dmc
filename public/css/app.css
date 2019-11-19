@@ -16592,6 +16592,11 @@ a:focus {
   width: 100%;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
 .registration-window {
   padding: 15px 0;
   margin: 45px 0;

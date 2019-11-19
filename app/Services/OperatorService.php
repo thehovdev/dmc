@@ -39,6 +39,7 @@ class OperatorService
             $this->operator->company_id = $formData->company_id;
             $this->operator->role_id = Role::whereName('operator')->first()->id;
             $this->operator->password = Hash::make($formData->password);
+            $this->operator->status = 1;
             $this->operator->save();
 
             // return success response
@@ -82,20 +83,46 @@ class OperatorService
     }
 
     public function destroy(Operator $operator) {
-        $operator->delete();
 
+        $operator->delete();
+        
         $this->result->status = 1;
         $this->result->message = 'success';
 
         return $this->result;
     }
 
-    public function getOperators(Request $request) {
+    public function restore(Operator $operator) {
+        if($operator->company->status == 1) {
+            $operator->status = 1;
+            $operator->deleted_at = null;
+            $operator->save();
 
-        if(!isset($request->page)) {
-            $this->result->operators = $this->operator->with('company')->orderByDesc('id')->get();
+            $this->result->status = 1;
+            $this->result->message = 'success';
         } else {
-            $this->result->operators = $this->operator->with('company')->orderByDesc('id')->paginate(10);
+            $this->result->status = 0;
+            $this->result->message = 'Error, company deactivated, first activate company';
+        }
+
+        return $this->result;
+    }
+
+
+    public function getOperators(Request $request, $trashed = false) {
+
+        if($trashed == false) {
+            if(!isset($request->page)) {
+                $this->result->operators = $this->operator->with('company')->orderByDesc('id')->get();
+            } else {
+                $this->result->operators = $this->operator->with('company')->orderByDesc('id')->paginate(10);
+            }
+        } else {
+            if(!isset($request->page)) {
+                $this->result->operators = $this->operator->withTrashed()->with('company')->orderByDesc('id')->get();
+            } else {
+                $this->result->operators = $this->operator->withTrashed()->with('company')->orderByDesc('id')->paginate(10);
+            }
         }
 
         $this->result->status = 1;
@@ -103,6 +130,7 @@ class OperatorService
 
         return $this->result;
     }
+
 
     public function getOperator(Operator $operator) {
         $this->result->status = 1;

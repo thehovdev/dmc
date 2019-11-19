@@ -46,8 +46,35 @@ class CompanyIndex extends Component {
             }
         }
 
+        const restoreCompany = (id) => {
+            return companyApi.restore(companyAction, id);
+        }
+
         const deleteCompany = (id) => {
             return companyApi.remove(companyAction, id);
+        }
+
+        const actionButtons = (item) => {
+            if(item.status == 1) {
+                return (
+                    <div>
+                        <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">
+                            <i className="fas fa-edit"></i> Edit
+                        </button>
+                        <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">
+                            <i className="fas fa-times-circle"></i> Deactivate
+                        </button>
+                    </div>
+                );
+            } else {
+                return (
+                    <div>
+                        <button onClick={() => restoreCompany(item.id)} type="button" className="btn btn-success mx-1">
+                            <i className="fas fa-check-circle"></i> Activate
+                        </button>
+                    </div>
+                );
+            }
         }
 
         // main actions 
@@ -78,6 +105,11 @@ class CompanyIndex extends Component {
                             <label htmlFor="email">Email</label>
                             <input defaultValue={company.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
+
+                        <div className="form-group">
+                            <label htmlFor="phone">Phone</label>
+                            <input defaultValue={company.phone} type="text" className="form-control" id="phone" placeholder="Enter company phone"></input>
+                        </div>
     
                         <div className="form-group">
                             <label htmlFor="address">Address</label>
@@ -103,23 +135,18 @@ class CompanyIndex extends Component {
 
         const companyListBlock = () => {
 
-            // console.log(companies);
+            console.log(companies);
             if(companies == null) return null;
 
             return companies.data.map((item, index) =>
-                <tr id={'company-' + item.id} key={index}>
+                <tr id={'company-' + item.id} key={index} className={item.status == 0 ? 'table-danger' : ''}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td>{item.address}</td>
                     <td>{item.email}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.address}</td>
                     <td>
-                        {/* <a href={'/admin/company/' + item.id + '/edit'} className="btn btn-primary mx-1">Edit</a> */}
-                        <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">
-                            <i className="fas fa-edit"></i> Edit
-                        </button>
-                        <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">
-                            <i className="fas fa-times-circle"></i> Delete
-                        </button>
+                        {actionButtons(item)}
                     </td>
                 </tr>
             );
@@ -158,6 +185,7 @@ class CompanyIndex extends Component {
                                 <th>id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Phone</th>
                                 <th>Address</th>
                                 <th>Actions</th>
                             </tr>

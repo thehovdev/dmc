@@ -32,9 +32,14 @@ class ContactPersonService
         if ($this->personExists($request) == false) {
 
             $this->contactPerson->name = $formData->name;
+            $this->contactPerson->surname = $formData->surname;
+            $this->contactPerson->suffix = $formData->suffix;
+            $this->contactPerson->position = $formData->position;
             $this->contactPerson->phone = $formData->phone;
+            $this->contactPerson->office_phone = $formData->office_phone;
             $this->contactPerson->email = $formData->email;
             $this->contactPerson->company_id = $formData->company_id;
+            $this->contactPerson->status = 1;
             $this->contactPerson->save();
 
             // return success response
@@ -56,7 +61,11 @@ class ContactPersonService
 
             $this->contactPerson = $contactPerson;
             $this->contactPerson->name = $formData->name;
+            $this->contactPerson->surname = $formData->surname;
+            $this->contactPerson->suffix = $formData->suffix;
+            $this->contactPerson->position = $formData->position;
             $this->contactPerson->phone = $formData->phone;
+            $this->contactPerson->office_phone = $formData->office_phone;
             $this->contactPerson->email = $formData->email;
             $this->contactPerson->company_id = $formData->company_id;
             $this->contactPerson->save();
@@ -74,6 +83,7 @@ class ContactPersonService
     }
 
     public function destroy(ContactPerson $contactPerson) {
+        $contactPerson->status = 0;
         $contactPerson->delete();
 
         $this->result->status = 1;
@@ -82,12 +92,37 @@ class ContactPersonService
         return $this->result;
     }
 
-    public function getContactPersons(Request $request) {
-
-        if(!isset($request->page)) {
-            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->get();
+    public function restore(ContactPerson $contactPerson) {
+        if($contactPerson->company->status == 1) {
+            $contactPerson->status = 1;
+            $contactPerson->deleted_at = null;
+            $contactPerson->save();
+    
+            $this->result->status = 1;
+            $this->result->message = 'success';
         } else {
-            $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->paginate(10);
+            $this->result->status = 0;
+            $this->result->message = 'Error, company deactivated, first activate company';
+        }
+
+        return $this->result;
+    }
+
+
+    public function getContactPersons(Request $request, $trashed = false) {
+
+        if($trashed == false) {
+            if(!isset($request->page)) {
+                $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->get();
+            } else {
+                $this->result->contactPersons = $this->contactPerson->with('company')->orderByDesc('id')->paginate(10);
+            }
+        } else {
+            if(!isset($request->page)) {
+                $this->result->contactPersons = $this->contactPerson->withTrashed()->with('company')->orderByDesc('id')->get();
+            } else {
+                $this->result->contactPersons = $this->contactPerson->withTrashed()->with('company')->orderByDesc('id')->paginate(10);
+            }
         }
 
         $this->result->status = 1;

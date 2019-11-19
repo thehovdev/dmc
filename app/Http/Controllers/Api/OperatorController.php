@@ -22,7 +22,7 @@ class OperatorController extends Controller
      */
     public function index(Request $request, OperatorService $operatorService)
     {
-        $result = $operatorService->getOperators($request);
+        $result = $operatorService->getOperators($request, true);
 
         return response()->json($result);
     }
@@ -82,6 +82,15 @@ class OperatorController extends Controller
     public function destroy(Operator $operator, OperatorService $operatorService)
     {
         $result = $operatorService->destroy($operator);
+
+        return response()->json($result);
+    }
+
+    public function restore($id, OperatorService $operatorService)
+    {
+        $operator = Operator::withTrashed()->find($id);
+
+        $result = $operatorService->restore($operator);
 
         return response()->json($result);
     }

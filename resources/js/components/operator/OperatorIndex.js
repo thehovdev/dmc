@@ -79,8 +79,28 @@ class OperatorIndex extends Component {
             }
         }
 
+        const restoreOperator = (id) => {
+            return operatorApi.restore(operatorAction, id);
+        }
+
         const deleteOperator = (id) => {
             return operatorApi.remove(operatorAction, id);
+        }
+
+        const deleteOrRestoreButton = (item) => {
+            if(item.status == 1) {
+                return (
+                    <button onClick={() => deleteOperator(item.id)} type="button" className="btn btn-danger mx-1">
+                        <i className="fas fa-times-circle"></i> Deactivate
+                    </button>
+                );
+            } else {
+                return (
+                    <button onClick={() => restoreOperator(item.id)} type="button" className="btn btn-success mx-1">
+                        <i className="fas fa-check-circle"></i> Activate
+                    </button>
+                );
+            }
         }
 
         const operatorBlock = () => {
@@ -159,19 +179,18 @@ class OperatorIndex extends Component {
             // console.log(operators.data.operators);
 
             return operators.data.map((item, index) =>
-                <tr id={'operator-' + item.id} key={index}>
+                <tr id={'operator-' + item.id} key={index} className={item.status == 0 ? 'table-danger' : ''}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.phone}</td>
                     <td>{item.email}</td>
                     <td>{item.company.name}</td>
                     <td>
-                        <button onClick={() => editOperator(item.id)} type="button" className="btn btn-primary mx-1">
+                        <button onClick={() => editOperator(item.id)} type="button" className={item.status == 0 ? 'd-none' : 'btn btn-primary mx-1'}>
                             <i className="fas fa-edit"></i> Edit
                         </button>
-                        <button onClick={() => deleteOperator(item.id)} type="button" className="btn btn-danger mx-1">
-                            <i className="fas fa-times-circle"></i> Delete
-                        </button>
+
+                        {deleteOrRestoreButton(item)}
                     </td>
                 </tr>
             );

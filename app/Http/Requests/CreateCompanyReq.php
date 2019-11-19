@@ -34,6 +34,7 @@ class CreateCompanyReq extends FormRequest
 
         $this->validate([
             'formData.name' => 'required|string',
+            'formData.phone' => 'required|string',
             'formData.email' => 'required|string',
             'formData.address' => 'required|string',
             'formData.logo' => 'required',

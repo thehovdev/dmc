@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use stdClass;
 use App\Company;
 use App\ContactPerson;
+use App\Operator;
 use Illuminate\Http\Request;
 use App\Services\CompanyService;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,7 @@ class CompanyController extends Controller
         $result = new stdClass;
         $result->status = 1;
         $result->message = 'success';
-        $result->companies = $companyService->getCompanies($request);
+        $result->companies = $companyService->getCompanies($request, true);
 
         return response()->json($result);
     }
@@ -73,9 +74,18 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company, ContactPerson $contactPerson, CompanyService $companyService)
+    public function destroy(Company $company, ContactPerson $contactPerson, Operator $operator, CompanyService $companyService)
     {
-        $result = $companyService->destroy($company, $contactPerson);
+        $result = $companyService->destroy($company, $contactPerson, $operator);
+
+        return response()->json($result);
+    }
+
+    public function restore($id, ContactPerson $contactPerson, Operator $operator, CompanyService $companyService)
+    {
+        $company = Company::withTrashed()->find($id);
+
+        $result = $companyService->restore($company, $contactPerson, $operator);
 
         return response()->json($result);
     }

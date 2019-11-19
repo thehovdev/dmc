@@ -19,7 +19,7 @@ class ContactPersonController extends Controller
      */
     public function index(Request $request, ContactPersonService $contactPersonService)
     {
-        $result = $contactPersonService->getContactPersons($request);
+        $result = $contactPersonService->getContactPersons($request, true);
 
         return response()->json($result);
     }
@@ -82,4 +82,15 @@ class ContactPersonController extends Controller
 
         return response()->json($result);
     }
+
+    public function restore($id, ContactPersonService $contactPersonService)
+    {
+        $operator = ContactPerson::withTrashed()->find($id);
+
+        $result = $contactPersonService->restore($operator);
+
+        return response()->json($result);
+    }
+
+
 }

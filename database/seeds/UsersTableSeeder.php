@@ -18,8 +18,20 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'role_id' => Role::whereName('admin')->first()->id,
+                'status' => 1,
                 'name' => 'Admin', 
                 'email' => 'halilov.lib@gmail.com',
+                'email_verified_at' => date('Y-m-d h:i:s'),
+                'created_at' => date('Y-m-d h:i:s'),
+                'updated_at' => date('Y-m-d h:i:s'),
+                'password' => Hash::make($this->defaultPwd),
+            ],
+
+            [
+                'role_id' => Role::whereName('user')->first()->id,
+                'status' => 1,
+                'name' => 'User', 
+                'email' => 'hov-dev@protonmail.ch',
                 'email_verified_at' => date('Y-m-d h:i:s'),
                 'created_at' => date('Y-m-d h:i:s'),
                 'updated_at' => date('Y-m-d h:i:s'),

@@ -5,6 +5,7 @@ namespace App\Services;
 use stdClass;
 use App\Company;
 use App\ContactPerson;
+use App\Operator;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyReq;
 use App\Http\Requests\UpdateCompanyReq;
@@ -39,16 +40,23 @@ class CompanyService
 
             // save data to companies table
             $this->company->email = $formData->email;
+            $this->company->phone = $formData->phone;
             $this->company->name = $formData->name;
             $this->company->address = $formData->address;
             $this->company->logo = $logoName;
+            $this->company->status = 1;
             $this->company->save();
 
             // save data to contact_persons table with company_id
             $this->contactPerson->name = $formData->personName;
+            $this->contactPerson->surname = $formData->personSurname;
+            $this->contactPerson->suffix = $formData->personSuffix;
+            $this->contactPerson->position = $formData->personPosition;
             $this->contactPerson->phone = $formData->personPhone;
+            $this->contactPerson->office_phone = $formData->personOfficePhone;
             $this->contactPerson->email = $formData->personEmail;
             $this->contactPerson->company_id = $this->company->id;
+            $this->contactPerson->status = 1;
             $this->contactPerson->save();
 
             // return success responce
@@ -70,6 +78,7 @@ class CompanyService
         $this->company = $company;
         $this->company->name = $formData->name;
         $this->company->email = $formData->email;
+        $this->company->phone = $formData->phone;
         $this->company->address = $formData->address;
         // update logo if exists in request
         if(!is_null($request->file('logo'))) 
@@ -85,9 +94,31 @@ class CompanyService
         return $this->result;
     }
 
-    public function destroy(Company $company, ContactPerson $contactPerson) {
+    public function destroy(Company $company, ContactPerson $contactPerson, Operator $operator) {
+        // update deleting items status
+        $company->operators()->update(['status' => 0]);
+        $company->contactPersons()->update(['status' => 0]);
+
+        // delete items
+        $company->operators()->delete();
         $company->contactPersons()->delete();
         $company->delete();
+
+        $this->result->status = 1;
+        $this->result->message = 'success';
+
+        return $this->result;
+    }
+
+    public function restore(Company $company, ContactPerson $contactPerson, Operator $operator) {
+        // restore items
+        $company->restore();
+        $company->operators()->restore();
+        $company->contactPersons()->restore();
+
+        // update restored items status
+        $company->operators()->update(['status' => 1]);
+        $company->contactPersons()->update(['status' => 1]);
 
         $this->result->status = 1;
         $this->result->message = 'success';
@@ -110,13 +141,22 @@ class CompanyService
         return true;
     }
 
-    public function getCompanies(Request $request) {
+    public function getCompanies(Request $request, $trashed = false) {
 
-        if(!isset($request->page)) {
-            return $this->company->orderByDesc('id')->get();
+        if($trashed == false) {
+            if(!isset($request->page)) {
+                return $this->company->orderByDesc('id')->get();
+            } else {
+                return $this->company->orderByDesc('id')->paginate(10);
+            }
+        } else {
+            if(!isset($request->page)) {
+                return $this->company->orderByDesc('id')->withTrashed()->get();
+            } else {
+                return $this->company->orderByDesc('id')->withTrashed()->paginate(10);
+            }
         }
 
-        return $this->company->orderByDesc('id')->paginate(10);
     }
 
     public function updateLogo($request, $company) {

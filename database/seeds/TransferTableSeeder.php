@@ -12,7 +12,7 @@ class TransferTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('transports')->insert([
+        DB::table('transfers')->insert([
             ['name' => "Airport", 'created_at' => date('Y-m-d h:i:s')],
             ['name' => "During the stay", 'created_at' => date('Y-m-d h:i:s')]
         ]);

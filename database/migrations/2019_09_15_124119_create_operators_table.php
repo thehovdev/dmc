@@ -17,6 +17,7 @@ class CreateOperatorsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('role_id');
             $table->integer('company_id');
+            $table->integer('status');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -24,6 +25,7 @@ class CreateOperatorsTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('operators', function($table) {

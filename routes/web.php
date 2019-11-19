@@ -23,10 +23,14 @@ Route::namespace('Admin')->group(function () {
             // admin home page
             Route::get('/', 'HomeController@index')->name('admin.index');
 
+
+            // admin users
+            Route::get('/user', 'UserController@index')->name('admin.user.index');
+
             // admin companies
             Route::get('/company', 'CompanyController@index')->name('admin.company.index');
             Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
-
+            // admin operators
             Route::get('/operator', 'OperatorController@index')->name('admin.operator.index');
             Route::get('/operator/create', 'OperatorController@create')->name('admin.operator.create');
             // admin contact persons

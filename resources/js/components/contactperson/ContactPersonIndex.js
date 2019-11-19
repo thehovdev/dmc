@@ -68,8 +68,36 @@ class ContactPersonIndex extends Component {
             }
         }
 
+        const restoreContactPerson = (id) => {
+            return contactPersonApi.restore(contactPersonAction, id);
+        }
+
         const deleteContactPerson  = (id) => {
             return contactPersonApi.remove(contactPersonAction, id);
+        }
+
+        const actionButtons = (item) => {
+            if(item.status == 1) {
+                return (
+                    <div>
+                        <button onClick={() => editContactPerson(item.id)} type="button" className={item.status == 0 ? 'd-none' : 'btn btn-primary mx-1'}>
+                            <i className="fas fa-edit"></i> Edit
+                        </button>
+
+                        <button onClick={() => deleteContactPerson(item.id)} type="button" className="btn btn-danger mx-1">
+                            <i className="fas fa-times-circle"></i> Deactivate
+                        </button>
+                    </div>
+                );
+            } else {
+                return (
+                    <div>
+                        <button onClick={() => restoreContactPerson(item.id)} type="button" className="btn btn-success mx-1">
+                            <i className="fas fa-check-circle"></i> Activate
+                        </button>
+                    </div>
+                );
+            }
         }
 
         const contactPersonBlock = () => {
@@ -100,10 +128,30 @@ class ContactPersonIndex extends Component {
                             <label htmlFor="name">Name</label>
                             <input defaultValue={contactPerson.name} type="text" className="form-control" id="name" placeholder="Enter name"></input>
                         </div>
+
+                        <div className="form-group">
+                            <label htmlFor="surname">Surname</label>
+                            <input defaultValue={contactPerson.surname} type="text" className="form-control" id="surname" placeholder="Enter surname"></input>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="suffix">Suffix</label>
+                            <input defaultValue={contactPerson.suffix} type="text" className="form-control" id="suffix" placeholder="Enter suffix"></input>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="position">Position</label>
+                            <input defaultValue={contactPerson.position} type="text" className="form-control" id="position" placeholder="Enter position"></input>
+                        </div>
     
                         <div className="form-group">
                             <label htmlFor="phone">Phone</label>
-                            <input defaultValue={contactPerson.phone} type="text" className="form-control" id="phone" placeholder="Enter company address"></input>
+                            <input defaultValue={contactPerson.phone} type="text" className="form-control" id="phone" placeholder="Enter company phone"></input>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="office_phone">Office phone</label>
+                            <input defaultValue={contactPerson.office_phone} type="text" className="form-control" id="office_phone" placeholder="Enter company office phone"></input>
                         </div>
 
                         <div className="form-group">
@@ -134,19 +182,18 @@ class ContactPersonIndex extends Component {
             return contactPersons.data.map((item, index) =>
 
 
-                <tr id={'contact-person-' + item.id} key={index}>
+                <tr id={'contact-person-' + item.id} key={index} className={item.status == 0 ? 'table-danger' : ''}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
+                    <td>{item.surname}</td>
+                    <td>{item.suffix}</td>
+                    <td>{item.position}</td>
                     <td>{item.phone}</td>
+                    <td>{item.office_phone}</td>
                     <td>{item.email}</td>
                     <td>{item.company.name}</td>
                     <td>
-                        <button onClick={() => editContactPerson(item.id)} type="button" className="btn btn-primary mx-1">
-                            <i className="fas fa-edit"></i> Edit
-                        </button>
-                        <button onClick={() => deleteContactPerson(item.id)} type="button" className="btn btn-danger mx-1">
-                            <i className="fas fa-times-circle"></i> Delete
-                        </button>
+                        {actionButtons(item)}
                     </td>
                 </tr>
             );
@@ -183,7 +230,11 @@ class ContactPersonIndex extends Component {
                             <tr>
                                 <th>id</th>
                                 <th>Name</th>
+                                <th>Surname</th>
+                                <th>Suffix</th>
+                                <th>Position</th>
                                 <th>Phone</th>
+                                <th>Office phone</th>
                                 <th>Email</th>
                                 <th>Company</th>
                                 <th>Actions</th>

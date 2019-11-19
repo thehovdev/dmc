@@ -1,6 +1,6 @@
 <!-- Sidebar  -->
 <nav id="sidebar">
-    <a href="{{ route('admin.index') }}">
+    <a href="{{ route('cabinet.index') }}">
         <div class="sidebar-header">
             <h3>DMC project</h3>
         </div>
@@ -8,7 +8,7 @@
 
     <ul class="list-unstyled components">
         <li class="@if(Request::is('admin')) {{ 'active' }} @endif">
-            <a href="#">
+            <a href="{{ route('cabinet.index') }}">
                 <i class="fas fa-home"></i> Home
             </a>
         </li>

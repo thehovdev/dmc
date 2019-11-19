@@ -8,8 +8,14 @@
 
     <ul class="list-unstyled components">
         <li class="@if(Request::is('admin')) {{ 'active' }} @endif">
-            <a href="#">
+            <a href="{{ route('admin.index') }}">
                 <i class="fas fa-home"></i> Home
+            </a>
+        </li>
+
+        <li class="@if(Request::is('user')) {{ 'active' }} @endif">
+            <a href="{{ route('admin.user.index') }}">
+                <i class="fas fa-users"></i> Users
             </a>
         </li>
 

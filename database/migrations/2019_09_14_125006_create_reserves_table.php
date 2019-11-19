@@ -45,7 +45,6 @@ class CreateReservesTable extends Migration
             $table->float('double_max_price');
 
             $table->boolean('need_transfer');
-            $table->boolean('need_guide');
             $table->boolean('need_visa');
             $table->boolean('need_hotel');
             $table->boolean('need_cuisine');

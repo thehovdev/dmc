@@ -103,14 +103,6 @@ class TransportDetails extends Component {
                     </div>
 
                     { meetingFacilitiesBlock() }
-
-                    <div className="form-group">
-                        <label htmlFor="need_guide">Do you need guide service</label>
-                        <select className="form-control" id="need_guide">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
-                        </select>
-                    </div>
                 </div>
             </div>
         );

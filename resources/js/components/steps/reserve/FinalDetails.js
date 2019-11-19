@@ -14,25 +14,28 @@ class FinalDetails extends Component {
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-12">
-                                <label htmlFor="single_min_price">Single room budget per person</label>
+                                <label htmlFor="single_min_price">Expected budget per person</label>
                             </div>
-                            <div className="col-sm-6">
-                                <input type="number" id="single_min_price" className="form-control" placeholder="budget (min):"></input>
+                            <div className="col-sm-3 d-flex align-items-center">
+                                Single :
                             </div>
-                            <div className="col-sm-6">
-                                <input type="number" id="single_max_price" className="form-control" placeholder="budget (max):"></input>
+                            <div className="col-sm-4">
+                                <input type="number" id="single_min_price" className="form-control" placeholder="single (min):"></input>
+                            </div>
+                            <div className="col-sm-4">
+                                <input type="number" id="single_max_price" className="form-control" placeholder="single (max):"></input>
                             </div>
                         </div>
 
-                        <div className="row">
-                            <div className="col-sm-12">
-                                <label htmlFor="double_min_price">Double room budget per person</label>
+                        <div className="row mt-2">
+                            <div className="col-sm-3 d-flex align-items-center">
+                                Double :
                             </div>
-                            <div className="col-sm-6">
-                                <input type="number" id="double_min_price" className="form-control" placeholder="budget (min):"></input>
+                            <div className="col-sm-4">
+                                <input type="number" id="double_min_price" className="form-control" placeholder="double (min):"></input>
                             </div>
-                            <div className="col-sm-6">
-                                <input type="number" id="double_max_price" className="form-control" placeholder="budget (max):"></input>
+                            <div className="col-sm-4">
+                                <input type="number" id="double_max_price" className="form-control" placeholder="double (max):"></input>
                             </div>
                         </div>
 

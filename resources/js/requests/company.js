@@ -122,7 +122,7 @@ export function remove(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Company successfully deleted',
+                title: 'Company successfully deactivated',
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -141,6 +141,40 @@ export function remove(action, id) {
     });
 
 }
+
+export function restore(action, id) {
+    let request_url = '/api/company/restore/' + id;
+
+    const elem = document.getElementById('company-' + id);
+
+    axios.post(request_url, {
+        id : id,
+        _method: 'GET'
+    }).then(function (response) {
+
+        if(response.data.status == 1) {
+            Swal.fire({
+                position: 'top-end',
+                type: 'success',
+                title: 'Company successfully restored',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+            get(action)
+            
+        } else {
+            Swal.fire(
+                'Error!',
+                'Please fill required fields',
+                'error'
+            )
+            return false;
+        }
+
+    });
+}
+
 
 export function get(action, page = 1) {
     let request_url = '/api/company?page=' + page;

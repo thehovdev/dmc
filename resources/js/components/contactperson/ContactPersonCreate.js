@@ -57,8 +57,28 @@ class ContactPersonCreate extends Component {
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="surname">Surname</label>
+                        <input defaultValue="Khalilov" type="text" className="form-control" id="surname" placeholder="Enter person surname"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="suffix">Suffix</label>
+                        <input defaultValue="Mr" type="text" className="form-control" id="suffix" placeholder="Enter person suffix"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="position">Position</label>
+                        <input defaultValue="Director" type="text" className="form-control" id="position" placeholder="Enter person position"></input>
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="phone">Phone</label>
                         <input defaultValue="994513739930" type="text" className="form-control" id="phone" placeholder="Enter person phone"></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="office_phone">Office phone</label>
+                        <input defaultValue="0125970046" type="text" className="form-control" id="office_phone" placeholder="Enter person office phone"></input>
                     </div>
 
                     <div className="form-group">

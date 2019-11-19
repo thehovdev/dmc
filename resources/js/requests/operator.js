@@ -142,7 +142,7 @@ export function remove(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Operator successfully deleted',
+                title: 'Operator successfully deactivated',
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -154,6 +154,41 @@ export function remove(action, id) {
             Swal.fire(
                 'Error!',
                 'Please fill required fields',
+                'error'
+            )
+            return false;
+        }
+
+    });
+
+}
+
+
+export function restore(action, id) {
+    let request_url = '/api/operator/restore/' + id;
+
+    axios.post(request_url, {
+        id : id,
+        _method: 'GET'
+    }).then(function (response) {
+
+        if(response.data.status == 1) {
+
+            Swal.fire({
+                position: 'top-end',
+                type: 'success',
+                title: 'Operator successfully activated',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+            // get updated operators list
+            get(action)
+            
+        } else {
+            Swal.fire(
+                'Error!',
+                response.data.message,
                 'error'
             )
             return false;
