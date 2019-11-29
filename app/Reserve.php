@@ -24,4 +24,10 @@ class Reserve extends Model
         return $this->belongsTo('App\Country');
     }
 
+    public function responded($operator) {
+        return $this->belongsTo('App\RespondedReserve', 'id', 'reserve_id')
+            ->where('id', $operator->id)
+            ->first();
+    } 
+
 }

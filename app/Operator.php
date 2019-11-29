@@ -44,4 +44,12 @@ class Operator extends Authenticatable
     public function role() {
         return $this->belongsTo('App\Role');
     }
+
+    public function declinedReserves() {
+        return $this->belongsTo('App\DeclinedReserve', 'id', 'operator_id');
+    }
+
+    public function respondedReserves() {
+        return $this->belongsTo('App\RespondedReserve', 'id', 'operator_id');
+    }
 }

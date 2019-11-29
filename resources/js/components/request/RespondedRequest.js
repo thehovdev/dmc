@@ -7,20 +7,24 @@ import * as requestApi from '../../requests/request';
 import * as requestAction from '../../actions/request';
 import * as blocks from '../../includes/blocks';
 
-class RequestIndex extends Component {
+class RespondedRequest extends Component {
 
     constructor(props) {
         super(props);
     }
 
-    getRequests (page = 1) {
+    getRespondedRequests (page = 1) {
+
+        console.log(page);
+
         let action = this.props.requestAction;
-        return requestApi.get(action, page);
+
+        return requestApi.getResponded(action, page);
     }
 
     // do function after component ends render
     componentDidMount(){
-        this.getRequests();
+        this.getRespondedRequests();
     }
 
     render() {
@@ -37,8 +41,9 @@ class RequestIndex extends Component {
                     {blocks.groupInfoList(request)}
                     {blocks.mainInfoList(request)}
                     {blocks.additionalInfoList(request)}
-                    {blocks.sendProposalList(request)}
+                    {blocks.editProposalList(request)}
                 </div>
+
             );
         }
 
@@ -47,14 +52,15 @@ class RequestIndex extends Component {
             if(id == false) {
                 return requestAction.edit(false);
             } else {
-                return requestApi.find(requestAction, id);
+                return requestApi.findResponded(requestAction, id);
             }
+        }
+
+        const updateRequest = (id) => {
+            return requestAction.update(id);
         }
         const declineRequest = (id) => {
             return requestApi.decline(requestAction, id);
-        }
-        const respondRequest = (id) => {
-            return requestAction.respond(id);
         }
 
         // index and edit state blocks
@@ -69,6 +75,9 @@ class RequestIndex extends Component {
             }
         }
         const requestEditBlock = () => {
+            console.log('requestEditBlock');
+            console.log(request);
+
             return (
                 <div id="edit-request-content" className="animated bounceInRight">
                     <div className="cabinet-info">
@@ -79,8 +88,8 @@ class RequestIndex extends Component {
                         <i className="fas fa-arrow-left"></i> Back
                     </button>
 
-                    <button className="btn btn-success btn-lg mx-1 my-2" onClick={() => respondRequest(request.id)}>
-                        <i className="fas fa-arrow-alt-circle-up"></i> Send proposal to client
+                    <button className="btn btn-success btn-lg mx-1 my-2" onClick={() => updateRequest(request.id)}>
+                        <i className="fas fa-save"></i> Update proposal
                     </button>
                 </div>
             );
@@ -100,9 +109,6 @@ class RequestIndex extends Component {
                     <td>
                         <button type="button" className="btn btn-success" onClick={() => editRequest(item.id)}>
                             <i className="fas fa-pen"></i>
-                        </button>
-                        <button type="button" className="btn btn-danger mx-1" onClick={() => declineRequest(item.id)}>
-                            <i className="fas fa-times"></i>
                         </button>
                     </td>
                 </tr>
@@ -176,4 +182,4 @@ const mapStateToProps = function(state){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequestIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(RespondedRequest);

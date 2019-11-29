@@ -16536,6 +16536,10 @@ a:focus {
   transition: all 0.3s;
 }
 
+hr.small-border {
+  margin: 5px 0;
+}
+
 .intro {
   background: url("/images/backgrounds/intro.jpg") no-repeat;
   background-position: center;
@@ -16776,12 +16780,28 @@ a:focus {
   border: 1px solid #efefef;
 }
 
-.cabinet-info .detail-data .main-title {
+.cabinet-info .detail-data .main-title,
+.cabinet-info .detail-data .send-proposal-title {
   font-size: 18px;
   padding: 5px 0;
   margin: 0;
-  background: #2f608e;
   color: white;
+}
+
+.cabinet-info .detail-data .main-title {
+  background: #2f608e;
+}
+
+.cabinet-info .detail-data .send-proposal-title {
+  background: #38c172;
+}
+
+.cabinet-info div.detail-data-content {
+  border: 1px solid #efefef;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  padding: 15px;
+  height: auto;
 }
 
 .cabinet-info ul.detail-data-list {

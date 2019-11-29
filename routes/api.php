@@ -24,17 +24,33 @@ Route::namespace('Api')->group(function () {
         Route::get('/user/restore/{user}', 'UserController@restore');
         Route::delete('/user/{user}', 'UserController@destroy');
 
-        Route::apiResource('company', 'CompanyController');
         Route::get('/company/restore/{id}', 'CompanyController@restore');
+        Route::apiResource('company', 'CompanyController');
 
-        Route::apiResource('contactPerson', 'ContactPersonController');
         Route::get('/contactPerson/restore/{id}', 'ContactPersonController@restore');
+        Route::apiResource('contactPerson', 'ContactPersonController');
 
-        Route::apiResource('operator', 'OperatorController');
         Route::get('/operator/restore/{id}', 'OperatorController@restore');
+        Route::apiResource('operator', 'OperatorController');
+    
+       // for operators, users, admin
+
+       // decline & roste
+       Route::get('reserve/declined/', 'ReserveController@declined');
+       Route::get('reserve/decline/{reserve}', 'ReserveController@decline');
+       Route::get('reserve/restore/{reserve}', 'ReserveController@restore');
+
+       // respond ( send proposal )
+       Route::get('reserve/responded', 'ReserveController@responded');
+       Route::get('reserve/responded/{reserve}', 'ReserveController@showResponded');
+       Route::post('reserve/respond/{reserve}', 'ReserveController@respond');
+       Route::post('reserve/updaterespond/{reserve}', 'ReserveController@updateRespond');
+
+       // reserve api resource
+       Route::apiResource('reserve', 'ReserveController');
     });
 
-    // for operators, users, admin
-    Route::apiResource('reserve', 'ReserveController');
+
     
+
 });

@@ -14,7 +14,8 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::view('/', 'index')->name('index');
-Route::view('/test', 'test');
+Route::get('/test', 'TestController@index');
+
 
 // admin panel
 Route::namespace('Admin')->group(function () {
@@ -50,6 +51,8 @@ Route::namespace('Cabinet')->group(function () {
 
             // client requests
             Route::get('/reserve', 'ReserveController@index')->name('cabinet.reserve.index');
+            Route::get('/reserve/declined', 'ReserveController@declined')->name('cabinet.reserve.declined');
+            Route::get('/reserve/responded', 'ReserveController@responded')->name('cabinet.reserve.responded');
             Route::get('/reserve/create', 'ReserveController@index')->name('cabinet.reserve.create');
         });
         

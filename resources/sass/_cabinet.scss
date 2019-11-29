@@ -3,13 +3,26 @@
 
     .detail-data {
         border: 1px solid #efefef;
-        .main-title {
+        .main-title, .send-proposal-title{
             font-size: 18px;
             padding: 5px 0;
             margin: 0;
-            background: $headerBackgroundColor;
             color: white;
         }
+        .main-title {
+            background: $headerBackgroundColor;
+        }
+        .send-proposal-title {
+            background: $stepActiveColor;
+        }
+    }
+
+    div.detail-data-content {
+        border: 1px solid #efefef;   
+        margin: 0;
+        margin-bottom: 0.5rem;
+        padding: 15px;
+        height: auto;
     }
 
     ul.detail-data-list {
@@ -19,11 +32,6 @@
         height: auto;
         list-style-type: none;
         overflow: hidden;
-
-        // li:nth-child(2n) {
-        //     border-left: 1px solid #efefef;   
-        // }
-
         li {
             border: 1px solid #efefef;   
             border-collapse: collapse;

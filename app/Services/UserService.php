@@ -82,23 +82,5 @@ class UserService
 
         return $this->result;
     }
-
-
-    // public function userExists(CreateUserReq $request) {
-    //     // get validated data from request parameter as object
-    //     $formData = (object) $request->formData;
-
-    //     // find company by name
-    //     $user = $this->user->where('name', $formData->name)->first();
-
-    //     //return result
-    //     if(is_null($user)) {
-    //         return false;
-    //     }
-
-    //     return true;
-    // }
-
-
  
 }

@@ -39,6 +39,18 @@ class FinalDetails extends Component {
                             </div>
                         </div>
 
+                      <div className="row mt-2">
+                            <div className="col-sm-3 d-flex align-items-center">
+                                Triple :
+                            </div>
+                            <div className="col-sm-4">
+                                <input type="number" id="triple_min_price" className="form-control" placeholder="triple (min):"></input>
+                            </div>
+                            <div className="col-sm-4">
+                                <input type="number" id="triple_max_price" className="form-control" placeholder="triple (max):"></input>
+                            </div>
+                        </div>
+
                     </div>   
 
                     <div className="form-group">

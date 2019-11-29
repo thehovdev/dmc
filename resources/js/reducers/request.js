@@ -1,5 +1,9 @@
 import update from 'react-addons-update';
+import {getFormData} from '../includes/helpers';
+import * as requestApi from '../requests/request';
 
+let form;
+let formData;
 let request;
 let requests;
 let initialState = {
@@ -30,6 +34,38 @@ export default function (state = initialState, action) {
                 edit: {$set: true},
                 item: {$set: request}
             });
+        case 'UPDATE_REQUEST':
+
+            // get request id from action
+            request = action.payload;
+
+            // get form data
+            form = document.getElementById('send-proposal-content');
+            formData = getFormData( form );
+
+            // call api update method
+            console.log('UPDATE_REQUEST dispatched');
+
+            requestApi.update(formData, request)
+
+            return state
+
+
+        case 'RESPOND_REQUEST':
+
+            // get request id from action
+            request = action.payload;
+
+            // get form data
+            form = document.getElementById('send-proposal-content');
+            formData = getFormData( form );
+
+            // call api update method
+            console.log('RESPOND_REQUEST dispatched');
+
+            requestApi.respond(formData, request)
+
+            return state
 
         case 'GET_REQUESTS':
             requests = action.payload;

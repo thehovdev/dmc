@@ -45,6 +45,12 @@ class CompanyService
             $this->company->address = $formData->address;
             $this->company->logo = $logoName;
             $this->company->status = 1;
+    
+            if(!is_null($formData->active_from))
+                $this->company->active_from = date('Y-m-d', strtotime($formData->active_from));
+            if(!is_null($formData->active_to))
+                $this->company->active_to = date('Y-m-d', strtotime($formData->active_to));
+    
             $this->company->save();
 
             // save data to contact_persons table with company_id
@@ -80,6 +86,13 @@ class CompanyService
         $this->company->email = $formData->email;
         $this->company->phone = $formData->phone;
         $this->company->address = $formData->address;
+
+        if(!is_null($formData->active_from))
+            $this->company->active_from = date('Y-m-d', strtotime($formData->active_from));
+
+        if(!is_null($formData->active_to)) 
+            $this->company->active_to = date('Y-m-d', strtotime($formData->active_to));
+
         // update logo if exists in request
         if(!is_null($request->file('logo'))) 
             $this->company->logo = $this->updateLogo($request, $company);
@@ -94,7 +107,7 @@ class CompanyService
         return $this->result;
     }
 
-    public function destroy(Company $company, ContactPerson $contactPerson, Operator $operator) {
+    public function destroy(Company $company) {
         // update deleting items status
         $company->operators()->update(['status' => 0]);
         $company->contactPersons()->update(['status' => 0]);
@@ -110,7 +123,7 @@ class CompanyService
         return $this->result;
     }
 
-    public function restore(Company $company, ContactPerson $contactPerson, Operator $operator) {
+    public function restore(Company $company) {
         // restore items
         $company->restore();
         $company->operators()->restore();

@@ -72,6 +72,34 @@ export function showCheckedIcon(status = 'true') {
     return <i className="fa-custom fas fa-times-circle"></i>;
 }
 
+export function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+export function daysCount(startDate, endDate) {
+
+    var currentDate = new Date();
+    var endDate = new Date(endDate);
+    var startDate = new Date(startDate);
+
+    var diffTime = Math.abs(endDate - currentDate);
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+    if(endDate < currentDate || startDate > currentDate) diffDays = 0;
+
+    return diffDays
+}
+
 export function getMultipleFields(request, prop) {
 
     if(prop in request) {

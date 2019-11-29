@@ -8,7 +8,7 @@ export const create = () => {
 export const update = (request) => {
     return {
       type: 'UPDATE_REQUEST',
-      payload: company
+      payload: request
     }
 }
 
@@ -29,6 +29,13 @@ export const getAll = (requests) => {
 export const edit = (request) => {
     return {
       type: 'EDIT_REQUEST',
+      payload: request
+    }
+}
+
+export const respond = (request) => {
+    return {
+      type: 'RESPOND_REQUEST',
       payload: request
     }
 }

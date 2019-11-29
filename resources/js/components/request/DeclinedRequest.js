@@ -5,91 +5,56 @@ import {connect} from 'react-redux';
 import * as companyAction from '../../actions/company';
 import * as requestApi from '../../requests/request';
 import * as requestAction from '../../actions/request';
-import * as blocks from '../../includes/blocks';
+import * as helper from '../../includes/helpers';
 
-class RequestIndex extends Component {
+class DeclinedRequest extends Component {
 
     constructor(props) {
         super(props);
     }
 
-    getRequests (page = 1) {
+    getDeclinedRequests (page = 1) {
         let action = this.props.requestAction;
-        return requestApi.get(action, page);
+        return requestApi.getDeclined(action, page);
     }
 
     // do function after component ends render
     componentDidMount(){
-        this.getRequests();
+        this.getDeclinedRequests();
     }
 
     render() {
-        const edit = this.props.request.edit;
         const request = this.props.request.item;
         const requests = this.props.request.items;
         const requestAction = this.props.requestAction;
 
-        // information bloocks in reserve detail page 
-        const infoBlocks = () => {
-            return (
-                <div className="row">
-                    {blocks.arrivalInfoList(request)}
-                    {blocks.groupInfoList(request)}
-                    {blocks.mainInfoList(request)}
-                    {blocks.additionalInfoList(request)}
-                    {blocks.sendProposalList(request)}
-                </div>
-            );
+        // action buttons
+
+        const restoreRequest = (id) => {
+            return requestApi.restore(requestAction, id);
         }
 
-        // main actions
-        const editRequest = (id) => {
-            if(id == false) {
-                return requestAction.edit(false);
-            } else {
-                return requestApi.find(requestAction, id);
-            }
-        }
-        const declineRequest = (id) => {
-            return requestApi.decline(requestAction, id);
-        }
-        const respondRequest = (id) => {
-            return requestAction.respond(id);
+        const actionButtons = (item) => {
+            return (
+                <div>
+                    <button type="button" className="btn btn-success" onClick={() => restoreRequest(item.id)}>
+                        <i className="fa fa-redo"></i>
+                    </button>
+                </div>
+            );
         }
 
         // index and edit state blocks
         const requestBlock = () => {
-
-            console.log('edit : ' + edit);
-
-            if(edit == false) {
-                return requestIndexBlock();
-            } else {
-                return requestEditBlock();
-            }
-        }
-        const requestEditBlock = () => {
-            return (
-                <div id="edit-request-content" className="animated bounceInRight">
-                    <div className="cabinet-info">
-                        {infoBlocks()}
-                    </div>
-    
-                    <button className="btn btn-primary mx-1 my-2" onClick={() => editRequest(false)}>
-                        <i className="fas fa-arrow-left"></i> Back
-                    </button>
-
-                    <button className="btn btn-success btn-lg mx-1 my-2" onClick={() => respondRequest(request.id)}>
-                        <i className="fas fa-arrow-alt-circle-up"></i> Send proposal to client
-                    </button>
-                </div>
-            );
+            return requestIndexBlock();
         }
         const requestsListBlock = () => {
+            console.log(requests);
+
             if(requests == null) return null;
 
             return requests.data.map((item, index) =>
-                <tr id={'request-' + item.id} key={index}>
+                <tr id={'request-' + item.id} key={index} className="table-danger">
                     <td>{item.id}</td>
                     <td>{item.arrival_date} {item.arrival_time}</td>
                     <td>{item.departure_date} {item.departure_time}</td>
@@ -97,14 +62,7 @@ class RequestIndex extends Component {
                     <td>{item.age_range.name}</td>
                     <td>{item.nationality.name}</td>
                     <td>{item.country.name}</td>
-                    <td>
-                        <button type="button" className="btn btn-success" onClick={() => editRequest(item.id)}>
-                            <i className="fas fa-pen"></i>
-                        </button>
-                        <button type="button" className="btn btn-danger mx-1" onClick={() => declineRequest(item.id)}>
-                            <i className="fas fa-times"></i>
-                        </button>
-                    </td>
+                    <td>{actionButtons(item)}</td>
                 </tr>
             );
         }
@@ -176,4 +134,4 @@ const mapStateToProps = function(state){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequestIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(DeclinedRequest);

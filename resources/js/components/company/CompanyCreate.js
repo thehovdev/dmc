@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { create } from 'domain';
+import flatpickr from "flatpickr";
 
 import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
@@ -13,6 +14,12 @@ class CompanyCreate extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    // do function after component ends render
+    componentDidMount(){
+        flatpickr("#active_from", {});
+        flatpickr("#active_to", {});
     }
 
     render() {
@@ -50,6 +57,22 @@ class CompanyCreate extends Component {
                         <label htmlFor="logo">Logo</label>
                         <input type="file" className="form-control-file" id="logo"></input>
                     </div>
+
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <div className="form-group">
+                                <label htmlFor="address">Active from</label>
+                                <input type="text" className="form-control" id="active_from"></input>
+                            </div>                   
+                        </div>
+                        <div className="col-sm-6">
+                            <div className="form-group">
+                                <label htmlFor="address">Active to</label>
+                                <input type="text" className="form-control" id="active_to"></input>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <hr></hr>

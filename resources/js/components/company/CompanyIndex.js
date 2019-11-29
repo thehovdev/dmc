@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import flatpickr from "flatpickr";
 import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
+import * as helper from '../../includes/helpers';
 
 import axios from 'axios';
 
@@ -25,6 +26,11 @@ class CompanyIndex extends Component {
     // do function after component ends render
     componentDidMount(){
         this.getCompanies();
+    }
+
+    componentDidUpdate() {
+        flatpickr("#active_from", {});
+        flatpickr("#active_to", {});
     }
 
     render() {
@@ -121,6 +127,24 @@ class CompanyIndex extends Component {
                             <label htmlFor="logo">Logo</label>
                             <input type="file" className="form-control-file" id="logo"></input>
                         </div>
+
+                        <div className="row">
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <label htmlFor="address">Active from</label>
+                                    <input defaultValue={company.active_from} type="text" className="form-control" id="active_from"></input>
+                                </div>                   
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <label htmlFor="address">Active until</label>
+                                    <input defaultValue={company.active_to} type="text" className="form-control" id="active_to"></input>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
     
                     <button className="btn btn-primary mx-1" onClick={() => editCompany(false)}>
@@ -145,6 +169,13 @@ class CompanyIndex extends Component {
                     <td>{item.email}</td>
                     <td>{item.phone}</td>
                     <td>{item.address}</td>
+                    <td>
+                        {/* <div>From: {helper.formatDate(item.active_from)}</div>
+                        <hr className="small-border"></hr>
+                        <div>Until: {helper.formatDate(item.active_to)}</div>
+                        <hr className="small-border"></hr> */}
+                        <div>{helper.daysCount(item.active_from, item.active_to)} days left</div>
+                    </td>
                     <td>
                         {actionButtons(item)}
                     </td>
@@ -187,6 +218,7 @@ class CompanyIndex extends Component {
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Address</th>
+                                <th>Active period</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

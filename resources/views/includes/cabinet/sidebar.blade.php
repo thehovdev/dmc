@@ -12,13 +12,21 @@
                 <i class="fas fa-home"></i> Home
             </a>
         </li>
-  
         <li>
             <a href="{{ route('cabinet.reserve.index') }}">
-                <i class="fas fa-address-card"></i> Client requests
+                <i class="fas fa-address-card"></i> Pending
             </a>
         </li>
-
+        <li>
+            <a href="{{ route('cabinet.reserve.responded') }}">
+                <i class="fas fa-address-card"></i> Responded
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('cabinet.reserve.declined') }}">
+                <i class="fas fa-address-card"></i> Declined
+            </a>
+        </li>
         <li>
             <a href="{{ route('index') }}">
                 <i class="fas fa-folder-plus"></i> Create request

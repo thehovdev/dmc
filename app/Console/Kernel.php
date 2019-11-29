@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\ActivateCompany::class,
+        Commands\DeactivateCompany::class,
     ];
 
     /**
@@ -26,6 +27,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+
+        // $schedule->command('company:activate')->dailyAt('00:00');
+        // $schedule->command('company:activate')->dailyAt('00:00');
     }
 
     /**

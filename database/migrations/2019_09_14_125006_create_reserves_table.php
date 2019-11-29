@@ -39,10 +39,12 @@ class CreateReservesTable extends Migration
             $table->integer('number_of_people');
             $table->integer('number_of_tourleaders')->nullable();
             
-            $table->float('single_min_price');
-            $table->float('single_max_price');
-            $table->float('double_min_price');
-            $table->float('double_max_price');
+            $table->float('single_min_price')->nullable();
+            $table->float('single_max_price')->nullable();
+            $table->float('double_min_price')->nullable();
+            $table->float('double_max_price')->nullable();
+            $table->float('triple_min_price')->nullable();
+            $table->float('triple_max_price')->nullable();
 
             $table->boolean('need_transfer');
             $table->boolean('need_visa');

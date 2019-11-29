@@ -21,6 +21,8 @@ class CreateCompaniesTable extends Migration
             $table->string('phone');
             $table->string('logo');
             $table->string('address');
+            $table->timestamp('active_from')->nullable();
+            $table->timestamp('active_to')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
