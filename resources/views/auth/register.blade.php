@@ -6,14 +6,18 @@
     <section class="registration-window">
         <div class="row">
             <div class="col-md-8 offset-2">
-                <h1 class="text-center mt-3">Create your account</h1>
+                <h1 class="text-center mt-3">@lang('auth.create_account')</h1>
     
                 <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
                     <li class="nav-item w-50">
-                        <a class="nav-link active" id="pills-personal-tab" data-toggle="pill" href="#pills-personal" role="tab" aria-controls="pills-personal" aria-selected="true">Personal Account</a>
+                        <a class="nav-link active" id="pills-personal-tab" data-toggle="pill" href="#pills-personal" role="tab" aria-controls="pills-personal" aria-selected="true">
+                            @lang('auth.account_personal')
+                        </a>
                     </li>
                     <li class="nav-item w-50">
-                        <a class="nav-link" id="pills-corporate-tab" data-toggle="pill" href="#pills-corporate" role="tab" aria-controls="pills-corporate" aria-selected="false">Corporate Account</a>
+                        <a class="nav-link" id="pills-corporate-tab" data-toggle="pill" href="#pills-corporate" role="tab" aria-controls="pills-corporate" aria-selected="false">
+                            @lang('auth.account_corporate')
+                        </a>
                     </li>
                 </ul>
             </div>

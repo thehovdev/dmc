@@ -37,6 +37,20 @@ export function getResponded(action, page = 1) {
     });
 }
 
+export function getUserReserves(action, page = 1) {
+    let request_url = '/api/reserve/user?page=' + page;
+
+    return axios.get(request_url).then(function (response) {
+        // console.log(response);
+        if(response.data.status == 1) {
+
+            console.log(response.data);
+            // console.log(response.data.reserves);
+            action.get(response.data.reserves);
+        }
+    });
+}
+
 export function getAll(action) {
     let request_url = '/api/reserve';
 
@@ -56,6 +70,15 @@ export function find(action, id) {
             id : id
         }
     }).then(function (response) {
+        if(response.data.id) {
+            action.edit(response.data);
+        } 
+    });
+}
+
+export function findByUser(action, id, page) {
+    let request_url = `/api/reserve/user/${id}/?page=${page}`;
+    axios.get(request_url).then(function (response) {
         if(response.data.id) {
             action.edit(response.data);
         } 

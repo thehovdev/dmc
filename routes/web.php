@@ -17,6 +17,9 @@ Route::view('/', 'index')->name('index');
 Route::get('/test', 'TestController@index');
 
 
+// set locale
+Route::get('setlocale/{locale}', 'LocaleController@setLocale');
+
 // admin panel
 Route::namespace('Admin')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -49,13 +52,19 @@ Route::namespace('Cabinet')->group(function () {
             // cabinet home page
             Route::get('/', 'HomeController@index')->name('cabinet.index');
 
-            // client requests
+            // for operator
             Route::get('/reserve', 'ReserveController@index')->name('cabinet.reserve.index');
             Route::get('/reserve/declined', 'ReserveController@declined')->name('cabinet.reserve.declined');
             Route::get('/reserve/responded', 'ReserveController@responded')->name('cabinet.reserve.responded');
             Route::get('/reserve/create', 'ReserveController@index')->name('cabinet.reserve.create');
+
+            // for user
+            Route::get('/user/reserve', 'ReserveController@userReserves')->name('cabinet.reserve.user.index');
         });
-        
     });
 });
+
+
+
+    
 

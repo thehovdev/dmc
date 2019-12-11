@@ -50,7 +50,6 @@ class UserService
         return $this->result;
     }
 
-
     public function getUsers(Request $request, $trashed = false) {
 
         if($trashed == false) {
@@ -72,7 +71,6 @@ class UserService
 
         return $this->result;
     }
-
 
     public function getUser(User $user) {
         $this->result->status = 1;

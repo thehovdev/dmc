@@ -8,6 +8,10 @@ use stdClass;
 class Reserve extends Model
 {
     
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
     public function group_type() {
         return $this->belongsTo('App\GroupType');
     }
@@ -24,9 +28,13 @@ class Reserve extends Model
         return $this->belongsTo('App\Country');
     }
 
+    public function responded_reserves() {
+        return $this->hasMany('App\RespondedReserve');
+    } 
+
     public function responded($operator) {
         return $this->belongsTo('App\RespondedReserve', 'id', 'reserve_id')
-            ->where('id', $operator->id)
+            ->where('operator_id', $operator->id)
             ->first();
     } 
 

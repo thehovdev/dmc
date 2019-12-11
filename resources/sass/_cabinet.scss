@@ -17,6 +17,7 @@
         }
     }
 
+
     div.detail-data-content {
         border: 1px solid #efefef;   
         margin: 0;
@@ -63,4 +64,13 @@
             }
         }
     }
+
+    ul.proposal-detail-data-list {
+        background: #c6e0f5;
+        li {
+            border-color: #95c5ed;
+        }
+    }
+
+
 }

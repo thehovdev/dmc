@@ -1,4 +1,18 @@
 import React, { Component } from 'react'
+import languages from '../translations/languages';
+
+export function translate(keys) {
+    // get locale from html tag
+    let locale = document.getElementsByTagName('html')[0].getAttribute('lang');
+    keys = locale + '.' + keys;
+
+    var translation = languages;
+    keys.split(".").forEach(function(itm){
+        translation = translation[itm];
+    });
+
+    return translation;
+}
 
 export function getFormData(form) {
     var formId = form.id;

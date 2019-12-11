@@ -10,6 +10,7 @@ let initialState = {
     edit: false,
     item: null,
     items: null,
+    proposal: null,
     pageCount: null,
     perPage: null
 }
@@ -20,20 +21,36 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         case 'EDIT_REQUEST':
-
             request = action.payload;
         
             if(request == false) {
                 return update(state, { 
                     edit: {$set: false},
-                    item: {$set: null}
+                    item: {$set: null},
+                    proposal: {$set: null}
                 });
             }
 
             return update(state, { 
                 edit: {$set: true},
-                item: {$set: request}
+                item: {$set: request},
+                proposal: {$set: null}
             });
+
+        case 'SHOW_PROPOSAL':
+
+            request = action.payload;
+        
+            if(request == false) {
+                return update(state, { 
+                    proposal: {$set: null}
+                });
+            }
+
+            return update(state, { 
+                proposal: {$set: request}
+            });
+
         case 'UPDATE_REQUEST':
 
             // get request id from action

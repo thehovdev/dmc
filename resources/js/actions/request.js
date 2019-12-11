@@ -39,3 +39,10 @@ export const respond = (request) => {
       payload: request
     }
 }
+
+export const showProposal = (request) => {
+    return {
+        type: 'SHOW_PROPOSAL',
+        payload: request
+    }
+}

@@ -16553,6 +16553,13 @@ hr.small-border {
   height: 100%;
 }
 
+.language-bar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+}
+
 .btn-login {
   position: fixed;
   top: 10px;
@@ -16844,5 +16851,13 @@ hr.small-border {
 .cabinet-info ul.detail-data-list li .content {
   font-weight: normal;
   margin: 2px;
+}
+
+.cabinet-info ul.proposal-detail-data-list {
+  background: #c6e0f5;
+}
+
+.cabinet-info ul.proposal-detail-data-list li {
+  border-color: #95c5ed;
 }
 

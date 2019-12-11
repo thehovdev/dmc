@@ -24,10 +24,16 @@ class ReserveController extends Controller
     // get all user reservations (pending)
     public function index(
         Request $request, 
-        AuthService $authService, 
-        ReserveService $reserveService) 
-    {
-        $result = $reserveService->getReserves($request, $authService);
+        ReserveService $reserveService,
+        AuthService $authService
+    ) {
+        $loggedAccount = $authService->loggedAccount();
+
+        if($loggedAccount->role->name == 'operator') {
+            $result = $reserveService->getReserves($request);
+        } elseif($loggedAccount->role->name == 'user') {
+            $result = $reserveService->getReservesByUser($request);
+        }
 
         return response()->json($result);
     }
@@ -35,11 +41,10 @@ class ReserveController extends Controller
     // get declined user reservations (declined)
     public function declined(
         ReserveService $reserveService,
-        AuthService $authService,
         Request $request
     ) {
         // declined user reservation by current operator
-        $result = $reserveService->getDeclinedReserves($authService, $request);
+        $result = $reserveService->getDeclinedReserves($request);
 
         // return result
         return response()->json($result);
@@ -48,11 +53,21 @@ class ReserveController extends Controller
     // get responded user reservations (responded)
     public function responded (
         ReserveService $reserveService,
-        AuthService $authService,
         Request $request
     ) {
         // responded user reservation by current operator
-        $result = $reserveService->getRespondedReserves($authService, $request);
+        $result = $reserveService->getRespondedReserves($request);
+
+        // return result
+        return response()->json($result);
+    }
+
+    public function respondedByUser (
+        ReserveService $reserveService,
+        Request $request
+    ) {
+        // responded user reservation by current operator
+        $result = $reserveService->getRespondedReservesByUser($request);
 
         // return result
         return response()->json($result);
@@ -61,32 +76,37 @@ class ReserveController extends Controller
 
     public function show(
         ReserveService $reserveService, 
-        Reserve $reserve, 
-        HotelStar $hotelStar, 
-        CuisineType $cuisineType,
-        Transfer $transfer
+        Reserve $reserve
     ) {
-        $result = $reserveService->getReserve($reserve, $hotelStar, $cuisineType, $transfer);
+        $result = $reserveService->getReserve($reserve);
 
         return response()->json($reserve);
     }
 
     public function showResponded(
         ReserveService $reserveService, 
-        Reserve $reserve, 
-        HotelStar $hotelStar, 
-        CuisineType $cuisineType,
-        Transfer $transfer,
-        AuthService $authService
+        Reserve $reserve
     ) {
-        $result = $reserveService->getRespondedReserve($reserve, $hotelStar, $cuisineType, $transfer, $authService);
+        $result = $reserveService->getRespondedReserve($reserve);
+
+        return response()->json($reserve);
+    }
+
+    public function showByUser(
+        ReserveService $reserveService, 
+        Reserve $reserve,
+        Request $request
+    ) {
+        $result = $reserveService->getReserveByUser($reserve, $request);
 
         return response()->json($reserve);
     }
 
     // store request from user in application main page
-    public function store(ReserveService $reserveService, ReservePostReq $request) 
-    {
+    public function store(
+        ReservePostReq $request, 
+        ReserveService $reserveService
+    ) {
 
         // create and save user reservation to database
         $result = $reserveService->store($request);
@@ -99,11 +119,10 @@ class ReserveController extends Controller
     // decline user reservation
     public function decline(
         Reserve $reserve, 
-        ReserveService $reserveService, 
-        AuthService $authService
+        ReserveService $reserveService
     ) {
         // decline user reservation by current operator
-        $result = $reserveService->decline($reserve, $authService);
+        $result = $reserveService->decline($reserve);
 
         // return result
         return response()->json($result);
@@ -112,11 +131,10 @@ class ReserveController extends Controller
     // restore user reservation
     public function restore(
         Reserve $reserve, 
-        ReserveService $reserveService, 
-        AuthService $authService
+        ReserveService $reserveService
     ) {
         // decline user reservation by current operator
-        $result = $reserveService->restore($reserve, $authService);
+        $result = $reserveService->restore($reserve);
 
         // return result
         return response()->json($result);
@@ -125,11 +143,10 @@ class ReserveController extends Controller
     public function respond(
         Reserve $reserve,
         RespondReserveReq $request,
-        ReserveService $reserveService, 
-        AuthService $authService
+        ReserveService $reserveService 
     ) {
         // decline user reservation by current operator
-        $result = $reserveService->respond($reserve, $request, $authService);
+        $result = $reserveService->respond($reserve, $request);
 
         // return result
         return response()->json($result);
@@ -138,11 +155,10 @@ class ReserveController extends Controller
     public function updateRespond(
         Reserve $reserve,
         RespondReserveReq $request,
-        ReserveService $reserveService, 
-        AuthService $authService
+        ReserveService $reserveService
     ) {
         // update responded proposal by operator
-        $result = $reserveService->updateRespond($reserve, $request, $authService);
+        $result = $reserveService->updateRespond($reserve, $request);
 
         // return result
         return response()->json($result);

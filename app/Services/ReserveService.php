@@ -28,12 +28,21 @@ class ReserveService
     public function __construct(
         Reserve $reserve, 
         DeclinedReserve $declinedReserve, 
-        RespondedReserve $respondedReserve
+        RespondedReserve $respondedReserve,
+        AuthService $authService,
+        HotelStar $hotelStar,
+        CuisineType $cuisineType,
+        Transfer $transfer
     ) {
+        $this->result = new stdClass;
+        $this->authService = $authService;
         $this->reserve = $reserve;
         $this->declinedReserve = $declinedReserve;
         $this->respondedReserve = $respondedReserve;
-        $this->result = new stdClass;
+        $this->hotelStar = $hotelStar;
+        $this->cuisineType = $cuisineType;
+        $this->transfer = $transfer;
+
     }
 
     // create reserve by user
@@ -41,8 +50,10 @@ class ReserveService
         ReservePostReq $request
     ) {
         $formData = (object) $request->formData;
-
+        $loggedUser = $this->authService->loggedUser();
+        
         // date & time data
+        $this->reserve->user_id = $loggedUser->id;
         $this->reserve->arrival_date = date('Y-m-d', strtotime($formData->arrival_date));
         $this->reserve->departure_date = date('Y-m-d', strtotime($formData->departure_date));
         $this->reserve->arrival_time = $formData->arrival_time;
@@ -71,15 +82,12 @@ class ReserveService
         if($formData->need_meeting_facilities == 'true') 
             $this->reserve->meeting_facilities_description = $formData->meeting_facilities_description;
 
-
-
         // integer data
         $this->reserve->group_type_id = (int)$formData->group_type_id;
         $this->reserve->country_id = (int)$formData->country_id;
         $this->reserve->nationality_id = (int)$formData->nationality_id;
         $this->reserve->age_range_id = (int)$formData->age_range_id;
         $this->reserve->number_of_people = (int)$formData->number_of_people;
-
         
         // float Data
         $this->reserve->single_min_price = (float)$formData->single_min_price;
@@ -104,23 +112,22 @@ class ReserveService
         $this->reserve->save();
 
         // result
-        $result = new stdClass;
-        $result->status = 1;
-        $result->message = 'success';
+        $this->result->status = 1;
+        $this->result->message = 'success';
 
-        return $result;
+        return $this->result;
     }
 
     // respont to reserve by operator
     public function respond(
         Reserve $reserve,
-        RespondReserveReq $request,
-        AuthService $authService
+        RespondReserveReq $request
     ) {
         $formData = (object) $request->formData;
 
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
 
+        $this->respondedReserve->user_id = $reserve->user_id;
         $this->respondedReserve->reserve_id = $reserve->id;
         $this->respondedReserve->operator_id = $operator->id;
 
@@ -143,12 +150,11 @@ class ReserveService
 
     public function updateRespond(
         Reserve $reserve,
-        RespondReserveReq $request,
-        AuthService $authService
+        RespondReserveReq $request
     ) {
         $formData = (object) $request->formData;
 
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
 
         $this->respondedReserve = $reserve->responded($operator);
         $this->respondedReserve->reserve_id = $reserve->id;
@@ -172,11 +178,10 @@ class ReserveService
 
     // decline reserve by operator
     public function decline(
-        Reserve $reserve, 
-        AuthService $authService
+        Reserve $reserve
     ) {
         // get logged operator
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
 
         $existReserve = $this->declinedReserve
             ->where('reserve_id', $reserve->id)
@@ -200,11 +205,10 @@ class ReserveService
 
     // respond to reserve by operator 
     public function restore(
-        Reserve $reserve, 
-        AuthService $authService
+        Reserve $reserve
     ) {
         // get logged operator
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
 
         $existReserve = $this->declinedReserve
             ->where('reserve_id', $reserve->id)
@@ -225,18 +229,18 @@ class ReserveService
 
     // get all reserves (pending)
     public function getReserves(
-        Request $request, 
-        AuthService $authService
+        Request $request
     ) {
-        $loggedAccount = $authService->loggedAccount();
+        $loggedAccount = $this->authService->loggedOperator();
         $reserves = $this->reserve->with(['group_type', 'age_range', 'nationality', 'country']);
             
-        // list ofdeclined && responded reserve ids
+        // list of declined reserves by operator
         if(!is_null($loggedAccount->declinedReserves)) {
             $declinedReserves = $loggedAccount->declinedReserves->pluck('reserve_id')->toArray();
             $reserves = $reserves->whereNotIn('id', $declinedReserves);
         }
 
+        // list of responded reserves by operator
         if(!is_null($loggedAccount->respondedReserves)) {
             $respondedReserves = $loggedAccount->respondedReserves->pluck('reserve_id')->toArray();
             $reserves = $reserves->whereNotIn('id', $respondedReserves);
@@ -255,12 +259,32 @@ class ReserveService
         return $this->result;
     } 
 
-    // get responded reserves (responded)
-    public function getRespondedReserves(
-        AuthService $authService,
+    public function getReservesByUser(
         Request $request
     ) {
-        $operator = $authService->loggedOperator();
+        $loggedAccount = $this->authService->loggedUser();
+        $reserves =  $this->reserve
+            ->with(['group_type', 'age_range', 'nationality', 'country'])
+            ->where('user_id', $loggedAccount->id);
+
+        if(!isset($request->page)) {
+            $reserves = $reserves->get();
+        } else {
+            $reserves = $reserves->paginate(10);
+        }
+
+        $this->result->status = 1;
+        $this->result->message = 'success';
+        $this->result->reserves = $reserves;
+
+        return $this->result;
+    }
+
+    // get responded reserves (responded)
+    public function getRespondedReserves(
+        Request $request
+    ) {
+        $operator = $this->authService->loggedOperator();
         
         $respondedList = $this->respondedReserve
             ->where('operator_id', $operator->id)
@@ -286,10 +310,9 @@ class ReserveService
 
     // get declined reserves (declined)
     public function getDeclinedReserves(
-        AuthService $authService,
         Request $request
     ) {
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
         
         $declinedList = $this->declinedReserve
             ->where('operator_id', $operator->id)
@@ -314,11 +337,43 @@ class ReserveService
     }
 
     public function getReserve(
-        Reserve $reserve, 
-        HotelStar $hotelStar, 
-        CuisineType $cuisineType,
-        Transfer $transfer
+        Reserve $reserve
     ) {
+        $this->result->status = 1;
+        $this->result->message = 'success';
+        // set reserve and his relations to result
+        $this->result->reserve = $reserve;
+        $this->result->reserve->group_type = $reserve->group_type;
+        $this->result->reserve->age_range = $reserve->age_range;
+        $this->result->reserve->nationality = $reserve->nationality;
+        $this->result->reserve->country = $reserve->country;
+
+        if(!is_null($reserve->hotel_star_id_list)) {
+            $this->result->reserve->hotel_stars = $this->hotelStar->whereIn(
+                'id', json_decode($reserve->hotel_star_id_list, true)
+            )->get();
+        }
+
+        if(!is_null($reserve->cuisine_id_list)) {
+            $this->result->reserve->cuisine_list = $this->cuisineType->whereIn(
+                'id', json_decode($reserve->cuisine_id_list, true)
+            )->get();
+        }
+
+        if(!is_null($reserve->transfer_id_list)) {
+            $this->result->reserve->transfer_list = $this->transfer->whereIn(
+                'id', json_decode($reserve->transfer_id_list, true)
+            )->get();
+        }
+
+        return $this->result;
+    }
+
+    public function getReserveByUser(
+        Reserve $reserve,
+        Request $request
+    ) {
+        $loggedAccount = $this->authService->loggedUser();
 
         $this->result->status = 1;
         $this->result->message = 'success';
@@ -329,36 +384,46 @@ class ReserveService
         $this->result->reserve->nationality = $reserve->nationality;
         $this->result->reserve->country = $reserve->country;
 
-        
+        $respondedReserves = $reserve
+            ->responded_reserves()
+            ->where('user_id', $loggedAccount->id);
+
+        if(!isset($request->page)) {
+            $this->result->reserve->responded_reserves = $respondedReserves
+                ->with('operator.company.contactPersons')    
+                ->get();
+        } else {
+            $this->result->reserve->responded_reserves = $respondedReserves
+                ->with('operator.company.contactPersons')    
+                ->paginate(10);
+        }
+
         if(!is_null($reserve->hotel_star_id_list)) {
-            $this->result->reserve->hotel_stars = $hotelStar->whereIn(
+            $this->result->reserve->hotel_stars = $this->hotelStar->whereIn(
                 'id', json_decode($reserve->hotel_star_id_list, true)
             )->get();
         }
 
         if(!is_null($reserve->cuisine_id_list)) {
-            $this->result->reserve->cuisine_list = $cuisineType->whereIn(
+            $this->result->reserve->cuisine_list = $this->cuisineType->whereIn(
                 'id', json_decode($reserve->cuisine_id_list, true)
             )->get();
         }
 
         if(!is_null($reserve->transfer_id_list)) {
-            $this->result->reserve->transfer_list = $transfer->whereIn(
+            $this->result->reserve->transfer_list = $this->transfer->whereIn(
                 'id', json_decode($reserve->transfer_id_list, true)
             )->get();
         }
 
         return $this->result;
+
     }
 
     public function getRespondedReserve(
-        Reserve $reserve, 
-        HotelStar $hotelStar, 
-        CuisineType $cuisineType,
-        Transfer $transfer,
-        AuthService $authService
+        Reserve $reserve
     ) {
-        $operator = $authService->loggedOperator();
+        $operator = $this->authService->loggedOperator();
 
         $this->result->status = 1;
         $this->result->message = 'success';
@@ -370,20 +435,22 @@ class ReserveService
         $this->result->reserve->country = $reserve->country;
         $this->result->reserve->responded = $reserve->responded($operator);
 
+
+
         if(!is_null($reserve->hotel_star_id_list)) {
-            $this->result->reserve->hotel_stars = $hotelStar->whereIn(
+            $this->result->reserve->hotel_stars = $this->hotelStar->whereIn(
                 'id', json_decode($reserve->hotel_star_id_list, true)
             )->get();
         }
 
         if(!is_null($reserve->cuisine_id_list)) {
-            $this->result->reserve->cuisine_list = $cuisineType->whereIn(
+            $this->result->reserve->cuisine_list = $this->cuisineType->whereIn(
                 'id', json_decode($reserve->cuisine_id_list, true)
             )->get();
         }
 
         if(!is_null($reserve->transfer_id_list)) {
-            $this->result->reserve->transfer_list = $transfer->whereIn(
+            $this->result->reserve->transfer_list = $this->transfer->whereIn(
                 'id', json_decode($reserve->transfer_id_list, true)
             )->get();
         }
@@ -391,6 +458,8 @@ class ReserveService
         return $this->result;
 
     }
+
+
 
 
 }

@@ -6,6 +6,7 @@ let form;
 let formData;
 let payload;
 let user;
+let auth;
 let users;
 let request;
 let redirect;
@@ -22,6 +23,13 @@ export default function (state = initialState, action) {
     console.log(action.type);
 
     switch (action.type) {
+        case 'CHECK_AUTH':
+            status = action.payload;
+
+            return update(state, { 
+                auth: {$set: status},
+            });
+
         case 'GET_USERS':
             users = action.payload;
 

@@ -14,6 +14,7 @@ import OperatorCreate from '../components/operator/OperatorCreate';
 import RequestIndex from '../components/request/RequestIndex';
 import DeclinedRequest from '../components/request/DeclinedRequest';
 import RespondedRequest from '../components/request/RespondedRequest';
+import UserRequest from '../components/request/UserRequest';
 
 
 const history = createBrowserHistory();
@@ -34,6 +35,8 @@ const createRouters = () => (
         <Route exact path="/cabinet/reserve" component={RequestIndex} />
         <Route exact path="/cabinet/reserve/responded" component={RespondedRequest} />
         <Route exact path="/cabinet/reserve/declined" component={DeclinedRequest} />
+
+        <Route exact path="/cabinet/user/reserve" component={UserRequest} />
 
     </Router>
 );

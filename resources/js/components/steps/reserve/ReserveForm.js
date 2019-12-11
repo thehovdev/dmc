@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
 import ArrivalDetails from './ArrivalDetails';
 import GroupDetails from './GroupDetails';
 import OtherDetails from './OtherDetails';
 import TransportDetails from './TransportDetails';
 import FinalDetails from './FinalDetails';
 import Swal from 'sweetalert2';
-
+import {translate} from '../../../includes/helpers';
 
 class ReserveForm extends Component {
 
@@ -15,8 +14,6 @@ class ReserveForm extends Component {
     }
 
     render() {
-
-        
         const nextButton = () => {
             let elem = document.querySelector('.nav-link.active').closest('li');
 
@@ -49,26 +46,24 @@ class ReserveForm extends Component {
                 this.props.closeForm();
             }
         }
-
-
         return (
                 <div id="reserve-form" className="user-form steps-form" data-opened="0">
-                    <h3 className="text-center">Something about information</h3>
+                    <h3 className="text-center">{translate('stepTitle')}</h3>
                     <ul className="nav nav-pills nav-steps mb-3" id="pills-tab" role="tablist">
                         <li className="nav-item">
-                            <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Arrival Details</a>
+                            <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{translate('step.arrivalDetails')}</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="pills-groups-tab" data-toggle="pill" href="#pills-groups" role="tab" aria-controls="pills-groups" aria-selected="false">Group Details</a>
+                            <a className="nav-link" id="pills-groups-tab" data-toggle="pill" href="#pills-groups" role="tab" aria-controls="pills-groups" aria-selected="false">{translate('step.groupDetails')}</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="pills-others-tab" data-toggle="pill" href="#pills-others" role="tab" aria-controls="pills-others" aria-selected="false">Other Details</a>
+                            <a className="nav-link" id="pills-others-tab" data-toggle="pill" href="#pills-others" role="tab" aria-controls="pills-others" aria-selected="false">{translate('step.otherDetails')}</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="pills-transfer-tab" data-toggle="pill" href="#pills-transfer" role="tab" aria-controls="pills-transfer" aria-selected="false">Transfer Details</a>
+                            <a className="nav-link" id="pills-transfer-tab" data-toggle="pill" href="#pills-transfer" role="tab" aria-controls="pills-transfer" aria-selected="false">{translate('step.transferDetails')}</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="pills-final-tab" data-toggle="pill" href="#pills-final" role="tab" aria-controls="pills-final" aria-selected="false">Final Details</a>
+                            <a className="nav-link" id="pills-final-tab" data-toggle="pill" href="#pills-final" role="tab" aria-controls="pills-final" aria-selected="false">{translate('step.finalDetails')}</a>
                         </li>
                     </ul>
 
@@ -79,8 +74,8 @@ class ReserveForm extends Component {
                         <TransportDetails step={this.props.step}/>
                         <FinalDetails step={this.props.step}/>
 
-                        <button onClick={() => prevButton()} className="btn btn-light btnStepAction">Previous</button>
-                        <button onClick={() => nextButton()} className="btn btn-success btnStepAction">Next</button>
+                        <button onClick={() => prevButton()} className="btn btn-light btnStepAction">{translate('previous')}</button>
+                        <button onClick={() => nextButton()} className="btn btn-success btnStepAction">{translate('next')}</button>
                     </div>
                 </div>
         );

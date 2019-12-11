@@ -1,6 +1,15 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
+
+export function getCountries(action) {
+    let request_url = '/api/countries/get';
+    axios.get(request_url)
+    .then(function (response) {
+        action.getCountries(response.data);
+    });
+}
+
 export function sendReserve(formData) {
     let request_url = '/api/reserve'; // post 
     let headers = { 

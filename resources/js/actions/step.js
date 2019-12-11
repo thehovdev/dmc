@@ -4,3 +4,10 @@ export const selectToggle = (payload) => {
       payload: payload
     }
 }
+
+export const getCountries = (payload) => {
+    return {
+        type: 'GET_COUNTRIES',
+        payload: payload
+    }
+}

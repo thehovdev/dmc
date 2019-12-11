@@ -23,10 +23,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role() {
-        return $this->belongsTo('App\Role');
-    }
-
     public static function boot() {
         parent::boot();
 
@@ -40,4 +36,30 @@ class User extends Authenticatable
             $model->save();
         });
     }
+
+    public function company() {
+        return $this->belongsTo('App\Company')->withTrashed();
+    }
+
+    public function role() {
+        return $this->belongsTo('App\Role');
+    }
+
+    public function reserves() {
+        return $this->hasMany('App\Reserve');
+        // return $this->hasMany('App\Reserve')->with('responded_reserves');
+    }
+    public function responded_reserves() {
+        return $this->hasMany('App\RespondedReserve');
+    }     
+
+    public function declinedReserves() {
+        return $this->belongsTo('App\DeclinedReserve', 'id', 'user_id');
+    }
+
+    public function respondedReserves() {
+        return $this->belongsTo('App\RespondedReserve', 'id', 'user_id');
+    }
+
+
 }

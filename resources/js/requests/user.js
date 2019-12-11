@@ -25,6 +25,15 @@ export function find(action, id) {
     });
 }
 
+export function checkAuth(action) {
+    let request_url = '/api/user/checkauth';
+    axios.get(request_url)
+    .then(function (response) {
+        action.checkAuth(response.data.status);
+    });
+
+}
+
 export function remove(action, id) {
     let request_url = '/api/user/' + id;
 

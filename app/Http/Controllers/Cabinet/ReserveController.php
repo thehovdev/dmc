@@ -18,4 +18,8 @@ class ReserveController extends Controller
     public function responded() {
         return view('cabinet.reserve.responded');
     } 
+
+    public function userReserves() {
+        return view('cabinet.reserve.user.index');
+    }
 }

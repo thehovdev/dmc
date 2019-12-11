@@ -7,11 +7,6 @@
     </a>
 
     <ul class="list-unstyled components">
-        <li class="@if(Request::is('admin')) {{ 'active' }} @endif">
-            <a href="{{ route('cabinet.index') }}">
-                <i class="fas fa-home"></i> Home
-            </a>
-        </li>
         <li>
             <a href="{{ route('cabinet.reserve.index') }}">
                 <i class="fas fa-address-card"></i> Pending

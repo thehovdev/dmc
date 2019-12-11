@@ -2,29 +2,58 @@
 
 namespace App\Http\Controllers\Api;
 
+use stdClass;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
+use App\Services\AuthService;
 
 class UserController extends Controller
 {
-    public function index(Request $request, UserService $userService)
-    {
+
+    // type hint dependency injection
+    public function __construct() {
+        $this->result = new stdClass;
+    }
+
+
+    public function index(
+        Request $request, 
+        UserService $userService
+    ) {
         $result = $userService->getUsers($request, true);
 
         return response()->json($result);
     }
 
-    public function destroy(User $user, UserService $userService)
-    {
+    public function checkauth(
+        AuthService $authService
+    ) {
+        $this->result->status = 0;
+        $this->result->message = 'error, user not authenticated';
+
+        if(!is_null($authService->loggedUser())) {
+            $this->result->status = 1;
+            $this->result->message = 'success';
+        }
+
+        return response()->json($this->result);
+    }
+
+    public function destroy(
+        User $user, 
+        UserService $userService
+    ) {
         $result = $userService->destroy($user);
 
         return response()->json($result);
     }
 
-    public function restore($id, UserService $userService)
-    {
+    public function restore(
+        $id, 
+        UserService $userService
+    ) {
         $user = User::withTrashed()->find($id);
 
         $result = $userService->restore($user);

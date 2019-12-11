@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {translate} from '../../../includes/helpers';
 import * as stepAction from '../../../actions/step.js';
 
 class OtherDetails extends Component {
@@ -13,7 +14,6 @@ class OtherDetails extends Component {
         const needHotel = this.props.step.inputActions.needHotel;
         const needTransfer = this.props.step.inputActions.needTransfer;
         const needCuisine = this.props.step.inputActions.needCuisine;
-        
         const hotelStars = this.props.step.hotelStars;
         const transferServices = this.props.step.transferServices;
         const cuisineTypes = this.props.step.cuisineTypes;
@@ -52,7 +52,7 @@ class OtherDetails extends Component {
                             { checkList(hotelStars, 'hotel_star_id_list') }
                         </div>
                         <div>
-                            <textarea className="form-control full-width" id="hotel_description" placeholder="You description for hotel"></textarea>
+                            <textarea className="form-control full-width" id="hotel_description" placeholder={translate('step.other.hotelDescription')}></textarea>
                         </div>
                     </div>
                 );
@@ -83,17 +83,17 @@ class OtherDetails extends Component {
             <div className="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
                 <div id="other-details">
                     <div className="form-group">
-                        <label htmlFor="need_visa">Do you need visa</label>
+                        <label htmlFor="need_visa">{translate('step.other.doYouNeedVisa') }</label>
                         <select className="form-control" id="need_visa">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="need_hotel">Do you need hotel</label>
+                        <label htmlFor="need_hotel">{translate('step.other.doYouNeedHotel') }</label>
                         <select onChange={() => selectHotel()} className="form-control" id="need_hotel">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
 
@@ -102,10 +102,10 @@ class OtherDetails extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="need_transport">Do you need Transportation service during the stay</label>
+                        <label htmlFor="need_transport">{translate('step.other.doYouNeedTransport') }</label>
                         <select onChange={() => selectTransfer()} className="form-control" id="need_transfer">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
 
@@ -115,10 +115,10 @@ class OtherDetails extends Component {
 
 
                     <div className="form-group">
-                        <label htmlFor="need_cuisine">Do you need Meals ?</label>
+                        <label htmlFor="need_cuisine">{translate('step.other.doYouNeedMeals') }</label>
                         <select onChange={() => selectCuisine()} className="form-control" id="need_cuisine">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
 

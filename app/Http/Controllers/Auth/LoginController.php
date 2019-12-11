@@ -63,10 +63,14 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->role->name == 'admin') {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin/company');
+        } elseif($user->role->name == 'operator') {
+            return redirect()->intended('/cabinet/reserve');
         } else {
-            return redirect()->intended('/cabinet');
+            return redirect()->intended('/cabinet/user/reserve');
         }
+
+
     }
     
     public function logout(Request $request)

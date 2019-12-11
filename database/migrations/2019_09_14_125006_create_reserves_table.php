@@ -28,6 +28,7 @@ class CreateReservesTable extends Migration
 
             // если база данных поменяется с postgreSQL на mySQL 
             // в миграциях следует сменить все integer на unsignedInteger
+            $table->integer('user_id');
             $table->integer('group_type_id');
             $table->integer('nationality_id');
             $table->integer('age_range_id');
@@ -63,6 +64,7 @@ class CreateReservesTable extends Migration
         });
 
         Schema::table('reserves', function($table) {
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_type_id')->references('id')->on('group_types');
             $table->foreign('nationality_id')->references('id')->on('nationalities');
             $table->foreign('age_range_id')->references('id')->on('age_ranges');

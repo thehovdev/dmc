@@ -5,6 +5,13 @@ export const get = (items) => {
     }
 }
 
+export const checkAuth = (status) => {
+    return {
+      type: 'CHECK_AUTH',
+      payload: status
+    }
+}
+
 
 export const getAll = (items) => {
     return {

@@ -8,6 +8,22 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">                                    
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cabinet.reserve.index') }}">
+                            Pending
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cabinet.reserve.responded') }}">
+                            Responded
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cabinet.reserve.declined') }}">
+                            Declined
+                        </a>
+                    </li>
+                    
                     <!-- Profile -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -15,9 +31,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
-                        </div>
+                        </div>                       
                     </li>
-
                 </ul>
             </div>
         </nav>
