@@ -13,8 +13,8 @@ class CountriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('countries')->insert([
-            ['name' => "Azerbaijan"],
-            ['name' => "Georgia"]
+            ['name' => "Azerbaijan", 'prefix' => "country_azerbaijan"],
+            ['name' => "Georgia", 'prefix' => 'country_georgia']
         ]);
     }
 }

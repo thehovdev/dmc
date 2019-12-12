@@ -1,10 +1,13 @@
 import Swal from 'sweetalert2'
+import {translate} from '../includes/helpers';
+import {hideLoader} from '../includes/helpers';
 
 export function get(action, page = 1) {
     let request_url = '/api/user?page=' + page;
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
+            hideLoader();
             action.get(response.data.users);
         }
     });
@@ -47,7 +50,7 @@ export function remove(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'User successfully deactivated',
+                title: translate('deactivateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -81,7 +84,7 @@ export function restore(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Operator successfully deactivated',
+                title: translate('activateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })

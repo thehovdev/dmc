@@ -10,7 +10,7 @@ class RespondedReserve extends Model
     protected $table = 'responded_reserves';
 
     public function operator() {
-        return $this->belongsTo('App\Operator');
+        return $this->belongsTo('App\Operator')->withTrashed();
     }
 
     public function reserve() {

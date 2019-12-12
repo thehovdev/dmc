@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as companyAction from '../../actions/company';
 import * as companyApi from '../../requests/company';
 
@@ -91,13 +91,13 @@ class OperatorIndex extends Component {
             if(item.status == 1) {
                 return (
                     <button onClick={() => deleteOperator(item.id)} type="button" className="btn btn-danger mx-1">
-                        <i className="fas fa-times-circle"></i> Deactivate
+                        <i className="fas fa-times-circle"></i> {translate('deactivate')}
                     </button>
                 );
             } else {
                 return (
                     <button onClick={() => restoreOperator(item.id)} type="button" className="btn btn-success mx-1">
-                        <i className="fas fa-check-circle"></i> Activate
+                        <i className="fas fa-check-circle"></i> {translate('activate')}
                     </button>
                 );
             }
@@ -118,27 +118,27 @@ class OperatorIndex extends Component {
             return (
                 <div className="form-content" id="edit-operator-content">
                     <div className="opertor-info">
-                        <h3>Operator information</h3>
+                        <h3>{translate('operatorInformation')}</h3>
     
                         <div className="form-group">
-                            <label htmlFor="company_id">Choose company</label>
+                            <label htmlFor="company_id">{translate('chooseCompany')}</label>
                             <select className="form-control" id="company_id" defaultValue={operator.company_id}>
                                 { companiesList() }
                             </select>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">{translate('name')}</label>
                             <input defaultValue={operator.name} type="text" className="form-control" id="name" placeholder="Enter name"></input>
                         </div>
     
                         <div className="form-group">
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">{translate('phone')}</label>
                             <input defaultValue={operator.phone} type="text" className="form-control" id="phone" placeholder="Enter company address"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">{translate('email')}</label>
                             <input defaultValue={operator.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
 
@@ -148,7 +148,7 @@ class OperatorIndex extends Component {
                                     <div className="input-group-prepend">
                                         <div className="input-group-text py-0" id="btnGroupAddon">
                                         <button className="btn btn-primary btn-sm" id="updatePwd" onClick={() => activatePassword()}>
-                                            update password
+                                            {translate('updatepassword')}
                                         </button>
                                         </div>
                                     </div>
@@ -156,16 +156,13 @@ class OperatorIndex extends Component {
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
     
                     <button className="btn btn-primary mx-1" onClick={() => editOperator(false)}>
-                        <i className="fas fa-arrow-left"></i> Back
+                        <i className="fas fa-arrow-left"></i> {translate('back')}
                     </button>
                     <button className="btn btn-primary mx-1" onClick={() => updateOperator(operator.id)}>
-                        <i className="fas fa-save"></i> Update
+                        <i className="fas fa-save"></i> {translate('update')}
                     </button>
                 </div>
             );
@@ -224,12 +221,12 @@ class OperatorIndex extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Company</th>
-                                <th>Actions</th>
+                                <th>{translate('id')}</th>
+                                <th>{translate('name')}</th>
+                                <th>{translate('phone')}</th>
+                                <th>{translate('email')}</th>
+                                <th>{translate('company')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>

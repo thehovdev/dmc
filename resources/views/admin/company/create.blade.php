@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h4 class="py-2">Create Company</h4>
+    <h4 class="py-2">@lang('main.company_create')</h4>
 
     <section class="admin-content">
         <div class="row justify-content-center">

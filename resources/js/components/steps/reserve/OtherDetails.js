@@ -29,18 +29,14 @@ class OtherDetails extends Component {
             return this.props.stepAction.selectToggle('needCuisine');
         }
 
-
-        const optionsList = (items) => {
-            return items.map((item, index) =>
-                <option key={ index } value={ item.id }>{ item.value }</option>
-            );
-        }
-
         const checkList = (items, prefix) => {
             return items.map((item, index) =>
                 <div className="form-check-inline" key={ index }>
                     <input className="styled-checkbox" id={ item.prefix } type="checkbox" value={ item.id } prefix={prefix}></input>
-                    <label htmlFor={ item.prefix } className="noselect">{ item.value }</label>
+                    <label htmlFor={ item.prefix } className="noselect">
+                        {/* { typeof item.value !== 'undefined' ? item.value : item.name } */}
+                        { typeof item.prefix !== 'undefined' ? translate(item.prefix) : item.name }
+                    </label>
                 </div>
             );
         }

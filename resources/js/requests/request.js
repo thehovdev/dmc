@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import {translate} from '../includes/helpers';
+import {hideLoader} from '../includes/helpers';
 
 export function get(action, page = 1) {
     let request_url = '/api/reserve?page=' + page;
@@ -7,7 +9,7 @@ export function get(action, page = 1) {
     return axios.get(request_url).then(function (response) {
         // console.log(response);
         if(response.data.status == 1) {
-            // console.log(response.data.reserves);
+            hideLoader();
             action.get(response.data.reserves);
         }
     });
@@ -17,9 +19,9 @@ export function getDeclined(action, page = 1) {
     let request_url = '/api/reserve/declined?page=' + page;
 
     return axios.get(request_url).then(function (response) {
-        // console.log(response);
         if(response.data.status == 1) {
-            // console.log(response.data.reserves);
+            hideLoader();
+
             action.get(response.data.reserves);
         }
     });
@@ -29,9 +31,9 @@ export function getResponded(action, page = 1) {
     let request_url = '/api/reserve/responded?page=' + page;
 
     return axios.get(request_url).then(function (response) {
-        // console.log(response);
         if(response.data.status == 1) {
-            // console.log(response.data.reserves);
+            hideLoader();
+            
             action.get(response.data.reserves);
         }
     });
@@ -43,9 +45,7 @@ export function getUserReserves(action, page = 1) {
     return axios.get(request_url).then(function (response) {
         // console.log(response);
         if(response.data.status == 1) {
-
-            console.log(response.data);
-            // console.log(response.data.reserves);
+            hideLoader()
             action.get(response.data.reserves);
         }
     });
@@ -113,7 +113,7 @@ export function decline(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Request declined',
+                title: translate('declineMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -144,8 +144,8 @@ export function respond(formData, id) {
         .then(function (response) {
             if(response.data.status == 1) {
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'You successfully send proposal to client',
+                    title: translate('successMessage'),
+                    text: translate('sendProposalMessage'),
                     type: 'success',
                 })
                 .then(function() {
@@ -187,12 +187,12 @@ export function update(formData, id) {
         .then(function (response) {
             if(response.data.status == 1) {
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'You successfully send proposal to client',
+                    title: translate('successMessage'),
+                    text: translate('sendProposalMessage'),
                     type: 'success',
                 })
                 .then(function() {
-                    // window.location = redirect_url;
+                    window.location = redirect_url;
                 });
 
                 return true;
@@ -232,7 +232,7 @@ export function restore(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Request restored',
+                title: translate('restoredMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
 import * as contactPersonAction from '../../actions/contactperson';
@@ -41,10 +41,10 @@ class ContactPersonCreate extends Component {
         return (
             <div className="form-content" id="create-contact-person-content">
                 <div className="contact-person-info">
-                    <h3>Contact person information</h3>
+                    <h3>{translate('contactPersonInformation')}</h3>
 
                     <div className="form-group">
-                        <label htmlFor="company_id">Choose company</label>
+                        <label htmlFor="company_id">{translate('chooseCompany')}</label>
                         <select className="form-control" id="company_id">
                             { companiesList() }
                         </select>
@@ -52,43 +52,43 @@ class ContactPersonCreate extends Component {
 
 
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input defaultValue="Afgan" type="text" className="form-control" id="name" placeholder="Enter person name"></input>
+                        <label htmlFor="name">{translate('name')}</label>
+                        <input defaultValue="John" type="text" className="form-control" id="name" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="surname">Surname</label>
-                        <input defaultValue="Khalilov" type="text" className="form-control" id="surname" placeholder="Enter person surname"></input>
+                        <label htmlFor="surname">{translate('surname')}</label>
+                        <input defaultValue="Doe" type="text" className="form-control" id="surname" placeholder={translate('enterSurname')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="suffix">Suffix</label>
-                        <input defaultValue="Mr" type="text" className="form-control" id="suffix" placeholder="Enter person suffix"></input>
+                        <label htmlFor="suffix">{translate('suffix')}</label>
+                        <input defaultValue="Mr" type="text" className="form-control" id="suffix" placeholder={translate('enterSuffix')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="position">Position</label>
-                        <input defaultValue="Director" type="text" className="form-control" id="position" placeholder="Enter person position"></input>
+                        <label htmlFor="position">{translate('position')}</label>
+                        <input defaultValue="Director" type="text" className="form-control" id="position" placeholder={translate('enterPosition')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
-                        <input defaultValue="994513739930" type="text" className="form-control" id="phone" placeholder="Enter person phone"></input>
+                        <label htmlFor="phone">{translate('phone')}</label>
+                        <input type="text" className="form-control" id="phone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="office_phone">Office phone</label>
-                        <input defaultValue="0125970046" type="text" className="form-control" id="office_phone" placeholder="Enter person office phone"></input>
+                        <label htmlFor="office_phone">{translate('officePhone')}</label>
+                        <input type="text" className="form-control" id="office_phone" placeholder={translate('enterOfficePhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input defaultValue="hov-dev@protonmail.ch" type="text" className="form-control" id="email" placeholder="Enter person email"></input>
+                        <label htmlFor="email">{translate('email')}</label>
+                        <input type="text" className="form-control" id="email" placeholder={translate('enterEmail')}></input>
                     </div>
                 </div>
 
                 <button className="btn btn-primary" onClick={() => createContactPerson()}>
-                    <i className="fas fa-save"></i> Create contact person
+                    <i className="fas fa-save"></i> {translate('createContactPerson')}
                 </button>
             </div>
         );

@@ -23,6 +23,15 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="corporate" name="corporate">
+                                    <label class="form-check-label" for="corporate">
+                                        @lang('auth.account_corporate')
+                                    </label>
+                                </div>
+
+
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

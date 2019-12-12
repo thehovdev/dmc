@@ -31,7 +31,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">@lang('input.password')</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="@lang('passwords.password_min')" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -45,9 +45,21 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">@lang('input.password_confirm')</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="@lang('passwords.password_min')" required autocomplete="new-password">
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="corporate" name="corporate">
+                                    <label class="form-check-label" for="corporate">
+                                        @lang('auth.account_corporate')
+                                    </label>
+                                </div>
+                            
                             </div>
+
+      
                         </div>
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

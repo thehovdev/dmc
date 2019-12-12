@@ -34,8 +34,16 @@ class UserController extends Controller
         $this->result->message = 'error, user not authenticated';
 
         if(!is_null($authService->loggedUser())) {
-            $this->result->status = 1;
-            $this->result->message = 'success';
+            if($authService->loggedUser()->role->name != 'admin') {
+                $this->result->status = 1;
+                $this->result->message = 'success';
+            } else {
+                $this->result->status = 3;
+                $this->result->message = 'admin logged';
+            }
+        } elseif (!is_null($authService->loggedOperator())) {
+            $this->result->status = 2;
+            $this->result->message = 'operator logged';
         }
 
         return response()->json($this->result);

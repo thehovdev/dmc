@@ -3,13 +3,20 @@ import languages from '../translations/languages';
 
 export function translate(keys) {
     // get locale from html tag
-    let locale = document.getElementsByTagName('html')[0].getAttribute('lang');
+    // locale is global variablewhich assign in header.blade.php
+
     keys = locale + '.' + keys;
+    keys = keys.replace(/\s/g, ''); // replace all spaces
+    keys = keys.replace(/[&\/\\#,+()$~%'":*?<>{}]/g,''); // replace other speical characters
 
     var translation = languages;
     keys.split(".").forEach(function(itm){
+
+        itm = itm.charAt(0).toLowerCase() + itm.slice(1)
         translation = translation[itm];
     });
+
+    if(typeof translation === 'undefined') return keys;
 
     return translation;
 }
@@ -115,12 +122,9 @@ export function daysCount(startDate, endDate) {
 }
 
 export function getMultipleFields(request, prop) {
-
     if(prop in request) {
-
         let requestList = request[prop];
         let itemsList = '';
-
         requestList.map((item, index) => {
             if(requestList.length != index + 1 && requestList.length != 1) {
                 itemsList = itemsList + item.name + ' / ';
@@ -133,19 +137,35 @@ export function getMultipleFields(request, prop) {
     } else {
         return null;
     }
+}
 
+export function getTranslatedMultipleFields(request, prop, key) {
+    if(prop in request) {
+        let requestList = request[prop];
+        let itemsList = '';
+        let translation;
 
-    // if('hotel_stars' in request) {
-    //     let hotel_stars = request.hotel_stars;
-    //     hotel_stars_list = '';
+        // console.log(requestList);
 
-    //     hotel_stars.map((item, index) => {
-    //         if(hotel_stars.length != item.id && hotel_stars.length != 1) {
-    //             hotel_stars_list = hotel_stars_list + item.name + ' / ';
-    //         } else {
-    //             hotel_stars_list = hotel_stars_list + item.name;
-    //         }
-    //     });
-    // }
+        requestList.map((item, index) => {
+            translation = `${key}.${item.prefix}`;
+            if(requestList.length != 1 && (index + 1) != requestList.length) {
+                itemsList = itemsList + translate(translation) + ' / ';
+            } else {
+                itemsList = itemsList + translate(translation);
+            }
+        });
 
+        return itemsList;
+    } else {
+        return null;
+    }
+}
+
+export function hideLoader() {
+    let loader = document.getElementsByClassName('loader');
+
+    if(typeof loader !== 'undefined') {
+        loader[0].style.display = 'none';
+    }
 }

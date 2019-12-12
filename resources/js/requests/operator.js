@@ -1,4 +1,6 @@
 import Swal from 'sweetalert2'
+import {translate} from '../includes/helpers';
+import {hideLoader} from '../includes/helpers';
 
 export function create(formData) {
     let redirect = '/admin/operator';
@@ -22,8 +24,8 @@ export function create(formData) {
             console.log(response);
             if(response.data.status == 1) {
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'We receive you information',
+                    title: translate('successMessage'),
+                    text: translate('createMessage'),
                     type: 'success',
                 }).then(function() {
                     window.location = redirect;
@@ -69,11 +71,12 @@ export function update(formData, operator) {
     axios
         .post(request_url, params, headers)
         .then(function (response) {
-            console.log(response);
+
             if(response.data.status == 1) {
+
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'We receive you information',
+                    title: translate('successMessage'),
+                    text: translate('updateMessage'),
                     type: 'success',
                 })
                 .then(function() {
@@ -109,6 +112,7 @@ export function get(action, page = 1) {
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
+            hideLoader();
             action.get(response.data.operators);
         }
     });
@@ -142,7 +146,7 @@ export function remove(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Operator successfully deactivated',
+                title: translate('deactivateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -163,7 +167,6 @@ export function remove(action, id) {
 
 }
 
-
 export function restore(action, id) {
     let request_url = '/api/operator/restore/' + id;
 
@@ -177,7 +180,7 @@ export function restore(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Operator successfully activated',
+                title: translate('activateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })

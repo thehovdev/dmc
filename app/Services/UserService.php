@@ -33,7 +33,7 @@ class UserService
             $this->result->message = 'success';
         } else {
             $this->result->status = 0;
-            $this->result->message = 'admin does not can deactivate yourself';
+            $this->result->message = 'Admin does not can deactivate yourself';
         }
 
 

@@ -15,6 +15,7 @@ class CreateCuisineTypesTable extends Migration
     {
         Schema::create('cuisine_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('prefix');
             $table->string('name');
         });
     }

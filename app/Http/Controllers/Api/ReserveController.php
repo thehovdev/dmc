@@ -20,7 +20,6 @@ use App\Http\Controllers\Controller;
 
 class ReserveController extends Controller
 {
-
     // get all user reservations (pending)
     public function index(
         Request $request, 
@@ -159,6 +158,16 @@ class ReserveController extends Controller
     ) {
         // update responded proposal by operator
         $result = $reserveService->updateRespond($reserve, $request);
+
+        // return result
+        return response()->json($result);
+    }
+
+
+    public function getStepParameters(
+        ReserveService $reserveService
+    ) {
+        $result = $reserveService->getStepParameters();
 
         // return result
         return response()->json($result);

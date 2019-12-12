@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
-
+import {translate} from '../includes/helpers';
+import {hideLoader} from '../includes/helpers';
 
 export function create(formData) {
     let request_url = '/api/company'; // post 
@@ -25,8 +26,8 @@ export function create(formData) {
             console.log(response);
             if(response.data.status == 1) {
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'We receive you information',
+                    title: translate('successMessage'),
+                    text: translate('createMessage'),
                     type: 'success',
                 }).then(function() {
                     window.location = redirect_url;
@@ -76,8 +77,8 @@ export function update(formData, company) {
             console.log(response);
             if(response.data.status == 1) {
                 Swal.fire({
-                    title: 'Success !',
-                    text: 'We receive you information',
+                    title: translate('successMessage'),
+                    text: translate('updateMessage'),
                     type: 'success',
                 })
                 .then(function() {
@@ -122,7 +123,7 @@ export function remove(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Company successfully deactivated',
+                title: translate('deactivateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -132,7 +133,7 @@ export function remove(action, id) {
         } else {
             Swal.fire(
                 'Error!',
-                'Please fill required fields',
+                'Internal server error',
                 'error'
             )
             return false;
@@ -156,7 +157,7 @@ export function restore(action, id) {
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
-                title: 'Company successfully restored',
+                title: translate('activateMessage'),
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -166,7 +167,7 @@ export function restore(action, id) {
         } else {
             Swal.fire(
                 'Error!',
-                'Please fill required fields',
+                'Internal server error',
                 'error'
             )
             return false;
@@ -181,7 +182,7 @@ export function get(action, page = 1) {
 
     return axios.get(request_url).then(function (response) {
         if(response.data.status == 1) {
-            console.log(response.data);
+            hideLoader();
             action.get(response.data.companies);
         }
     });

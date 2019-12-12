@@ -13,6 +13,7 @@ return [
     |
     */
     'login' => 'Login',
+    'logout' => 'Logout',
     'login_title' => 'Log in to your account',
     'register' => 'Register',
     'create_account' => 'Create account',

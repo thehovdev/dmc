@@ -13,9 +13,9 @@ class HotelStarsTableSeeder extends Seeder
     public function run()
     {
         DB::table('hotel_stars')->insert([
-            ['name' => "3"],
-            ['name' => "4"],
-            ['name' => "5"]
+            ['name' => "3", 'prefix' => 'hotel_star_3'],
+            ['name' => "4", 'prefix' => 'hotel_star_4'],
+            ['name' => "5", 'prefix' => 'hotel_star_5']
         ]);
     }
 }

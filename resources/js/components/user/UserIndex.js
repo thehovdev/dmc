@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as userApi from '../../requests/user';
 import * as userAction from '../../actions/user';
 
@@ -38,13 +38,13 @@ class UserIndex extends Component {
             if(item.status == 1) {
                 return (
                     <button onClick={() => deleteUser(item.id)} type="button" className="btn btn-danger mx-1">
-                        <i className="fas fa-times-circle"></i> Deactivate
+                        <i className="fas fa-times-circle"></i> {translate('deactivate')}
                     </button>
                 );
             } else {
                 return (
                     <button onClick={() => restoreUser(item.id)} type="button" className="btn btn-success mx-1">
-                        <i className="fas fa-check-circle"></i> Activate
+                        <i className="fas fa-check-circle"></i> {translate('activate')}
                     </button>
                 );
             }
@@ -101,10 +101,10 @@ class UserIndex extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Actions</th>
+                                <th>{translate('id')}</th>
+                                <th>{translate('email')}</th>
+                                <th>{translate('role')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>

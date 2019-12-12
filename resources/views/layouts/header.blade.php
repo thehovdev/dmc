@@ -14,6 +14,12 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+        <script>  
+        
+            var locale = '{{ app()->getLocale() }}';
+        
+        </script>
     </head>
 
     <body>

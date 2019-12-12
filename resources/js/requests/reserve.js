@@ -2,11 +2,11 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 
-export function getCountries(action) {
-    let request_url = '/api/countries/get';
+export function getStepParameters(action) {
+    let request_url = '/api/step/parameters/get';
     axios.get(request_url)
     .then(function (response) {
-        action.getCountries(response.data);
+        action.getStepParameters(response.data);
     });
 }
 

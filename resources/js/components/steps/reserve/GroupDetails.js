@@ -15,9 +15,12 @@ class GroupDetails extends Component {
 
         const optionsList = (items) => {
             return items.map((item, index) =>
-                <option key={ index } value={ item.id }>{ typeof item.value !== 'undefined' ? item.value : item.name }</option>
+                <option key={ index } value={ item.id }>
+                    { typeof item.prefix !== 'undefined' ? translate(item.prefix) : item.name }
+                </option>
             );
         }
+        
 
 
         

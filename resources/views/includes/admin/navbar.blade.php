@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light main-navbar">
-            <a class="navbar-brand" href="#">Navigation</a>
+            <a class="navbar-brand" href="#">@lang('main.navigation')</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -10,43 +10,43 @@
                     <!-- Company -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Companies
+                            @lang('main.companies')
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('admin.company.index') }}">List</a>
-                            <a class="dropdown-item" href="{{ route('admin.company.create') }}">Create</a>
+                            <a class="dropdown-item" href="{{ route('admin.company.index') }}">@lang('main.list')</a>
+                            <a class="dropdown-item" href="{{ route('admin.company.create') }}">@lang('main.create')</a>
                         </div>
                     </li>
 
                     <!-- Conact Person -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Contact Persons
+                            @lang('main.contact_persons')
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('admin.person.index') }}">List</a>
-                            <a class="dropdown-item" href="{{ route('admin.person.create') }}">Create</a>
+                            <a class="dropdown-item" href="{{ route('admin.person.index') }}">@lang('main.list')</a>
+                            <a class="dropdown-item" href="{{ route('admin.person.create') }}">@lang('main.create')</a>
                         </div>
                     </li>                
                     
                     <!-- Operator -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Operators
+                            @lang('main.operators')
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('admin.operator.index') }}">List</a>
-                            <a class="dropdown-item" href="{{ route('admin.operator.create') }}">Create</a>
+                            <a class="dropdown-item" href="{{ route('admin.operator.index') }}">@lang('main.list')</a>
+                            <a class="dropdown-item" href="{{ route('admin.operator.create') }}">@lang('main.create')</a>
                         </div>
                     </li>
 
                     <!-- Profile -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Profile
+                            @lang('main.profile')
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}">@lang('auth.logout')</a>
                         </div>
                     </li>
 

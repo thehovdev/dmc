@@ -5,9 +5,9 @@ export const selectToggle = (payload) => {
     }
 }
 
-export const getCountries = (payload) => {
+export const getStepParameters = (payload) => {
     return {
-        type: 'GET_COUNTRIES',
+        type: 'GET_STEP_PARAMETERS',
         payload: payload
     }
 }

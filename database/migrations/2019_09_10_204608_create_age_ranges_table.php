@@ -16,6 +16,7 @@ class CreateAgeRangesTable extends Migration
         Schema::create('age_ranges', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('prefix');
         });
     }
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as companyAction from '../../actions/company';
 import * as requestApi from '../../requests/request';
 import * as requestAction from '../../actions/request';
@@ -86,7 +86,7 @@ class UserRequest extends Component {
                     </div>
     
                     <button className="btn btn-primary mx-1 my-2" onClick={() => editRequest(false)}>
-                        <i className="fas fa-arrow-left"></i> Back
+                        <i className="fas fa-arrow-left"></i> {translate('back')}
                     </button>
                 </div>
             );
@@ -99,7 +99,7 @@ class UserRequest extends Component {
                     <td>{item.id}</td>
                     <td>{item.arrival_date} {item.arrival_time}</td>
                     <td>{item.departure_date} {item.departure_time}</td>
-                    <td>{item.group_type.name}</td>
+                    <td>{translate(item.group_type.prefix)}</td>
                     <td>{item.age_range.name}</td>
                     <td>{item.nationality.name}</td>
                     <td>{item.country.name}</td>
@@ -116,19 +116,19 @@ class UserRequest extends Component {
         const requestIndexBlock = () => {
             return (
                 <div>
-                    <h4 className="py-2">My requests</h4>
+                    <h4 className="py-2">{translate('myRequestList')}</h4>
 
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Arrival date / time</th>
-                                <th>Departure date / time</th>
-                                <th>Group type</th>
-                                <th>Age range</th>
-                                <th>Nationality</th>
-                                <th>Country</th>
-                                <th>Actions</th>
+                                <th>{translate('id')}</th>
+                                <th>{translate('arrivalDateTime')}</th>
+                                <th>{translate('departureDateTime')}</th>
+                                <th>{translate('groupType')}</th>
+                                <th>{translate('ageRange')}</th>
+                                <th>{translate('nationality')}</th>
+                                <th>{translate('tripCountry')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,20 +150,20 @@ class UserRequest extends Component {
 
             return (
                 <div className="col-sm-12">
-                    <h4 className="py-2">My proposal list</h4>
+                    <h4 className="py-2">{translate('myProposalList')}</h4>
 
                     <table className="table table-bordered table-primary">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Hotel name</th>
-                                <th>Vehicle name</th>
-                                <th>Offered tours</th>
-                                <th>Currency</th>
-                                <th>Single price</th>
-                                <th>Double price</th>
-                                <th>Triple price</th>
-                                <th>Company</th>
+                                <th>{translate('id')}</th>
+                                {/* <th>{translate('block.hotel')}</th> */}
+                                {/* <th>{translate('block.vehicle')}</th> */}
+                                <th>{translate('block.tours')}</th>
+                                <th>{translate('currency')}</th>
+                                <th>{translate('singlePrice')}</th>
+                                <th>{translate('doublePrice')}</th>
+                                <th>{translate('triplePrice')}</th>
+                                <th>{translate('company')}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -171,8 +171,8 @@ class UserRequest extends Component {
                             {request.responded_reserves.data.map((item, index) =>
                                 <tr id={'request-' + item.id} key={index}>
                                     <td>{item.id}</td>
-                                    <td>{item.hotel_name}</td>
-                                    <td>{item.vehicle_name}</td>
+                                    {/* <td>{item.hotel_name}</td> */}
+                                    {/* <td>{item.vehicle_name}</td> */}
                                     <td>{item.offered_tours}</td>
                                     <td>{item.currency}</td>
                                     <td>{item.single_price}</td>
@@ -202,25 +202,33 @@ class UserRequest extends Component {
             if(proposal == null) return null;
 
             let infoArr = [
-                { id: 'hotel_name', title : 'Hotel name:', value: proposal.hotel_name},
-                { id: 'vehicle_name', title : 'Vehicle name:', value: proposal.vehicle_name},
-                { id: 'offered_tours', title : 'Offered tours:', value: proposal.offered_tours},
-                { id: 'currency', title : 'Currency:', value: proposal.currency},
-                { id: 'single_price', title : 'Price per pax (single room):', value: proposal.single_price},
-                { id: 'double_price', title : 'Price per pax (double room):', value: proposal.double_price},
-                { id: 'triple_price', title : 'Price per pax (triple room):', value: proposal.triple_price},
-                { id: 'company', title : 'Company:', value: proposal.operator.company.name},
-                { id: 'company', title : 'Company email:', value: proposal.operator.company.email},
-                { id: 'company', title : 'Company phone:', value: proposal.operator.company.phone},
+                { id: 'hotel_name', title : translate('block.hotelName'), value: proposal.hotel_name},
+                { id: 'vehicle_name', title : translate('block.vehicleName'), value: proposal.vehicle_name},
+                { id: 'offered_tours', title : translate('block.offeredTours'), value: proposal.offered_tours},
+                { id: 'currency', title : translate('block.currency'), value: proposal.currency},
+                { id: 'single_price', title : translate('block.singlePrice'), value: proposal.single_price},
+                { id: 'double_price', title : translate('block.doublePrice'), value: proposal.double_price},
+                { id: 'triple_price', title : translate('block.triplePrice'), value: proposal.triple_price},
+                { id: 'company', title : translate('block.company'), value: proposal.operator.company.name},
+                { id: 'company_email', title : translate('block.companyEmail'), value: proposal.operator.company.email},
+                { id: 'company_phone', title : translate('block.companyPhone'), value: proposal.operator.company.phone},
             ];
 
             return (
                 <div className="col-sm-12 ">
+                    {/* <div className="company-logo">
+                        <img src={'/storage/company/logo/' + proposal.operator.company.logo}></img>
+                    </div> */}
+
+                    <div className="proposal-status">
+                        {proposalStatus(proposal)}
+                    </div>
+
                     <div id="show-proposal-content"  className="animated bounceInRight">
                         <div className="cabinet-info">
-                            <h4 className="py-2">My proposal details</h4>
+                            <h4 className="py-2">{translate('myProposalDetails')}</h4>
                             <div className="detail-data">
-                                <h5 className="main-title text-center">Proposal information</h5>
+                                <h5 className="main-title text-center">{translate('proposalInformation')}</h5>
                                 <ul className="detail-data-list proposal-detail-data-list">
                                     {infoArr.map((item, index) => {
                                         return (
@@ -238,10 +246,10 @@ class UserRequest extends Component {
                                 <table className="table table-bordered table-primary">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Office phone</th>
+                                            <th>{translate('name')}</th>
+                                            <th>{translate('email')}</th>
+                                            <th>{translate('phone')}</th>
+                                            <th>{translate('officePhone')}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -262,11 +270,24 @@ class UserRequest extends Component {
                         </div>
                             
                         <button className="btn btn-primary mx-1 my-2" onClick={() => editRequest(request.id)}>
-                            <i className="fas fa-arrow-left"></i> Back
+                            <i className="fas fa-arrow-left"></i> {translate('back')}
                         </button>
                     </div>
                 </div>
             )
+        }
+
+        const proposalStatus = (proposal) => {
+            if(proposal.operator.company.status == 0 || proposal.operator.status == 0) {
+                return (
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">{translate('proposalWarning')}</h4>
+                        <p>{translate('proposalNotValid')}</p>
+                    </div>
+                )
+            }
+
+            return null;
         }
 
         /* pagination */

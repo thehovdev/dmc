@@ -12,11 +12,17 @@
         </div>
 
         @if(Auth::guard('web')->check() && Auth::guard('web')->user()->role->name == 'admin')
-            <a href="/admin" class="btn btn-outline-light btn-sm btn-login">@lang('main.admin')</a>
+            <a href="{{ route('admin.company.index') }}" class="btn btn-outline-light btn-sm btn-login">
+                @lang('main.admin')
+            </a>
         @elseif(Auth::guard('web')->check() && Auth::guard('web')->user()->role->name != 'admin')
-            <a href="/cabinet" class="btn btn-outline-light btn-sm btn-login">@lang('main.cabinet')</a>
+            <a href="{{ route('cabinet.reserve.user.index') }}" class="btn btn-outline-light btn-sm btn-login">
+                @lang('main.cabinet')
+            </a>
         @elseif(Auth::guard('operator')->check() && Auth::guard('operator')->user()->role->name == 'operator')
-            <a href="/cabinet" class="btn btn-outline-light btn-sm btn-login">@lang('main.cabinet')</a>
+            <a href="{{ route('cabinet.reserve.index') }}" class="btn btn-outline-light btn-sm btn-login">
+                @lang('main.cabinet')
+            </a>
         @endif
 
         @if(!Auth::guard('web')->check() && !Auth::guard('operator')->check())

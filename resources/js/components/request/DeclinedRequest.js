@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as companyAction from '../../actions/company';
 import * as requestApi from '../../requests/request';
 import * as requestAction from '../../actions/request';
-import * as helper from '../../includes/helpers';
 
 class DeclinedRequest extends Component {
 
@@ -94,14 +93,14 @@ class DeclinedRequest extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Arrival date / time</th>
-                                <th>Departure date / time</th>
-                                <th>Group type</th>
-                                <th>Age range</th>
-                                <th>Nationality</th>
-                                <th>Country</th>
-                                <th>Actions</th>
+                            <th>{translate('id')}</th>
+                                <th>{translate('arrivalDateTime')}</th>
+                                <th>{translate('departureDateTime')}</th>
+                                <th>{translate('groupType')}</th>
+                                <th>{translate('ageRange')}</th>
+                                <th>{translate('nationality')}</th>
+                                <th>{translate('tripCountry')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>

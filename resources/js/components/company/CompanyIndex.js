@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import flatpickr from "flatpickr";
+import {translate} from '../../includes/helpers';
 import * as companyApi from '../../requests/company';
 import * as companyAction from '../../actions/company';
 import * as helper from '../../includes/helpers';
@@ -65,10 +66,10 @@ class CompanyIndex extends Component {
                 return (
                     <div>
                         <button onClick={() => editCompany(item.id)} type="button" className="btn btn-primary mx-1">
-                            <i className="fas fa-edit"></i> Edit
+                            <i className="fas fa-edit"></i> {translate('edit')}
                         </button>
                         <button onClick={() => deleteCompany(item.id)} type="button" className="btn btn-danger mx-1">
-                            <i className="fas fa-times-circle"></i> Deactivate
+                            <i className="fas fa-times-circle"></i> {translate('deactivate')}
                         </button>
                     </div>
                 );
@@ -76,7 +77,7 @@ class CompanyIndex extends Component {
                 return (
                     <div>
                         <button onClick={() => restoreCompany(item.id)} type="button" className="btn btn-success mx-1">
-                            <i className="fas fa-check-circle"></i> Activate
+                            <i className="fas fa-check-circle"></i> {translate('activate')}
                         </button>
                     </div>
                 );
@@ -100,44 +101,44 @@ class CompanyIndex extends Component {
             return (
                 <div className="form-content" id="edit-company-content">
                     <div className="company-info">
-                        <h3>Company information</h3>
+                        <h3>{translate('companyInformation')}</h3>
     
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">{translate('name')}</label>
                             <input defaultValue={company.name} type="text" className="form-control" id="name" placeholder="Enter company name"></input>
                         </div>
     
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">{translate('email')}</label>
                             <input defaultValue={company.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">{translate('phone')}</label>
                             <input defaultValue={company.phone} type="text" className="form-control" id="phone" placeholder="Enter company phone"></input>
                         </div>
     
                         <div className="form-group">
-                            <label htmlFor="address">Address</label>
+                            <label htmlFor="address">{translate('address')}</label>
                             <input defaultValue={company.address} type="text" className="form-control" id="address" placeholder="Enter company address"></input>
                         </div>
     
                         <div className="form-group">
                             <img src={'/storage/company/logo/' + company.logo} width="100px"></img>
-                            <label htmlFor="logo">Logo</label>
+                            <label htmlFor="logo">{translate('logo')}</label>
                             <input type="file" className="form-control-file" id="logo"></input>
                         </div>
 
                         <div className="row">
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    <label htmlFor="address">Active from</label>
+                                    <label htmlFor="address">{translate('activeFrom')}</label>
                                     <input defaultValue={company.active_from} type="text" className="form-control" id="active_from"></input>
                                 </div>                   
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    <label htmlFor="address">Active until</label>
+                                    <label htmlFor="address">{translate('activeTo')}</label>
                                     <input defaultValue={company.active_to} type="text" className="form-control" id="active_to"></input>
                                 </div>
                             </div>
@@ -148,10 +149,10 @@ class CompanyIndex extends Component {
                     </div>
     
                     <button className="btn btn-primary mx-1" onClick={() => editCompany(false)}>
-                        <i className="fas fa-arrow-left"></i> Back
+                        <i className="fas fa-arrow-left"></i> {translate('back')}
                     </button>
                     <button className="btn btn-primary mx-1" onClick={() => updateCompany(company.id)}>
-                        <i className="fas fa-save"></i> Update
+                        <i className="fas fa-save"></i> {translate('update')}
                     </button>
                 </div>
             );
@@ -170,11 +171,7 @@ class CompanyIndex extends Component {
                     <td>{item.phone}</td>
                     <td>{item.address}</td>
                     <td>
-                        {/* <div>From: {helper.formatDate(item.active_from)}</div>
-                        <hr className="small-border"></hr>
-                        <div>Until: {helper.formatDate(item.active_to)}</div>
-                        <hr className="small-border"></hr> */}
-                        <div>{helper.daysCount(item.active_from, item.active_to)} days left</div>
+                        <div>{helper.daysCount(item.active_from, item.active_to)} {translate('daysLeft')}</div>
                     </td>
                     <td>
                         {actionButtons(item)}
@@ -213,13 +210,13 @@ class CompanyIndex extends Component {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>Active period</th>
-                                <th>Actions</th>
+                                <th>{translate('id')}</th>
+                                <th>{translate('name')}</th>
+                                <th>{translate('email')}</th>
+                                <th>{translate('phone')}</th>
+                                <th>{translate('address')}</th>
+                                <th>{translate('activePeriod')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>

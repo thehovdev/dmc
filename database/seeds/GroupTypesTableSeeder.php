@@ -14,16 +14,16 @@ class GroupTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('group_types')->insert([
-            ['name' => "Training"],
-            ['name' => "Incentive"],
-            ['name' => "Conference"],
-            ['name' => "Meeting"],
-            ['name' => "CityWide Event"],
-            ['name' => "Event"],
-            ['name' => "Corporate"],
-            ['name' => "Government"],
-            ['name' => "Leisure"],
-            ['name' => "Family"]
+            ['name' => "Training", 'prefix' => 'group_type_training'],
+            ['name' => "Incentive", 'prefix' => 'group_type_incentive'],
+            ['name' => "Conference", 'prefix' => 'group_type_conference'],
+            ['name' => "Meeting", 'prefix' => 'group_type_meeting'],
+            ['name' => "CityWide Event", 'prefix' => 'group_type_city_wide_event'],
+            ['name' => "Event", 'prefix' => 'group_type_event'],
+            ['name' => "Corporate", 'prefix' => 'group_type_corporate'],
+            ['name' => "Government", 'prefix' => 'group_type_government'],
+            ['name' => "Leisure", 'prefix' => 'group_type_leisure'],
+            ['name' => "Family", 'prefix' => 'group_type_family']
         ]);
     }
 }

@@ -19,7 +19,7 @@ class Home extends Component {
 
     componentDidMount(){
         userApi.checkAuth(this.props.userAction);
-        reserveApi.getCountries(this.props.stepAction);
+        reserveApi.getStepParameters(this.props.stepAction);
     }
 
     render() {
@@ -33,7 +33,7 @@ class Home extends Component {
             return this.props.homeAction.sendForm();
         }
         const startButtons = () => {
-            if(typeof this.props.user.auth != 'undefined' && typeof this.props.home.form.show != 'undefined') {
+            if(typeof this.props.user.auth !== 'undefined' && typeof this.props.home.form.show !== 'undefined') {
 
                 if(this.props.user.auth == 1 && this.props.home.form.show == false) {
                     return (
@@ -44,7 +44,25 @@ class Home extends Component {
                             </button>
                         </div>
                     )
-                } else if(this.props.home.form.show == false) {
+                } else if(this.props.user.auth == 2 && this.props.home.form.show == false) { 
+                    return (
+                        <div className="startItems" id="startItems">
+                            <h1>{translate('introTitle')}</h1>
+                            <a className="btn btn-lg btn-light d-block m-auto" href="/cabinet/reserve">
+                                {translate('pendingRequest')}
+                            </a>
+                        </div>
+                    )
+                } else if(this.props.user.auth == 3 && this.props.home.form.show == false) {
+                    return (
+                        <div className="startItems" id="startItems">
+                            <h1>{translate('introTitle')}</h1>
+                            <a className="btn btn-lg btn-light d-block m-auto" href="/admin/company">
+                                {translate('admin')}
+                            </a>
+                        </div>
+                    )
+                } else if(this.props.user.auth == 0 && this.props.home.form.show == false) {
                     return (
                         <div className="startItems" id="startItems">
                             <h1>{translate('introTitle')}</h1>

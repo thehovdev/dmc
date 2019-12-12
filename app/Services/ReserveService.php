@@ -5,11 +5,15 @@ namespace App\Services;
 use stdClass;
 use App\User;
 use App\Operator;
+use App\AgeRange;
 use App\Reserve;
+use App\Nationality;
+use App\Country;
 use App\DeclinedReserve;
 use App\RespondedReserve;
 use App\HotelStar;
 use App\CuisineType;
+use App\GroupType;
 use App\Transfer;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
@@ -22,7 +26,15 @@ class ReserveService
     protected $reserve;
     protected $declinedReserve;
     protected $respondedReserve;
+    protected $authService;
+    protected $hotelStar;
+    protected $transfer;
+    protected $cuisineType;
+    protected $groupType;
+    protected $ageRange;
     protected $result;
+    protected $nationality;
+    protected $country;
 
     // dependency injection
     public function __construct(
@@ -32,7 +44,11 @@ class ReserveService
         AuthService $authService,
         HotelStar $hotelStar,
         CuisineType $cuisineType,
-        Transfer $transfer
+        GroupType $groupType,
+        Transfer $transfer,
+        AgeRange $ageRange,
+        Country $country,
+        Nationality $nationality
     ) {
         $this->result = new stdClass;
         $this->authService = $authService;
@@ -41,8 +57,11 @@ class ReserveService
         $this->respondedReserve = $respondedReserve;
         $this->hotelStar = $hotelStar;
         $this->cuisineType = $cuisineType;
+        $this->groupType = $groupType;
         $this->transfer = $transfer;
-
+        $this->ageRange = $ageRange;
+        $this->country = $country;
+        $this->nationality = $nationality;
     }
 
     // create reserve by user
@@ -435,8 +454,6 @@ class ReserveService
         $this->result->reserve->country = $reserve->country;
         $this->result->reserve->responded = $reserve->responded($operator);
 
-
-
         if(!is_null($reserve->hotel_star_id_list)) {
             $this->result->reserve->hotel_stars = $this->hotelStar->whereIn(
                 'id', json_decode($reserve->hotel_star_id_list, true)
@@ -459,6 +476,20 @@ class ReserveService
 
     }
 
+
+    public function getStepParameters() {
+        $this->result->status = 1;
+        $this->result->message = 'success';
+        $this->result->nationalities = $this->nationality->all();
+        $this->result->hotelStars = $this->hotelStar->all();
+        $this->result->ageRange = $this->ageRange->all();
+        $this->result->cuisineTypes = $this->cuisineType->all();
+        $this->result->groupTypes = $this->groupType->all();
+        $this->result->countries = $this->country->all();
+        $this->result->transfers = $this->transfer->all();
+
+        return $this->result;
+    }
 
 
 

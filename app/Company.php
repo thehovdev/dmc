@@ -28,7 +28,7 @@ class Company extends Model
     }
 
     public function contactPersons() {
-        return $this->hasMany('App\ContactPerson');
+        return $this->hasMany('App\ContactPerson')->withTrashed();
     }
     public function operators() {
         return $this->hasMany('App\Operator');

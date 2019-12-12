@@ -16,6 +16,7 @@ class CreateTransfersTable extends Migration
         Schema::create('transfers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('prefix');
             $table->timestamps();
         });
     }

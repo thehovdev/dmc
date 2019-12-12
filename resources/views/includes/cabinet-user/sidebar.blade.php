@@ -1,8 +1,8 @@
 <!-- Sidebar  -->
 <nav id="sidebar">
-    <a href="{{ route('cabinet.index') }}">
+    <a href="{{ route('index') }}">
         <div class="sidebar-header">
-            <h3>DMC project</h3>
+            <h3>{{config()->get('app.name')}}</h3>
         </div>
     </a>
 
@@ -15,13 +15,13 @@
 
         <li class="@if(Request::is('admin')) {{ 'active' }} @endif">
             <a href="{{ route('cabinet.reserve.user.index') }}">
-                <i class="fas fa-suitcase"></i> My requests
+                <i class="fas fa-suitcase"></i> @lang('main.myRequestList')
             </a>
         </li>
 
         <li>
             <a href="{{ route('index') }}">
-                <i class="fas fa-folder-plus"></i> Create request
+                <i class="fas fa-folder-plus"></i> @lang('main.create_request')
             </a>
         </li>
     </ul>

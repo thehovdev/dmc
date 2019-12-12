@@ -16614,6 +16614,12 @@ hr.small-border {
   border: 1px solid #eaeaea;
 }
 
+.loader {
+  display: block;
+  width: 250px;
+  margin: auto;
+}
+
 .steps-form .tab-content {
   background: rgba(255, 255, 255, 0.8);
   min-height: 400px;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {translate} from '../../includes/helpers';
 import * as companyAction from '../../actions/company';
 import * as companyApi from '../../requests/company';
 
@@ -115,57 +115,57 @@ class ContactPersonIndex extends Component {
             return (
                 <div className="form-content" id="edit-contact-person-content">
                     <div className="contact-person-info">
-                        <h3>Contact Person information</h3>
+                        <h3>{translate('contactPersonInformation')}</h3>
     
                         <div className="form-group">
-                            <label htmlFor="company_id">Choose company</label>
+                            <label htmlFor="company_id">{translate('chooseCompany')}</label>
                             <select className="form-control" id="company_id" defaultValue={contactPerson.company_id}>
                                 { companiesList() }
                             </select>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">{translate('name')}</label>
                             <input defaultValue={contactPerson.name} type="text" className="form-control" id="name" placeholder="Enter name"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="surname">Surname</label>
+                            <label htmlFor="surname">{translate('surname')}</label>
                             <input defaultValue={contactPerson.surname} type="text" className="form-control" id="surname" placeholder="Enter surname"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="suffix">Suffix</label>
+                            <label htmlFor="suffix">{translate('suffix')}</label>
                             <input defaultValue={contactPerson.suffix} type="text" className="form-control" id="suffix" placeholder="Enter suffix"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="position">Position</label>
+                            <label htmlFor="position">{translate('position')}</label>
                             <input defaultValue={contactPerson.position} type="text" className="form-control" id="position" placeholder="Enter position"></input>
                         </div>
     
                         <div className="form-group">
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">{translate('phone')}</label>
                             <input defaultValue={contactPerson.phone} type="text" className="form-control" id="phone" placeholder="Enter company phone"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="office_phone">Office phone</label>
+                            <label htmlFor="office_phone">{translate('officePhone')}</label>
                             <input defaultValue={contactPerson.office_phone} type="text" className="form-control" id="office_phone" placeholder="Enter company office phone"></input>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">{translate('email')}</label>
                             <input defaultValue={contactPerson.email} type="text" className="form-control" id="email" placeholder="Enter company email"></input>
                         </div>
 
                     </div>
     
                     <button className="btn btn-primary mx-1" onClick={() => editContactPerson(false)}>
-                        <i className="fas fa-arrow-left"></i> Back
+                        <i className="fas fa-arrow-left"></i> {translate('back')}
                     </button>
                     <button className="btn btn-primary mx-1" onClick={() => updateContactPerson(contactPerson.id)}>
-                        <i className="fas fa-save"></i> Update
+                        <i className="fas fa-save"></i> {translate('update')}
                     </button>
                 </div>
             );
@@ -188,8 +188,8 @@ class ContactPersonIndex extends Component {
                     <td>{item.surname}</td>
                     <td>{item.suffix}</td>
                     <td>{item.position}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.office_phone}</td>
+                    {/* <td>{item.phone}</td> */}
+                    {/* <td>{item.office_phone}</td> */}
                     <td>{item.email}</td>
                     <td>{item.company.name}</td>
                     <td>
@@ -221,23 +221,22 @@ class ContactPersonIndex extends Component {
             }
         }
 
-
         const contactPersonIndexBlock = () => {
             return (
                 <div>
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Suffix</th>
-                                <th>Position</th>
-                                <th>Phone</th>
-                                <th>Office phone</th>
-                                <th>Email</th>
-                                <th>Company</th>
-                                <th>Actions</th>
+                                <th>{translate('id')}</th>
+                                <th>{translate('name')}</th>
+                                <th>{translate('surname')}</th>
+                                <th>{translate('suffix')}</th>
+                                <th>{translate('position')}</th>
+                                {/* <th>{translate('phone')}</th> */}
+                                {/* <th>{translate('officePhone')}</th> */}
+                                <th>{translate('email')}</th>
+                                <th>{translate('company')}</th>
+                                <th>{translate('actions')}</th>
                             </tr>
                         </thead>
                         <tbody>

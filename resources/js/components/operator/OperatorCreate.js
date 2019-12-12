@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Swal from 'sweetalert2'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {translate} from '../../includes/helpers';
 import { create } from 'domain';
 
 import * as companyApi from '../../requests/company';
@@ -44,37 +45,37 @@ class OperatorCreate extends Component {
             <div className="form-content" id="create-company-operator-content">
                 <div className="company-info">
                     <div className="form-group">
-                        <label htmlFor="company_id">Choose company</label>
+                        <label htmlFor="company_id">{translate('chooseCompany')}</label>
                         <select className="form-control" id="company_id">
                             { companiesList() }
                         </select>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input defaultValue="Afgan" type="text" className="form-control" id="name" placeholder="Enter operator name"></input>
+                        <label htmlFor="name">{translate('name')}</label>
+                        <input defaultValue="John" type="text" className="form-control" id="name" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
-                        <input defaultValue="+994513739930" type="text" className="form-control" id="phone" placeholder="Enter operator phone"></input>
+                        <label htmlFor="phone">{translate('phone')}</label>
+                        <input type="number" className="form-control" id="phone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input defaultValue="halilov.lib@gmail.com" type="text" className="form-control" id="email" placeholder="Enter operator email"></input>
+                        <label htmlFor="email">{translate('email')}</label>
+                        <input defaultValue="johndoe@examplecompany.com" type="text" className="form-control" id="email" placeholder={translate('enterEmail')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" placeholder="Enter operator password"></input>
+                        <label htmlFor="password">{translate('password')}</label>
+                        <input type="password" className="form-control" id="password" placeholder={translate('enterPassword')}></input>
                     </div>
 
 
                 </div>
 
                 <button className="btn btn-primary" onClick={() => createOperator()}>
-                    <i className="fas fa-save"></i> Create operator
+                    <i className="fas fa-save"></i> {translate('createOperator')}
                 </button>
             </div>
         );
