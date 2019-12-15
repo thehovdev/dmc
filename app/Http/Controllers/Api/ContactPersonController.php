@@ -12,6 +12,20 @@ use App\Http\Requests\CreateContactPersonReq;
 
 class ContactPersonController extends Controller
 {
+
+    public function __construct() {
+        // Middleware only applied to these methods
+        $this->middleware('auth.admin');
+        // $this->middleware('auth.admin', ['only' => [
+        //     'index', 
+        //     'store',
+        //     'update',
+        //     'destroy',
+        //     'restore'
+        // ]]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +48,7 @@ class ContactPersonController extends Controller
         CreateContactPersonReq $request,
         ContactPersonService $contactPersonService
     ) {
+        $this->middleware('auth.admin');
 
         $result = $contactPersonService->store($request);
 
@@ -65,6 +80,8 @@ class ContactPersonController extends Controller
         CreateContactPersonReq $request,
         ContactPerson $contactPerson
     ) {
+        $this->middleware('auth.admin');
+
         $result = $contactPersonService->update($request, $contactPerson);
 
         return response()->json($result);
@@ -78,6 +95,8 @@ class ContactPersonController extends Controller
      */
     public function destroy(ContactPerson $contactPerson, ContactPersonService $contactPersonService)
     {
+        $this->middleware('auth.admin');
+
         $result = $contactPersonService->destroy($contactPerson);
 
         return response()->json($result);
@@ -85,6 +104,8 @@ class ContactPersonController extends Controller
 
     public function restore($id, ContactPersonService $contactPersonService)
     {
+        $this->middleware('auth.admin');
+
         $operator = ContactPerson::withTrashed()->find($id);
 
         $result = $contactPersonService->restore($operator);

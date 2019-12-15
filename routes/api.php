@@ -15,17 +15,12 @@ use Illuminate\Http\Request;
 
 Route::namespace('Api')->group(function () {
 
-
     Route::get('/user/checkauth', 'UserController@checkauth');
-    
-    
-    Route::get('/countries/get', 'NationalityController@getCountries');
     Route::get('/step/parameters/get', 'ReserveController@getStepParameters');
 
-    // web is users, operator is operators, grant access all of him by his role
-    Route::middleware(['auth:web,operator'])->group(function () {
 
-
+    // if user is logged in or dmc ( operator ) is logged in
+    Route::middleware(['auth:web,operator', 'xss-filter'])->group(function () {
         Route::get('/user', 'UserController@index');
         Route::get('/user/restore/{user}', 'UserController@restore');
         Route::delete('/user/{user}', 'UserController@destroy');

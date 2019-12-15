@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 
+use App\Company;
 use App\User;
 use App\Operator;
 use App\Role;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -43,6 +48,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm(Company $company)
+    {
+        $companies = $company->all();
+
+        return view('auth.register')->with('companies', $companies);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -51,11 +63,40 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+
+        if(isset($data['corporate'])) {
+            return Validator::make($data, [
+                'company' => ['required', 'integer', 'max:255'],
+                'phone' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:operators'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        } else {
+            return Validator::make($data, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        }
+    }
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return view('auth.register.operatorSuccess');
+
+        // return redirect('/register/qweqwe')->with('status', 'success');
+
+        // for login after registration uncomment this
+        // $this->guard($request)->login($user);
+
+        // return $this->registered($request, $user)
+        //                 ?: redirect($this->redirectPath());
     }
 
     /**
@@ -66,15 +107,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-
         if($this->getGuardType($data) == 'operator') {
             return Operator::create([
+                'company_id' => $data['company'],
+                'phone' => $data['phone'],
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'status' => 1,
+                'status' => 0,
                 'password' => Hash::make($data['password']),
                 'role_id' => Role::whereName('operator')->first()->id,
+                'deleted_at' => Carbon::today()
             ]);
         }
 
@@ -85,6 +127,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role_id' => Role::whereName('user')->first()->id,
         ]);
+    }
+    
+    protected function guard(Request $request)
+    {
+        return Auth::guard($this->getGuardType($request->all()));
     }
 
     public function getGuardType($data) 

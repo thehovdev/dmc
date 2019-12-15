@@ -15,6 +15,11 @@ use App\Http\Requests\UpdateOperatorReq;
 
 class OperatorController extends Controller
 {
+    public function __construct() {
+        // Middleware only applied to these methods
+        $this->middleware('auth.admin');
+    }
+    
  /**
      * Display a listing of the resource.
      *

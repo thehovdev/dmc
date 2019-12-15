@@ -7,9 +7,7 @@ let languages = {
         introTitle: "Lorem Ipsum is simply dummy text.",
         stepTitle: "Something about information",
         makeReservation: "Make reservation",
-
         admin: "Admin",
-
         // inputs
         id: "id",
         name: "Name",

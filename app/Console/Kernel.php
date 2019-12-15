@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
     {
 
         // $schedule->command('company:activate')->dailyAt('00:00');
-        // $schedule->command('company:activate')->dailyAt('00:00');
+        // $schedule->command('company:deactivate')->dailyAt('00:00');
         // $schedule->command('notify:userRespondedReserves')->dailyAt('14:00');
         // $schedule->command('notify:userRespondedReserves')->dailyAt('22:00');
     }

@@ -15,6 +15,13 @@ class UserController extends Controller
     // type hint dependency injection
     public function __construct() {
         $this->result = new stdClass;
+
+        // Middleware only applied to these methods
+        $this->middleware('auth.admin', ['only' => [
+            'index', 
+            'destroy',
+            'restore'
+        ]]);
     }
 
 

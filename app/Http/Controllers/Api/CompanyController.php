@@ -14,6 +14,10 @@ use App\Http\Requests\UpdateCompanyReq;
 
 class CompanyController extends Controller
 {
+    public function __construct() {
+        // Middleware only applied to these methods
+        $this->middleware('auth.admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +41,8 @@ class CompanyController extends Controller
      */
     public function store(CompanyService $companyService, CreateCompanyReq $request)
     {
+        $this->middleware('auth.admin');
+
         $result = $companyService->store($request);
 
         return response()->json($result);
@@ -62,6 +68,7 @@ class CompanyController extends Controller
      */
     public function update(Company $company, UpdateCompanyReq $request, CompanyService $companyService)
     {
+        $this->middleware('auth.admin');
 
         $result = $companyService->update($company, $request);
 
@@ -76,6 +83,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company, ContactPerson $contactPerson, Operator $operator, CompanyService $companyService)
     {
+        $this->middleware('auth.admin');
+
         $result = $companyService->destroy($company, $contactPerson, $operator);
 
         return response()->json($result);
@@ -83,6 +92,8 @@ class CompanyController extends Controller
 
     public function restore($id, ContactPerson $contactPerson, Operator $operator, CompanyService $companyService)
     {
+        $this->middleware('auth.admin');
+
         $company = Company::withTrashed()->find($id);
 
         $result = $companyService->restore($company, $contactPerson, $operator);

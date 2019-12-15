@@ -12,9 +12,8 @@
 */
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
-
 Route::view('/', 'index')->name('index');
-Route::get('/test', 'TestController@index');
+// Route::view('/register/success', 'auth.register.operatorSuccess');
 
 
 // set locale

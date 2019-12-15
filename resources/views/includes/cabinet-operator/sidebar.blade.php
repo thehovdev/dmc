@@ -22,10 +22,10 @@
                 <i class="fas fa-address-card"></i> @lang('main.declined')
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a href="{{ route('index') }}">
                 <i class="fas fa-folder-plus"></i> @lang('main.create_request')
             </a>
-        </li>
+        </li> --}}
     </ul>
 </nav>

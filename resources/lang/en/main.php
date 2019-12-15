@@ -12,11 +12,10 @@ return [
     'next' => 'Next',
     'previous' => 'Previous',
     'back' => 'Back',
-
-
     'profile' => 'Profile',
     'navigation' => 'Navigation',
     'home' => 'Home',
+    'backToHome' => 'Back to Home page',
     'users' => 'Users',
     'users_list' => 'Users List',
     'companies' => 'Companies',

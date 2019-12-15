@@ -12,6 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'welldone' => 'Well done !',
+    'successAuthTitle' => 'You have successfully completed the registration process',
+    'successAuthContent' => 'Please wait while we contact you for more information and activate your account.',
     'login' => 'Login',
     'logout' => 'Logout',
     'login_title' => 'Log in to your account',
