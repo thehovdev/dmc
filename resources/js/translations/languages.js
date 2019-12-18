@@ -92,6 +92,7 @@ let languages = {
         country_georgia: 'Georgia',
 
         // age range list
+        yearBetween0and99: 'Mixed 0 - 99',
         yearBetween0and20: 'Age between 0 - 20',
         yearBetween20and30: 'Age between 20 - 30',
         yearBetween30and50: 'Age between 30 - 50',

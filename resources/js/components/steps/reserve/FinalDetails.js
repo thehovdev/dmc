@@ -7,10 +7,10 @@ class FinalDetails extends Component {
             <div className="tab-pane fade" id="pills-final" role="tabpanel" aria-labelledby="pills-final-tab">
                  <div id="final-details">
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label htmlFor="email">{translate('step.final.provideEmailAddress') }</label>
                         <input type="email" id="email" className="form-control" required></input>
-                    </div>    
+                    </div>     */}
 
                     <div className="form-group">
                         <div className="row">

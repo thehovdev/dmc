@@ -69609,7 +69609,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82088,15 +82088,6 @@ function (_Component) {
         id: "final-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "email"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["translate"])('step.final.provideEmailAddress')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "email",
-        id: "email",
-        className: "form-control",
-        required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86004,6 +85995,7 @@ var languages = {
     country_azerbaijan: 'Azerbaijan',
     country_georgia: 'Georgia',
     // age range list
+    yearBetween0and99: 'Mixed 0 - 99',
     yearBetween0and20: 'Age between 0 - 20',
     yearBetween20and30: 'Age between 20 - 30',
     yearBetween30and50: 'Age between 30 - 50',

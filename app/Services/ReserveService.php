@@ -73,6 +73,7 @@ class ReserveService
         
         // date & time data
         $this->reserve->user_id = $loggedUser->id;
+        $this->reserve->email = $loggedUser->email;
         $this->reserve->arrival_date = date('Y-m-d', strtotime($formData->arrival_date));
         $this->reserve->departure_date = date('Y-m-d', strtotime($formData->departure_date));
         $this->reserve->arrival_time = $formData->arrival_time;
@@ -126,7 +127,6 @@ class ReserveService
         $this->reserve->need_meeting_facilities = (boolean)$formData->need_meeting_facilities;
 
         // string data
-        $this->reserve->email = $formData->email;
         $this->reserve->additional_request = $formData->additional_request;
         $this->reserve->save();
 

@@ -32,9 +32,6 @@ class ReservePostReq extends FormRequest
         $this->validate([
             'formData.arrival_date' => 'required|string',
             'formData.departure_date' => 'required|string',
-            'formData.arrival_time' => 'required|string',
-            'formData.departure_time' => 'required|string',
-
             'formData.group_type_id' => 'required|integer',
             'formData.nationality_id' => 'required|integer',
             'formData.country_id' => 'required|integer',

@@ -23,8 +23,8 @@ class CreateReservesTable extends Migration
             $table->date('arrival_date');
             $table->date('departure_date');
 
-            $table->time('arrival_time');
-            $table->time('departure_time');
+            $table->time('arrival_time')->nullable();
+            $table->time('departure_time')->nullable();
 
             // если база данных поменяется с postgreSQL на mySQL 
             // в миграциях следует сменить все integer на unsignedInteger
