@@ -81967,8 +81967,16 @@ function (_Component) {
       });
     }
   }, {
+    key: "clearData",
+    value: function clearData(element) {
+      element = document.getElementById(element);
+      element.value = '';
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tab-pane fade show active",
         id: "pills-home",
@@ -81980,25 +81988,30 @@ function (_Component) {
         className: "form-group my-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "arrival_date"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.arrivalDate')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.arrivalDate'), " *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "form-control",
+        className: "form-control required-input",
         id: "arrival_date",
         placeholder: Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.arrivalDateEnter')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group my-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "departure_date"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.departureDate')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.departureDate'), " *"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "form-control",
+        className: "form-control required-input",
         id: "departure_date",
         placeholder: Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.departureDateEnter')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group my-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "arrival_time"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.arrivalTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.arrivalTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        onClick: function onClick() {
+          return _this.clearData('arrival_time');
+        },
+        className: "close-icon fas fa-times-circle mx-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "arrival_time",
@@ -82007,7 +82020,12 @@ function (_Component) {
         className: "form-group my-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "departure_time"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.departureTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_2__["translate"])('step.arrival.departureTime')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        onClick: function onClick() {
+          return _this.clearData('departure_time');
+        },
+        className: "close-icon fas fa-times-circle mx-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "departure_time",
@@ -82526,6 +82544,38 @@ function (_Component) {
   }
 
   _createClass(ReserveForm, [{
+    key: "checkRequiredFields",
+    value: function checkRequiredFields() {
+      // required fields
+      var required = ['arrival_date', 'departure_date'];
+      var trigger;
+
+      for (var index = 0; index < required.length; index++) {
+        var element = required[index];
+        var input = document.getElementById(element);
+
+        if (input.value == '') {
+          input.classList.add('error-input');
+          trigger = false;
+        } else {
+          input.classList.remove('error-input');
+          trigger = true;
+        }
+      }
+
+      return trigger; // let arrival_date = document.getElementById('arrival_date');
+      // let departure_date = document.getElementById('departure_date');
+      // if(arrival_date.value == '' || departure_date.value == '') {
+      //     arrival_date.classList.add('error-input');
+      //     departure_date.classList.add('error-input');
+      //     return false;
+      // } else {
+      //     arrival_date.classList.remove('error-input');
+      //     departure_date.classList.remove('error-input');
+      // }
+      // return true;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -82533,7 +82583,12 @@ function (_Component) {
       var nextButton = function nextButton() {
         var elem = document.querySelector('.nav-link.active').closest('li');
 
+        if (_this.checkRequiredFields() == false) {
+          return false;
+        }
+
         if (elem.nextElementSibling != null) {
+          elem.nextElementSibling.querySelector('a').classList.remove('disabled');
           elem.nextElementSibling.querySelector('a').click();
         } else {
           sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
@@ -82585,7 +82640,7 @@ function (_Component) {
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('step.arrivalDetails'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "nav-link",
+        className: "nav-link disabled",
         id: "pills-groups-tab",
         "data-toggle": "pill",
         href: "#pills-groups",
@@ -82595,7 +82650,7 @@ function (_Component) {
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('step.groupDetails'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "nav-link",
+        className: "nav-link disabled",
         id: "pills-others-tab",
         "data-toggle": "pill",
         href: "#pills-others",
@@ -82605,7 +82660,7 @@ function (_Component) {
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('step.otherDetails'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "nav-link",
+        className: "nav-link disabled",
         id: "pills-transfer-tab",
         "data-toggle": "pill",
         href: "#pills-transfer",
@@ -82615,7 +82670,7 @@ function (_Component) {
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('step.transferDetails'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "nav-link",
+        className: "nav-link disabled",
         id: "pills-final-tab",
         "data-toggle": "pill",
         href: "#pills-final",
@@ -85915,9 +85970,9 @@ var languages = {
     previous: "Previous",
     yes: "Yes",
     no: "No",
-    introTitle: "Lorem Ipsum is simply dummy text.",
+    introTitle: "Please Create an Account",
     stepTitle: "Something about information",
-    makeReservation: "Make reservation",
+    makeReservation: "Create Request",
     admin: "Admin",
     // inputs
     id: "id",
@@ -85978,7 +86033,7 @@ var languages = {
     departureDateTime: "Departure date / time",
     groupType: "Group type",
     tripCountry: "Trip country",
-    nationality: "Nationality",
+    nationality: "Origin country",
     ageRange: "Age range",
     // group type list
     group_type_training: 'Training',
@@ -86094,11 +86149,11 @@ var languages = {
     step: {
       arrivalDetails: "Arrival Details",
       groupDetails: "Group Details",
-      otherDetails: "Other Details",
-      transferDetails: "Transfer Details",
+      otherDetails: "Group Details 2",
+      transferDetails: "Group Details 3",
       finalDetails: "Final Details",
       arrival: {
-        arrivalDate: "Arrival date",
+        arrivalDate: "Arrival Date",
         arrivalDateEnter: "Enter arrival date",
         departureDate: "Departure date",
         departureDateEnter: "Enter departure date",

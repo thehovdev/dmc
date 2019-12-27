@@ -23,12 +23,12 @@ return [
     'forgot_password' => 'Forgot Password',
     'reset_password' => 'Reset password',
     'reset_password_send' => 'Send password reset link',
-    'account_personal' => 'Personal Account',
-    'account_corporate' => 'Corporate Account',
+    'account_personal' => 'For Price Request (Clients only)',
+    'account_corporate' => 'For Price Offer (DMC only)',
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'email' => 'E-mail address',
     'password' => 'Password',
-    'corporate_account' => 'Corporate account',
+    'corporate_account' => 'Dmc account',
 
 ];

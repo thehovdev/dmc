@@ -16614,6 +16614,14 @@ hr.small-border {
   border: 1px solid #eaeaea;
 }
 
+.close-icon {
+  color: white;
+}
+
+.error-input {
+  border: 1px solid red;
+}
+
 .loader {
   display: block;
   width: 250px;

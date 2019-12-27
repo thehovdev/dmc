@@ -50,7 +50,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="corporate" name="corporate">
                                     <label class="form-check-label" for="corporate">
-                                        @lang('auth.account_corporate')
+                                        @lang('auth.corporate_account')
                                     </label>
                                 </div>
                             

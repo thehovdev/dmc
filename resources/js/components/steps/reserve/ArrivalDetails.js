@@ -27,24 +27,35 @@ class ArrivalDetails extends Component {
         });
     }
 
+    clearData(element) {
+        element = document.getElementById(element);
+        element.value = '';
+    }
+
     render() {
         return (
             <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div id="arrival-details">
                     <div className="form-group my-2">
-                        <label htmlFor="arrival_date">{translate('step.arrival.arrivalDate')}</label>
-                        <input type="text" className="form-control" id="arrival_date" placeholder={translate('step.arrival.arrivalDateEnter')}></input>
+                        <label htmlFor="arrival_date">{translate('step.arrival.arrivalDate')} *</label>
+                        <input type="text" className="form-control required-input" id="arrival_date" placeholder={translate('step.arrival.arrivalDateEnter')}></input>
                     </div>
                     <div className="form-group my-2">
-                        <label htmlFor="departure_date">{translate('step.arrival.departureDate')}</label>
-                        <input type="text" className="form-control" id="departure_date" placeholder={translate('step.arrival.departureDateEnter')}></input>
+                        <label htmlFor="departure_date">{translate('step.arrival.departureDate')} *</label>
+                        <input type="text" className="form-control required-input" id="departure_date" placeholder={translate('step.arrival.departureDateEnter')}></input>
                     </div>
                     <div className="form-group my-2">
-                        <label htmlFor="arrival_time">{translate('step.arrival.arrivalTime')}</label>
+                        <label htmlFor="arrival_time">
+                            {translate('step.arrival.arrivalTime')}
+                        </label>
+                        <i onClick={() => this.clearData('arrival_time')} className="close-icon fas fa-times-circle mx-1"></i>
                         <input type="text" className="form-control" id="arrival_time" placeholder={translate('step.arrival.arrivalTimeEnter')}></input>
                     </div>
                     <div className="form-group my-2">
-                        <label htmlFor="departure_time">{translate('step.arrival.departureTime')}</label>
+                        <label htmlFor="departure_time">
+                            {translate('step.arrival.departureTime')}
+                        </label>
+                        <i onClick={() => this.clearData('departure_time')} className="close-icon fas fa-times-circle mx-1"></i>
                         <input type="text" className="form-control" id="departure_time" placeholder={translate('step.arrival.departureTimeEnter')}></input>
                     </div>
                     <div className="form-group my-2">

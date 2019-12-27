@@ -4,9 +4,9 @@ let languages = {
         previous: "Previous",
         yes: "Yes",
         no: "No",
-        introTitle: "Lorem Ipsum is simply dummy text.",
+        introTitle: "Please Create an Account",
         stepTitle: "Something about information",
-        makeReservation: "Make reservation",
+        makeReservation: "Create Request",
         admin: "Admin",
         // inputs
         id: "id",
@@ -72,7 +72,7 @@ let languages = {
         departureDateTime: "Departure date / time",
         groupType: "Group type",
         tripCountry: "Trip country",
-        nationality: "Nationality",
+        nationality: "Origin country",
         ageRange: "Age range",
 
         // group type list
@@ -208,12 +208,12 @@ let languages = {
         step: {
             arrivalDetails: "Arrival Details",
             groupDetails: "Group Details",
-            otherDetails: "Other Details",
-            transferDetails: "Transfer Details",
+            otherDetails: "Group Details 2",
+            transferDetails: "Group Details 3",
             finalDetails: "Final Details",
 
             arrival: {
-                arrivalDate: "Arrival date",
+                arrivalDate: "Arrival Date",
                 arrivalDateEnter: "Enter arrival date",
                 departureDate: "Departure date",
                 departureDateEnter: "Enter departure date",
