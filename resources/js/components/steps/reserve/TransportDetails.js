@@ -54,7 +54,7 @@ class TransportDetails extends Component {
                 return (
                     <div className="form-group">
                         <label htmlFor="excursion_options_description">{translate('step.transfer.describeYouRequest')}</label>
-                        <input type="text" id="excursion_options_description" className="form-control" defaultValue="Some description"></input>
+                        <textarea id="excursion_options_description" className="form-control"></textarea>
                     </div>    
                 );
             }
@@ -65,7 +65,7 @@ class TransportDetails extends Component {
                 return (
                     <div className="form-group">
                         <label htmlFor="meeting_facilities_description">{translate('step.transfer.describeYouRequest')}</label>
-                        <input type="text" id="meeting_facilities_description" className="form-control" defaultValue="Some description"></input>
+                        <textarea id="meeting_facilities_description" className="form-control"></textarea>
                     </div>    
                 );
             }

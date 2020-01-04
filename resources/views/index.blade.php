@@ -30,6 +30,12 @@
             <a href="/register" class="btn btn-outline-light btn-sm btn-register">@lang('auth.register')</a>
         @endif
 
+        @if(Request::has('req') == 1 && Request::get('req') == 'create') 
+            <script> 
+                var createRequestFromCabinet = 1;
+            </script>
+        @endif
+
     <div class="intro-cover" id="root">
     </div>
 </div>

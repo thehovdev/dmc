@@ -11,6 +11,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('es6-promise').polyfill();
 } catch (e) {}
 
 /**

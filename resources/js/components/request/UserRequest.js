@@ -156,9 +156,9 @@ class UserRequest extends Component {
                         <thead>
                             <tr>
                                 <th>{translate('id')}</th>
-                                {/* <th>{translate('block.hotel')}</th> */}
+                                <th>{translate('block.hotel')}</th>
                                 {/* <th>{translate('block.vehicle')}</th> */}
-                                <th>{translate('block.tours')}</th>
+                                {/* <th>{translate('block.tours')}</th> */}
                                 <th>{translate('currency')}</th>
                                 <th>{translate('singlePrice')}</th>
                                 <th>{translate('doublePrice')}</th>
@@ -171,9 +171,9 @@ class UserRequest extends Component {
                             {request.responded_reserves.data.map((item, index) =>
                                 <tr id={'request-' + item.id} key={index}>
                                     <td>{item.id}</td>
-                                    {/* <td>{item.hotel_name}</td> */}
+                                    <td>{item.hotel_name}</td>
                                     {/* <td>{item.vehicle_name}</td> */}
-                                    <td>{item.offered_tours}</td>
+                                    {/* <td>{item.offered_tours}</td> */}
                                     <td>{item.currency}</td>
                                     <td>{item.single_price}</td>
                                     <td>{item.double_price}</td>
@@ -240,20 +240,27 @@ class UserRequest extends Component {
                                     })}
                                 </ul>
                             </div>
-
+                            
+                            
                             <div className="detail-data">
-                                <h5 className="main-title text-center">Contact person information</h5>
+                                <h5 className="main-title text-center">{translate('contactInformation')}</h5>
                                 <table className="table table-bordered table-primary">
                                     <thead>
                                         <tr>
                                             <th>{translate('name')}</th>
                                             <th>{translate('email')}</th>
                                             <th>{translate('phone')}</th>
-                                            <th>{translate('officePhone')}</th>
+                                            {/* <th>{translate('officePhone')}</th> */}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {proposal.operator.company.contact_persons.map((item, index) => {
+                                        <tr id={'request-' + proposal.operator.id} key={proposal.operator.id}>
+                                            <td>{proposal.operator.name}</td>
+                                            <td>{proposal.operator.email}</td>
+                                            <td>{proposal.operator.phone}</td>
+                                        </tr>
+
+                                        {/* {proposal.operator.company.contact_persons.map((item, index) => {
                                             return (
                                                 <tr id={'request-' + item.id} key={index}>
                                                     <td>{item.name}</td>
@@ -262,7 +269,7 @@ class UserRequest extends Component {
                                                     <td>{item.phone}</td>
                                                 </tr>
                                             )
-                                        })}
+                                        })} */}
                                     </tbody>
                                 </table>
                             </div>
@@ -276,7 +283,6 @@ class UserRequest extends Component {
                 </div>
             )
         }
-
         const proposalStatus = (proposal) => {
             if(proposal.operator.company.status == 0 || proposal.operator.status == 0) {
                 return (

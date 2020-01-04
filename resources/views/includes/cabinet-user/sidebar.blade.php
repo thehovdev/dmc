@@ -20,7 +20,7 @@
         </li>
 
         <li>
-            <a href="{{ route('index') }}">
+            <a href="{{ route('index') }}?req=create">
                 <i class="fas fa-folder-plus"></i> @lang('main.create_request')
             </a>
         </li>

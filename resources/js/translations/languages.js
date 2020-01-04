@@ -120,6 +120,7 @@ let languages = {
         myProposalList: "My proposal list",
         myProposalDetails: "My porposal details",
         proposalInformation: "Proposal information",
+        contactInformation: "Contact information",
         proposalNotValid: "Proposal not valid anymore !",
         proposalWarning: "Warning !",
         sendProposalForm: 'Send proposal form',
@@ -253,7 +254,7 @@ let languages = {
 
             final: {
                 provideEmailAddress: "Please provide you email address",
-                expectedBudget: "Expected budget per person",
+                expectedBudget: "Expected budget per person($)",
 
                 single: "Single",
                 single_min: "single (min)",

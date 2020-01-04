@@ -15,6 +15,12 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
+
+        if(typeof createRequestFromCabinet !== 'undefined') {
+            console.log(createRequestFromCabinet);
+
+            props.home.form.show = true;
+        }
     }
 
     componentDidMount(){
@@ -36,14 +42,17 @@ class Home extends Component {
             if(typeof this.props.user.auth !== 'undefined' && typeof this.props.home.form.show !== 'undefined') {
 
                 if(this.props.user.auth == 1 && this.props.home.form.show == false) {
-                    return (
-                        <div className="startItems" id="startItems">
-                            <h1>{translate('introTitle')}</h1>
-                            <button onClick={() => openForm()} className="btn btn-lg btn-light d-block m-auto">
-                                {translate('makeReservation')}
-                            </button>
-                        </div>
-                    )
+
+                        return (
+                            <div className="startItems" id="startItems">
+                                <h1>{translate('introTitle')}</h1>
+                                <button onClick={() => openForm()} className="btn btn-lg btn-light d-block m-auto">
+                                    {translate('makeReservation')}
+                                </button>
+                            </div>
+                        )
+
+
                 } else if(this.props.user.auth == 2 && this.props.home.form.show == false) { 
                     return (
                         <div className="startItems" id="startItems">
@@ -81,6 +90,11 @@ class Home extends Component {
             }
         }
         const showForm = () => {
+
+            // if(typeof createRequestFromCabinet !== 'undefined' && createRequestFromCabinet == 1) {
+            //     return "reservation-form";
+            // }
+
             if(this.props.home.form.show == false) {
                 return "reservation-form d-none";
             } else {
