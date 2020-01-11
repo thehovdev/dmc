@@ -35,7 +35,7 @@ class RespondReserveReq extends FormRequest
         $this->validate([
             'formData.hotel_name' => 'required|string',
             'formData.vehicle_name' => 'required|string',
-            'formData.offered_tours' => 'required|string',
+            // 'formData.offered_tours' => 'required|string',
             'formData.currency' => 'required|string',
 
             'formData.single_price' => 'required|numeric',

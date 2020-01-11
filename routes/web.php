@@ -11,10 +11,18 @@
 |
 */
 Auth::routes();
-Route::get('logout', 'Auth\LoginController@logout');
-Route::view('/', 'index')->name('index');
-// Route::view('/register/success', 'auth.register.operatorSuccess');
 
+Route::get('logout', 'Auth\LoginController@logout');
+
+Route::view('/', 'index')->name('index');
+
+Route::get('/test', 'TestController@index');
+Route::get('/testpage', 'TestController@testpage');
+
+
+
+
+// Route::view('/register/success', 'auth.register.operatorSuccess');
 
 // set locale
 Route::get('setlocale/{locale}', 'LocaleController@setLocale');

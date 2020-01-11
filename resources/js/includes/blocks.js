@@ -137,13 +137,13 @@ export function sendProposalList (request) {
     if(request == null) return null;
 
     let inputList = [
-        { id: 'hotel_name', title : helper.translate('block.hotelName'), placeholder: helper.translate('block.hotelNameEnter'), type : 'text'},
-        { id: 'vehicle_name', title : helper.translate('block.vehicleName'), placeholder: helper.translate('block.vehicleNameEnter'), type : 'text'},
-        { id: 'offered_tours', title : helper.translate('block.offeredTours'), placeholder: helper.translate('block.offeredToursEnter'), type : 'text'},
+        { id: 'hotel_name', title : helper.translate('block.hotelName'), placeholder: helper.translate('block.hotelNameEnter'), type : 'text', required: true},
+        { id: 'vehicle_name', title : helper.translate('block.vehicleName'), placeholder: helper.translate('block.vehicleNameEnter'), type : 'text', required: true},
+        { id: 'offered_tours', title : helper.translate('block.offeredTours'), placeholder: helper.translate('block.offeredToursEnter'), type : 'text', required: false},
         { id: 'currency', title : helper.translate('block.currency'), placeholder: helper.translate('block.currencyEnter'), type : 'text'},
-        { id: 'single_price', title : helper.translate('block.singlePrice'), placeholder: helper.translate('block.singlePriceEnter'), type : 'number'},
-        { id: 'double_price', title : helper.translate('block.doublePrice'), placeholder: helper.translate('block.doublePriceEnter'), type : 'number'},
-        { id: 'triple_price', title : helper.translate('block.triplePrice'), placeholder: helper.translate('block.triplePriceEnter'), type : 'number'},
+        { id: 'single_price', title : helper.translate('block.singlePrice'), placeholder: helper.translate('block.singlePriceEnter'), type : 'number', required: true},
+        { id: 'double_price', title : helper.translate('block.doublePrice'), placeholder: helper.translate('block.doublePriceEnter'), type : 'number', required: true},
+        { id: 'triple_price', title : helper.translate('block.triplePrice'), placeholder: helper.translate('block.triplePriceEnter'), type : 'number', required: true},
     ];
 
     return (
@@ -157,7 +157,7 @@ export function sendProposalList (request) {
                             return (
                                 <div className="col-sm-6" key={index}>
                                     <div className="form-group">
-                                        <label htmlFor="name">{input.title}</label>
+                                        <label htmlFor="name">{input.title} {input.required == false ? '' : '*'}</label>
                                         <input type={input.type} className="form-control" id={input.id} placeholder={input.placeholder}></input>
                                     </div>
                                 </div>
@@ -173,13 +173,13 @@ export function editProposalList (request) {
     if(request == null) return null;
 
     let inputList = [
-        { id: 'hotel_name', title : helper.translate('block.hotelName'), value: request.responded.hotel_name, type : 'text'},
-        { id: 'vehicle_name', title : helper.translate('block.vehicleName'), value: request.responded.vehicle_name, type : 'text'},
-        { id: 'offered_tours', title : helper.translate('block.offeredTours'), value: request.responded.offered_tours, type : 'text'},
-        { id: 'currency', title : helper.translate('block.currency'), value: request.responded.currency, type : 'text'},
-        { id: 'single_price', title : helper.translate('block.singlePrice'), value: request.responded.single_price, type : 'number'},
-        { id: 'double_price', title : helper.translate('block.doublePrice'), value: request.responded.double_price, type : 'number'},
-        { id: 'triple_price', title : helper.translate('block.triplePrice'), value: request.responded.triple_price, type : 'number'},
+        { id: 'hotel_name', title : helper.translate('block.hotelName'), value: request.responded.hotel_name, type : 'text', required: true},
+        { id: 'vehicle_name', title : helper.translate('block.vehicleName'), value: request.responded.vehicle_name, type : 'text', required: true},
+        { id: 'offered_tours', title : helper.translate('block.offeredTours'), value: request.responded.offered_tours, type : 'text', required: false},
+        { id: 'currency', title : helper.translate('block.currency'), value: request.responded.currency, type : 'text', required: true},
+        { id: 'single_price', title : helper.translate('block.singlePrice'), value: request.responded.single_price, type : 'number', required: true},
+        { id: 'double_price', title : helper.translate('block.doublePrice'), value: request.responded.double_price, type : 'number', required: true},
+        { id: 'triple_price', title : helper.translate('block.triplePrice'), value: request.responded.triple_price, type : 'number', required: true},
     ];
     return (
         <div className="col-sm-12">
@@ -192,7 +192,7 @@ export function editProposalList (request) {
                             return (
                                 <div className="col-sm-6" key={index}>
                                     <div className="form-group">
-                                        <label htmlFor="name">{input.title}</label>
+                                        <label htmlFor="name">{input.title} {input.required == false ? '' : '*'}</label>
                                         <input type={input.type} className="form-control" id={input.id} defaultValue={input.value}></input>
                                     </div>
                                 </div>

@@ -23,13 +23,6 @@
                     </li>
                 </ul> --}}
             </div>
-
-            @if(session()->has('status'))
-                <div class="alert alert-success">
-                    asasdasdasd
-                </div>
-            @endif
-
         </div>
             
         {{-- comment for dmc registration  --}}

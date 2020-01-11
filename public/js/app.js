@@ -80706,7 +80706,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personOfficePhone"
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('officePhone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        type: "number",
         className: "form-control",
         id: "personOfficePhone",
         placeholder: Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('enterOfficePhone')
@@ -84489,17 +84489,20 @@ function sendProposalList(request) {
     id: 'hotel_name',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.hotelName'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.hotelNameEnter'),
-    type: 'text'
+    type: 'text',
+    required: true
   }, {
     id: 'vehicle_name',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.vehicleName'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.vehicleNameEnter'),
-    type: 'text'
+    type: 'text',
+    required: true
   }, {
     id: 'offered_tours',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.offeredTours'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.offeredToursEnter'),
-    type: 'text'
+    type: 'text',
+    required: false
   }, {
     id: 'currency',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.currency'),
@@ -84509,17 +84512,20 @@ function sendProposalList(request) {
     id: 'single_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.singlePrice'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.singlePriceEnter'),
-    type: 'number'
+    type: 'number',
+    required: true
   }, {
     id: 'double_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.doublePrice'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.doublePriceEnter'),
-    type: 'number'
+    type: 'number',
+    required: true
   }, {
     id: 'triple_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.triplePrice'),
     placeholder: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.triplePriceEnter'),
-    type: 'number'
+    type: 'number',
+    required: true
   }];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-12"
@@ -84540,7 +84546,7 @@ function sendProposalList(request) {
       className: "form-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "name"
-    }, input.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, input.title, " ", input.required == false ? '' : '*'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: input.type,
       className: "form-control",
       id: input.id,
@@ -84554,37 +84560,44 @@ function editProposalList(request) {
     id: 'hotel_name',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.hotelName'),
     value: request.responded.hotel_name,
-    type: 'text'
+    type: 'text',
+    required: true
   }, {
     id: 'vehicle_name',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.vehicleName'),
     value: request.responded.vehicle_name,
-    type: 'text'
+    type: 'text',
+    required: true
   }, {
     id: 'offered_tours',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.offeredTours'),
     value: request.responded.offered_tours,
-    type: 'text'
+    type: 'text',
+    required: false
   }, {
     id: 'currency',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.currency'),
     value: request.responded.currency,
-    type: 'text'
+    type: 'text',
+    required: true
   }, {
     id: 'single_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.singlePrice'),
     value: request.responded.single_price,
-    type: 'number'
+    type: 'number',
+    required: true
   }, {
     id: 'double_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.doublePrice'),
     value: request.responded.double_price,
-    type: 'number'
+    type: 'number',
+    required: true
   }, {
     id: 'triple_price',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.triplePrice'),
     value: request.responded.triple_price,
-    type: 'number'
+    type: 'number',
+    required: true
   }];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-12"
@@ -84605,7 +84618,7 @@ function editProposalList(request) {
       className: "form-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "name"
-    }, input.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, input.title, " ", input.required == false ? '' : '*'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: input.type,
       className: "form-control",
       id: input.id,

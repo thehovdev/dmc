@@ -106,6 +106,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dd('test');
+
+
         if($this->getGuardType($data) == 'operator') {
             return Operator::create([
                 'company_id' => $data['company'],
@@ -118,7 +121,6 @@ class RegisterController extends Controller
                 'deleted_at' => Carbon::today()
             ]);
         }
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

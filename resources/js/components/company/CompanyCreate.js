@@ -107,7 +107,7 @@ class CompanyCreate extends Component {
 
                     <div className="form-group">
                         <label htmlFor="personOfficePhone">{translate('officePhone')}</label>
-                        <input type="text" className="form-control" id="personOfficePhone" placeholder={translate('enterOfficePhone')}></input>
+                        <input type="number" className="form-control" id="personOfficePhone" placeholder={translate('enterOfficePhone')}></input>
                     </div>
 
                     <div className="form-group">

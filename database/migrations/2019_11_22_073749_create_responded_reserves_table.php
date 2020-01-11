@@ -21,7 +21,7 @@ class CreateRespondedReservesTable extends Migration
             
             $table->string('hotel_name');
             $table->string('vehicle_name');
-            $table->string('offered_tours');
+            $table->string('offered_tours')->nullable();
             $table->string('currency');
 
             $table->float('single_price');

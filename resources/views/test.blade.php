@@ -2,10 +2,13 @@
 
 @section('content')
   
-    <form action="{{ route('admin.company.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="file" name="logo">
-        <button type="submit">Submit</button>
-    </form>
+
+<?php echo '<pre>';var_dump(session()->all()); ?>
+
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
 @endsection

@@ -144,7 +144,7 @@ class ReserveController extends Controller
         RespondReserveReq $request,
         ReserveService $reserveService 
     ) {
-        // decline user reservation by current operator
+        // respond user reservation by current operator
         $result = $reserveService->respond($reserve, $request);
 
         // return result
