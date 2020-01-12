@@ -48,11 +48,13 @@
                 <li><a href="{{ route('admin.operator.create') }}">@lang('main.create')</a></li>
             </ul>
         </li>
-  
+        
         {{-- <li>
-            <a href="{{ route('index') }}">
-                <i class="fas fa-folder-plus"></i> @lang('main.create_request')
+            <a href="/log-viewer">
+                <i class="fas fa-book"></i> Logs
             </a>
         </li> --}}
+          
+
     </ul>
 </nav>
