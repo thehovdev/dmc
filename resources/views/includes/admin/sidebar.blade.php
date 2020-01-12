@@ -49,10 +49,10 @@
             </ul>
         </li>
   
-        <li>
+        {{-- <li>
             <a href="{{ route('index') }}">
                 <i class="fas fa-folder-plus"></i> @lang('main.create_request')
             </a>
-        </li>
+        </li> --}}
     </ul>
 </nav>
