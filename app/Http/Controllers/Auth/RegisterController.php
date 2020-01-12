@@ -106,9 +106,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd('test');
-
-
         if($this->getGuardType($data) == 'operator') {
             return Operator::create([
                 'company_id' => $data['company'],
