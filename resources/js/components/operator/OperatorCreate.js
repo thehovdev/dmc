@@ -45,29 +45,29 @@ class OperatorCreate extends Component {
             <div className="form-content" id="create-company-operator-content">
                 <div className="company-info">
                     <div className="form-group">
-                        <label htmlFor="company_id">{translate('chooseCompany')}</label>
+                        <label htmlFor="company_id">{translate('chooseCompany')}*</label>
                         <select className="form-control" id="company_id">
                             { companiesList() }
                         </select>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="name">{translate('name')}</label>
+                        <label htmlFor="name">{translate('name')}*</label>
                         <input defaultValue="John" type="text" className="form-control" id="name" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">{translate('phone')}</label>
+                        <label htmlFor="phone">{translate('phone')}*</label>
                         <input type="number" className="form-control" id="phone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">{translate('email')}</label>
+                        <label htmlFor="email">{translate('email')}*</label>
                         <input defaultValue="johndoe@examplecompany.com" type="text" className="form-control" id="email" placeholder={translate('enterEmail')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">{translate('password')}</label>
+                        <label htmlFor="password">{translate('password')}*</label>
                         <input type="password" className="form-control" id="password" placeholder={translate('enterPassword')}></input>
                     </div>
 

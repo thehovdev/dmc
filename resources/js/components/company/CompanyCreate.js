@@ -34,27 +34,27 @@ class CompanyCreate extends Component {
                     <h3>{translate('companyInformation')}</h3>
 
                     <div className="form-group">
-                        <label htmlFor="name">{translate('name')}</label>
+                        <label htmlFor="name">{translate('name')}*</label>
                         <input defaultValue="ExampleCompany" type="text" className="form-control" id="name" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">{translate('email')}</label>
+                        <label htmlFor="email">{translate('email')}*</label>
                         <input defaultValue="support@examplecompany.com" type="text" className="form-control" id="email" placeholder={translate('enterEmail')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">{translate('phone')}</label>
+                        <label htmlFor="phone">{translate('phone')}*</label>
                         <input type="number" className="form-control" id="phone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="address">{translate('address')}</label>
+                        <label htmlFor="address">{translate('address')}*</label>
                         <input defaultValue="Baku, Azerbaijan" type="text" className="form-control" id="address" placeholder={translate('enterAddress')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="logo">{translate('logo')}</label>
+                        <label htmlFor="logo">{translate('logo')}*</label>
                         <input type="file" className="form-control-file" id="logo"></input>
                     </div>
 
@@ -81,37 +81,37 @@ class CompanyCreate extends Component {
                     <h3>{translate('contactPersonInformation')}</h3>
 
                     <div className="form-group">
-                        <label htmlFor="personName">{translate('name')}</label>
+                        <label htmlFor="personName">{translate('name')}*</label>
                         <input defaultValue="John" type="text" className="form-control" id="personName" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personSurname">{translate('surname')}</label>
+                        <label htmlFor="personSurname">{translate('surname')}*</label>
                         <input defaultValue="Doe" type="text" className="form-control" id="personSurname" placeholder={translate('enterSurname')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personSuffix">{translate('suffix')}</label>
+                        <label htmlFor="personSuffix">{translate('suffix')}*</label>
                         <input defaultValue="Mr" type="text" className="form-control" id="personSuffix" placeholder={translate('enterSuffix')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personPosition">{translate('position')}</label>
+                        <label htmlFor="personPosition">{translate('position')}*</label>
                         <input defaultValue="Director" type="text" className="form-control" id="personPosition" placeholder={translate('enterPosition')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personPhone">{translate('phone')}</label>
+                        <label htmlFor="personPhone">{translate('phone')}*</label>
                         <input type="number" className="form-control" id="personPhone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personOfficePhone">{translate('officePhone')}</label>
+                        <label htmlFor="personOfficePhone">{translate('officePhone')}*</label>
                         <input type="number" className="form-control" id="personOfficePhone" placeholder={translate('enterOfficePhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="personEmail">{translate('email')}</label>
+                        <label htmlFor="personEmail">{translate('email')}*</label>
                         <input defaultValue="johndoe@example.com" type="text" className="form-control" id="personEmail" placeholder={translate('enterEmail')}></input>
                     </div>
                 </div>

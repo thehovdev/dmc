@@ -80585,7 +80585,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "name"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('name')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('name'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "ExampleCompany",
         type: "text",
         className: "form-control",
@@ -80595,7 +80595,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('email')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('email'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "support@examplecompany.com",
         type: "text",
         className: "form-control",
@@ -80605,7 +80605,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "phone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('phone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('phone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         className: "form-control",
         id: "phone",
@@ -80614,7 +80614,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "address"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('address')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('address'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Baku, Azerbaijan",
         type: "text",
         className: "form-control",
@@ -80624,7 +80624,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "logo"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('logo')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('logo'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         className: "form-control-file",
         id: "logo"
@@ -80656,7 +80656,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personName"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('name')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('name'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "John",
         type: "text",
         className: "form-control",
@@ -80666,7 +80666,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personSurname"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('surname')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('surname'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Doe",
         type: "text",
         className: "form-control",
@@ -80676,7 +80676,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personSuffix"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('suffix')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('suffix'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Mr",
         type: "text",
         className: "form-control",
@@ -80686,7 +80686,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personPosition"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('position')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('position'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Director",
         type: "text",
         className: "form-control",
@@ -80696,7 +80696,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personPhone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('phone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('phone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         className: "form-control",
         id: "personPhone",
@@ -80705,7 +80705,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personOfficePhone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('officePhone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('officePhone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         className: "form-control",
         id: "personOfficePhone",
@@ -80714,7 +80714,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "personEmail"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('email')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('email'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "johndoe@example.com",
         type: "text",
         className: "form-control",
@@ -81163,14 +81163,14 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "company_id"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('chooseCompany')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('chooseCompany'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control",
         id: "company_id"
       }, companiesList())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "name"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('name')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('name'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "John",
         type: "text",
         className: "form-control",
@@ -81180,7 +81180,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "surname"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('surname')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('surname'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Doe",
         type: "text",
         className: "form-control",
@@ -81190,7 +81190,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "suffix"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('suffix')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('suffix'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Mr",
         type: "text",
         className: "form-control",
@@ -81200,7 +81200,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "position"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('position')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('position'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "Director",
         type: "text",
         className: "form-control",
@@ -81210,7 +81210,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "phone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('phone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('phone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "phone",
@@ -81219,7 +81219,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "office_phone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('officePhone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('officePhone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "office_phone",
@@ -81228,7 +81228,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('email')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_3__["translate"])('email'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "email",
@@ -81706,14 +81706,14 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "company_id"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('chooseCompany')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('chooseCompany'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control",
         id: "company_id"
       }, companiesList())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "name"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('name')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('name'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "John",
         type: "text",
         className: "form-control",
@@ -81723,7 +81723,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "phone"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('phone')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('phone'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         className: "form-control",
         id: "phone",
@@ -81732,7 +81732,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "email"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('email')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('email'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         defaultValue: "johndoe@examplecompany.com",
         type: "text",
         className: "form-control",
@@ -81742,7 +81742,7 @@ function (_Component) {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "password"
-      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('password')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_5__["translate"])('password'), "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         className: "form-control",
         id: "password",

@@ -44,7 +44,7 @@ class ContactPersonCreate extends Component {
                     <h3>{translate('contactPersonInformation')}</h3>
 
                     <div className="form-group">
-                        <label htmlFor="company_id">{translate('chooseCompany')}</label>
+                        <label htmlFor="company_id">{translate('chooseCompany')}*</label>
                         <select className="form-control" id="company_id">
                             { companiesList() }
                         </select>
@@ -52,37 +52,37 @@ class ContactPersonCreate extends Component {
 
 
                     <div className="form-group">
-                        <label htmlFor="name">{translate('name')}</label>
+                        <label htmlFor="name">{translate('name')}*</label>
                         <input defaultValue="John" type="text" className="form-control" id="name" placeholder={translate('enterName')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="surname">{translate('surname')}</label>
+                        <label htmlFor="surname">{translate('surname')}*</label>
                         <input defaultValue="Doe" type="text" className="form-control" id="surname" placeholder={translate('enterSurname')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="suffix">{translate('suffix')}</label>
+                        <label htmlFor="suffix">{translate('suffix')}*</label>
                         <input defaultValue="Mr" type="text" className="form-control" id="suffix" placeholder={translate('enterSuffix')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="position">{translate('position')}</label>
+                        <label htmlFor="position">{translate('position')}*</label>
                         <input defaultValue="Director" type="text" className="form-control" id="position" placeholder={translate('enterPosition')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">{translate('phone')}</label>
+                        <label htmlFor="phone">{translate('phone')}*</label>
                         <input type="text" className="form-control" id="phone" placeholder={translate('enterPhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="office_phone">{translate('officePhone')}</label>
+                        <label htmlFor="office_phone">{translate('officePhone')}*</label>
                         <input type="text" className="form-control" id="office_phone" placeholder={translate('enterOfficePhone')}></input>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">{translate('email')}</label>
+                        <label htmlFor="email">{translate('email')}*</label>
                         <input type="text" className="form-control" id="email" placeholder={translate('enterEmail')}></input>
                     </div>
                 </div>
