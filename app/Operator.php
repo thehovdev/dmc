@@ -52,4 +52,5 @@ class Operator extends Authenticatable
     public function respondedReserves() {
         return $this->belongsTo('App\RespondedReserve', 'id', 'operator_id');
     }
+    
 }

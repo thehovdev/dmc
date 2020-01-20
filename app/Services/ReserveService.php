@@ -255,13 +255,13 @@ class ReserveService
             
         // list of declined reserves by operator
         if(!is_null($loggedAccount->declinedReserves)) {
-            $declinedReserves = $loggedAccount->declinedReserves->pluck('reserve_id')->toArray();
+            $declinedReserves = $loggedAccount->declinedReserves()->pluck('reserve_id')->toArray();
             $reserves = $reserves->whereNotIn('id', $declinedReserves);
         }
 
         // list of responded reserves by operator
         if(!is_null($loggedAccount->respondedReserves)) {
-            $respondedReserves = $loggedAccount->respondedReserves->pluck('reserve_id')->toArray();
+            $respondedReserves = $loggedAccount->respondedReserves()->pluck('reserve_id')->toArray();
             $reserves = $reserves->whereNotIn('id', $respondedReserves);
         }
 
