@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     private $defaultPwd = 'mylib12';
+    private $adminPwd = 't8yDXuYVa93nxVtq';
 
     public function run()
     {
@@ -20,11 +21,11 @@ class UsersTableSeeder extends Seeder
                 'role_id' => Role::whereName('admin')->first()->id,
                 'status' => 1,
                 'name' => 'Admin', 
-                'email' => 'halilov.lib@gmail.com',
+                'email' => 'murad.asadov@priceformice.com',
                 'email_verified_at' => date('Y-m-d h:i:s'),
                 'created_at' => date('Y-m-d h:i:s'),
                 'updated_at' => date('Y-m-d h:i:s'),
-                'password' => Hash::make($this->defaultPwd),
+                'password' => Hash::make($this->adminPwd),
             ],
 
             [
