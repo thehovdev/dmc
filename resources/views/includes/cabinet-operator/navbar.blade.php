@@ -9,6 +9,11 @@
                 <ul class="navbar-nav ml-auto">                                    
 
                     <li class="nav-item">
+                        <a class="nav-link">
+                            {{ Auth::guard('operator')->user()->email }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('cabinet.reserve.index') }}">
                             @lang('main.pending')
                         </a>

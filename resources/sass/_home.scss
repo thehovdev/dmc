@@ -92,3 +92,10 @@
     width: 250px;
     margin: auto
 }
+
+_:-ms-fullscreen, :root .startItems{ 
+      padding: 0 15px;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+}

@@ -6,7 +6,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ml-auto">                                    
+                <ul class="navbar-nav ml-auto">  
+                  
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            {{ Auth::guard('web')->user()->email }}
+                        </a>
+                    </li>
+
                     <!-- Company -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

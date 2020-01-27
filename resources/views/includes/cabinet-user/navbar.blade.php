@@ -9,6 +9,11 @@
                 <ul class="navbar-nav ml-auto">                                    
 
                     <!-- Profile -->
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            {{ Auth::guard('web')->user()->email }}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                             @lang('main.profile')

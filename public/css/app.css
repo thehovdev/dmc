@@ -16628,6 +16628,14 @@ hr.small-border {
   margin: auto;
 }
 
+_:-ms-fullscreen,
+:root .startItems {
+  padding: 0 15px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
 .steps-form .tab-content {
   background: rgba(255, 255, 255, 0.8);
   min-height: 400px;
