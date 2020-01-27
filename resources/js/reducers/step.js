@@ -4,6 +4,8 @@ import {sendReserve} from '../requests/reserve';
 import {translate} from '../includes/helpers';
 import axios from 'axios';
 
+let status;
+let payload;
 let initialState = {
     groupTypes : [{}],
     nationality : [{}],
@@ -18,7 +20,8 @@ let initialState = {
         needCuisine: false,
         needTourLeader: false,
         needExcursionOptions: false,
-        needMeetingFacilities: false
+        needMeetingFacilities: false,
+        ageFromTo: false
     }
 }
 
@@ -29,16 +32,30 @@ export default function (state = initialState, action) {
         case 'SELECT_TOGGLE':
 
             // get payload from action
-            let payload = action.payload
+            payload = action.payload
 
             // toggle true/false status
-            let status = !state.inputActions[payload]
+            status = !state.inputActions[payload]
 
             return update(state, { 
                 inputActions: {
                     [payload]: {$set: status},
                 }
             });
+
+        case 'SELECT_TOGGLE_PARAM':
+            // get payload from action
+            payload = action.payload.char
+
+            // toggle true/false status
+            status = action.payload.data
+
+            return update(state, { 
+                inputActions: {
+                    [payload]: {$set: status},
+                }
+            });
+
         case 'GET_STEP_PARAMETERS':
             
             let nationalities = action.payload.nationalities;

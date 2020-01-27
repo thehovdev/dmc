@@ -80179,16 +80179,23 @@ var showProposal = function showProposal(request) {
 /*!**************************************!*\
   !*** ./resources/js/actions/step.js ***!
   \**************************************/
-/*! exports provided: selectToggle, getStepParameters */
+/*! exports provided: selectToggle, selectToggleWithParam, getStepParameters */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectToggle", function() { return selectToggle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectToggleWithParam", function() { return selectToggleWithParam; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStepParameters", function() { return getStepParameters; });
 var selectToggle = function selectToggle(payload) {
   return {
     type: 'SELECT_TOGGLE',
+    payload: payload
+  };
+};
+var selectToggleWithParam = function selectToggleWithParam(payload) {
+  return {
+    type: 'SELECT_TOGGLE_PARAM',
     payload: payload
   };
 };
@@ -80420,7 +80427,7 @@ function (_Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "startItems",
               id: "startItems"
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('introTitle')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('introOperator')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
               className: "btn btn-lg btn-light d-block m-auto",
               href: "/cabinet/reserve"
             }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('pendingRequest')));
@@ -80428,7 +80435,7 @@ function (_Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "startItems",
               id: "startItems"
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('introTitle')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('introAdmin')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
               className: "btn btn-lg btn-light d-block m-auto",
               href: "/admin/company"
             }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_9__["translate"])('admin')));
@@ -83391,6 +83398,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _includes_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../includes/helpers */ "./resources/js/includes/helpers.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_step_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/step.js */ "./resources/js/actions/step.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -83412,6 +83422,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
 var GroupDetails =
 /*#__PURE__*/
 function (_Component) {
@@ -83426,10 +83439,13 @@ function (_Component) {
   _createClass(GroupDetails, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var groupTypes = this.props.step.groupTypes;
       var nationality = this.props.step.nationality;
       var ageRange = this.props.step.ageRange;
       var countries = this.props.step.countries;
+      var ageFromTo = this.props.step.inputActions.ageFromTo;
 
       var optionsList = function optionsList(items) {
         return items.map(function (item, index) {
@@ -83438,6 +83454,44 @@ function (_Component) {
             value: item.id
           }, typeof item.prefix !== 'undefined' ? Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["translate"])(item.prefix) : item.name);
         });
+      };
+
+      var selectAgeRange = function selectAgeRange(event) {
+        if (event.target.value == 5) {
+          return _this.props.stepAction.selectToggleWithParam({
+            "char": 'ageFromTo',
+            data: true
+          });
+        } else {
+          return _this.props.stepAction.selectToggleWithParam({
+            "char": 'ageFromTo',
+            data: false
+          });
+        }
+      };
+
+      var ageFromToBlock = function ageFromToBlock() {
+        if (ageFromTo) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "row"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "col-sm-6"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "number",
+            id: "age_from",
+            className: "form-control",
+            placeholder: Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["translate"])('step.group.ageFrom')
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "col-sm-6"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "number",
+            id: "age_to",
+            className: "form-control",
+            placeholder: Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["translate"])('step.group.ageTo')
+          }))));
+        }
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -83473,16 +83527,25 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "age_range_id"
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_1__["translate"])('step.group.ageRange')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: function onChange() {
+          return selectAgeRange(event);
+        },
         className: "form-control",
         id: "age_range_id"
-      }, optionsList(ageRange)))));
+      }, optionsList(ageRange))), ageFromToBlock()));
     }
   }]);
 
   return GroupDetails;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (GroupDetails);
+function mapDispatchToProps(dispatch) {
+  return {
+    stepAction: Object(redux__WEBPACK_IMPORTED_MODULE_2__["bindActionCreators"])(_actions_step_js__WEBPACK_IMPORTED_MODULE_4__, dispatch)
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, mapDispatchToProps)(GroupDetails));
 
 /***/ }),
 
@@ -84281,12 +84344,13 @@ var mapStateToProps = function mapStateToProps(state) {
 /*!*****************************************!*\
   !*** ./resources/js/includes/blocks.js ***!
   \*****************************************/
-/*! exports provided: mainInfoList, groupInfoList, arrivalInfoList, additionalInfoList, sendProposalList, editProposalList */
+/*! exports provided: mainInfoList, groupInfoClass, groupInfoList, arrivalInfoList, additionalInfoList, sendProposalList, editProposalList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mainInfoList", function() { return mainInfoList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groupInfoClass", function() { return groupInfoClass; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groupInfoList", function() { return groupInfoList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arrivalInfoList", function() { return arrivalInfoList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "additionalInfoList", function() { return additionalInfoList; });
@@ -84345,20 +84409,39 @@ function mainInfoList(request) {
     }, item.content != null ? item.content : '-'));
   }))));
 }
+function groupInfoClass(item, request) {
+  if (request.age_range.name != 'from-to') {
+    if (item.id == 'ageFrom' || item.id == 'ageTo') {
+      return 'd-none';
+    }
+  }
+}
 function groupInfoList(request) {
   if (request == null) return null;
   var infoArr = [{
+    id: 'groupType',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.groupType'),
     content: request.group_type.name
   }, {
+    id: 'nationality',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.countryOfOrigin'),
     content: request.nationality.name
   }, {
+    id: 'ageRange',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.ageRange'),
     content: request.age_range.name
   }, {
+    id: 'numberOfPeople',
     title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.numberOfPeople'),
     content: request.number_of_people
+  }, {
+    id: 'ageFrom',
+    title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.ageFrom'),
+    content: request.age_from
+  }, {
+    id: 'ageTo',
+    title: _helpers__WEBPACK_IMPORTED_MODULE_1__["translate"]('block.ageTo'),
+    content: request.age_to
   }];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-6"
@@ -84370,7 +84453,8 @@ function groupInfoList(request) {
     className: "detail-data-list"
   }, infoArr.map(function (item, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      key: index
+      key: index,
+      className: groupInfoClass(item, request)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "title"
     }, item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -85986,6 +86070,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var status;
+var payload;
 var initialState = {
   groupTypes: [{}],
   nationality: [{}],
@@ -86000,7 +86086,8 @@ var initialState = {
     needCuisine: false,
     needTourLeader: false,
     needExcursionOptions: false,
-    needMeetingFacilities: false
+    needMeetingFacilities: false,
+    ageFromTo: false
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -86013,9 +86100,20 @@ var initialState = {
 
     case 'SELECT_TOGGLE':
       // get payload from action
-      var payload = action.payload; // toggle true/false status
+      payload = action.payload; // toggle true/false status
 
-      var status = !state.inputActions[payload];
+      status = !state.inputActions[payload];
+      return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
+        inputActions: _defineProperty({}, payload, {
+          $set: status
+        })
+      });
+
+    case 'SELECT_TOGGLE_PARAM':
+      // get payload from action
+      payload = action.payload["char"]; // toggle true/false status
+
+      status = action.payload.data;
       return react_addons_update__WEBPACK_IMPORTED_MODULE_0___default()(state, {
         inputActions: _defineProperty({}, payload, {
           $set: status
@@ -87177,6 +87275,8 @@ var languages = {
     yes: "Yes",
     no: "No",
     introTitle: "Please Create an Account",
+    introAdmin: "Please sign to admin panel",
+    introOperator: "Please sign to cabinet and get reservations",
     stepTitle: "Something about information",
     makeReservation: "Create Request",
     admin: "Admin",
@@ -87261,6 +87361,7 @@ var languages = {
     yearBetween20and30: 'Age between 20 - 30',
     yearBetween30and50: 'Age between 30 - 50',
     yearBetween50and80: 'Age between 50 - 80',
+    yearBetweenFromTo: 'Age from - to',
     // hotel stars
     hotel_star_3: '3 stars hotel',
     hotel_star_4: '4 stars hotel',
@@ -87300,6 +87401,8 @@ var languages = {
       groupType: 'Group Type:',
       countryOfOrigin: 'Country of origin:',
       ageRange: 'Age range:',
+      ageFrom: 'Age from:',
+      ageTo: 'Age to:',
       numberOfPeople: 'Number of people:',
       arrivalDate: "Arrival date:",
       departureDate: "Departure date:",
@@ -87375,7 +87478,10 @@ var languages = {
         groupType: "Group type",
         tripCountry: "Trip country",
         nationality: "Nationality",
-        ageRange: "Age range"
+        ageRange: "Age range",
+        ageRangeFromTo: "Age range (from) - (to)",
+        ageFrom: "Age from",
+        ageTo: "Age to"
       },
       other: {
         doYouNeedVisa: "Do you need visa",

@@ -56,7 +56,7 @@ class Home extends Component {
                 } else if(this.props.user.auth == 2 && this.props.home.form.show == false) { 
                     return (
                         <div className="startItems" id="startItems">
-                            <h1>{translate('introTitle')}</h1>
+                            <h1>{translate('introOperator')}</h1>
                             <a className="btn btn-lg btn-light d-block m-auto" href="/cabinet/reserve">
                                 {translate('pendingRequest')}
                             </a>
@@ -65,7 +65,7 @@ class Home extends Component {
                 } else if(this.props.user.auth == 3 && this.props.home.form.show == false) {
                     return (
                         <div className="startItems" id="startItems">
-                            <h1>{translate('introTitle')}</h1>
+                            <h1>{translate('introAdmin')}</h1>
                             <a className="btn btn-lg btn-light d-block m-auto" href="/admin/company">
                                 {translate('admin')}
                             </a>

@@ -5,6 +5,8 @@ let languages = {
         yes: "Yes",
         no: "No",
         introTitle: "Please Create an Account",
+        introAdmin: "Please sign to admin panel",
+        introOperator: "Please sign to cabinet and get reservations",
         stepTitle: "Something about information",
         makeReservation: "Create Request",
         admin: "Admin",
@@ -97,6 +99,8 @@ let languages = {
         yearBetween20and30: 'Age between 20 - 30',
         yearBetween30and50: 'Age between 30 - 50',
         yearBetween50and80: 'Age between 50 - 80',
+        yearBetweenFromTo: 'Age from - to',
+
 
         // hotel stars
         hotel_star_3: '3 stars hotel',
@@ -144,6 +148,8 @@ let languages = {
             groupType: 'Group Type:',
             countryOfOrigin: 'Country of origin:',
             ageRange: 'Age range:',
+            ageFrom: 'Age from:',
+            ageTo: 'Age to:',
             numberOfPeople: 'Number of people:',
 
             arrivalDate: "Arrival date:",
@@ -231,6 +237,9 @@ let languages = {
                 tripCountry: "Trip country",
                 nationality: "Nationality",
                 ageRange: "Age range",
+                ageRangeFromTo: "Age range (from) - (to)",
+                ageFrom: "Age from",
+                ageTo: "Age to",
             }, 
             other: {
                 doYouNeedVisa: "Do you need visa",

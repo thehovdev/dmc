@@ -35,13 +35,24 @@ export function mainInfoList (request) {
 
 
 }
+
+export function groupInfoClass (item, request) {
+    if(request.age_range.name != 'from-to') {
+        if(item.id == 'ageFrom' || item.id == 'ageTo') {
+            return 'd-none';
+        }
+    }
+}
 export function groupInfoList (request) {
     if(request == null) return null;
     let infoArr = [
-        { title : helper.translate('block.groupType'), content : request.group_type.name },
-        { title : helper.translate('block.countryOfOrigin'), content : request.nationality.name },
-        { title : helper.translate('block.ageRange'), content : request.age_range.name },
-        { title : helper.translate('block.numberOfPeople'), content : request.number_of_people },
+        {id: 'groupType', title : helper.translate('block.groupType'), content : request.group_type.name },
+        {id: 'nationality', title : helper.translate('block.countryOfOrigin'), content : request.nationality.name },
+        {id: 'ageRange', title : helper.translate('block.ageRange'), content : request.age_range.name },
+        {id: 'numberOfPeople', title : helper.translate('block.numberOfPeople'), content : request.number_of_people },
+        {id: 'ageFrom', title : helper.translate('block.ageFrom'), content : request.age_from },
+        {id: 'ageTo', title : helper.translate('block.ageTo'), content : request.age_to }
+
     ];
 
     return (
@@ -51,7 +62,7 @@ export function groupInfoList (request) {
                 <ul className="detail-data-list">
                     {infoArr.map((item, index) => {
                         return (
-                            <li key={index}>
+                            <li key={index} className={groupInfoClass(item, request)}>
                                 <span className="title">{item.title}</span>
                                 <span className="content">{item.content != null ? item.content : '-' }</span>
                             </li>
@@ -63,6 +74,7 @@ export function groupInfoList (request) {
     )
 
 }
+
 export function arrivalInfoList (request) {
     if(request == null) return null;
     let infoArr = [

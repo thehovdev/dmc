@@ -33,6 +33,11 @@ class CreateReservesTable extends Migration
             $table->integer('nationality_id');
             $table->integer('age_range_id');
             $table->integer('country_id');
+
+            $table->integer('age_from')->nullable();
+            $table->integer('age_to')->nullable();
+
+
             $table->string('hotel_star_id_list')->nullable();
             $table->string('cuisine_id_list')->nullable();
             $table->string('transfer_id_list')->nullable();

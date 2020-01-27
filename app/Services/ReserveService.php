@@ -70,6 +70,7 @@ class ReserveService
     ) {
         $formData = (object) $request->formData;
         $loggedUser = $this->authService->loggedUser();
+        $ageRange = $this->ageRange->find($formData->age_range_id);
         
         // date & time data
         $this->reserve->user_id = $loggedUser->id;
@@ -107,6 +108,7 @@ class ReserveService
         $this->reserve->country_id = (int)$formData->country_id;
         $this->reserve->nationality_id = (int)$formData->nationality_id;
         $this->reserve->age_range_id = (int)$formData->age_range_id;
+
         $this->reserve->number_of_people = (int)$formData->number_of_people;
         
         // float Data
@@ -128,6 +130,16 @@ class ReserveService
 
         // string data
         $this->reserve->additional_request = $formData->additional_request;
+
+
+        // get Are range type
+        if(!is_null($ageRange) && $ageRange->name == 'from-to') {
+            $this->reserve->age_from = (int)$formData->age_from;
+            $this->reserve->age_to = (int)$formData->age_to;
+        }
+
+
+
         $this->reserve->save();
 
         // result
