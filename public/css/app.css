@@ -16628,12 +16628,13 @@ hr.small-border {
   margin: auto;
 }
 
-_:-ms-fullscreen,
-:root .startItems {
-  padding: 0 15px;
-  position: absolute;
-  top: 40%;
-  left: 40%;
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .startItems {
+    padding: 0 15px;
+    position: absolute;
+    top: 40%;
+    left: 40% !important;
+  }
 }
 
 .steps-form .tab-content {
