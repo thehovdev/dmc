@@ -13,6 +13,19 @@ class ReserveForm extends Component {
         super(props);
     }
 
+    // componentDidUpdate() {
+
+    //     console.log('componentDidUpdate');
+
+    //     var buttons = document.getElementsByClassName("btnStepAction");
+    //     for(var i = 0; i < buttons.length; i++)
+    //     {
+    //        console.log(buttons[i]);
+    //     }
+
+
+    // }
+
     checkRequiredFields() {
         // required fields
         let required = ['arrival_date', 'departure_date'];
@@ -48,8 +61,22 @@ class ReserveForm extends Component {
         // return true;
     }
 
+    setButtonDelay() {
+        var buttons = document.getElementsByClassName("btnStepAction");
+
+        for(var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+
+        setTimeout(() => {
+            for(var i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = false;
+            }
+        }, 500);
+    }
+
     render() {
-        const nextButton = () => {
+        const nextButton = (element) => {
             let elem = document.querySelector('.nav-link.active').closest('li');
 
             if(this.checkRequiredFields() == false) {
@@ -59,6 +86,8 @@ class ReserveForm extends Component {
             if(elem.nextElementSibling != null) {
                 elem.nextElementSibling.querySelector('a').classList.remove('disabled');
                 elem.nextElementSibling.querySelector('a').click();
+
+                this.setButtonDelay();
             } else {
                 Swal.fire({
                     title: 'Are you sure?',
@@ -82,6 +111,8 @@ class ReserveForm extends Component {
 
             if(elem.previousElementSibling != null) {
                 elem.previousElementSibling.querySelector('a').click();
+
+                this.setButtonDelay();
             } else {
                 this.props.closeForm();
             }
@@ -114,8 +145,8 @@ class ReserveForm extends Component {
                         <TransportDetails step={this.props.step}/>
                         <FinalDetails step={this.props.step}/>
 
-                        <button onClick={() => prevButton()} className="btn btn-light btnStepAction">{translate('previous')}</button>
-                        <button onClick={() => nextButton()} className="btn btn-success btnStepAction">{translate('next')}</button>
+                        <button onClick={(element) => prevButton(element)} className="btn btn-light btnStepAction">{translate('previous')}</button>
+                        <button onClick={(element) => nextButton(element)} className="btn btn-success btnStepAction">{translate('next')}</button>
                     </div>
                 </div>
         );

@@ -83801,7 +83801,15 @@ function (_Component) {
     _classCallCheck(this, ReserveForm);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(ReserveForm).call(this, props));
-  }
+  } // componentDidUpdate() {
+  //     console.log('componentDidUpdate');
+  //     var buttons = document.getElementsByClassName("btnStepAction");
+  //     for(var i = 0; i < buttons.length; i++)
+  //     {
+  //        console.log(buttons[i]);
+  //     }
+  // }
+
 
   _createClass(ReserveForm, [{
     key: "checkRequiredFields",
@@ -83836,11 +83844,26 @@ function (_Component) {
       // return true;
     }
   }, {
+    key: "setButtonDelay",
+    value: function setButtonDelay() {
+      var buttons = document.getElementsByClassName("btnStepAction");
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+      }
+
+      setTimeout(function () {
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].disabled = false;
+        }
+      }, 500);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      var nextButton = function nextButton() {
+      var nextButton = function nextButton(element) {
         var elem = document.querySelector('.nav-link.active').closest('li');
 
         if (_this.checkRequiredFields() == false) {
@@ -83850,6 +83873,8 @@ function (_Component) {
         if (elem.nextElementSibling != null) {
           elem.nextElementSibling.querySelector('a').classList.remove('disabled');
           elem.nextElementSibling.querySelector('a').click();
+
+          _this.setButtonDelay();
         } else {
           sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
             title: 'Are you sure?',
@@ -83872,6 +83897,8 @@ function (_Component) {
 
         if (elem.previousElementSibling != null) {
           elem.previousElementSibling.querySelector('a').click();
+
+          _this.setButtonDelay();
         } else {
           _this.props.closeForm();
         }
@@ -83951,13 +83978,13 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FinalDetails__WEBPACK_IMPORTED_MODULE_5__["default"], {
         step: this.props.step
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return prevButton();
+        onClick: function onClick(element) {
+          return prevButton(element);
         },
         className: "btn btn-light btnStepAction"
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('previous')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return nextButton();
+        onClick: function onClick(element) {
+          return nextButton(element);
         },
         className: "btn btn-success btnStepAction"
       }, Object(_includes_helpers__WEBPACK_IMPORTED_MODULE_7__["translate"])('next'))));

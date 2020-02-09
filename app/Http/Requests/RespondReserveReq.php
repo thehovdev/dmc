@@ -40,7 +40,7 @@ class RespondReserveReq extends FormRequest
 
             'formData.single_price' => 'required|numeric',
             'formData.double_price' => 'required|numeric',
-            'formData.triple_price' => 'required|numeric',
+            // 'formData.triple_price' => 'required|numeric',
         ]);
 
         return array();
