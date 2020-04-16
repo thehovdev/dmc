@@ -20,7 +20,7 @@ Route::namespace('Api')->group(function () {
 
 
     // if user is logged in or dmc ( operator ) is logged in
-    Route::middleware(['auth:web,operator', 'xss-filter'])->group(function () {
+    Route::middleware(['auth:web,operator', 'xss-filter', 'verified'])->group(function () {
         Route::get('/user', 'UserController@index');
         Route::get('/user/restore/{user}', 'UserController@restore');
         Route::delete('/user/{user}', 'UserController@destroy');

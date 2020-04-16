@@ -89,13 +89,20 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         // if registration made by operator, dont make auth in system
-        if($request->filled('corporate')) return view('auth.register.operatorSuccess');
+        if ($request->filled('corporate')) {
+            return view('auth.register.operatorSuccess');
+        } else {
+            $this->guard($request)->login($user);
 
-        // else if registration made by user, then make auth
-        $this->guard($request)->login($user);
+            return view('auth.register.userSuccess');
+        }
 
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+        // if need login after registration, uncomment this
+
+        // $this->guard($request)->login($user);
+
+        // return $this->registered($request, $user)
+        //                 ?: redirect($this->redirectPath());
     }
 
     /**

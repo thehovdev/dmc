@@ -42,8 +42,10 @@ class UserController extends Controller
 
         if(!is_null($authService->loggedUser())) {
             if($authService->loggedUser()->role->name != 'admin') {
-                $this->result->status = 1;
-                $this->result->message = 'success';
+                if(!is_null($authService->loggedUser()->email_verified_at)) {
+                    $this->result->status = 1;
+                    $this->result->message = 'success';
+                }
             } else {
                 $this->result->status = 3;
                 $this->result->message = 'admin logged';

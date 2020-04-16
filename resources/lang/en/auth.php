@@ -15,6 +15,7 @@ return [
     'welldone' => 'Well done !',
     'successAuthTitle' => 'You have successfully completed the registration process',
     'successAuthContent' => 'Please wait while we contact you for more information and activate your account.',
+    'successAuthEmailVerify' => 'Please verify your e-mail address for log in to your account',
     'login' => 'Login',
     'logout' => 'Logout',
     'login_title' => 'Log in to your account',

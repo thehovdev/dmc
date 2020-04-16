@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => date('Y-m-d h:i:s'),
                 'created_at' => date('Y-m-d h:i:s'),
                 'updated_at' => date('Y-m-d h:i:s'),
+                'email_verified_at' => date('Y-m-d h:i:s'),
                 'password' => Hash::make($this->adminPwd),
             ],
 
@@ -36,6 +37,7 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => date('Y-m-d h:i:s'),
                 'created_at' => date('Y-m-d h:i:s'),
                 'updated_at' => date('Y-m-d h:i:s'),
+                'email_verified_at' => date('Y-m-d h:i:s'),
                 'password' => Hash::make($this->defaultPwd),
             ],
         ]);

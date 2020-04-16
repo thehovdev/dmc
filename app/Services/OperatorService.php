@@ -147,7 +147,8 @@ class OperatorService
         $formData = (object) $request->formData;
 
         // find company by name
-        $operator = $this->operator->where('name', $formData->name)->first();
+        // $operator = $this->operator->where('name', $formData->name)->first();
+        $operator = $this->operator->where('email', $formData->email)->first();
 
         //return result
         if(is_null($operator)) {

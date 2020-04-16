@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('logout', 'Auth\LoginController@logout');
 
@@ -55,7 +55,7 @@ Route::namespace('Admin')->group(function () {
 Route::namespace('Cabinet')->group(function () {
     Route::prefix('cabinet')->group(function () {
         // specify multi auth middleware, web = users table, operator = operators table
-        Route::middleware(['auth:web,operator'])->group(function () {
+        Route::middleware(['auth:web,operator', 'verified'])->group(function () {
             // cabinet home page
             Route::get('/', 'HomeController@index')->name('cabinet.index');
 
@@ -70,6 +70,7 @@ Route::namespace('Cabinet')->group(function () {
         });
     });
 });
+
 
 
 
