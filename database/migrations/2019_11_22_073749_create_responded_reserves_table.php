@@ -20,7 +20,7 @@ class CreateRespondedReservesTable extends Migration
             $table->integer('user_id')->nullable();
             
             $table->string('hotel_name');
-            $table->string('vehicle_name');
+            $table->string('vehicle_name')->nullable();
             $table->string('offered_tours')->nullable();
             $table->string('currency');
 
