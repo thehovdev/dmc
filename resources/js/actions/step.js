@@ -1,50 +1,20 @@
-// export const selectToggle = (payload) => {
-//     return {
-//       type: 'SELECT_TOGGLE',
-//       payload: 'user selected hotel input'
-//     }
-// }
-
-
-export const selectHotel = () => {
+export const selectToggle = (payload) => {
     return {
-      type: 'SELECT_HOTEL',
-      payload: 'user selected hotel input'
+      type: 'SELECT_TOGGLE',
+      payload: payload
     }
 }
 
-export const selectCuisine = () => {
+export const selectToggleWithParam = (payload) => {
     return {
-      type: 'SELECT_CUISINE',
-      payload: 'user selected cuisine input'
+      type: 'SELECT_TOGGLE_PARAM',
+      payload: payload
     }
 }
 
-export const selectTransportService = () => {
+export const getStepParameters = (payload) => {
     return {
-      type: 'SELECT_TRANSPORT_SERVICE',
-      payload: 'user selected transport service input'
+        type: 'GET_STEP_PARAMETERS',
+        payload: payload
     }
 }
-
-export const selectTourLeader = () => {
-    return {
-      type: 'SELECT_TOUR_LEADER',
-      payload: 'user selected tour leader service'
-    }
-}
-
-export const selectExcursionOptions = () => {
-    return {
-      type: 'SELECT_EXCURSION_OPTIONS',
-      payload: 'user selected excursion options'
-    }
-}
-
-export const selectMeetingFacilities = () => {
-    return {
-      type: 'SELECT_MEETING_FACILITIES',
-      payload: 'user selected meeting facilities'
-    }
-}
-

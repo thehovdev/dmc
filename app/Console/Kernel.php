@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\ActivateCompany::class,
+        Commands\DeactivateCompany::class,
+        Commands\NotifyUserRespondedReserves::class,
     ];
 
     /**
@@ -24,8 +26,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('company:activate')->dailyAt('00:00');
+        $schedule->command('company:deactivate')->dailyAt('00:00');
+        $schedule->command('notify:userRespondedReserves')->dailyAt('14:00');
+        $schedule->command('notify:userRespondedReserves')->dailyAt('22:00');
     }
 
     /**

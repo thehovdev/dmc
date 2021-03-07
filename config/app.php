@@ -81,6 +81,11 @@ return [
     */
 
     'locale' => 'en',
+    'locales' => ['en'],
+    
+    // if you need additional language, just add new item of array, for example
+    // 'locales' => ['en', 'ru', 'az', 'tr'],
+
 
     /*
     |--------------------------------------------------------------------------

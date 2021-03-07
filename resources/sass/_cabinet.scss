@@ -1,0 +1,76 @@
+.cabinet-info {
+
+
+    .detail-data {
+        border: 1px solid #efefef;
+        .main-title, .send-proposal-title{
+            font-size: 18px;
+            padding: 5px 0;
+            margin: 0;
+            color: white;
+        }
+        .main-title {
+            background: $headerBackgroundColor;
+        }
+        .send-proposal-title {
+            background: $stepActiveColor;
+        }
+    }
+
+
+    div.detail-data-content {
+        border: 1px solid #efefef;   
+        margin: 0;
+        margin-bottom: 0.5rem;
+        padding: 15px;
+        height: auto;
+    }
+
+    ul.detail-data-list {
+        margin: 0;
+        margin-bottom: 0.5rem;
+        padding: 15px;
+        height: auto;
+        list-style-type: none;
+        overflow: hidden;
+        li {
+            border: 1px solid #efefef;   
+            border-collapse: collapse;
+            list-style: none;
+            float: left;
+            width: 50%;
+            font-size: 15px;
+            padding: 5px 10px;
+
+            .fa-custom {
+                font-size: 20px;
+                float: left;
+            }
+            .fa-custom.fa-check-circle {
+                color: $green;
+            }
+            .fa-custom.fa-times-circle {
+                color: $red;
+            }
+
+            .title {
+                font-weight: bold;
+                margin: 2px;
+            }
+
+            .content {
+                font-weight: normal;
+                margin: 2px;
+            }
+        }
+    }
+
+    ul.proposal-detail-data-list {
+        background: #c6e0f5;
+        li {
+            border-color: #95c5ed;
+        }
+    }
+
+
+}

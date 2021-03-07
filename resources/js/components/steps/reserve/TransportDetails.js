@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {translate} from '../../../includes/helpers';
 import * as stepAction from '../../../actions/step.js';
 
 class TransportDetails extends Component {
@@ -11,15 +12,15 @@ class TransportDetails extends Component {
         const needMeetingFacilities = this.props.step.inputActions.needMeetingFacilities;
 
         const selectTourLeader = () => {
-            return this.props.stepAction.selectTourLeader();
+            return this.props.stepAction.selectToggle('needTourLeader');
         }
 
         const selectExcursionOptions = () => {
-            return this.props.stepAction.selectExcursionOptions();
+            return this.props.stepAction.selectToggle('needExcursionOptions');
         }
 
         const selectMeetingFacilities = () => {
-            return this.props.stepAction.selectMeetingFacilities();
+            return this.props.stepAction.selectToggle('needMeetingFacilities');
         }
 
 
@@ -30,13 +31,17 @@ class TransportDetails extends Component {
                 return (
                     <div className="form-group-parent">
                         <div className="form-group">
-                            <label htmlFor="tour_leaders_number">Number of tour leaders</label>
-                            <input type="number" id="tour_leaders_number" className="form-control" defaultValue="1"></input>
+                            <label htmlFor="number_of_tourleaders">
+                                {translate('step.transfer.numberOfTourLeader')}
+                            </label>
+                            <input type="number" id="number_of_tourleaders" className="form-control" defaultValue="1"></input>
                         </div>    
 
                         <div className="form-group">
-                            <label htmlFor="tour_leaders_language">Preferred language</label>
-                            <input type="text" id="tour_leaders_language" className="form-control" defaultValue="English"></input>
+                            <label htmlFor="language_of_tourleaders">
+                                {translate('step.transfer.preferredLanguage')}
+                            </label>
+                            <input type="text" id="language_of_tourleaders" className="form-control" defaultValue="English"></input>
                         </div>    
                     </div>
                 );
@@ -48,8 +53,8 @@ class TransportDetails extends Component {
             if(needExcursionOptions) {
                 return (
                     <div className="form-group">
-                        <label htmlFor="excursion_options_request">Describe you request</label>
-                        <input type="text" id="excursion_options_request" className="form-control" defaultValue="Some description"></input>
+                        <label htmlFor="excursion_options_description">{translate('step.transfer.describeYouRequest')}</label>
+                        <textarea id="excursion_options_description" className="form-control"></textarea>
                     </div>    
                 );
             }
@@ -59,8 +64,8 @@ class TransportDetails extends Component {
             if(needMeetingFacilities) {
                 return (
                     <div className="form-group">
-                        <label htmlFor="meeting_facilities_request">Describe you request</label>
-                        <input type="text" id="meeting_facilities_request" className="form-control" defaultValue="Some description"></input>
+                        <label htmlFor="meeting_facilities_description">{translate('step.transfer.describeYouRequest')}</label>
+                        <textarea id="meeting_facilities_description" className="form-control"></textarea>
                     </div>    
                 );
             }
@@ -70,55 +75,39 @@ class TransportDetails extends Component {
 
 
         return (
-            <div className="tab-pane fade" id="pills-transport" role="tabpanel" aria-labelledby="pills-transport-tab">
+            <div className="tab-pane fade" id="pills-transfer" role="tabpanel" aria-labelledby="pills-transfer-tab">
                  <div id="final-details">
 
 
                     <div className="form-group">
-                        <label htmlFor="need_tour_leader">Do you need tour leader service ?</label>
+                        <label htmlFor="need_tour_leader">{translate('step.transfer.doYouNeedTourLeader')}</label>
                         <select onChange={() => selectTourLeader()} className="form-control" id="need_tour_leader">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
             
                     { tourLeaderBlock() }
 
                     <div className="form-group">
-                        <label htmlFor="need_excursion_options">Do you need excursion options for the group</label>
+                        <label htmlFor="need_excursion_options">{translate('step.transfer.doYouNeedExcursionOptions')}</label>
                         <select onChange={() => selectExcursionOptions()} className="form-control" id="need_excursion_options">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
 
                     { excursionOptionsBlock() } 
 
                     <div className="form-group">
-                        <label htmlFor="need_meeting_facilities">Do you need meeting facilities for the group</label>
+                        <label htmlFor="need_meeting_facilities">{translate('step.transfer.doYouNeedMeetingFacilities')}</label>
                         <select onChange={() => selectMeetingFacilities()} className="form-control" id="need_meeting_facilities">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
+                            <option value="false">{translate('no')}</option>
+                            <option value="true">{translate('yes')}</option>
                         </select>
                     </div>
 
                     { meetingFacilitiesBlock() }
-
-                    <div className="form-group">
-                        <label htmlFor="need_transfer">Do you need Transfer from/to Hotel</label>
-                        <select className="form-control" id="need_transfer">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="need_guide">Do you need guide service</label>
-                        <select className="form-control" id="need_guide">
-                            <option value="false">No</option>
-                            <option value="true">Yes</option>
-                        </select>
-                    </div>
                 </div>
             </div>
         );

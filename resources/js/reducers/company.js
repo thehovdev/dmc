@@ -1,54 +1,76 @@
 import update from 'react-addons-update';
 import {getFormData} from '../includes/helpers';
-import {sendCreateCompany} from '../requests/createCompany';
-import axios from 'axios';
+import * as companyApi from '../requests/company';
 
+let form;
+let formData;
+let company;
+let companies;
 let initialState = {
-    form : {
-        id : 0,
-        name : 'form show status',
-        show : false,
-    }, 
+    edit: false,
+    item: null,
+    items: null,
+    pageCount: null,
+    perPage: null,
 }
 
-
 export default function (state = initialState, action) {
+    console.log(action.type);
 
     switch (action.type) {
         case 'CREATE_COMPANY':
-
-            let form = document.getElementById('create-company-content');
-            let formData = getFormData( form );
-
-            console.log(formData);
+            form = document.getElementById('create-company-content');
+            formData = getFormData( form );
 
             console.log('CREATE_COMPANY dispatched');
+            companyApi.create(formData)
 
-            sendCreateCompany(formData);
-            // let status = state.form.show
-            // if(status == false) status = true; else status = false
+            return state       
+        case 'UPDATE_COMPANY':
+            // get company id from action
+            company = action.payload;
 
-            // return update(state, { 
-            //     form : {
-            //         show: {$set: status},
-            //     }
-            // });
+            // get form data
+            form = document.getElementById('edit-company-content');
+            formData = getFormData( form );
+
+            // call api update method
+            console.log('UPDATE_COMPANY dispatched');
+            companyApi.update(formData, company)
 
             return state
+
         case 'EDIT_COMPANY':
-            // let form = document.getElementById('reserve-form');
-            // let formData = getFormData( form );
+            company = action.payload;
+        
+            if(company == false) {
+                return update(state, { 
+                    edit: {$set: false},
+                    item: {$set: null}
+                });
+            }
 
-            // sendReserve(formData);
+            return update(state, { 
+                edit: {$set: true},
+                item: {$set: company}
+            });
 
-            // if(status == false) status = true; else status = false
+        case 'GET_COMPANIES':
+            companies = action.payload;
 
-            // return update(state, { 
-            //     form : {
-            //         show: {$set: status},
-            //     }
-            // });
-            return state
+            return update(state, { 
+                items: {$set: companies},
+                pageCount: {$set: companies.last_page},
+                perPage: {$set: companies.per_page}
+            });
+
+
+        case 'GET_COMPANIES_ALL':
+            companies = action.payload;
+
+            return update(state, { 
+                items: {$set: companies},
+            });
 
         default :
             return state

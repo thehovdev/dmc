@@ -16,6 +16,7 @@ class CreateHotelStarsTable extends Migration
         Schema::create('hotel_stars', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('prefix');
         });
     }
 

@@ -12,72 +12,74 @@
     transition: all 0.3s;
     min-height: 100vh;
     height: 100%;
-}
 
-#sidebar.active {
-    margin-left: -250px;
-}
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: $headerBackgroundColor;
-}
+    // .active {
+    //     margin-left: -250px;
+    // }
 
-#sidebar ul.components {
-    padding: 20px 0;
-    // border-bottom: 1px solid #47748b;
-}
+    .sidebar-header {
+        padding: 20px;
+        background: $headerBackgroundColor;
+    }
+    
+    ul.components {
+        padding: 20px 0;
+        // border-bottom: 1px solid #47748b;
+    }
+    
+    ul p {
+        color: #fff;
+        padding: 10px;
+    }
+    
+    ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+    
+    ul li a:hover {
+        // color: #7386D5;
+        // background: #fff;
+    }
+    
+    ul li.active>a, a[aria-expanded="true"] {
+        color: #fff;
+        background: $headerActivePageColor;
+    }
 
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
 
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
 
-#sidebar ul li a:hover {
-    // color: #7386D5;
-    // background: #fff;
-}
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
 
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: $headerActivePageColor;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: $headerActivePageColor;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: $headerActivePageColor;
+    }
+    
+    ul.CTAs {
+        padding: 20px;
+    }
+    
+    ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 /* ---------------------------------------------------

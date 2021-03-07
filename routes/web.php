@@ -10,25 +10,69 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('logout', 'Auth\LoginController@logout');
+
+Route::view('/', 'index')->name('index');
+
+Route::get('/test', 'TestController@index');
+Route::get('/testpage', 'TestController@testpage');
 
 
-// Route::view('/test', 'test');
-Route::get('/test', 'TestController@test');
 
 
-Route::view('/', 'index');
+// Route::view('/register/success', 'auth.register.operatorSuccess');
 
-Route::namespace('Api')->group(function () {
-    Route::get('/reserve/store', 'ReserveController@store');
-});
+// set locale
+Route::get('setlocale/{locale}', 'LocaleController@setLocale');
 
-Route::namespace('Cabinet')->group(function () {
-    Route::prefix('cabinet')->group(function () {
-        Route::get('/', 'HomeController@index')->name('cabinet.index');
-        Route::get('/company', 'CompanyController@index')->name('cabinet.company');
-        Route::get('/company/create', 'CompanyController@create')->name('cabinet.company.create');
-        Route::any('/company/store', 'CompanyController@store')->name('cabinet.company.store');
+// admin panel
+Route::namespace('Admin')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::middleware(['auth.admin'])->group(function () {
+            // admin home page
+            Route::get('/', 'HomeController@index')->name('admin.index');
+
+
+            // admin users
+            Route::get('/user', 'UserController@index')->name('admin.user.index');
+
+            // admin companies
+            Route::get('/company', 'CompanyController@index')->name('admin.company.index');
+            Route::get('/company/create', 'CompanyController@create')->name('admin.company.create');
+            // admin operators
+            Route::get('/operator', 'OperatorController@index')->name('admin.operator.index');
+            Route::get('/operator/create', 'OperatorController@create')->name('admin.operator.create');
+            // admin contact persons
+            Route::get('/contactperson', 'ContactPersonController@index')->name('admin.person.index');
+            Route::get('/contactperson/create', 'ContactPersonController@create')->name('admin.person.create');
+        });
     });
 });
+
+// cabinet
+Route::namespace('Cabinet')->group(function () {
+    Route::prefix('cabinet')->group(function () {
+        // specify multi auth middleware, web = users table, operator = operators table
+        Route::middleware(['auth:web,operator', 'verified'])->group(function () {
+            // cabinet home page
+            Route::get('/', 'HomeController@index')->name('cabinet.index');
+
+            // for operator
+            Route::get('/reserve', 'ReserveController@index')->name('cabinet.reserve.index');
+            Route::get('/reserve/declined', 'ReserveController@declined')->name('cabinet.reserve.declined');
+            Route::get('/reserve/responded', 'ReserveController@responded')->name('cabinet.reserve.responded');
+            Route::get('/reserve/create', 'ReserveController@index')->name('cabinet.reserve.create');
+
+            // for user
+            Route::get('/user/reserve', 'ReserveController@userReserves')->name('cabinet.reserve.user.index');
+        });
+    });
+});
+
+
+
+
+    
 

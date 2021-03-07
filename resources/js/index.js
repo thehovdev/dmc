@@ -17,13 +17,17 @@ import createRoutes from "./routes/router";
 const router = createRoutes()
 const history = createBrowserHistory();
 const store = createStore(allReducers);
-store.subscribe(() => console.log(store.getState()))
+// store.subscribe(() => console.log(store.getState()))
 
-console.log(router);
+// console.log(router);
 
-ReactDOM.render(
-    <Provider store={ store }>
-        {router}
-    </Provider>, 
-    document.getElementById('root')
-)
+const root = document.getElementById('root');
+
+if(root != null) {
+    ReactDOM.render(
+        <Provider store={ store }>
+            {router}
+        </Provider>, 
+        root
+    )
+}
